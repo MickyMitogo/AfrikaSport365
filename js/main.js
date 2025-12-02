@@ -77,14 +77,14 @@ function showRegion(region) {
         const embed = toEmbedUrl(media);
         mediaHtml = `<iframe width="300" height="200" src="${embed}" title="video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="rounded"></iframe>`;
       } else if (media) {
-        mediaHtml = `<img src="${media}" alt="" style="width:300px;height:200px;object-fit:cover;" class="rounded" />`;
+        mediaHtml = `<a href="#" class="img-link no-hover" aria-label="Abrir imagen"><img src="${media}" alt="" style="width:300px;height:200px;object-fit:cover;" class="rounded" /></a>`;
       }
       return `
         <article class="p-3 border rounded hover:shadow-sm bg-white">
           <div class="flex items-start gap-3">
             <div class="flex-shrink-0">${mediaHtml}</div>
             <div class="flex-1 min-w-0">
-              <h3 class="font-semibold text-sm">${item.title}</h3>
+              <h3 class="font-semibold text-sm"><a href="#" class="news-link" aria-label="Leer noticia: ${item.title}">${item.title}</a></h3>
               <p class="text-xs text-gray-600 mt-1">${item.lead}</p>
             </div>
           </div>

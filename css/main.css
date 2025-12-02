@@ -22,3 +22,84 @@
 .fa-tab { cursor: pointer; border-radius: 9999px; padding: 6px 12px; font-weight: 600; font-size: 0.875rem; line-height: 1; transition: box-shadow .12s, transform .08s; }
 .fa-tab[aria-selected="true"] { background: white; box-shadow: 0 1px 2px rgba(0,0,0,.08); }
 .fa-tab:focus { outline: 2px solid transparent; box-shadow: 0 0 0 3px rgba(99,102,241,.12); }
+
+/* Titulares convertidos en enlaces: estilos y hover adaptativo */
+.news-link {
+  display: inline-block;
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+  transition: color .18s ease, transform .12s ease;
+}
+.news-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, rgba(59,130,246,.95), rgba(14,165,233,.85));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .18s ease;
+  border-radius: 2px;
+}
+.news-link:hover, .news-link:focus {
+  color: #1e40af;
+  transform: translateY(-1px);
+}
+.news-link--no-underline::after {
+  display: none;
+}
+.news-link:hover::after, .news-link:focus::after {
+  transform: scaleX(1);
+}
+.news-link:focus {
+  box-shadow: 0 0 0 4px rgba(59,130,246,.12);
+  outline: none;
+}
+
+/* Variante para titulares con texto claro sobre fondo oscuro (hero) */
+.news-link--inverse {
+  display: inline-block;
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+}
+.news-link--inverse::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 2px;
+  width: 100%;
+  background: currentColor; /* same color as the text */
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .18s ease;
+  border-radius: 2px;
+}
+.news-link--inverse:hover, .news-link--inverse:focus {
+  color: inherit; /* keep text color unchanged on hover */
+  transform: translateY(-1px); /* small upward movement restored */
+}
+.news-link--inverse:focus {
+  box-shadow: 0 0 0 4px rgba(250,204,21,.12);
+  outline: none;
+}
+
+/* Accessibility: show underline if user prefers reduced motion or focus-visible */
+@media (prefers-reduced-motion: reduce) {
+  .news-link, .news-link--inverse { transition: none; }
+  .news-link::after, .news-link--inverse::after { transition: none; }
+}
+
+/* Image links for athlete photos and regional media — no hover effects */
+.img-link { display: inline-block; line-height: 0; }
+.img-link img { display: block; border-radius: inherit; transition: none !important; }
+.img-link:hover img { transform: none !important; }
+.img-link:focus { outline: 2px solid rgba(59,130,246,.12); outline-offset: 2px; }
+.no-hover { cursor: pointer; }
+
+/* Athlete name links: reuse headline style but slightly smaller */
+.font-semibold .news-link, .athlete-link { font-weight: 700; }
