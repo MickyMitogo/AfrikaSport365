@@ -94,6 +94,31 @@
   .news-link::after, .news-link--inverse::after { transition: none; }
 }
 
+/* Mobile navigation dropdown styling (does not affect desktop) */
+@media (max-width: 767px) {
+  /* When JS toggles 'flex' on #main-nav, make it a vertical dropdown */
+  /* show menu fixed to the top of the viewport so it appears "pegado" al top */
+  #main-nav.flex {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 0.75rem 1rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    z-index: 60;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  /* spacing for direct child links inside the mobile menu */
+  #main-nav.flex > a,
+  #main-nav.flex > div > a,
+  #main-nav.flex [role="menuitem"] {
+    padding: 0.5rem 0;
+  }
+}
+
 /* Image links for athlete photos and regional media — no hover effects */
 .img-link { display: inline-block; line-height: 0; }
 .img-link img { display: block; border-radius: inherit; transition: none !important; }

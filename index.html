@@ -19,7 +19,7 @@
           <p class="text-sm text-gray-500">La referencia del deporte en Guinea Ecuatorial</p>
         </div>
       </div>
-      <nav class="hidden md:flex items-center gap-6 text-sm" aria-label="Principal">
+      <nav id="main-nav" class="hidden md:flex items-center gap-6 text-sm" aria-label="Principal">
         <a href="#" class="hover:text-blue-600">Inicio</a>
         <a href="#" class="hover:text-blue-600">AFCON 2026</a>
         <!-- Otros Deportes with accessible submenu -->
@@ -70,7 +70,12 @@
         <a href="#opinion" class="hover:text-blue-600">Opinión y Ranking</a>
       </nav>
       <div class="flex items-center gap-3">
-        <!-- Removed login/subscribe buttons as requested -->
+        <!-- Mobile hamburger: visible only on small screens -->
+        <button id="nav-toggle" class="md:hidden p-2 rounded focus:outline-none" aria-controls="main-nav" aria-expanded="false" aria-label="Abrir menú">
+          <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+        </button>
       </div>
     </div>
   </header>

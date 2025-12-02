@@ -414,3 +414,31 @@ function showRegion(region) {
   setDuration();
   window.addEventListener('resize', () => setDuration());
 })();
+
+/* --- Mobile nav toggle: minimal, non-intrusive --- */
+(function () {
+  const btn = document.getElementById('nav-toggle');
+  const nav = document.getElementById('main-nav');
+  if (!btn || !nav) return;
+
+  btn.addEventListener('click', function () {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+
+    // Toggle classes for mobile: hidden <-> flex (column)
+    nav.classList.toggle('hidden');
+    nav.classList.toggle('flex');
+    nav.classList.toggle('flex-col');
+    nav.classList.toggle('items-start');
+  });
+
+  // Ensure mobile state is reset when resizing to desktop
+  window.addEventListener('resize', function () {
+    if (window.innerWidth >= 768) {
+      // Remove mobile-only classes to restore desktop layout
+      nav.classList.remove('flex', 'flex-col', 'items-start');
+      if (!nav.classList.contains('hidden')) nav.classList.add('hidden');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
