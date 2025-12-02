@@ -1,0 +1,24 @@
+.line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.carousel-snap { scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+/* Marquee / ticker styles */
+.marquee { position: relative; overflow: hidden; }
+.marquee__wrapper { display: flex; gap: 2.5rem; align-items: center; will-change: transform; animation: marquee var(--marquee-duration,20s) linear infinite; }
+.marquee__item { display: inline-flex; align-items: center; gap: .6rem; white-space: nowrap; }
+.marquee__badge { display: inline-flex; align-items: center; justify-content: center; width: 1.9rem; height: 1.9rem; border-radius: .5rem; font-size: .9rem; }
+.marquee:hover .marquee__wrapper,
+.marquee:focus-within .marquee__wrapper { animation-play-state: paused; }
+
+@keyframes marquee {
+  from { transform: translateX(0%); }
+  to   { transform: translateX(-50%); }
+}
+/* Slider scrollbar hide and dragging cursor */
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.is-dragging { cursor: grabbing; cursor: -webkit-grabbing; }
+
+/* Tabs styling for "Deportistas destacados" */
+.fa-tabgroup { display: inline-flex; background: #f3f4f6; border-radius: 9999px; padding: 4px; gap:4px; }
+.fa-tab { cursor: pointer; border-radius: 9999px; padding: 6px 12px; font-weight: 600; font-size: 0.875rem; line-height: 1; transition: box-shadow .12s, transform .08s; }
+.fa-tab[aria-selected="true"] { background: white; box-shadow: 0 1px 2px rgba(0,0,0,.08); }
+.fa-tab:focus { outline: 2px solid transparent; box-shadow: 0 0 0 3px rgba(99,102,241,.12); }
