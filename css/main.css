@@ -94,28 +94,133 @@
   .news-link::after, .news-link--inverse::after { transition: none; }
 }
 
-/* Mobile navigation dropdown styling (does not affect desktop) */
+/* Mobile navigation - Marca.com style sliding menu from left */
 @media (max-width: 767px) {
-  /* When JS toggles 'flex' on #main-nav, make it a vertical dropdown */
-  /* show menu fixed to the top of the viewport so it appears "pegado" al top */
-  #main-nav.flex {
+  /* Sidebar menu that slides in from left */
+  #main-nav {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
+    bottom: 0;
+    width: 280px;
+    max-width: 85vw;
     background: white;
-    padding: 0.75rem 1rem;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    z-index: 60;
+    z-index: 50;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    overflow-y: auto;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    padding-top: 4rem;
   }
-
-  /* spacing for direct child links inside the mobile menu */
-  #main-nav.flex > a,
-  #main-nav.flex > div > a,
-  #main-nav.flex [role="menuitem"] {
-    padding: 0.5rem 0;
+  
+  /* Show menu when active */
+  #main-nav.active {
+    transform: translateX(0);
+  }
+  
+  /* Menu links styling */
+  #main-nav > a {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+    display: block;
+    color: #333;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: background-color 0.2s;
+  }
+  
+  #main-nav > a:hover {
+    background-color: #f5f5f5;
+    color: #2563eb;
+  }
+  
+  /* Dropdown containers */
+  #main-nav > div {
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  /* Dropdown buttons */
+  #main-nav > div > button {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #333;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: background-color 0.2s;
+  }
+  
+  #main-nav > div > button:hover {
+    background-color: #f5f5f5;
+    color: #2563eb;
+  }
+  
+  /* Chevron rotation */
+  #main-nav > div > button svg {
+    transition: transform 0.3s ease;
+  }
+  
+  #main-nav > div > button[aria-expanded="true"] svg {
+    transform: rotate(180deg);
+  }
+  
+  /* Submenus - hidden by default */
+  #main-nav [role="menu"] {
+    position: static;
+    visibility: hidden;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transform: none;
+    pointer-events: none;
+    box-shadow: none;
+    background: #fafafa;
+    transition: max-height 0.3s ease, opacity 0.2s ease, visibility 0.2s;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Show submenu when expanded */
+  #main-nav > div > button[aria-expanded="true"] + [role="menu"] {
+    visibility: visible;
+    opacity: 1;
+    max-height: 600px;
+    pointer-events: auto;
+  }
+  
+  /* Submenu items */
+  #main-nav [role="menuitem"] {
+    padding: 0.75rem 2.5rem;
+    display: block;
+    color: #555;
+    font-size: 0.875rem;
+    border-bottom: 1px solid #e5e5e5;
+    transition: background-color 0.2s;
+  }
+  
+  #main-nav [role="menuitem"]:last-child {
+    border-bottom: none;
+  }
+  
+  #main-nav [role="menuitem"]:hover {
+    background-color: #f0f0f0;
+    color: #2563eb;
+  }
+  
+  /* Disable desktop hover behavior */
+  #main-nav .group:hover [role="menu"] {
+    visibility: hidden;
+    opacity: 0;
+  }
+  
+  /* Overlay */
+  #mobile-overlay.active {
+    display: block;
   }
 }
 
