@@ -108,12 +108,14 @@
     z-index: 50;
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
-    overflow-y: auto;
+    overflow-y: auto; /* hide scrollbar visuals */
+    scrollbar-width: none; /* Firefox */
     box-shadow: 2px 0 10px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
     padding-top: 4rem;
   }
+  #main-nav::-webkit-scrollbar { display: none; } /* WebKit */
   
   /* Show menu when active */
   #main-nav.active {
@@ -129,6 +131,7 @@
     font-weight: 500;
     font-size: 0.95rem;
     transition: background-color 0.2s;
+    text-align: left; /* left-align text */
   }
   
   #main-nav > a:hover {
@@ -145,7 +148,7 @@
   #main-nav > div > button {
     width: 100%;
     padding: 1rem 1.5rem;
-    text-align: left;
+    text-align: left; /* left-align text */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -179,10 +182,11 @@
     transform: none;
     pointer-events: none;
     box-shadow: none;
-    background: #fafafa;
+    background: transparent; /* remove boxed background */
     transition: max-height 0.3s ease, opacity 0.2s ease, visibility 0.2s;
     margin: 0;
     padding: 0;
+    align-items: flex-start;
   }
   
   /* Show submenu when expanded */
@@ -199,8 +203,9 @@
     display: block;
     color: #555;
     font-size: 0.875rem;
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: none; /* remove boxed borders */
     transition: background-color 0.2s;
+    text-align: right; /* right-align text */
   }
   
   #main-nav [role="menuitem"]:last-child {
@@ -208,12 +213,12 @@
   }
   
   #main-nav [role="menuitem"]:hover {
-    background-color: #f0f0f0;
+    background-color: #f5f5f5; /* match top-level hover */
     color: #2563eb;
   }
   
-  /* Disable desktop hover behavior */
-  #main-nav .group:hover [role="menu"] {
+  /* Disable desktop hover behavior only when submenu is collapsed */
+  #main-nav .group:hover button[aria-expanded="false"] + [role="menu"] {
     visibility: hidden;
     opacity: 0;
   }
