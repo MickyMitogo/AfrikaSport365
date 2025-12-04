@@ -238,3 +238,73 @@
 
 /* Athlete name links: reuse headline style but slightly smaller */
 .font-semibold .news-link, .athlete-link { font-weight: 700; }
+
+/* Últimas noticias: uniform image sizes and consistent layout */
+.latest-news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.latest-news-article {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.latest-news-article .img-link {
+  flex-shrink: 0;
+  width: 140px;
+  height: 100px;
+}
+
+.latest-news-article .img-link img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.latest-news-article .news-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100px;
+}
+
+.latest-news-article h3 {
+  font-size: 1rem;
+  line-height: 1.4;
+  font-weight: 600;
+  margin: 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.latest-news-article .news-meta {
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+@media (max-width: 767px) {
+  .latest-news-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .latest-news-article .img-link {
+    width: 120px;
+    height: 90px;
+  }
+  
+  .latest-news-article .news-content {
+    height: 90px;
+  }
+  
+  .latest-news-article h3 {
+    font-size: 0.9rem;
+  }
+}
