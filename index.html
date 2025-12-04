@@ -431,19 +431,19 @@
         </div>
 
         <!-- Tabs -->
-        <div class="mb-3">
-          <div id="nrr-tablist" role="tablist" aria-label="News regions" class="inline-flex bg-gray-100 rounded-full p-1">
-            <button id="nrr-maghreb" class="px-4 py-1 rounded-full text-sm font-medium bg-blue-600 text-white" role="tab" aria-selected="true" data-region="maghreb">Magreb</button>
-            <button id="nrr-west" class="ml-2 px-4 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-700" role="tab" aria-selected="false" data-region="west">Africa del Oeste</button>
-            <button id="nrr-central" class="ml-2 px-4 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-700" role="tab" aria-selected="false" data-region="central">Africa Central</button>
-            <button id="nrr-east" class="ml-2 px-4 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-700" role="tab" aria-selected="false" data-region="east">Africa del Este</button>
-            <button id="nrr-southern" class="ml-2 px-4 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-700" role="tab" aria-selected="false" data-region="southern">Africa del Sur</button>
-            <button id="nrr-horn" class="ml-2 px-4 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-700" role="tab" aria-selected="false" data-region="horn">Cuerno de Africa</button>
+        <div class="mb-4 -mx-4 px-4 overflow-x-auto">
+          <div id="nrr-tablist" role="tablist" aria-label="News regions" class="nrr-tabs-container">
+            <button id="nrr-maghreb" class="nrr-tab nrr-tab-active" role="tab" aria-selected="true" data-region="maghreb">Magreb</button>
+            <button id="nrr-west" class="nrr-tab" role="tab" aria-selected="false" data-region="west"><span class="nrr-tab-desktop">África Oeste</span><span class="nrr-tab-mobile">Oeste</span></button>
+            <button id="nrr-central" class="nrr-tab" role="tab" aria-selected="false" data-region="central"><span class="nrr-tab-desktop">África Central</span><span class="nrr-tab-mobile">Central</span></button>
+            <button id="nrr-east" class="nrr-tab" role="tab" aria-selected="false" data-region="east"><span class="nrr-tab-desktop">África Este</span><span class="nrr-tab-mobile">Este</span></button>
+            <button id="nrr-southern" class="nrr-tab" role="tab" aria-selected="false" data-region="southern"><span class="nrr-tab-desktop">África Sur</span><span class="nrr-tab-mobile">Sur</span></button>
+            <button id="nrr-horn" class="nrr-tab" role="tab" aria-selected="false" data-region="horn"><span class="nrr-tab-desktop">Cuerno de África</span><span class="nrr-tab-mobile">Cuerno</span></button>
           </div>
         </div>
 
         <!-- Content -->
-        <div id="nrr-content" class="space-y-3">
+        <div id="nrr-content">
           <!-- Dynamic region list will render here -->
         </div>
       </div>

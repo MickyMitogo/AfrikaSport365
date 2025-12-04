@@ -67,26 +67,24 @@ function showRegion(region) {
   if (list.length === 0) {
     container.innerHTML = '<div class="text-sm text-gray-500">No hay noticias para esta región.</div>';
   } else {
-    // force two columns so items are side-by-side
-    container.innerHTML = '<div class="grid grid-cols-2 gap-4">' + list.map(item => {
+    // Responsive grid: 1 column on mobile, 2 on desktop
+    container.innerHTML = '<div class="nrr-grid">' + list.map(item => {
       const media = item.media || '';
       let mediaHtml = '';
       if (media.match(/\.mp4(\?|$)/) || media.match(/video/)) {
-        mediaHtml = `<video width="300" height="200" controls class="rounded"><source src="${media}" type="video/mp4">Tu navegador no soporta video.</video>`;
+        mediaHtml = `<video class="nrr-media" controls><source src="${media}" type="video/mp4">Tu navegador no soporta video.</video>`;
       } else if (media.includes('youtube.com') || media.includes('youtu.be')) {
         const embed = toEmbedUrl(media);
-        mediaHtml = `<iframe width="300" height="200" src="${embed}" title="video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="rounded"></iframe>`;
+        mediaHtml = `<iframe class="nrr-media" src="${embed}" title="video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
       } else if (media) {
-        mediaHtml = `<a href="#" class="img-link no-hover" aria-label="Abrir imagen"><img src="${media}" alt="" style="width:300px;height:200px;object-fit:cover;" class="rounded" /></a>`;
+        mediaHtml = `<a href="#" class="img-link no-hover" aria-label="Abrir imagen"><img src="${media}" alt="" class="nrr-media" /></a>`;
       }
       return `
-        <article class="p-3 border rounded hover:shadow-sm bg-white">
-          <div class="flex items-start gap-3">
-            <div class="flex-shrink-0">${mediaHtml}</div>
-            <div class="flex-1 min-w-0">
-              <h3 class="font-semibold text-sm"><a href="#" class="news-link" aria-label="Leer noticia: ${item.title}">${item.title}</a></h3>
-              <p class="text-xs text-gray-600 mt-1">${item.lead}</p>
-            </div>
+        <article class="nrr-article">
+          ${mediaHtml ? `<div class="nrr-media-container">${mediaHtml}</div>` : ''}
+          <div class="nrr-text">
+            <h3 class="nrr-title"><a href="#" class="news-link" aria-label="Leer noticia: ${item.title}">${item.title}</a></h3>
+            <p class="nrr-lead">${item.lead}</p>
           </div>
         </article>
       `;
@@ -98,10 +96,8 @@ function showRegion(region) {
     const r = btn.dataset.region;
     const active = (r === region);
     btn.setAttribute('aria-selected', active ? 'true' : 'false');
-    btn.classList.toggle('bg-blue-600', active);
-    btn.classList.toggle('text-white', active);
-    btn.classList.toggle('bg-gray-100', !active);
-    btn.classList.toggle('text-gray-700', !active);
+    btn.classList.remove('nrr-tab-active');
+    if (active) btn.classList.add('nrr-tab-active');
   });
 }
 
