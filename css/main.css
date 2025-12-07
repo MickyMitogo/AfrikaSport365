@@ -460,3 +460,16 @@
     -webkit-line-clamp: 2;
   }
 }
+
+/* Small mobile adjustments */
+@media (max-width: 390px) {
+  .nrr-tab {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.7rem;
+  }
+  
+  .nrr-media-container {
+    width: 95px;
+    height: 80px;
+  }
+}
