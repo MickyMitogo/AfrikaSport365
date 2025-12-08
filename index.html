@@ -1,603 +1,881 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DeportesGE — Portada</title>
-  <meta name="description" content="Medio digital deportivo centrado en Guinea Ecuatorial. Noticias, vídeos, perfiles y análisis." />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="css/main.css?v=2">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AfrikaSport365 | La Referencia del Deporte en Guinea Ecuatorial</title>
+    <meta name="description" content="AfrikaSport365 - Tu fuente definitiva de noticias deportivas, coberturas en vivo y análisis profundo del deporte en Guinea Ecuatorial y África.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/homepage.css">
 </head>
-<body class="bg-gray-50 text-gray-800 antialiased">
-  <!-- Header -->
-  <header class="bg-white shadow-sm">
-    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
-      <div class="flex items-center gap-4">
-        <img src="images/logoAS350.png" alt="Logo" class="w-14 h-14 rounded" />
-        <div>
-          <h1 class="text-2xl font-bold">AfrikaSport365</h1>
-          <p class="text-sm text-gray-500">La referencia del deporte en Guinea Ecuatorial</p>
-        </div>
-      </div>
-      <nav id="main-nav" class="hidden md:flex items-center gap-6 text-sm" aria-label="Principal">
-        <a href="#" class="hover:text-blue-600">Inicio</a>
-        <a href="afcon2026.html" class="hover:text-blue-600">AFCON 2026</a>
-        <!-- Otros Deportes with accessible submenu -->
-        <div id="nav-otros" class="relative group">
-          <button id="nav-otros-btn" aria-haspopup="true" aria-expanded="false" aria-controls="nav-otros-menu" class="flex items-center gap-2 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 rounded">
-            <span>Deportes</span>
-            <!-- caret/chevron -->
-            <svg class="w-3 h-3 text-gray-600" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-              <path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </button>
-
-          <!-- Submenu: appears on hover (desktop) and via JS toggle (mobile) -->
-          <div id="nav-otros-menu" role="menu" aria-labelledby="nav-otros-btn" class="absolute left-0 mt-1 w-44 bg-white rounded shadow-lg z-50 transform transition-all duration-200 invisible opacity-0 translate-y-2 pointer-events-none group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto">
-            <a role="menuitem" href="#futbol" tabindex="-1" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus:bg-gray-100">Futbol</a>
-            <a role="menuitem" href="#baloncesto" tabindex="-1" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus:bg-gray-100">Baloncesto</a>
-            <a role="menuitem" href="#atletismo" tabindex="-1" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus:bg-gray-100">Atletismo</a>
-            <a role="menuitem" href="#ciclismo" tabindex="-1" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus:bg-gray-100">Ciclismo</a>
-            <a role="menuitem" href="#judo" tabindex="-1" class="block px-4 py-2 text-sm text-gray-700  hover:bg-gray-100 focus:bg-gray-100">Judo</a>
-            <a role="menuitem" href="#taekwondo" tabindex="-1" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus:bg-gray-100">Taekwondo</a>
-            <a role="menuitem" href="#acuaticos" tabindex="-1" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus:bg-gray-100">Deportes acuáticos</a>
-          </div>
-        </div>
-
-        <!-- ADD: Sports Academy with accessible submenu (inserted after 'Otros Deportes') -->
-        <div id="nav-academy" class="relative group">
-          <button id="nav-academy-btn" aria-haspopup="true" aria-expanded="false" aria-controls="nav-academy-menu" class="flex items-center gap-2 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 rounded">
-            <span>Academia del deporte</span>
-            <svg class="w-3 h-3 text-gray-600" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-              <path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </button>
-
-          <!-- Submenu: appears on hover (desktop) and via JS toggle (mobile) -->
-          <div id="nav-academy-menu" role="menu" aria-labelledby="nav-academy-btn" class="absolute left-0 mt-1 w-44 bg-white rounded shadow-lg z-50 transform transition-all duration-200 invisible opacity-0 translate-y-2 pointer-events-none group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto">
-            <a role="menuitem" href="#nutrition" tabindex="-1" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus:bg-gray-100">Nutricion</a>
-            <a role="menuitem" href="#injury-prevention" tabindex="-1" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus:bg-gray-100">Prevencion de Lesiones</a>
-            <a role="menuitem" href="#psychology" tabindex="-1" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus:bg-gray-100">Psicologia</a>
-            <a role="menuitem" href="#training-plans" tabindex="-1" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus:bg-gray-100">Planes de Entrenamiento</a>
-            <a role="menuitem" href="#scholarships" tabindex="-1" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus:bg-gray-100">Becas &amp; Talleres</a>
-          </div>
-        </div>
-
-        <!-- ADD: Events top-level link (inserted after Sports Academy) -->
-        <a href="#events" class="hover:text-blue-600">Eventos</a>
-
-        <a href="#multimedia" class="hover:text-blue-600">Multimedia</a>
-        <a href="#opinion" class="hover:text-blue-600">Opinión y Ranking</a>
-      </nav>
-      <div class="flex items-center gap-3">
-        <!-- Mobile hamburger: visible only on small screens -->
-        <button id="nav-toggle" class="md:hidden p-2 rounded focus:outline-none z-50 relative" aria-controls="main-nav" aria-expanded="false" aria-label="Abrir menú">
-          <svg id="hamburger-icon" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"/>
-          </svg>
-          <svg id="close-icon" class="w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-    <!-- Mobile menu overlay -->
-    <div id="mobile-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
-    </div>
-  </header>
-
-  <main class="container mx-auto px-4 mt-6">
-    <!-- Resultados recientes (ticker) -->
-    <div class="mb-6">
-      <div class="marquee bg-white rounded-lg shadow-sm">
+<body class="bg-gray-50">
+    <!-- Header with Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4">
-          <div class="marquee__wrapper" role="list" aria-label="Resultados recientes en directo">
-            <!-- Items (first copy) -->
-            <div class="marquee__item" role="listitem">
-              <div class="text-sm font-medium">Futbol: Akonangui 2 - 1 Santa Isabel</div>
-            </div>
-
-            <div class="marquee__item" role="listitem">
-              <div class="text-sm font-medium">Baloncesto: Malabo King 78 - 64 Vegetarianos Basket</div>
-            </div>
-
-            <div class="marquee__item" role="listitem">
-              <div class="text-sm font-medium">Boxeo: Juan Ndong KO in 2nd round</div>
-            </div>
-
-            <div class="marquee__item" role="listitem">
-              <div class="text-sm font-medium">Athletismo: María Esono 200m 23.7s</div>
-            </div>
-
-            <div class="marquee__item" role="listitem">
-              <div class="text-sm font-medium">Balonmano: Team1 26 - 21 Team2</div>
-            </div>
-
-            <div class="marquee__item" role="listitem">
-              <div class="text-sm font-medium">Volleybol: TeamA 3 - 2 TeamB</div>
-            </div>
-
-            <!-- Items (second copy for seamless loop) -->
-            <div class="marquee__item" role="listitem">
-              <div class="text-sm font-medium">Futbol Akonangui 2 - 1 Santa Isabel</div>
-            </div>
-
-            <div class="marquee__item" role="listitem">
-              <div class="text-sm font-medium">Baloncesto: Malabo King 78 - 64 Vegetarianos Basket</div>
-            </div>
-
-            <div class="marquee__item" role="listitem">
-              <div class="text-sm font-medium">Boxeo: Juan Ndong KO in 2nd round</div>
-            </div>
-
-            <div class="marquee__item" role="listitem">
-              <div class="text-sm font-medium">Athletismo: María Esono 200m 23.7s</div>
-            </div>
-
-            <div class="marquee__item" role="listitem">
-              <div class="text-sm font-medium">Balonmano: Team1 26 - 21 Team2</div>
-            </div>
-
-            <div class="marquee__item" role="listitem">
-              <div class="text-sm font-medium">Volleybol: TeamA 3 - 2 TeamB</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Hero / Carrusel -->
-    <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-      <div class="lg:col-span-2">
-        <div class="overflow-hidden rounded-lg bg-white shadow">
-          <div id="hero-carousel" class="relative">
-            <div class="relative h-64 md:h-80 lg:h-96">
-              <div class="slides relative h-full">
-                <!-- Slide 1 -->
-                <div class="slide absolute inset-0" data-index="0">
-                  <img src="images/high_1627577616.jpeg" alt="Titular 1" class="w-full h-full object-cover" />
-                  <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6">
-                    <div class="text-white max-w-3xl">
-                      <div class="inline-block text-xs uppercase bg-white/10 text-white px-2 py-1 rounded">Juegos Olimpicos</div>
-                      <h2 class="text-xl md:text-3xl font-extrabold mt-2"><a href="#" class="news-link news-link--inverse" aria-label="Leer noticia: Equipo olímpico de Guinea Ecuatorial participa en la ceremonia inaugural de los Juegos en EEUU">Equipo olímpico de Guinea Ecuatorial participa en la ceremonia inaugural de los Juegos en EEUU</a></h2>
-                      <p class="mt-2 text-sm md:text-base text-gray-100">El equipo nacional guineano se presentó con gran orgullo en la ceremonia inaugural, destacando la presencia de deportistas locales y su compromiso con la excelencia deportiva.</p>
-                      <div class="mt-3 text-xs text-gray-200">3 horas</div>
+            <div class="flex items-center justify-between py-4">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <img src="images/logoAS350.png" alt="AfrikaSport365 Logo" class="h-12 mr-3">
+                    <div>
+                        <h1 class="text-2xl font-bold text-blue-600">AfrikaSport365</h1>
+                        <p class="text-xs text-gray-600">La referencia del deporte en Guinea Ecuatorial</p>
                     </div>
-                  </div>
                 </div>
 
-                <!-- Slide 2 -->
-                <div class="slide absolute inset-0" data-index="1">
-                  <img src="images/main_8vzd_IMG-20230322-WA0003-3.jpg" alt="Entrevista" class="w-full h-full object-cover" />
-                  <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6">
-                    <div class="text-white max-w-3xl">
-                      <div class="inline-block text-xs uppercase bg-white/10 text-white px-2 py-1 rounded">Nzalang Nacional</div>
-                      <h2 class="text-xl md:text-3xl font-extrabold mt-2"><a href="#" class="news-link news-link--inverse" aria-label="Leer noticia: Juan Micha exige cambios en el staff técnico para clasificaciones al Mundial">Juan Micha exige cambios en el staff técnico para clasificaciones al Mundial</a></h2>
-                      <p class="mt-2 text-sm md:text-base text-gray-100">El entrenador nacional solicita una reorganización del cuerpo técnico para poder competir con garantías en la fase clasificatoria del Mundial.</p>
-                      <div class="mt-3 text-xs text-gray-200">1 día</div>
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-blue-600 hover:text-blue-700 font-semibold border-b-2 border-blue-600">Inicio</a>
+                    
+                    <!-- Deportes Dropdown -->
+                    <div class="relative group">
+                        <button class="text-gray-800 hover:text-blue-600 font-semibold flex items-center">
+                            Deportes
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Fútbol</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Atletismo</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Judo</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Ciclismo</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Taekwondo</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Deportes Acuaticos</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Baloncesto</a>
+                        </div>
                     </div>
-                  </div>
-                </div>
 
-                <!-- Slide 3 -->
-                <div class="slide absolute inset-0" data-index="2">
-                  <img src="images/Guinea-Copa-Africa-1200x675.jpg" alt="Video Destacado" class="w-full h-full object-cover" />
-                  <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6">
-                    <div class="text-white max-w-3xl">
-                      <div class="inline-block text-xs uppercase bg-white/10 text-white px-2 py-1 rounded">Futbol</div>
-                      <h2 class="text-xl md:text-3xl font-extrabold mt-2"><a href="#" class="news-link news-link--inverse" aria-label="Leer noticia: CAF podría multar a Guinea Ecuatorial por incidentes en Costa de Marfil">CAF podría multar a Guinea Ecuatorial por incidentes en Costa de Marfil</a></h2>
-                      <p class="mt-2 text-sm md:text-base text-gray-100">La Confederación Africana de Fútbol analiza sanciones tras los hechos ocurridos durante el partido en Costa de Marfil, que involucraron a jugadores y personal técnico.</p>
-                      <div class="mt-3 text-xs text-gray-200">2 días</div>
+                    <a href="afcon2026.html" class="text-gray-800 hover:text-blue-600 font-semibold">AFCON 2026</a>
+                    <a href="#multimedia" class="text-gray-800 hover:text-blue-600 font-semibold">Eventos</a>
+                    <a href="#multimedia" class="text-gray-800 hover:text-blue-600 font-semibold">Multimedia</a>
+                    <a href="#opinion" class="text-gray-800 hover:text-blue-600 font-semibold">Opinión</a>
+                    
+                    <!-- Academia del deporte Dropdown -->
+                    <div class="relative group">
+                        <button class="text-gray-800 hover:text-blue-600 font-semibold flex items-center">
+                            Academia del deporte
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Nutricion</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Prevencion de Lesiones</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Psicologia</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Planes de Entrenamientos</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Becas & Talleres</a>
+                        </div>
                     </div>
-                  </div>
-                </div>
-              </div>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden text-gray-800">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
             </div>
 
-            <!-- Arrows -->
-            <button id="hero-prev" class="absolute left-3 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white rounded-full w-10 h-10 flex items-center justify-center focus:outline-none">
-              <span class="text-2xl leading-none">‹</span>
-            </button>
-            <button id="hero-next" class="absolute right-3 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white rounded-full w-10 h-10 flex items-center justify-center focus:outline-none">
-              <span class="text-2xl leading-none">›</span>
-            </button>
-
-            <!-- Dots -->
-            <div class="absolute left-1/2 transform -translate-x-1/2 bottom-4 z-10 flex gap-2">
-              <button class="hero-dot w-3 h-3 rounded-full bg-white/60" data-index="0" aria-label="Slide 1"></button>
-              <button class="hero-dot w-3 h-3 rounded-full bg-white/40" data-index="1" aria-label="Slide 2"></button>
-              <button class="hero-dot w-3 h-3 rounded-full bg-white/40" data-index="2" aria-label="Slide 3"></button>
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="md:hidden hidden pb-4">
+                <a href="index.html" class="block py-2 text-blue-600 hover:text-blue-700 font-semibold">Inicio</a>
+                <a href="#" class="block py-2 text-gray-800 hover:text-blue-600">Deportes</a>
+                <a href="afcon2026.html" class="block py-2 text-gray-800 hover:text-blue-600">AFCON 2026</a>
+                <a href="#multimedia" class="block py-2 text-gray-800 hover:text-blue-600">Multimedia</a>
+                <a href="#opinion" class="block py-2 text-gray-800 hover:text-blue-600">Opinión</a>
+                <a href="#" class="block py-2 text-gray-800 hover:text-blue-600">Academia del deporte</a>
             </div>
-          </div>
         </div>
-      </div>
+    </header>
 
-      <!-- Lado derecho -->
-      <aside class="space-y-6">
-        <div class="bg-white rounded-lg shadow p-4">
-          <h3 class="font-semibold mb-3">Deportistas destacados</h3>
-
-          <div class="mb-3">
-            <div role="tablist" aria-label="Featured athletes regions" class="fa-tabgroup" id="fa-tablist">
-              <button id="tab-ge" class="fa-tab text-gray-900" role="tab" aria-selected="true" aria-controls="panel-ge" data-key="ge">Guinea Equatorial</button>
-              <button id="tab-af" class="fa-tab text-gray-900" role="tab" aria-selected="false" aria-controls="panel-af" data-key="africa">Africa</button>
-            </div>
-          </div>
-
-          <div>
-            <div id="panel-ge" role="tabpanel" tabindex="0" aria-labelledby="tab-ge" class="fa-panel">
-              <div class="space-y-3 text-sm" id="fa-panel-ge">
-                <div class="flex items-center gap-3">
-                  <a href="#" class="img-link no-hover" aria-label="Perfil: Jose Machin"><img src="images/WvUXq95r_400x400.jpg" class="w-12 h-12 rounded" alt="Jose Machin" /></a>
-                  <div class="min-w-0">
-                    <div class="flex items-center gap-2">
-                      <div class="font-semibold truncate"><a href="#" class="news-link" aria-label="Perfil: Jose Machin">Jose Machin</a></div>
-                      <div class="inline-flex items-center text-xs px-2 py-0.5 rounded-full bg-green-100 text-green-800">
-                        <svg class="w-3 h-3 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle></svg>
-                        <span>Football</span>
-                      </div>
+    <!-- Breaking News Bar -->
+    <div class="breaking-news-bar">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center overflow-hidden">
+                <div class="breaking-label">
+                    <svg class="w-4 h-4 animate-pulse" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"/>
+                    </svg>
+                    ÚLTIMA HORA
+                </div>
+                <div class="breaking-ticker-wrapper">
+                    <div class="breaking-ticker">
+                        <span class="ticker-item">Guinea Ecuatorial celebra medalla de oro en los Juegos Africanos</span>
+                        <span class="ticker-item">Selección Nacional se prepara para eliminatorias AFCON 2026</span>
+                        <span class="ticker-item">Nuevo centro de alto rendimiento deportivo inaugurado en Malabo</span>
+                        <span class="ticker-item">Atleta ecuatoguineana rompe récord nacional en 100 metros</span>
+                        <!-- Duplicate for seamless loop -->
+                        <span class="ticker-item">Guinea Ecuatorial celebra medalla de oro en los Juegos Africanos</span>
+                        <span class="ticker-item">Selección Nacional se prepara para eliminatorias AFCON 2026</span>
+                        <span class="ticker-item">Nuevo centro de alto rendimiento deportivo inaugurado en Malabo</span>
+                        <span class="ticker-item">Atleta ecuatoguineana rompe récord nacional en 100 metros</span>
                     </div>
-                    <div class="text-xs text-gray-500">Serie A • 4 goles esta semana</div>
-                  </div>
                 </div>
-
-                <div class="flex items-center gap-3">
-                  <a href="#" class="img-link no-hover" aria-label="Perfil: Gael Joel"><img src="images/images.jpeg" class="w-12 h-12 rounded" alt="Gael Joel" /></a>
-                  <div class="min-w-0">
-                    <div class="flex items-center gap-2">
-                      <div class="font-semibold truncate"><a href="#" class="news-link" aria-label="Perfil: Gael Joel">Gael Joel</a></div>
-                      <div class="inline-flex items-center text-xs px-2 py-0.5 rounded-full bg-orange-100 text-orange-800">
-                        <svg class="w-3 h-3 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle></svg>
-                        <span>Basketball</span>
-                      </div>
-                    </div>
-                    <div class="text-xs text-gray-500">Granada CF • Debut titular</div>
-                  </div>
-                </div>
-
-                <div class="flex items-center gap-3">
-                  <a href="#" class="img-link no-hover" aria-label="Perfil: Yann Mike"><img src="images/images (2).jpeg" class="w-12 h-12 rounded" alt="Yann Mike" /></a>
-                  <div class="min-w-0">
-                    <div class="flex items-center gap-2">
-                      <div class="font-semibold truncate"><a href="#" class="news-link" aria-label="Perfil: Yann Mike">Yann Mike</a></div>
-                      <div class="inline-flex items-center text-xs px-2 py-0.5 rounded-full bg-purple-100 text-purple-800">
-                        <svg class="w-3 h-3 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle></svg>
-                        <span>Boxing</span>
-                      </div>
-                    </div>
-                    <div class="text-xs text-gray-500">Campeonato Europeo • 1 pelea esta semana</div>
-                  </div>
-                </div>
-
-                <div class="flex items-center gap-3">
-                  <a href="#" class="img-link no-hover" aria-label="Perfil: Sefora Ada Eto"><img src="images/gettyimages-2176757091-612x612.jpg" class="w-12 h-12 rounded" alt="Sefora Ada Eto" /></a>
-                  <div class="min-w-0">
-                    <div class="flex items-center gap-2">
-                      <div class="font-semibold truncate"><a href="#" class="news-link" aria-label="Perfil: Sefora Ada Eto">Sefora Ada Eto</a></div>
-                      <div class="inline-flex items-center text-xs px-2 py-0.5 rounded-full bg-red-100 text-red-800">
-                        <svg class="w-3 h-3 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle></svg>
-                        <span>Athletics</span>
-                      </div>
-                      <div class="inline-flex items-center text-xs px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-800">
-                        <svg class="w-3 h-3 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle></svg>
-                        <span>Volleyball</span>
-                      </div>
-                    </div>
-                    <div class="text-xs text-gray-500">100m CEMAC • 1ra posicion</div>
-                  </div>
-                </div>
-              </div>
             </div>
-
-            <div id="panel-af" role="tabpanel" tabindex="0" aria-labelledby="tab-af" class="hidden" aria-hidden="true">
-              <div class="space-y-3 text-sm" id="fa-panel-africa">
-                <div class="flex items-center gap-3">
-                  <a href="#" class="img-link no-hover" aria-label="Perfil: Athlete A"><img src="images/perfil1.jpg" class="w-12 h-12 rounded" alt="Athlete A" /></a>
-                  <div class="min-w-0">
-                    <div class="flex items-center gap-2">
-                      <div class="font-semibold truncate"><a href="#" class="news-link" aria-label="Perfil: Athlete A">Athlete A</a></div>
-                      <div class="inline-flex items-center text-xs px-2 py-0.5 rounded-full bg-green-100 text-green-800">
-                        <svg class="w-3 h-3 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle></svg>
-                        <span>Football</span>
-                      </div>
-                    </div>
-                    <div class="text-xs text-gray-500">Club • Notable performance</div>
-                  </div>
-                </div>
-
-                <div class="flex items-center gap-3">
-                  <a href="#" class="img-link no-hover" aria-label="Perfil: Yann Mike"><img src="images/images (2).jpeg" class="w-12 h-12 rounded" alt="Yann Mike" /></a>
-                  <div class="min-w-0">
-                    <div class="flex items-center gap-2">
-                      <div class="font-semibold truncate"><a href="#" class="news-link" aria-label="Perfil: Yann Mike">Yann Mike</a></div>
-                      <div class="inline-flex items-center text-xs px-2 py-0.5 rounded-full bg-purple-100 text-purple-800">
-                        <svg class="w-3 h-3 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle></svg>
-                        <span>Boxing</span>
-                      </div>
-                    </div>
-                    <div class="text-xs text-gray-500">Campeonato Europeo • 1 pelea esta semana</div>
-                  </div>
-                </div>
-
-                <div class="flex items-center gap-3">
-                  <a href="#" class="img-link no-hover" aria-label="Perfil: Athlete C"><img src="images/perfil2.jpg" class="w-12 h-12 rounded" alt="Athlete C" /></a>
-                  <div class="min-w-0">
-                    <div class="flex items-center gap-2">
-                      <div class="font-semibold truncate"><a href="#" class="news-link" aria-label="Perfil: Athlete C">Athlete C</a></div>
-                      <div class="inline-flex items-center text-xs px-2 py-0.5 rounded-full bg-purple-100 text-purple-800">
-                        <svg class="w-3 h-3 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle></svg>
-                        <span>Boxing</span>
-                      </div>
-                    </div>
-                    <div class="text-xs text-gray-500">Nation • Upcoming fight</div>
-                  </div>
-                </div>
-                
-
-                <div class="flex items-center gap-3">
-                  <a href="#" class="img-link no-hover" aria-label="Perfil: Athlete D"><img src="images/perfil1.jpg" class="w-12 h-12 rounded" alt="Athlete D" /></a>
-                  <div class="min-w-0">
-                    <div class="flex items-center gap-2">
-                      <div class="font-semibold truncate"><a href="#" class="news-link" aria-label="Perfil: Athlete D">Athlete D</a></div>
-                      <div class="inline-flex items-center text-xs px-2 py-0.5 rounded-full bg-red-100 text-red-800">
-                        <svg class="w-3 h-3 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle></svg>
-                        <span>Athletics</span>
-                      </div>
-                    </div>
-                    <div class="text-xs text-gray-500">Meet • Podium finish</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </aside>
-    </section>
-
-    <!-- Secciones destacadas -->
-    <section class="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
-      <div class="lg:col-span-2 bg-white rounded-lg shadow p-4">
-        <div class="flex items-center justify-between mb-4">
-          <h2 class="text-xl font-bold">Últimas noticias</h2>
-          <a href="#" class="text-sm text-blue-600">Ver todas</a>
-        </div>
-        <div class="latest-news-grid">
-          <article class="latest-news-article">
-            <a href="#" class="img-link no-hover" aria-label="Abrir imagen: Yann Mike Alogo">
-              <img src="images/WhatsApp-Image-2024-03-18-at-11.08.09.jpeg" alt="not1" />
-            </a>
-            <div class="news-content">
-              <h3><a href="article.html" class="news-link news-link--no-underline" aria-label="Leer noticia: Yann Mike Alogo vence al camerunés Ekesie Ejuke en Addis Abeba">Yann Mike Alogo vence al camerunés Ekesie Ejuke en Addis Abeba</a></h3>
-              <div class="news-meta text-xs text-gray-500">Boxeo • 3 horas</div>
-            </div>
-          </article>
-
-          <article class="latest-news-article">
-            <a href="#" class="img-link no-hover" aria-label="Abrir imagen: Torneo juvenil ajedrez">
-              <img src="images/hFK8IZ_KQHIUOUNs.jpg" alt="not2" />
-            </a>
-            <div class="news-content">
-              <h3><a href="#" class="news-link news-link--no-underline" aria-label="Leer noticia: Club de Ajedrez del Centro Cultural Ecuatoguineano organiza torneo juvenil">Club de Ajedrez del Centro Cultural Ecuatoguineano organiza torneo juvenil</a></h3>
-              <div class="news-meta text-xs text-gray-500">Ajedrez • 1 día</div>
-            </div>
-          </article>
-
-          <article class="latest-news-article">
-            <a href="#" class="img-link no-hover" aria-label="Abrir imagen: Gael Joel">
-              <img src="images/images.jpeg" alt="not3" />
-            </a>
-            <div class="news-content">
-              <h3><a href="#" class="news-link news-link--no-underline" aria-label="Leer noticia: Gael Joel ficha por el Granada FC en la liga EA Sports">Gael Joel ficha por el Granada FC en la liga EA Sports</a></h3>
-              <div class="news-meta text-xs text-gray-500">Fútbol • 2 días</div>
-            </div>
-          </article>
-
-          <article class="latest-news-article">
-            <a href="#" class="img-link no-hover" aria-label="Abrir imagen: Malabo Kings">
-              <img src="images/EOjZ-AkXUAA26YO.jpg" alt="not4" />
-            </a>
-            <div class="news-content">
-              <h3><a href="#" class="news-link news-link--no-underline" aria-label="Leer noticia: Malabo Kings pierde ante Estrellas Rojas de Marruecos">Malabo Kings pierde ante Estrellas Rojas de Marruecos</a></h3>
-              <div class="news-meta text-xs text-gray-500">Baloncesto • 2 días</div>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <div id="multimedia" class="bg-white rounded-lg shadow p-4">
-        <h2 class="text-xl font-bold mb-4">Multimedia</h2>
-        <div class="space-y-4">
-          <div class="aspect-video bg-gray-200 rounded overflow-hidden">
-            <iframe
-              class="w-full h-full"
-              src="https://www.youtube.com/embed/AzahAejKR2Q"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen>
-            </iframe>
-          </div>
-          <div class="text-sm text-gray-600">Visita nuestro canal para ver más entrevistas y reportajes.</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Secciones por deporte -->
-    
-    <!-- News by Region: inserted between Futbol and Más Deportes -->
-    <section id="news-by-region" class="mt-8">
-      <div class="bg-white rounded-lg shadow p-4">
-        <div class="flex items-center justify-between mb-4">
-          <h2 class="text-xl font-bold">Noticias por Region</h2>
-        </div>
-
-        <!-- Tabs -->
-        <div class="mb-4 -mx-4 px-4 overflow-x-auto">
-          <div id="nrr-tablist" role="tablist" aria-label="News regions" class="nrr-tabs-container">
-            <button id="nrr-maghreb" class="nrr-tab nrr-tab-active" role="tab" aria-selected="true" data-region="maghreb"><span class="nrr-tab-full">África del Magreb</span><span class="nrr-tab-short">Magreb</span></button>
-            <button id="nrr-west" class="nrr-tab" role="tab" aria-selected="false" data-region="west"><span class="nrr-tab-full">África del Oeste</span><span class="nrr-tab-short">Oeste</span></button>
-            <button id="nrr-central" class="nrr-tab" role="tab" aria-selected="false" data-region="central"><span class="nrr-tab-full">África Central</span><span class="nrr-tab-short">Central</span></button>
-            <button id="nrr-east" class="nrr-tab" role="tab" aria-selected="false" data-region="east"><span class="nrr-tab-full">África del Este</span><span class="nrr-tab-short">Este</span></button>
-            <button id="nrr-southern" class="nrr-tab" role="tab" aria-selected="false" data-region="southern"><span class="nrr-tab-full">África del Sur</span><span class="nrr-tab-short">Sur</span></button>
-            <button id="nrr-horn" class="nrr-tab" role="tab" aria-selected="false" data-region="horn"><span class="nrr-tab-full">Cuerno de África</span><span class="nrr-tab-short">Cuerno</span></button>
-          </div>
-        </div>
-
-        <!-- Content -->
-        <div id="nrr-content">
-          <!-- Dynamic region list will render here -->
-        </div>
-      </div>
-    </section>
-
-    <section id="upcoming-events" class="mt-8">
-      <div class="bg-white rounded-lg shadow p-4">
-        <div class="flex items-center justify-between mb-2">
-          <h2 class="text-xl font-bold">Proximos Eventos</h2>
-          <a href="#" class="text-sm text-blue-600">Ver mas</a>
-        </div>
-        <p class="text-sm text-gray-600 mb-4">Mantente al día: grandes eventos y momentos que ningún aficionado debería perder.</p>
-
-        <div class="space-y-4">
-          <!-- Event 1 -->
-          <div class="bg-white rounded-lg shadow p-4">
-            <div class="flex items-start gap-4">
-              <img src="https://plus.unsplash.com/premium_photo-1721755910562-0f2a8ff1e959?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Event 1" class="w-40 h-24 object-cover rounded" />
-              <div class="flex-1">
-                <h3 class="font-semibold"><a href="#" class="news-link" aria-label="Leer noticia: Gran Torneo Regional de Atletismo">Gran Torneo Regional de Atletismo</a></h3>
-                <p class="text-sm text-gray-600 mt-1 line-clamp-3">Atletas de toda la región competirán en pruebas de pista y campo. Entradas limitadas — asegure su lugar.</p>
-                <div class="mt-3 flex items-center text-xs text-gray-500 gap-4">
-                  <span class="inline-flex items-center gap-1">
-                    <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3M3 11h18M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                    <span>12 Dec 2025</span>
-                  </span>
-                  <span class="inline-flex items-center gap-1">
-                    <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 12.414a4 4 0 10-1.414 1.414l4.243 4.243A8 8 0 1117.657 16.657z"></path></svg>
-                    <span>Lagos, NG</span>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Event 2 -->
-          <div class="bg-white rounded-lg shadow p-4">
-            <div class="flex items-start gap-4">
-              <img src="https://images.unsplash.com/photo-1667791275929-5701d83734c1?q=80&w=876&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Event 2" class="w-40 h-24 object-cover rounded" />
-              <div class="flex-1">
-                <h3 class="font-semibold"><a href="#" class="news-link" aria-label="Leer noticia: Maratón Costero Internacional">Maratón Costero Internacional</a></h3>
-                <p class="text-sm text-gray-600 mt-1 line-clamp-3">Carrera de 42 km por la costa con categorías élite y amateur. Actividades paralelas para familias.</p>
-                <div class="mt-3 flex items-center text-xs text-gray-500 gap-4">
-                  <span class="inline-flex items-center gap-1">
-                    <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3M3 11h18M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                    <span>05 Jan 2026</span>
-                  </span>
-                  <span class="inline-flex items-center gap-1">
-                    <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 12.414a4 4 0 10-1.414 1.414l4.243 4.243A8 8 0 1117.657 16.657z"></path></svg>
-                    <span>Cape Coast, GH</span>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Event 3 -->
-          <div class="bg-white rounded-lg shadow p-4">
-            <div class="flex items-start gap-4">
-              <img src="https://images.unsplash.com/photo-1612729271925-f215dfbc0191?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Event 3" class="w-40 h-24 object-cover rounded" />
-              <div class="flex-1">
-                <h3 class="font-semibold"><a href="#" class="news-link" aria-label="Leer noticia: Campeonato Nacional de Rugby">Campeonato Nacional de Rugby</a></h3>
-                <p class="text-sm text-gray-600 mt-1 line-clamp-3">Tres días de partidos con equipos de todo el país; jornadas de desarrollo para entrenadores y jueces.</p>
-                <div class="mt-3 flex items-center text-xs text-gray-500 gap-4">
-                  <span class="inline-flex items-center gap-1">
-                    <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3M3 11h18M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                    <span>20 Feb 2026</span>
-                  </span>
-                  <span class="inline-flex items-center gap-1">
-                    <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 12.414a4 4 0 10-1.414 1.414l4.243 4.243A8 8 0 1117.657 16.657z"></path></svg>
-                    <span>Malabo, GE</span>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Call to action / publicidad -->
-    <section class="mt-8 mb-12">
-      <div class="bg-blue-600 text-white rounded-lg p-6 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div>
-          <h3 class="text-xl font-bold">Patrocina nuestro medio</h3>
-          <p class="text-sm">Conecta con la audiencia deportiva en Guinea Ecuatorial. Paquetes para clubes, marcas y federaciones.</p>
-        </div>
-        <a href="#site-footer" class="bg-white text-blue-600 px-4 py-2 rounded">Contactar</a>
-      </div>
-    </section>
-
-  </main>
-<footer id="site-footer" class="bg-gray-900 text-gray-200">
-  <div class="max-w-7xl mx-auto px-4 py-10">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-      <div class="md:col-span-2">
-        <div class="flex items-center gap-3">
-          <div>
-            <img src="images/logoAS350.png" alt="" height="100" width="100" />
-          </div>
-          <div>
-            <div class="text-lg font-bold text-white">AfrikaSport365</div>
-            <div class="text-sm text-gray-300 mt-1">Cobertura independiente de noticias, resultados y perfiles de atletas en todo el continente.</div>
-          </div>
-        </div>
-      </div>
-
-      <nav aria-label="Quick links" class="pt-1">
-        <h4 class="font-semibold text-white mb-3">Quick Links</h4>
-        <ul class="space-y-2">
-          <li><a href="#" class="text-gray-300 hover:text-white text-sm">Home</a></li>
-          <li><a href="#" class="text-gray-300 hover:text-white text-sm">News</a></li>
-          <li><a href="#" class="text-gray-300 hover:text-white text-sm">Contact</a></li>
-          <li><a href="#" class="text-gray-300 hover:text-white text-sm">About Us</a></li>
-        </ul>
-      </nav>
-
-      <div class="pt-1">
-        <h4 class="font-semibold text-white mb-3">Contact</h4>
-        <ul class="text-sm text-gray-300 space-y-2">
-          <li><a href="mailto:contacto@revistadeportiva.af" class="hover:text-white">contacto@revistadeportiva.af</a></li>
-          <li><a href="tel:+240555000000" class="hover:text-white">+240 555 000 000</a></li>
-          <li class="text-gray-300">Malabo / Bata</li>
-        </ul>
-      </div>
     </div>
 
-    <div class="mt-8 border-t border-gray-800 pt-6">
-      <div class="flex flex-col md:flex-row items-center md:items-start justify-between gap-6">
-        <div class="flex items-center gap-4">
-          <a href="#" class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700" aria-label="Facebook">
-            <svg class="w-5 h-5 text-gray-200" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 10-11.5 9.9v-7h-2.2V12h2.2V9.7c0-2.2 1.3-3.4 3.3-3.4.9 0 1.9.2 1.9.2v2.1h-1.1c-1.1 0-1.5.7-1.5 1.4V12h2.6l-.4 2.9h-2.2v7A10 10 0 0022 12z"/></svg>
-          </a>
-          <a href="#" class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700" aria-label="Instagram">
-            <svg class="w-5 h-5 text-gray-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><path d="M17.5 6.5h.01"/></svg>
-          </a>
-          <a href="#" class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700" aria-label="X (Twitter)">
-            <svg class="w-5 h-5 text-gray-200" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 5.92c-.62.28-1.28.48-1.98.57.71-.43 1.25-1.12 1.5-1.94-.67.4-1.41.69-2.2.85A3.46 3.46 0 0016.15 4c-1.9 0-3.44 1.66-3 3.5-2.56-.13-4.83-1.38-6.35-3.29-.85 1.47-.37 3.41 1.02 4.37-.56 0-1.09-.17-1.55-.42v.04c0 1.68 1.2 3.17 2.79 3.5-.5.14-1.03.16-1.57.06.45 1.38 1.72 2.37 3.24 2.4A6.96 6.96 0 014 18.07a9.86 9.86 0 005.34 1.56c6.41 0 9.92-5.41 9.92-10.1v-.46c.7-.5 1.3-1.12 1.77-1.82-.64.29-1.32.5-2.03.59z"/></svg>
-          </a>
-          <a href="#" class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700" aria-label="TikTok">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-5 h-5 fill-current"><path d="M16.04 3C9.4 3 4 8.4 4 15.06c0 2.66.88 5.13 2.38 7.14L4 29l7.06-2.32a12.02 12.02 0 004.98 1.08h.01c6.63 0 12.03-5.4 12.03-12.06A12.04 12.04 0 0016.04 3zm6.84 16.98c-.29.82-1.7 1.6-2.36 1.7-.61.1-1.4.14-2.26-.14-.52-.17-1.2-.39-2.05-.77-3.6-1.56-5.95-5.2-6.13-5.45-.18-.26-1.46-1.94-1.46-3.7 0-1.76.92-2.62 1.25-2.98.34-.36.74-.45.99-.45.24 0 .5 0 .72.01.23.01.54-.09.85.65.32.77 1.08 2.65 1.17 2.84.1.19.16.42.03.68-.12.26-.18.42-.35.64-.18.21-.37.47-.53.63-.18.18-.37.38-.16.75.21.36.94 1.55 2.02 2.51 1.39 1.23 2.57 1.62 2.93 1.8.36.17.57.15.78-.09.21-.24.9-1.05 1.14-1.42.24-.36.47-.3.79-.18.32.11 2.04.96 2.39 1.14.35.18.58.26.67.41.1.14.1.82-.19 1.64z"/></svg>
-
-          </a>
-          <a href="#" class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700" aria-label="YouTube">
-            <svg class="w-5 h-5 text-gray-200" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.4.6A3 3 0 00.5 6.2 31.5 31.5 0 000 12a31.5 31.5 0 00.5 5.8 3 3 0 002.1 2.1c1.8.6 9.4.6 9.4.6s7.6 0 9.4-.6a3 3 0 002.1-2.1A31.5 31.5 0 0024 12a31.5 31.5 0 00-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
-          </a>
+    <!-- Hero Section -->
+    <section class="homepage-hero">
+        <div class="hero-background">
+            <img src="images/mohamed-salah-egypt-21-752x428.jpg" alt="Hero Background">
         </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content-wrapper">
+            <div class="container mx-auto px-4">
+                <div class="hero-featured-story">
+                    <div class="hero-badge">
+                        HISTORIA DESTACADA
+                    </div>
+                    <h2 class="hero-title">
+                        Guinea Ecuatorial se Prepara para Recibir la Copa Africana de Naciones 2026
+                    </h2>
+                    <p class="hero-excerpt">
+                        El país se convierte en anfitrión de uno de los torneos de fútbol más prestigiosos del continente. 
+                        Nuevas instalaciones, infraestructura renovada y un espíritu deportivo sin precedentes marcan el camino 
+                        hacia este histórico evento.
+                    </p>
+                    <div class="hero-meta">
+                        <span>📅 15 de Enero, 2025</span>
+                        <span>✍️ Pedro Nguema</span>
+                        <span>⏱️ 8 min de lectura</span>
+                    </div>
+                    <a href="article.html" class="hero-cta">
+                        Leer Historia Completa
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <div class="text-sm text-gray-400">&copy; 2025 Revista Deportiva Africana — All rights reserved.</div>
-      </div>
+    <!-- Ad Banner Horizontal -->
+    <div class="container mx-auto px-4">
+        <div class="ad-banner ad-banner-horizontal">
+            <div class="ad-placeholder">Espacio Publicitario 728x90</div>
+        </div>
     </div>
-  </div>
-  <script src="js/main.js"></script>
-</footer>
 
+    <!-- Latest News Section -->
+    <section class="section-wrapper">
+        <div class="container mx-auto px-4">
+            <div class="section-header">
+                <h2 class="section-title">Últimas Noticias</h2>
+                <a href="#" class="section-view-all">
+                    Ver todas las noticias
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="news-grid">
+                <!-- Large Featured Card -->
+                <article class="news-card news-card-large">
+                    <div class="news-image">
+                        <img src="images/OIP (1).webp" alt="Copa AFCON">
+                        <span class="news-category-badge" style="background: #ef4444;">FÚTBOL</span>
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="article.html">Los Nzalang Nacional Buscan la Gloria en las Eliminatorias AFCON</a>
+                        </h3>
+                        <p class="news-excerpt">
+                            La selección nacional de Guinea Ecuatorial inicia su camino hacia la Copa Africana de Naciones 
+                            con una preparación intensiva y nuevos refuerzos que prometen llevar al equipo a niveles históricos.
+                        </p>
+                        <div class="news-meta">
+                            <span>📅 Hace 2 horas</span>
+                            <span>✍️ María Obiang</span>
+                            <span>💬 24 comentarios</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Regular Cards -->
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="images/atletismo.jpg" alt="Atletismo">
+                        <span class="news-category-badge" style="background: #10b981;">ATLETISMO</span>
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="article.html">Record Nacional en 100 Metros Femeninos</a>
+                        </h3>
+                        <p class="news-excerpt">
+                            Emilia Esono establece nueva marca nacional con un tiempo de 11.23 segundos en el campeonato regional.
+                        </p>
+                        <div class="news-meta">
+                            <span>📅 Hace 4 horas</span>
+                            <span>✍️ Carlos Mangue</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="images/judo.jpg" alt="Judo">
+                        <span class="news-category-badge" style="background: #f59e0b;">JUDO</span>
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="article.html">Medalla de Plata para Guinea Ecuatorial en Campeonato Africano</a>
+                        </h3>
+                        <p class="news-excerpt">
+                            José Bindang obtiene medalla de plata en la categoría -73kg tras una brillante actuación.
+                        </p>
+                        <div class="news-meta">
+                            <span>📅 Hace 6 horas</span>
+                            <span>✍️ Ana Riloha</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="images/baloncesto.jpg" alt="Baloncesto">
+                        <span class="news-category-badge" style="background: #8b5cf6;">BALONCESTO</span>
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="article.html">Liga Nacional de Baloncesto Inicia Temporada con Récord de Inscripciones</a>
+                        </h3>
+                        <p class="news-excerpt">
+                            La nueva temporada promete ser la más competitiva con 12 equipos participantes.
+                        </p>
+                        <div class="news-meta">
+                            <span>📅 Hace 8 horas</span>
+                            <span>✍️ David Nve</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="images/tenis.jpg" alt="Tenis">
+                        <span class="news-category-badge" style="background: #06b6d4;">TENIS</span>
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="article.html">Joven Promesa del Tenis Ecuatoguineano Firma con Academia Europea</a>
+                        </h3>
+                        <p class="news-excerpt">
+                            Lucas Micha, de 16 años, se une a prestigiosa academia en España para desarrollar su talento.
+                        </p>
+                        <div class="news-meta">
+                            <span>📅 Hace 12 horas</span>
+                            <span>✍️ Teresa Mba</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sports Categories Section -->
+    <section class="section-wrapper" style="background: #f9fafb;">
+        <div class="container mx-auto px-4">
+            <div class="section-header">
+                <h2 class="section-title">Explora por Deporte</h2>
+                <a href="#" class="section-view-all">
+                    Ver todos los deportes
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="categories-grid">
+                <a href="#" class="category-card">
+                    <div class="category-bg">
+                        <img src="images/futbol.jpg" alt="Fútbol">
+                    </div>
+                    <div class="category-overlay">
+                        <div class="category-icon">⚽</div>
+                        <div class="category-name">Fútbol</div>
+                        <div class="category-count">148 Artículos</div>
+                    </div>
+                </a>
+
+                <a href="#" class="category-card">
+                    <div class="category-bg">
+                        <img src="images/atletismo.jpg" alt="Atletismo">
+                    </div>
+                    <div class="category-overlay">
+                        <div class="category-icon">🏃</div>
+                        <div class="category-name">Atletismo</div>
+                        <div class="category-count">76 Artículos</div>
+                    </div>
+                </a>
+
+                <a href="#" class="category-card">
+                    <div class="category-bg">
+                        <img src="images/judo.jpg" alt="Judo">
+                    </div>
+                    <div class="category-overlay">
+                        <div class="category-icon">🥋</div>
+                        <div class="category-name">Judo</div>
+                        <div class="category-count">52 Artículos</div>
+                    </div>
+                </a>
+
+                <a href="#" class="category-card">
+                    <div class="category-bg">
+                        <img src="images/baloncesto.jpg" alt="Baloncesto">
+                    </div>
+                    <div class="category-overlay">
+                        <div class="category-icon">🏀</div>
+                        <div class="category-name">Baloncesto</div>
+                        <div class="category-count">64 Artículos</div>
+                    </div>
+                </a>
+
+                <a href="#" class="category-card">
+                    <div class="category-bg">
+                        <img src="images/tenis.jpg" alt="Tenis">
+                    </div>
+                    <div class="category-overlay">
+                        <div class="category-icon">🎾</div>
+                        <div class="category-name">Tenis</div>
+                        <div class="category-count">38 Artículos</div>
+                    </div>
+                </a>
+
+                <a href="#" class="category-card">
+                    <div class="category-bg">
+                        <img src="images/rugby.jpg" alt="Rugby">
+                    </div>
+                    <div class="category-overlay">
+                        <div class="category-icon">🏉</div>
+                        <div class="category-name">Rugby</div>
+                        <div class="category-count">29 Artículos</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- AFCON 2026 Spotlight -->
+    <section class="section-wrapper">
+        <div class="container mx-auto px-4">
+            <div class="afcon-spotlight">
+                <div class="afcon-header">
+                    <div class="afcon-logo">
+                        <img src="images/AFCON-2021.webp" alt="AFCON 2026">
+                    </div>
+                    <div>
+                        <h2 class="afcon-title">Copa Africana de Naciones 2026</h2>
+                        <p class="afcon-subtitle">Guinea Ecuatorial • Junio-Julio 2026</p>
+                    </div>
+                </div>
+
+                <div class="afcon-content-grid">
+                    <div class="afcon-mini-card">
+                        <h3 class="afcon-mini-title">Clasificación Grupo A</h3>
+                        <div class="mini-standings">
+                            <div class="mini-standings-row">
+                                <span>1. Guinea Ecuatorial</span>
+                                <span>9 pts</span>
+                            </div>
+                            <div class="mini-standings-row">
+                                <span>2. Nigeria</span>
+                                <span>7 pts</span>
+                            </div>
+                            <div class="mini-standings-row">
+                                <span>3. Camerún</span>
+                                <span>5 pts</span>
+                            </div>
+                            <div class="mini-standings-row">
+                                <span>4. Mozambique</span>
+                                <span>1 pt</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="afcon-mini-card">
+                        <h3 class="afcon-mini-title">Próximo Partido</h3>
+                        <div style="text-align: center; padding: 1rem 0;">
+                            <div style="font-size: 1.125rem; font-weight: 700; margin-bottom: 0.5rem;">
+                                Guinea Ecuatorial vs Tanzania
+                            </div>
+                            <div style="font-size: 2rem; font-weight: 900; color: #fbbf24; margin: 1rem 0;">
+                                28 ENE
+                            </div>
+                            <div style="font-size: 0.875rem; opacity: 0.9;">
+                                Estadio de Bata • 20:00
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="afcon-mini-card">
+                        <h3 class="afcon-mini-title">Máximo Goleador</h3>
+                        <div style="text-align: center; padding: 1rem 0;">
+                            <div style="font-size: 3rem; margin-bottom: 0.5rem;">⚽</div>
+                            <div style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.25rem;">
+                                Emilio Nsue
+                            </div>
+                            <div style="font-size: 0.875rem; opacity: 0.9;">
+                                5 goles en 3 partidos
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center;">
+                    <a href="afcon2026.html" class="afcon-cta">
+                        Ver Cobertura Completa AFCON 2026
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Two Column Layout: News + Sidebar Ad -->
+    <section class="section-wrapper" style="background: #f9fafb;">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Main Content (2/3) -->
+                <div class="lg:col-span-2">
+                    <div class="section-header">
+                        <h2 class="section-title">Análisis y Opinión</h2>
+                    </div>
+
+                    <div class="news-grid">
+                        <article class="news-card">
+                            <div class="news-image">
+                                <img src="images/analisis.jpg" alt="Análisis">
+                                <span class="news-category-badge" style="background: #6366f1;">OPINIÓN</span>
+                            </div>
+                            <div class="news-content">
+                                <h3 class="news-title">
+                                    <a href="article.html">¿Está Guinea Ecuatorial Lista para AFCON 2026?</a>
+                                </h3>
+                                <p class="news-excerpt">
+                                    Un análisis profundo sobre la preparación del país para el torneo más importante del continente.
+                                </p>
+                                <div class="news-meta">
+                                    <span>📅 Hoy</span>
+                                    <span>✍️ Roberto Esono</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="news-card">
+                            <div class="news-image">
+                                <img src="images/entrevista.jpg" alt="Entrevista">
+                                <span class="news-category-badge" style="background: #ec4899;">ENTREVISTA</span>
+                            </div>
+                            <div class="news-content">
+                                <h3 class="news-title">
+                                    <a href="article.html">Conversación con la Estrella del Atletismo Nacional</a>
+                                </h3>
+                                <p class="news-excerpt">
+                                    Emilia Esono comparte su trayectoria y ambiciones para los próximos Juegos Olímpicos.
+                                </p>
+                                <div class="news-meta">
+                                    <span>📅 Hoy</span>
+                                    <span>✍️ Laura Ndong</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Sidebar (1/3) -->
+                <div class="lg:col-span-1">
+                    <div class="ad-banner ad-banner-sidebar">
+                        <div class="ad-placeholder">Espacio Publicitario 300x600</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Athletes & Interviews Section -->
+    <section class="section-wrapper" id="athletes">
+        <div class="container mx-auto px-4">
+            <div class="section-header">
+                <h2 class="section-title">Perfiles de Atletas</h2>
+                <a href="#" class="section-view-all">
+                    Ver todos los atletas
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="athletes-slider">
+                <article class="athlete-card">
+                    <div class="athlete-image">
+                        <img src="images/atleta1.jpg" alt="Emilio Nsue">
+                        <span class="athlete-sport-badge">FÚTBOL</span>
+                    </div>
+                    <div class="athlete-info">
+                        <h3 class="athlete-name">Emilio Nsue</h3>
+                        <p class="athlete-title">Delantero • Capitán Selección Nacional</p>
+                        <div class="athlete-stats">
+                            <div class="stat-item">
+                                <span class="stat-value">45</span>
+                                <span class="stat-label">Goles</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">78</span>
+                                <span class="stat-label">Partidos</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">12</span>
+                                <span class="stat-label">Asistencias</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="athlete-card">
+                    <div class="athlete-image">
+                        <img src="images/atleta2.jpg" alt="Emilia Esono">
+                        <span class="athlete-sport-badge" style="background: #10b981;">ATLETISMO</span>
+                    </div>
+                    <div class="athlete-info">
+                        <h3 class="athlete-name">Emilia Esono</h3>
+                        <p class="athlete-title">Velocista • 100m y 200m</p>
+                        <div class="athlete-stats">
+                            <div class="stat-item">
+                                <span class="stat-value">11.23s</span>
+                                <span class="stat-label">Record 100m</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">5</span>
+                                <span class="stat-label">Medallas</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">23</span>
+                                <span class="stat-label">Edad</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="athlete-card">
+                    <div class="athlete-image">
+                        <img src="images/atleta3.jpg" alt="José Bindang">
+                        <span class="athlete-sport-badge" style="background: #f59e0b;">JUDO</span>
+                    </div>
+                    <div class="athlete-info">
+                        <h3 class="athlete-name">José Bindang</h3>
+                        <p class="athlete-title">Judoka • Categoría -73kg</p>
+                        <div class="athlete-stats">
+                            <div class="stat-item">
+                                <span class="stat-value">🥈</span>
+                                <span class="stat-label">Africano</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">8</span>
+                                <span class="stat-label">Victorias</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">26</span>
+                                <span class="stat-label">Edad</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="athlete-card">
+                    <div class="athlete-image">
+                        <img src="images/atleta4.jpg" alt="María Obiang">
+                        <span class="athlete-sport-badge" style="background: #06b6d4;">TENIS</span>
+                    </div>
+                    <div class="athlete-info">
+                        <h3 class="athlete-name">María Obiang</h3>
+                        <p class="athlete-title">Tenista • Top 100 África</p>
+                        <div class="athlete-stats">
+                            <div class="stat-item">
+                                <span class="stat-value">87</span>
+                                <span class="stat-label">Ranking</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">15</span>
+                                <span class="stat-label">Torneos</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">21</span>
+                                <span class="stat-label">Edad</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Multimedia Gallery Section -->
+    <section class="section-wrapper" id="multimedia" style="background: #f9fafb;">
+        <div class="container mx-auto px-4">
+            <div class="section-header">
+                <h2 class="section-title">Galería Multimedia</h2>
+                <a href="#" class="section-view-all">
+                    Ver toda la galería
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="multimedia-grid">
+                <div class="multimedia-item">
+                    <img src="images/video1.jpg" alt="Video" class="multimedia-thumb">
+                    <div class="multimedia-overlay">
+                        <span class="multimedia-type">VIDEO</span>
+                        <div class="multimedia-play-icon">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
+                            </svg>
+                        </div>
+                        <p class="multimedia-caption">Resumen: Victoria de los Nzalang Nacional</p>
+                    </div>
+                </div>
+
+                <div class="multimedia-item">
+                    <img src="images/galeria1.jpg" alt="Galería" class="multimedia-thumb">
+                    <div class="multimedia-overlay">
+                        <span class="multimedia-type" style="background: #10b981;">GALERÍA</span>
+                        <p class="multimedia-caption">Mejores Momentos del Campeonato de Atletismo</p>
+                    </div>
+                </div>
+
+                <div class="multimedia-item">
+                    <img src="images/video2.jpg" alt="Video" class="multimedia-thumb">
+                    <div class="multimedia-overlay">
+                        <span class="multimedia-type">VIDEO</span>
+                        <div class="multimedia-play-icon">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
+                            </svg>
+                        </div>
+                        <p class="multimedia-caption">Entrevista Exclusiva con José Bindang</p>
+                    </div>
+                </div>
+
+                <div class="multimedia-item">
+                    <img src="images/galeria2.jpg" alt="Galería" class="multimedia-thumb">
+                    <div class="multimedia-overlay">
+                        <span class="multimedia-type" style="background: #10b981;">GALERÍA</span>
+                        <p class="multimedia-caption">Inauguración del Nuevo Centro Deportivo</p>
+                    </div>
+                </div>
+
+                <div class="multimedia-item">
+                    <img src="images/video3.jpg" alt="Video" class="multimedia-thumb">
+                    <div class="multimedia-overlay">
+                        <span class="multimedia-type">VIDEO</span>
+                        <div class="multimedia-play-icon">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
+                            </svg>
+                        </div>
+                        <p class="multimedia-caption">Análisis Táctico: Preparación para AFCON</p>
+                    </div>
+                </div>
+
+                <div class="multimedia-item">
+                    <img src="images/galeria3.jpg" alt="Galería" class="multimedia-thumb">
+                    <div class="multimedia-overlay">
+                        <span class="multimedia-type" style="background: #10b981;">GALERÍA</span>
+                        <p class="multimedia-caption">Celebración Nacional por Medalla de Oro</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About/Mission Section -->
+    <section class="section-wrapper">
+        <div class="container mx-auto px-4">
+            <div class="about-block">
+                <div class="about-content">
+                    <div class="about-icon">🏆</div>
+                    <h2 class="about-title">Nuestra Misión</h2>
+                    <p class="about-description">
+                        AfrikaSport365 es la plataforma líder de noticias deportivas en Guinea Ecuatorial, 
+                        comprometida con llevar la pasión, la emoción y el orgullo del deporte africano a cada rincón del país. 
+                        Nuestra misión es inspirar, informar y conectar a la comunidad deportiva a través de coberturas 
+                        exhaustivas, análisis profundos y contenido multimedia de primera calidad.
+                    </p>
+                    
+                    <div class="about-stats">
+                        <div class="about-stat-item">
+                            <span class="about-stat-value">500K+</span>
+                            <span class="about-stat-label">Lectores Mensuales</span>
+                        </div>
+                        <div class="about-stat-item">
+                            <span class="about-stat-value">15</span>
+                            <span class="about-stat-label">Deportes Cubiertos</span>
+                        </div>
+                        <div class="about-stat-item">
+                            <span class="about-stat-value">24/7</span>
+                            <span class="about-stat-label">Cobertura en Vivo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- About Column -->
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="images/logoAS350.png" alt="Logo" class="h-10 mr-3">
+                        <h3 class="text-xl font-bold">AfrikaSport365</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        La referencia del deporte en Guinea Ecuatorial. 
+                        Cobertura completa, análisis experto y pasión por el deporte africano.
+                    </p>
+                    <div class="flex gap-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Enlaces Rápidos</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Inicio</a></li>
+                        <li><a href="afcon2026.html" class="text-gray-400 hover:text-white transition">AFCON 2026</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Noticias</a></li>
+                        <li><a href="#multimedia" class="text-gray-400 hover:text-white transition">Multimedia</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Academia del Deporte</a></li>
+                    </ul>
+                </div>
+
+                <!-- Sports -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Deportes</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Fútbol</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Atletismo</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Judo</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Baloncesto</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Tenis</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Rugby</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contacto</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                            </svg>
+                            info@afrikasport365.com
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                            </svg>
+                            +240 XXX XXX XXX
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-4 h-4 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                            </svg>
+                            Malabo, Guinea Ecuatorial
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+                <p>&copy; 2025 AfrikaSport365. Todos los derechos reservados.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition">Política de Privacidad</a>
+                    <a href="#" class="hover:text-white transition">Términos de Uso</a>
+                    <a href="#" class="hover:text-white transition">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe news cards, athlete cards, etc.
+        document.querySelectorAll('.news-card, .athlete-card, .category-card, .multimedia-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
