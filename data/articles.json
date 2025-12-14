@@ -1,0 +1,400 @@
+{
+  "articles": [
+    {
+      "id": "nzalang-eliminatorias-afcon-2025",
+      "slug": "nzalang-nacional-eliminatorias-afcon",
+      "title": "Los Nzalang Nacional Buscan la Gloria en las Eliminatorias AFCON",
+      "subtitle": "La selección nacional de Guinea Ecuatorial inicia su camino hacia la Copa Africana de Naciones con una preparación intensiva y nuevos refuerzos que prometen llevar al equipo a niveles históricos",
+      "category": "Fútbol",
+      "categoryColor": "#ef4444",
+      "author": "María Obiang",
+      "authorImage": "images/perfil1.jpg",
+      "date": "2025-12-14T12:00:00",
+      "dateDisplay": "14 de diciembre, 2025 • 12:00",
+      "heroImage": "images/OIP (1).webp",
+      "excerpt": "La selección nacional de Guinea Ecuatorial inicia su camino hacia la Copa Africana de Naciones con una preparación intensiva y nuevos refuerzos que prometen llevar al equipo a niveles históricos.",
+      "content": [
+        {
+          "type": "lead",
+          "text": "La selección nacional de fútbol de Guinea Ecuatorial, conocida como <strong>Los Nzalang Nacional</strong>, se prepara para enfrentar uno de los desafíos más importantes de su historia: las eliminatorias para la Copa Africana de Naciones 2025 que se celebrará en Marruecos."
+        },
+        {
+          "type": "paragraph",
+          "text": "El equipo, dirigido por el experimentado técnico español Juan Micha, ha intensificado sus entrenamientos en el Complejo Deportivo de Bata, donde se concentran los 28 jugadores preseleccionados que buscan un cupo en la lista definitiva de 23 convocados."
+        },
+        {
+          "type": "heading",
+          "text": "Refuerzos de primera línea"
+        },
+        {
+          "type": "paragraph",
+          "text": "Entre las novedades más destacadas se encuentra la incorporación del delantero Emilio Nsue, quien regresa a la selección después de una exitosa temporada en la liga española. El atacante de 34 años aporta experiencia y gol, elementos fundamentales para las aspiraciones del equipo."
+        },
+        {
+          "type": "image",
+          "src": "images/senegal.webp",
+          "caption": "Los Nzalang Nacional durante una sesión de entrenamiento en Bata | Foto: FEGUIFUT"
+        },
+        {
+          "type": "paragraph",
+          "text": "Junto a Nsue, se suman jugadores formados en academias europeas como Pablo Ganet y Jannick Buyla, quienes han demostrado un nivel sobresaliente en sus respectivos clubes y buscan consolidarse en el combinado nacional."
+        },
+        {
+          "type": "quote",
+          "text": "Tenemos un grupo competitivo con hambre de gloria. El objetivo es clasificar y hacer una gran actuación en AFCON 2025.",
+          "author": "Juan Micha",
+          "authorRole": "Seleccionador nacional",
+          "authorImage": "images/perfil2.jpg"
+        },
+        {
+          "type": "heading",
+          "text": "Calendario de eliminatorias"
+        },
+        {
+          "type": "paragraph",
+          "text": "Guinea Ecuatorial se encuentra en el Grupo E junto a Mozambique, Namibia y Kenia. El primer partido será contra Mozambique el próximo 18 de enero en el Estadio de Bata, seguido de un duelo crucial ante Kenia en Nairobi."
+        },
+        {
+          "type": "paragraph",
+          "text": "La Federación Ecuatoguineana de Fútbol ha confirmado que todos los partidos de local tendrán entrada gratuita para fomentar el apoyo de la afición y crear una atmósfera intimidante para los rivales."
+        }
+      ],
+      "tags": ["Fútbol", "Nzalang Nacional", "AFCON 2025", "Selección Nacional", "Eliminatorias"],
+      "readTime": "5 min"
+    },
+    {
+      "id": "record-nacional-100-metros-femeninos",
+      "slug": "record-nacional-100-metros-femeninos",
+      "title": "Record Nacional en 100 Metros Femeninos",
+      "subtitle": "Emilia Esono establece nueva marca nacional con un tiempo de 11.23 segundos en el campeonato regional",
+      "category": "Atletismo",
+      "categoryColor": "#10b981",
+      "author": "Carlos Mangue",
+      "authorImage": "images/perfil2.jpg",
+      "date": "2025-12-14T08:00:00",
+      "dateDisplay": "14 de diciembre, 2025 • 08:00",
+      "heroImage": "images/atletismo.jpg",
+      "excerpt": "Emilia Esono establece nueva marca nacional con un tiempo de 11.23 segundos en el campeonato regional.",
+      "content": [
+        {
+          "type": "lead",
+          "text": "La atleta ecuatoguineana <strong>Emilia Esono</strong> ha entrado en la historia del deporte nacional al establecer un nuevo récord en los 100 metros planos femeninos con un tiempo de 11.23 segundos durante el Campeonato Regional de Atletismo celebrado en Libreville, Gabón."
+        },
+        {
+          "type": "paragraph",
+          "text": "La marca anterior, que databa de 2018 con 11.45 segundos, fue superada ampliamente por la velocista de 23 años, quien demostró una forma física excepcional y una técnica depurada que la posiciona como una de las grandes promesas del atletismo africano."
+        },
+        {
+          "type": "heading",
+          "text": "Una carrera perfecta"
+        },
+        {
+          "type": "paragraph",
+          "text": "En condiciones climáticas ideales, con viento a favor de apenas 0.8 m/s (dentro del límite reglamentario), Esono ejecutó una salida explosiva que la colocó al frente desde los primeros metros. Su fase de aceleración fue notable, alcanzando su velocidad máxima alrededor de los 60 metros y manteniendo la cadencia hasta cruzar la meta."
+        },
+        {
+          "type": "quote",
+          "text": "Este récord es el resultado de años de trabajo duro y sacrificio. Quiero dedicarlo a todos los jóvenes atletas de Guinea Ecuatorial que sueñan con representar a nuestro país.",
+          "author": "Emilia Esono",
+          "authorRole": "Atleta",
+          "authorImage": "images/perfil1.jpg"
+        },
+        {
+          "type": "paragraph",
+          "text": "El entrenador nacional de velocidad, el keniano David Ochieng, destacó la evolución de Esono en los últimos meses: 'Emilia ha trabajado específicamente en su técnica de salida y en su resistencia a la velocidad. Los resultados son evidentes.'"
+        },
+        {
+          "type": "heading",
+          "text": "Proyección olímpica"
+        },
+        {
+          "type": "paragraph",
+          "text": "Con este tiempo, Esono se acerca a las marcas mínimas para clasificar a competencias internacionales de primer nivel. Su siguiente objetivo es participar en el Campeonato Africano de Atletismo 2026, donde buscará una medalla que le permita soñar con los Juegos Olímpicos de Los Ángeles 2028."
+        }
+      ],
+      "tags": ["Atletismo", "Emilia Esono", "Récord Nacional", "100 Metros", "Velocidad"],
+      "readTime": "4 min"
+    },
+    {
+      "id": "medalla-plata-judo-campeonato-africano",
+      "slug": "medalla-plata-judo-campeonato-africano",
+      "title": "Medalla de Plata para Guinea Ecuatorial en Campeonato Africano",
+      "subtitle": "José Bindang obtiene medalla de plata en la categoría -73kg tras una brillante actuación en el Campeonato Africano de Judo",
+      "category": "Judo",
+      "categoryColor": "#f59e0b",
+      "author": "Ana Riloha",
+      "authorImage": "images/perfil1.jpg",
+      "date": "2025-12-14T06:00:00",
+      "dateDisplay": "14 de diciembre, 2025 • 06:00",
+      "heroImage": "images/judo.jpg",
+      "excerpt": "José Bindang obtiene medalla de plata en la categoría -73kg tras una brillante actuación.",
+      "content": [
+        {
+          "type": "lead",
+          "text": "El judoka ecuatoguineano <strong>José Bindang</strong> ha conseguido la medalla de plata en la categoría de -73 kilogramos del Campeonato Africano de Judo celebrado en Dakar, Senegal, tras una actuación sobresaliente que lo posiciona entre los mejores del continente."
+        },
+        {
+          "type": "paragraph",
+          "text": "Bindang, de 26 años, venció a cuatro rivales en su camino hacia la final, donde cayó ante el experimentado argelino Fethi Nourine, medallista olímpico y uno de los judokas más destacados de África. A pesar de la derrota en la final, la actuación de Bindang fue ampliamente reconocida por técnicos y especialistas."
+        },
+        {
+          "type": "heading",
+          "text": "Un camino sin tropiezos hasta la final"
+        },
+        {
+          "type": "paragraph",
+          "text": "El representante ecuatoguineano inició su participación con una victoria por ippon ante el ugandés Samuel Okello en apenas 2 minutos y 15 segundos. En cuartos de final, superó al egipcio Mohamed Hassan mediante una técnica perfecta de harai-goshi que le valió un waza-ari y posteriormente el ippon."
+        },
+        {
+          "type": "paragraph",
+          "text": "La semifinal fue el combate más disputado, donde Bindang enfrentó al keniano Brian Otieno. El encuentro se extendió hasta el tiempo adicional (golden score), donde el ecuatoguineano logró la victoria con un espectacular uchi-mata que provocó la ovación del público."
+        },
+        {
+          "type": "quote",
+          "text": "Estoy muy orgulloso de esta medalla. El judo ecuatoguineano está creciendo y esto es solo el comienzo. Mi objetivo ahora son los Juegos Africanos.",
+          "author": "José Bindang",
+          "authorRole": "Judoka",
+          "authorImage": "images/images (2).jpeg"
+        },
+        {
+          "type": "heading",
+          "text": "Reconocimiento institucional"
+        },
+        {
+          "type": "paragraph",
+          "text": "La Federación Ecuatoguineana de Judo anunció un bono especial para Bindang y confirmó que el atleta recibirá apoyo completo para su preparación de cara a futuros compromisos internacionales. El Ministerio de Deportes también ha prometido incrementar el presupuesto destinado a las artes marciales."
+        }
+      ],
+      "tags": ["Judo", "José Bindang", "Medalla", "Campeonato Africano", "Artes Marciales"],
+      "readTime": "4 min"
+    },
+    {
+      "id": "liga-baloncesto-record-inscripciones",
+      "slug": "liga-baloncesto-record-inscripciones",
+      "title": "Liga Nacional de Baloncesto Inicia Temporada con Récord de Inscripciones",
+      "subtitle": "La nueva temporada de la liga promete ser la más competitiva con 12 equipos participantes y nuevas figuras internacionales",
+      "category": "Baloncesto",
+      "categoryColor": "#8b5cf6",
+      "author": "David Nve",
+      "authorImage": "images/perfil2.jpg",
+      "date": "2025-12-14T04:00:00",
+      "dateDisplay": "14 de diciembre, 2025 • 04:00",
+      "heroImage": "images/baloncesto.jpg",
+      "excerpt": "La nueva temporada promete ser la más competitiva con 12 equipos participantes.",
+      "content": [
+        {
+          "type": "lead",
+          "text": "La <strong>Liga Nacional de Baloncesto</strong> de Guinea Ecuatorial arranca su temporada 2025-2026 con un récord histórico de 12 equipos inscritos, convirtiéndose en la edición más ambiciosa desde la fundación del torneo en 2010."
+        },
+        {
+          "type": "paragraph",
+          "text": "La Federación Ecuatoguineana de Baloncesto (FEGUIBA) ha confirmado que esta temporada contará con la participación de equipos de todas las regiones del país, incluyendo dos equipos debutantes: los Corsarios de Annobón y los Titanes de Mongomo."
+        },
+        {
+          "type": "heading",
+          "text": "Refuerzos extranjeros de primer nivel"
+        },
+        {
+          "type": "paragraph",
+          "text": "Una de las novedades más destacadas es la incorporación de jugadores extranjeros en varios equipos. El club campeón, Malabo Kings, ha fichado al base estadounidense Marcus Thompson, quien jugó en la G-League, mientras que los Leones de Bata han sumado al alero nigeriano Chukwudi Okafor, con experiencia en ligas africanas."
+        },
+        {
+          "type": "paragraph",
+          "text": "Estos fichajes elevan el nivel competitivo de la liga y generan gran expectación entre los aficionados, que esperan un torneo más vistoso y emocionante que en ediciones anteriores."
+        },
+        {
+          "type": "quote",
+          "text": "Esta temporada marca un antes y un después para el baloncesto ecuatoguineano. La calidad de los equipos y jugadores es excepcional.",
+          "author": "Ricardo Mangue",
+          "authorRole": "Presidente FEGUIBA",
+          "authorImage": "images/perfil1.jpg"
+        },
+        {
+          "type": "heading",
+          "text": "Calendario y transmisiones"
+        },
+        {
+          "type": "paragraph",
+          "text": "La temporada regular se disputará entre enero y junio de 2026, con partidos todos los fines de semana. Por primera vez, todos los encuentros serán transmitidos en vivo por TVGE y a través de streaming en la plataforma digital de la federación, permitiendo mayor alcance y visibilidad del baloncesto nacional."
+        },
+        {
+          "type": "paragraph",
+          "text": "El partido inaugural entre Malabo Kings y Leones de Bata se celebrará el 18 de enero en el Pabellón Polideportivo de Malabo, con entrada gratuita para fomentar la asistencia masiva."
+        }
+      ],
+      "tags": ["Baloncesto", "Liga Nacional", "FEGUIBA", "Temporada 2025-2026"],
+      "readTime": "4 min"
+    },
+    {
+      "id": "joven-promesa-tenis-academia-europea",
+      "slug": "joven-promesa-tenis-academia-europea",
+      "title": "Joven Promesa del Tenis Ecuatoguineano Firma con Academia Europea",
+      "subtitle": "Lucas Micha, de 16 años, se une a prestigiosa academia en España para desarrollar su talento y proyectarse internacionalmente",
+      "category": "Tenis",
+      "categoryColor": "#06b6d4",
+      "author": "Teresa Mba",
+      "authorImage": "images/perfil1.jpg",
+      "date": "2025-12-14T00:00:00",
+      "dateDisplay": "14 de diciembre, 2025 • 00:00",
+      "heroImage": "images/tenis.jpg",
+      "excerpt": "Lucas Micha, de 16 años, se une a prestigiosa academia en España para desarrollar su talento.",
+      "content": [
+        {
+          "type": "lead",
+          "text": "<strong>Lucas Micha</strong>, la joven promesa del tenis ecuatoguineano de apenas 16 años, ha firmado un acuerdo con la Academia Sánchez-Casal en Barcelona, una de las instituciones más prestigiosas de Europa en formación de tenistas profesionales."
+        },
+        {
+          "type": "paragraph",
+          "text": "El acuerdo incluye una beca completa que cubre entrenamiento, alojamiento, alimentación y educación académica durante los próximos cuatro años. Micha se convierte en el primer tenista ecuatoguineano en acceder a un programa de esta magnitud en Europa."
+        },
+        {
+          "type": "heading",
+          "text": "Un talento excepcional"
+        },
+        {
+          "type": "paragraph",
+          "text": "Lucas Micha saltó a la escena internacional al ganar el Campeonato Juvenil de África Sub-16 celebrado en Túnez el pasado agosto, donde venció en la final al egipcio Omar Hassan en tres sets. Su juego agresivo, potente servicio y mentalidad competitiva llamaron la atención de varios cazatalentos europeos."
+        },
+        {
+          "type": "paragraph",
+          "text": "El ranking juvenil de la ITF lo sitúa actualmente en el puesto 47 mundial en su categoría, con margen de mejora considerable una vez acceda a entrenamientos y competencias de mayor nivel en Europa."
+        },
+        {
+          "type": "quote",
+          "text": "Es un sueño hecho realidad. Voy a trabajar muy duro para llevar el nombre de Guinea Ecuatorial lo más alto posible en el tenis mundial.",
+          "author": "Lucas Micha",
+          "authorRole": "Tenista",
+          "authorImage": "images/perfil2.jpg"
+        },
+        {
+          "type": "heading",
+          "text": "Apoyo institucional"
+        },
+        {
+          "type": "paragraph",
+          "text": "La Federación Ecuatoguineana de Tenis ha celebrado el fichaje y ha anunciado la creación de un programa de becas deportivas para identificar y apoyar a jóvenes talentos en deportes minoritarios. El objetivo es replicar el modelo de desarrollo que ha llevado a Lucas a Europa."
+        },
+        {
+          "type": "paragraph",
+          "text": "El Ministro de Deportes, junto a representantes de la federación, acompañaron a Lucas en su viaje a Barcelona y asistieron a la ceremonia oficial de bienvenida en la academia, donde conoció a sus futuros entrenadores y compañeros de entrenamiento."
+        }
+      ],
+      "tags": ["Tenis", "Lucas Micha", "Academia Sánchez-Casal", "Promesa", "Europa"],
+      "readTime": "4 min"
+    },
+    {
+      "id": "yann-mike-alogo-victoria-adis-abeba",
+      "slug": "yann-mike-alogo-victoria-addis-abeba",
+      "title": "Yann Mike Alogo vence al camerunés Ekesie Ejuke en Addis Abeba",
+      "subtitle": "El boxeador ecuatoguineano consigue una victoria histórica por decisión unánime ante el favorito camerunés en el campeonato africano de pesos welter",
+      "category": "Boxeo",
+      "categoryColor": "#dc2626",
+      "author": "Miguel Esono",
+      "authorImage": "images/perfil1.jpg",
+      "date": "2025-12-07T14:30:00",
+      "dateDisplay": "7 de diciembre, 2025 • 14:30",
+      "heroImage": "images/IMG_5896-1.jpg",
+      "excerpt": "El boxeador ecuatoguineano consigue una victoria histórica por decisión unánime ante el favorito camerunés en el campeonato africano de pesos welter.",
+      "content": [
+        {
+          "type": "lead",
+          "text": "En una noche histórica para el boxeo ecuatoguineano, <strong>Yann Mike Alogo</strong> se impuso por decisión unánime ante el experimentado camerunés Ekesie Ejuke en el Campeonato Africano de Boxeo Amateur celebrado en Addis Abeba, Etiopía. La victoria marca un hito en la carrera del joven púgil de 24 años."
+        },
+        {
+          "type": "paragraph",
+          "text": "El combate, que se disputó en la categoría de pesos welter (hasta 69 kg), mantuvo al público en vilo durante los tres asaltos reglamentarios. Alogo demostró una técnica depurada y una estrategia inteligente que le permitió controlar el ritmo del enfrentamiento desde el primer round."
+        },
+        {
+          "type": "paragraph",
+          "text": "Ekesie Ejuke, quien llegaba como uno de los favoritos del torneo con un récord de 18 victorias y solo 2 derrotas en su carrera amateur, no pudo imponer su experiencia ante la velocidad y precisión del boxeador ecuatoguineano. Los jueces otorgaron el triunfo a Alogo con tarjetas de 30-27, 29-28 y 30-27."
+        },
+        {
+          "type": "heading",
+          "text": "Un combate táctico desde el inicio"
+        },
+        {
+          "type": "paragraph",
+          "text": "Desde el sonido de la campana inicial, Alogo estableció su jab izquierdo como arma principal, manteniendo la distancia y evitando el juego cuerpo a cuerpo que tanto favorece al camerunés. El trabajo de piernas del ecuatoguineano fue fundamental para neutralizar los intentos de presión de Ejuke."
+        },
+        {
+          "type": "image",
+          "src": "images/tact.jpeg",
+          "caption": "Alogo durante el segundo asalto, donde conectó sus mejores combinaciones | Foto: CAB"
+        },
+        {
+          "type": "paragraph",
+          "text": "En el segundo asalto, el combate alcanzó su punto más intenso. Ejuke salió con mayor agresividad buscando el knockout, pero Alogo respondió con contragolpes certeros que frenaron el ímpetu del camerunés. Una combinación de gancho-recto en el último minuto del round inclinó claramente la balanza a favor del representante de Guinea Ecuatorial."
+        },
+        {
+          "type": "quote",
+          "text": "Sabía que debía mantener la calma y seguir el plan. Mi esquina me preparó perfectamente para este momento. Esta victoria es para todo Guinea Ecuatorial.",
+          "author": "Yann Mike Alogo",
+          "authorRole": "Boxeador ecuatoguineano",
+          "authorImage": "images/images (2).jpeg"
+        },
+        {
+          "type": "heading",
+          "text": "El tercer asalto decisivo"
+        },
+        {
+          "type": "paragraph",
+          "text": "El último round comenzó con ambos boxeadores conscientes de la necesidad de un gran desempeño. Alogo optó por una estrategia conservadora, administrando su ventaja y evitando riesgos innecesarios. Su disciplina táctica resultó fundamental para asegurar la victoria en las tarjetas de los jueces."
+        },
+        {
+          "type": "paragraph",
+          "text": "El entrenador de Alogo, el español Francisco Rodríguez, quien lo ha preparado durante los últimos tres años, destacó después del combate la evolución técnica de su pupilo: 'Yann ha trabajado incansablemente para llegar a este nivel. Su dedicación y su capacidad para seguir instrucciones son excepcionales.'"
+        },
+        {
+          "type": "heading",
+          "text": "Proyección futura y siguiente paso"
+        },
+        {
+          "type": "paragraph",
+          "text": "Esta victoria abre las puertas a Alogo para competir en los próximos Juegos Africanos de 2027, donde buscará una medalla que le permita clasificar a los Juegos Olímpicos. El boxeador ya ha expresado su deseo de representar a Guinea Ecuatorial en el máximo evento deportivo mundial."
+        },
+        {
+          "type": "paragraph",
+          "text": "La Federación Ecuatoguineana de Boxeo celebró el triunfo como un ejemplo del crecimiento del deporte en el país y anunció un incremento en las becas deportivas para jóvenes púgiles que deseen seguir los pasos de Alogo."
+        }
+      ],
+      "tags": ["Boxeo", "Yann Mike Alogo", "Guinea Ecuatorial", "Campeonato Africano", "Addis Abeba"],
+      "readTime": "6 min",
+      "gallery": [
+        {
+          "src": "images/clav2.webp",
+          "caption": "Momento del combate"
+        },
+        {
+          "src": "images/tact.jpeg",
+          "caption": "Técnica de Alogo"
+        },
+        {
+          "src": "images/clav1.jpeg",
+          "caption": "Celebración de la victoria"
+        }
+      ],
+      "timeline": [
+        {
+          "round": "R1",
+          "title": "Primer Asalto",
+          "description": "Alogo establece su jab y controla la distancia. Ejuke busca acortar pero no encuentra espacios."
+        },
+        {
+          "round": "R2",
+          "title": "Segundo Asalto",
+          "description": "El asalto más intenso. Ejuke presiona con agresividad pero Alogo responde con una potente combinación."
+        },
+        {
+          "round": "R3",
+          "title": "Tercer Asalto",
+          "description": "Alogo administra su ventaja con inteligencia. Evita riesgos y asegura la victoria por puntos."
+        },
+        {
+          "round": "FIN",
+          "title": "Victoria por Decisión Unánime",
+          "description": "Tarjetas: 30-27, 29-28, 30-27"
+        }
+      ]
+    }
+  ]
+}

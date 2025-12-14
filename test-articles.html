@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article System Test - AfrikaSport365</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #f9fafb;
+        }
+        h1 {
+            color: #111827;
+            margin-bottom: 2rem;
+        }
+        .test-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .test-section h2 {
+            color: #2563eb;
+            margin-top: 0;
+        }
+        .test-links {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .test-link {
+            display: block;
+            padding: 1rem;
+            background: #eff6ff;
+            border: 2px solid #2563eb;
+            border-radius: 0.375rem;
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .test-link:hover {
+            background: #2563eb;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+        .status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        .status.success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        .status.pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        .info-box {
+            background: #f0f9ff;
+            border-left: 4px solid #2563eb;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 0.25rem;
+        }
+        .info-box p {
+            margin: 0;
+            color: #1e40af;
+        }
+        code {
+            background: #f3f4f6;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-family: 'Courier New', monospace;
+            color: #ef4444;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔧 AfrikaSport365 - Article System Test Page</h1>
+
+    <div class="test-section">
+        <h2>✅ System Status</h2>
+        <p><span class="status success">OPERATIONAL</span> Dynamic article system ready for testing</p>
+        <div class="info-box">
+            <p><strong>Note:</strong> This test page helps verify all article links work correctly before production deployment.</p>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>📰 Test All Articles</h2>
+        <p>Click each link to verify the article loads correctly with proper content, images, and formatting.</p>
+        <div class="test-links">
+            <a href="article.html?slug=nzalang-eliminatorias-afcon-2025" class="test-link">
+                ⚽ Nzalang Nacional AFCON - <code>nzalang-eliminatorias-afcon-2025</code>
+            </a>
+            <a href="article.html?slug=record-nacional-100-metros-femeninos" class="test-link">
+                🏃 Record 100 Metros Femeninos - <code>record-nacional-100-metros-femeninos</code>
+            </a>
+            <a href="article.html?slug=medalla-plata-judo-campeonato-africano" class="test-link">
+                🥋 Medalla Plata Judo - <code>medalla-plata-judo-campeonato-africano</code>
+            </a>
+            <a href="article.html?slug=liga-baloncesto-record-inscripciones" class="test-link">
+                🏀 Liga Baloncesto - <code>liga-baloncesto-record-inscripciones</code>
+            </a>
+            <a href="article.html?slug=joven-promesa-tenis-academia-europea" class="test-link">
+                🎾 Promesa Tenis - <code>joven-promesa-tenis-academia-europea</code>
+            </a>
+            <a href="article.html?slug=yann-mike-alogo-victoria-addis-abeba" class="test-link">
+                🥊 Yann Mike Alogo Boxeo (with gallery & timeline) - <code>yann-mike-alogo-victoria-addis-abeba</code>
+            </a>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>❌ Test Error Handling</h2>
+        <p>Verify the 404 error state displays correctly for non-existent articles.</p>
+        <div class="test-links">
+            <a href="article.html?slug=invalid-article-slug" class="test-link">
+                🚫 Invalid Slug Test - <code>invalid-article-slug</code>
+            </a>
+            <a href="article.html" class="test-link">
+                🚫 No Slug Parameter Test
+            </a>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>🔍 What to Verify</h2>
+        <ul style="line-height: 1.8;">
+            <li>✓ Article hero image loads correctly</li>
+            <li>✓ Title, subtitle, and metadata display properly</li>
+            <li>✓ Category badge shows correct color</li>
+            <li>✓ Author avatar and information appear</li>
+            <li>✓ Article content renders with proper formatting</li>
+            <li>✓ Images within content load correctly</li>
+            <li>✓ Blockquotes display with author attribution</li>
+            <li>✓ Gallery and timeline (Yann Mike article only)</li>
+            <li>✓ Tags appear at bottom</li>
+            <li>✓ Page title updates in browser tab</li>
+            <li>✓ Error state shows for invalid slugs</li>
+            <li>✓ Auto-redirect after 5 seconds on error</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>🏠 Navigation</h2>
+        <div class="test-links">
+            <a href="index.html" class="test-link">
+                ← Back to Homepage
+            </a>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>📚 System Documentation</h2>
+        <p>For complete documentation on adding new articles and system architecture, see:</p>
+        <div class="info-box">
+            <p><code>ARTICLE_SYSTEM_GUIDE.md</code> - Complete implementation guide</p>
+        </div>
+    </div>
+
+    <footer style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #e5e7eb; color: #6b7280;">
+        <p>AfrikaSport365 - Dynamic Article System Test Page</p>
+        <p style="font-size: 0.875rem;">Version 1.0.0 • December 2025</p>
+    </footer>
+</body>
+</html>
