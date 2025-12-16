@@ -1,0 +1,116 @@
+{
+  "siteInfo": {
+    "name": "AfrikaSport365",
+    "tagline": "La referencia del deporte en Guinea Ecuatorial",
+    "description": "Cobertura completa, análisis experto y pasión por el deporte africano.",
+    "logo": "images/logoAS350.png",
+    "contact": {
+      "email": "info@afrikasport365.com",
+      "phone": "+240 XXX XXX XXX"
+    },
+    "social": {
+      "facebook": "#",
+      "twitter": "#",
+      "instagram": "#",
+      "youtube": "#"
+    }
+  },
+  "hero": {
+    "badge": "HISTORIA DESTACADA",
+    "title": "Guinea Ecuatorial se Prepara para Recibir la Copa Africana de Naciones 2026",
+    "excerpt": "El país se convierte en anfitrión de uno de los torneos de fútbol más prestigiosos del continente. Nuevas instalaciones, infraestructura renovada y un espíritu deportivo sin precedentes marcan el camino hacia este histórico evento.",
+    "backgroundImage": "images/mohamed-salah-egypt-21-752x428.jpg",
+    "meta": {
+      "date": "15 de Enero, 2025",
+      "author": "Pedro Nguema",
+      "readTime": "8 min de lectura"
+    },
+    "ctaText": "Leer Historia Completa",
+    "ctaLink": "article.html?slug=nzalang-eliminatorias-afcon-2025"
+  },
+  "breakingNews": [
+    "Guinea Ecuatorial celebra medalla de oro en los Juegos Africanos",
+    "Selección Nacional se prepara para eliminatorias AFCON 2026",
+    "Nuevo centro de alto rendimiento deportivo inaugurado en Malabo",
+    "Atleta ecuatoguineana rompe récord nacional en 100 metros"
+  ],
+  "aboutSection": {
+    "icon": "🏆",
+    "title": "Nuestra Misión",
+    "description": "AfrikaSport365 es la plataforma líder de noticias deportivas en Guinea Ecuatorial, comprometida con llevar la pasión, la emoción y el orgullo del deporte africano a cada rincón del país. Nuestra misión es inspirar, informar y conectar a la comunidad deportiva a través de coberturas exhaustivas, análisis profundos y contenido multimedia de primera calidad.",
+    "stats": [
+      {
+        "value": "500K+",
+        "label": "Lectores Mensuales"
+      },
+      {
+        "value": "15",
+        "label": "Deportes Cubiertos"
+      },
+      {
+        "value": "24/7",
+        "label": "Cobertura en Vivo"
+      }
+    ]
+  },
+  "navigation": {
+    "main": [
+      {
+        "label": "Inicio",
+        "href": "index.html",
+        "active": true
+      },
+      {
+        "label": "AFCON 2026",
+        "href": "afcon2026.html",
+        "active": false
+      },
+      {
+        "label": "Deportes",
+        "href": "#",
+        "active": false
+      },
+      {
+        "label": "Academia",
+        "href": "#",
+        "active": false
+      },
+      {
+        "label": "Multimedia",
+        "href": "#",
+        "active": false
+      }
+    ],
+    "footer": {
+      "sections": [
+        {
+          "title": "Deportes",
+          "links": [
+            { "label": "Fútbol", "href": "#" },
+            { "label": "Atletismo", "href": "#" },
+            { "label": "Baloncesto", "href": "#" },
+            { "label": "Judo", "href": "#" }
+          ]
+        },
+        {
+          "title": "Secciones",
+          "links": [
+            { "label": "Noticias", "href": "#" },
+            { "label": "Resultados", "href": "#" },
+            { "label": "Multimedia", "href": "#" },
+            { "label": "Entrevistas", "href": "#" }
+          ]
+        },
+        {
+          "title": "Información",
+          "links": [
+            { "label": "Sobre Nosotros", "href": "#" },
+            { "label": "Contacto", "href": "#" },
+            { "label": "Política de Privacidad", "href": "#" },
+            { "label": "Términos de Uso", "href": "#" }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CMS-MANAGED: Site title and meta loaded from data/config.json -->
     <title>AfrikaSport365 | La Referencia del Deporte en Guinea Ecuatorial</title>
     <meta name="description" content="AfrikaSport365 - Tu fuente definitiva de noticias deportivas, coberturas en vivo y análisis profundo del deporte en Guinea Ecuatorial y África.">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -11,15 +12,16 @@
 </head>
 <body class="bg-gray-50">
     <!-- Header with Navigation -->
+    <!-- CMS-MANAGED: Site branding loaded from data/config.json -> siteInfo -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4">
             <div class="flex items-center justify-between py-4">
                 <!-- Logo -->
-                <div class="flex items-center">
-                    <img src="images/logoAS350.png" alt="AfrikaSport365 Logo" class="h-12 mr-3">
+                <div class="flex items-center" data-cms-content="siteInfo">
+                    <img src="images/logoAS350.png" alt="AfrikaSport365 Logo" class="h-12 mr-3" data-cms-field="siteInfo.logo">
                     <div>
-                        <h1 class="text-2xl font-bold text-blue-600">AfrikaSport365</h1>
-                        <p class="text-xs text-gray-600">La referencia del deporte en Guinea Ecuatorial</p>
+                        <h1 class="text-2xl font-bold text-blue-600" data-cms-field="siteInfo.name">AfrikaSport365</h1>
+                        <p class="text-xs text-gray-600" data-cms-field="siteInfo.tagline">La referencia del deporte en Guinea Ecuatorial</p>
                     </div>
                 </div>
 
@@ -117,32 +119,34 @@
     </div>
 
     <!-- Hero Section -->
+    <!-- CMS-MANAGED: Hero content loaded from data/config.json -> hero object -->
+    <!-- FUTURE: Admin can change featured story, background image, metadata via CMS -->
     <section class="homepage-hero">
         <div class="hero-background">
-            <img src="images/mohamed-salah-egypt-21-752x428.jpg" alt="Hero Background">
+            <img src="images/mohamed-salah-egypt-21-752x428.jpg" alt="Hero Background" data-cms-field="hero.backgroundImage">
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content-wrapper">
             <div class="container mx-auto px-4">
-                <div class="hero-featured-story">
-                    <div class="hero-badge">
+                <div class="hero-featured-story" data-cms-content="hero">
+                    <div class="hero-badge" data-cms-field="hero.badge">
                         HISTORIA DESTACADA
                     </div>
-                    <h2 class="hero-title">
+                    <h2 class="hero-title" data-cms-field="hero.title">
                         Guinea Ecuatorial se Prepara para Recibir la Copa Africana de Naciones 2026
                     </h2>
-                    <p class="hero-excerpt">
+                    <p class="hero-excerpt" data-cms-field="hero.excerpt">
                         El país se convierte en anfitrión de uno de los torneos de fútbol más prestigiosos del continente. 
                         Nuevas instalaciones, infraestructura renovada y un espíritu deportivo sin precedentes marcan el camino 
                         hacia este histórico evento.
                     </p>
                     <div class="hero-meta">
-                        <span>📅 15 de Enero, 2025</span>
-                        <span>✍️ Pedro Nguema</span>
-                        <span>⏱️ 8 min de lectura</span>
+                        <span data-cms-field="hero.meta.date">📅 15 de Enero, 2025</span>
+                        <span data-cms-field="hero.meta.author">✍️ Pedro Nguema</span>
+                        <span data-cms-field="hero.meta.readTime">⏱️ 8 min de lectura</span>
                     </div>
-                    <a href="article.html?slug=nzalang-eliminatorias-afcon-2025" class="hero-cta">
-                        Leer Historia Completa
+                    <a href="article.html?slug=nzalang-eliminatorias-afcon-2025" class="hero-cta" data-cms-field="hero.ctaLink">
+                        <span data-cms-field="hero.ctaText">Leer Historia Completa</span>
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                         </svg>
@@ -160,6 +164,8 @@
     </div>
 
     <!-- Latest News Section -->
+    <!-- CMS-MANAGED: News articles loaded dynamically from data/articles.json -->
+    <!-- EXISTING SYSTEM: Article cards already support slug-based routing -->
     <section class="section-wrapper">
         <div class="container mx-auto px-4">
             <div class="section-header">
@@ -695,31 +701,33 @@
     </section>
 
     <!-- About/Mission Section -->
+    <!-- CMS-MANAGED: About section loaded from data/config.json -> aboutSection -->
+    <!-- FUTURE: Admin can update mission text and statistics via CMS -->
     <section class="section-wrapper">
         <div class="container mx-auto px-4">
             <div class="about-block">
-                <div class="about-content">
-                    <div class="about-icon">🏆</div>
-                    <h2 class="about-title">Nuestra Misión</h2>
-                    <p class="about-description">
+                <div class="about-content" data-cms-content="aboutSection">
+                    <div class="about-icon" data-cms-field="aboutSection.icon">🏆</div>
+                    <h2 class="about-title" data-cms-field="aboutSection.title">Nuestra Misión</h2>
+                    <p class="about-description" data-cms-field="aboutSection.description">
                         AfrikaSport365 es la plataforma líder de noticias deportivas en Guinea Ecuatorial, 
                         comprometida con llevar la pasión, la emoción y el orgullo del deporte africano a cada rincón del país. 
                         Nuestra misión es inspirar, informar y conectar a la comunidad deportiva a través de coberturas 
                         exhaustivas, análisis profundos y contenido multimedia de primera calidad.
                     </p>
                     
-                    <div class="about-stats">
+                    <div class="about-stats" data-cms-list="aboutSection.stats">
                         <div class="about-stat-item">
-                            <span class="about-stat-value">500K+</span>
-                            <span class="about-stat-label">Lectores Mensuales</span>
+                            <span class="about-stat-value" data-cms-field="stats.0.value">500K+</span>
+                            <span class="about-stat-label" data-cms-field="stats.0.label">Lectores Mensuales</span>
                         </div>
                         <div class="about-stat-item">
-                            <span class="about-stat-value">15</span>
-                            <span class="about-stat-label">Deportes Cubiertos</span>
+                            <span class="about-stat-value" data-cms-field="stats.1.value">15</span>
+                            <span class="about-stat-label" data-cms-field="stats.1.label">Deportes Cubiertos</span>
                         </div>
                         <div class="about-stat-item">
-                            <span class="about-stat-value">24/7</span>
-                            <span class="about-stat-label">Cobertura en Vivo</span>
+                            <span class="about-stat-value" data-cms-field="stats.2.value">24/7</span>
+                            <span class="about-stat-label" data-cms-field="stats.2.label">Cobertura en Vivo</span>
                         </div>
                     </div>
                 </div>
@@ -877,5 +885,11 @@
             observer.observe(el);
         });
     </script>
+
+    <!-- JavaScript -->
+    <!-- Core content loader for CMS integration -->
+    <script src="js/content-loader.js"></script>
+    <!-- Page-specific functionality -->
+    <script src="js/main.js"></script>
 </body>
 </html>

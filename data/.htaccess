@@ -1,0 +1,6 @@
+Options -Indexes
+<FilesMatch "\.json$">
+  <LimitExcept GET HEAD>
+    Require all denied
+  </LimitExcept>
+</FilesMatch>

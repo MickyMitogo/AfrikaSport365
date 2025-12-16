@@ -1,0 +1,10 @@
+Options -Indexes
+<IfModule mod_headers.c>
+Header set X-Frame-Options "SAMEORIGIN"
+Header set X-Content-Type-Options "nosniff"
+Header set Referrer-Policy "no-referrer-when-downgrade"
+</IfModule>
+
+<FilesMatch "^config\.php$">
+  Require all denied
+</FilesMatch>

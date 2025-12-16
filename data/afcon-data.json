@@ -1,0 +1,186 @@
+{
+  "tournament": {
+    "name": "AFCON 2025",
+    "fullName": "TotalEnergies Copa Africana de Naciones",
+    "host": "Marruecos",
+    "logo": "images/AFCON-2021.webp",
+    "startDate": "2025-12-21",
+    "endDate": "2026-01-18",
+    "displayDates": "21 Diciembre 2025 - 18 Enero 2026"
+  },
+  "liveMatches": [
+    {
+      "id": "match-1",
+      "status": "live",
+      "minute": "73",
+      "homeTeam": {
+        "name": "Egipto",
+        "flag": "images/perfil1.jpg",
+        "score": 2
+      },
+      "awayTeam": {
+        "name": "Nigeria",
+        "flag": "images/WvUXq95r_400x400.jpg",
+        "score": 1
+      },
+      "venue": "Stade Mohammed V, Casablanca",
+      "commentary": [
+        {
+          "minute": "73",
+          "text": "⚽ ¡GOL! Mohamed Salah marca de penal para Egipto"
+        },
+        {
+          "minute": "68",
+          "text": "⚽ Victor Osimhen descuenta para Nigeria"
+        }
+      ]
+    },
+    {
+      "id": "match-2",
+      "status": "upcoming",
+      "dateTime": "Hoy - 18:00",
+      "homeTeam": {
+        "name": "Marruecos",
+        "flag": "images/perfil2.jpg",
+        "score": null
+      },
+      "awayTeam": {
+        "name": "Senegal",
+        "flag": "images/perfil1.jpg",
+        "score": null
+      },
+      "venue": "Stade Prince Moulay Abdellah, Rabat"
+    },
+    {
+      "id": "match-3",
+      "status": "finished",
+      "homeTeam": {
+        "name": "Costa de Marfil",
+        "flag": "images/images (2).jpeg",
+        "score": 3
+      },
+      "awayTeam": {
+        "name": "Argelia",
+        "flag": "images/images.jpeg",
+        "score": 1
+      },
+      "venue": "Stade Ibn Batouta, Tánger"
+    }
+  ],
+  "groups": [
+    {
+      "id": "a",
+      "name": "Grupo A",
+      "teams": [
+        {
+          "position": 1,
+          "name": "Marruecos",
+          "flag": "images/perfil2.jpg",
+          "played": 3,
+          "won": 2,
+          "drawn": 1,
+          "lost": 0,
+          "goalsFor": 6,
+          "goalsAgainst": 2,
+          "goalDifference": 4,
+          "points": 7,
+          "qualified": true
+        },
+        {
+          "position": 2,
+          "name": "Senegal",
+          "flag": "images/perfil1.jpg",
+          "played": 3,
+          "won": 2,
+          "drawn": 0,
+          "lost": 1,
+          "goalsFor": 5,
+          "goalsAgainst": 3,
+          "goalDifference": 2,
+          "points": 6,
+          "qualified": true
+        },
+        {
+          "position": 3,
+          "name": "Comoras",
+          "flag": "images/images.jpeg",
+          "played": 3,
+          "won": 1,
+          "drawn": 0,
+          "lost": 2,
+          "goalsFor": 3,
+          "goalsAgainst": 5,
+          "goalDifference": -2,
+          "points": 3,
+          "qualified": false
+        },
+        {
+          "position": 4,
+          "name": "Gabón",
+          "flag": "images/WvUXq95r_400x400.jpg",
+          "played": 3,
+          "won": 0,
+          "drawn": 1,
+          "lost": 2,
+          "goalsFor": 2,
+          "goalsAgainst": 6,
+          "goalDifference": -4,
+          "points": 1,
+          "qualified": false
+        }
+      ]
+    }
+  ],
+  "topScorers": [
+    {
+      "position": 1,
+      "name": "Victor Osimhen",
+      "country": "Nigeria",
+      "flag": "images/WvUXq95r_400x400.jpg",
+      "goals": 7,
+      "matches": 5
+    },
+    {
+      "position": 2,
+      "name": "Sadio Mané",
+      "country": "Senegal",
+      "flag": "images/perfil1.jpg",
+      "goals": 6,
+      "matches": 5
+    },
+    {
+      "position": 3,
+      "name": "Mohamed Salah",
+      "country": "Egipto",
+      "flag": "images/perfil1.jpg",
+      "goals": 5,
+      "matches": 4
+    }
+  ],
+  "hostCities": [
+    {
+      "name": "Rabat",
+      "description": "Capital de Marruecos y sede de la final",
+      "stadium": "Stade Prince Moulay Abdellah",
+      "capacity": "53,000",
+      "image": "images/tenis.jpg",
+      "matches": ["Final", "Semifinales"]
+    },
+    {
+      "name": "Casablanca",
+      "description": "La ciudad más grande de Marruecos",
+      "stadium": "Stade Mohammed V",
+      "capacity": "67,000",
+      "image": "images/baloncesto.jpg",
+      "matches": ["Semifinales", "Cuartos de Final"]
+    },
+    {
+      "name": "Tánger",
+      "description": "Puerta de entrada desde Europa",
+      "stadium": "Stade Ibn Batouta",
+      "capacity": "45,000",
+      "image": "images/judo.jpg",
+      "matches": ["Cuartos de Final", "Fase de Grupos"]
+    }
+  ]
+}

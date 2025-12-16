@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- CMS-MANAGED: Tournament info loaded from data/afcon-data.json -->
   <title>AFCON 2025 - TotalEnergies Copa Africana de Naciones Marruecos | AfrikaSport365</title>
   <meta name="description" content="Toda la información sobre la TotalEnergies Copa Africana de Naciones 2025 en Marruecos. Resultados en vivo, clasificaciones, noticias, estadísticas y más." />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -33,15 +34,17 @@
   </header>
 
   <!-- Hero Banner -->
+  <!-- CMS-MANAGED: Tournament hero data from data/afcon-data.json -> tournament object -->
+  <!-- FUTURE: Admin updates tournament name, dates, host country via CMS -->
   <section class="afcon-hero">
     <div class="hero-overlay"></div>
     <div class="container mx-auto px-4">
-      <div class="hero-content">
+      <div class="hero-content" data-cms-content="tournament">
         <div class="afcon-logo-badge">
-          <img src="images/AFCON-2021.webp" alt="AFCON 2025 Logo" class="afcon-logo-img" />
+          <img src="images/AFCON-2021.webp" alt="AFCON 2025 Logo" class="afcon-logo-img" data-cms-field="tournament.logo" />
         </div>
-        <h1 class="hero-title">AFCON 2025 – Marruecos</h1>
-        <p class="hero-subtitle">TotalEnergies Copa Africana de Naciones</p>
+        <h1 class="hero-title" data-cms-field="tournament.name">AFCON 2025 – Marruecos</h1>
+        <p class="hero-subtitle" data-cms-field="tournament.fullName">TotalEnergies Copa Africana de Naciones</p>
         <div class="hero-dates">
           <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -49,13 +52,15 @@
             <line x1="8" y1="2" x2="8" y2="6"></line>
             <line x1="3" y1="10" x2="21" y2="10"></line>
           </svg>
-          <span>21 Diciembre 2025 - 18 Enero 2026</span>
+          <span data-cms-field="tournament.displayDates">21 Diciembre 2025 - 18 Enero 2026</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Live Updates Section -->
+  <!-- CMS-MANAGED: Live matches loaded from data/afcon-data.json -> liveMatches array -->
+  <!-- FUTURE: Real-time score updates via API or admin panel -->
   <section class="live-updates-section">
     <div class="container mx-auto px-4">
       <div class="section-header">
@@ -65,7 +70,7 @@
         </h2>
       </div>
       
-      <div class="live-matches-grid">
+      <div class="live-matches-grid" data-cms-list="liveMatches">
         <!-- Live Match 1 -->
         <div class="live-match-card">
           <div class="match-status live">EN VIVO • 73'</div>
@@ -262,13 +267,15 @@
       </div>
     </div>
   </section>
-
-  <!-- Groups and Standings -->
+!-- CMS-MANAGED: Group standings loaded from data/afcon-data.json -> groups array -->
+  <!-- FUTURE: Auto-update standings after each match via CMS -->
   <section class="standings-section">
     <div class="container mx-auto px-4">
       <div class="section-header">
         <h2 class="section-title">Grupos y Clasificación</h2>
       </div>
+
+      <div class="groups-tabs" data-cms-list="group
 
       <div class="groups-tabs">
         <button class="group-tab active" data-group="a">Grupo A</button>
@@ -1357,6 +1364,10 @@
     </div>
   </footer>
 
+  <!-- JavaScript -->
+  <!-- Core content loader for CMS integration -->
+  <script src="js/content-loader.js"></script>
+  <!-- Page-specific functionality -->
   <script src="js/main.js"></script>
   <script src="js/afcon2026.js"></script>
 </body>
