@@ -20,12 +20,39 @@
         <label>Logo URL<input name="siteInfo.logo"></label>
       </fieldset>
       <fieldset>
-        <legend>Hero</legend>
+        <legend>Hero (Featured Story)</legend>
+        <label>Badge<input name="hero.badge" placeholder="e.g., HISTORIA DESTACADA"></label>
         <label>Title<input name="hero.title" required></label>
         <label>Excerpt<textarea name="hero.excerpt" rows="3"></textarea></label>
-        <label>Background Image<input name="hero.backgroundImage"></label>
-        <label>CTA Label<input name="hero.cta.label"></label>
-        <label>CTA URL<input name="hero.cta.url"></label>
+        <label>Background Image URL<input name="hero.backgroundImage"></label>
+        <label>CTA Text<input name="hero.ctaText" placeholder="e.g., Leer Historia Completa"></label>
+        <label>CTA Link<input name="hero.ctaLink" placeholder="article.html?slug=..."></label>
+        <label>Date<input name="hero.meta.date" placeholder="e.g., 15 de Enero, 2025"></label>
+        <label>Author<input name="hero.meta.author" placeholder="e.g., Pedro Nguema"></label>
+        <label>Read Time<input name="hero.meta.readTime" placeholder="e.g., 8 min de lectura"></label>
+      </fieldset>
+      <fieldset>
+        <legend>About / Mission Section</legend>
+        <label>Icon (emoji)<input name="aboutSection.icon" placeholder="e.g., 🏆" maxlength="4"></label>
+        <label>Title<input name="aboutSection.title" placeholder="e.g., Nuestra Misión"></label>
+        <label>Description<textarea name="aboutSection.description" rows="4" placeholder="Mission statement text..."></textarea></label>
+        <div style="margin-top:10px">
+          <strong>Statistics</strong>
+          <div style="display:grid;gap:8px;margin-top:8px">
+            <div style="display:grid;grid-template-columns:1fr 2fr;gap:8px">
+              <input name="aboutSection.stats.0.value" placeholder="Value (e.g., 500K+)">
+              <input name="aboutSection.stats.0.label" placeholder="Label (e.g., Lectores Mensuales)">
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 2fr;gap:8px">
+              <input name="aboutSection.stats.1.value" placeholder="Value (e.g., 15)">
+              <input name="aboutSection.stats.1.label" placeholder="Label (e.g., Deportes Cubiertos)">
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 2fr;gap:8px">
+              <input name="aboutSection.stats.2.value" placeholder="Value (e.g., 24/7)">
+              <input name="aboutSection.stats.2.label" placeholder="Label (e.g., Cobertura en Vivo)">
+            </div>
+          </div>
+        </div>
       </fieldset>
       <div class="actions">
         <button type="button" class="btn" data-preview="config">Preview</button>

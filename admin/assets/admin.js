@@ -121,11 +121,26 @@
       setValue(fs, 'siteInfo.name', conf.siteInfo?.name);
       setValue(fs, 'siteInfo.tagline', conf.siteInfo?.tagline);
       setValue(fs, 'siteInfo.logo', conf.siteInfo?.logo);
+      setValue(fs, 'hero.badge', conf.hero?.badge);
       setValue(fs, 'hero.title', conf.hero?.title);
       setValue(fs, 'hero.excerpt', conf.hero?.excerpt);
       setValue(fs, 'hero.backgroundImage', conf.hero?.backgroundImage);
-      setValue(fs, 'hero.cta.label', conf.hero?.cta?.label);
-      setValue(fs, 'hero.cta.url', conf.hero?.cta?.url);
+      setValue(fs, 'hero.ctaText', conf.hero?.ctaText);
+      setValue(fs, 'hero.ctaLink', conf.hero?.ctaLink);
+      setValue(fs, 'hero.meta.date', conf.hero?.meta?.date);
+      setValue(fs, 'hero.meta.author', conf.hero?.meta?.author);
+      setValue(fs, 'hero.meta.readTime', conf.hero?.meta?.readTime);
+
+      // About section
+      setValue(fs, 'aboutSection.icon', conf.aboutSection?.icon);
+      setValue(fs, 'aboutSection.title', conf.aboutSection?.title);
+      setValue(fs, 'aboutSection.description', conf.aboutSection?.description);
+      setValue(fs, 'aboutSection.stats.0.value', conf.aboutSection?.stats?.[0]?.value);
+      setValue(fs, 'aboutSection.stats.0.label', conf.aboutSection?.stats?.[0]?.label);
+      setValue(fs, 'aboutSection.stats.1.value', conf.aboutSection?.stats?.[1]?.value);
+      setValue(fs, 'aboutSection.stats.1.label', conf.aboutSection?.stats?.[1]?.label);
+      setValue(fs, 'aboutSection.stats.2.value', conf.aboutSection?.stats?.[2]?.value);
+      setValue(fs, 'aboutSection.stats.2.label', conf.aboutSection?.stats?.[2]?.label);
 
       renderBreaking(conf.breakingNews || []);
 
@@ -227,10 +242,36 @@
         logo: getValue(fs, 'siteInfo.logo'),
       },
       hero: {
+        badge: getValue(fs, 'hero.badge'),
         title: getValue(fs, 'hero.title'),
         excerpt: getValue(fs, 'hero.excerpt'),
         backgroundImage: getValue(fs, 'hero.backgroundImage'),
-        cta: { label: getValue(fs, 'hero.cta.label'), url: getValue(fs, 'hero.cta.url') }
+        ctaText: getValue(fs, 'hero.ctaText'),
+        ctaLink: getValue(fs, 'hero.ctaLink'),
+        meta: {
+          date: getValue(fs, 'hero.meta.date'),
+          author: getValue(fs, 'hero.meta.author'),
+          readTime: getValue(fs, 'hero.meta.readTime')
+        }
+      },
+      aboutSection: {
+        icon: getValue(fs, 'aboutSection.icon'),
+        title: getValue(fs, 'aboutSection.title'),
+        description: getValue(fs, 'aboutSection.description'),
+        stats: [
+          {
+            value: getValue(fs, 'aboutSection.stats.0.value'),
+            label: getValue(fs, 'aboutSection.stats.0.label')
+          },
+          {
+            value: getValue(fs, 'aboutSection.stats.1.value'),
+            label: getValue(fs, 'aboutSection.stats.1.label')
+          },
+          {
+            value: getValue(fs, 'aboutSection.stats.2.value'),
+            label: getValue(fs, 'aboutSection.stats.2.label')
+          }
+        ]
       },
       breakingNews: collectBreaking()
     };
