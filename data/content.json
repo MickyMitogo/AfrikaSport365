@@ -1,0 +1,443 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-01-17T10:00:00Z",
+  
+  "siteInfo": {
+    "name": "AfrikaSport365",
+    "tagline": "La referencia del deporte en Guinea Ecuatorial",
+    "description": "Cobertura completa, análisis experto y pasión por el deporte africano.",
+    "logo": "images/logoAS350.png",
+    "contact": {
+      "email": "info@afrikasport365.com",
+      "phone": "+240 XXX XXX XXX",
+      "address": "Malabo, Guinea Ecuatorial"
+    },
+    "social": {
+      "facebook": "#",
+      "twitter": "#",
+      "instagram": "#",
+      "youtube": "#"
+    }
+  },
+
+  "hero": {
+    "badge": "HISTORIA DESTACADA",
+    "title": "Guinea Ecuatorial se Prepara para Recibir la Copa Africana de Naciones 2026",
+    "excerpt": "El país se convierte en anfitrión de uno de los torneos de fútbol más prestigiosos del continente. Nuevas instalaciones, infraestructura renovada y un espíritu deportivo sin precedentes marcan el camino hacia este histórico evento.",
+    "backgroundImage": "images/mohamed-salah-egypt-21-752x428.jpg",
+    "meta": {
+      "date": "15 de Enero, 2025",
+      "author": "Pedro Nguema",
+      "readTime": "8 min de lectura"
+    },
+    "ctaText": "Leer Historia Completa",
+    "ctaLink": "article.html?slug=nzalang-eliminatorias-afcon-2025"
+  },
+
+  "breakingNews": [
+    "Guinea Ecuatorial celebra medalla de oro en los Juegos Africanos",
+    "Selección Nacional se prepara para eliminatorias AFCON 2026",
+    "Nuevo centro de alto rendimiento deportivo inaugurado en Malabo",
+    "Atleta ecuatoguineana rompe récord nacional en 100 metros"
+  ],
+
+  "latestNews": {
+    "sectionTitle": "Últimas Noticias",
+    "viewAllText": "Ver todas las noticias",
+    "viewAllLink": "#",
+    
+    "featured": {
+      "slug": "nzalang-eliminatorias-afcon-2025",
+      "image": "images/OIP (1).webp",
+      "category": "FÚTBOL",
+      "categoryColor": "#ef4444",
+      "title": "Los Nzalang Nacional Buscan la Gloria en las Eliminatorias AFCON",
+      "excerpt": "La selección nacional de Guinea Ecuatorial inicia su camino hacia la Copa Africana de Naciones con una preparación intensiva y nuevos refuerzos que prometen llevar al equipo a niveles históricos.",
+      "meta": {
+        "date": "Hace 2 horas",
+        "author": "María Obiang",
+        "comments": 24
+      }
+    },
+    
+    "grid": [
+      {
+        "slug": "record-nacional-100-metros-femeninos",
+        "image": "images/atletismo.jpg",
+        "category": "ATLETISMO",
+        "categoryColor": "#10b981",
+        "title": "Record Nacional en 100 Metros Femeninos",
+        "excerpt": "Emilia Esono establece nueva marca nacional con un tiempo de 11.23 segundos en el campeonato regional.",
+        "meta": {
+          "date": "Hace 4 horas",
+          "author": "Carlos Mangue"
+        }
+      },
+      {
+        "slug": "medalla-plata-judo-campeonato-africano",
+        "image": "images/judo.jpg",
+        "category": "JUDO",
+        "categoryColor": "#f59e0b",
+        "title": "Medalla de Plata para Guinea Ecuatorial en Campeonato Africano",
+        "excerpt": "José Bindang obtiene medalla de plata en la categoría -73kg tras una brillante actuación.",
+        "meta": {
+          "date": "Hace 6 horas",
+          "author": "Ana Riloha"
+        }
+      },
+      {
+        "slug": "liga-baloncesto-record-inscripciones",
+        "image": "images/baloncesto.jpg",
+        "category": "BALONCESTO",
+        "categoryColor": "#8b5cf6",
+        "title": "Liga Nacional de Baloncesto Inicia Temporada con Récord de Inscripciones",
+        "excerpt": "La nueva temporada promete ser la más competitiva con 12 equipos participantes.",
+        "meta": {
+          "date": "Hace 8 horas",
+          "author": "David Nve"
+        }
+      },
+      {
+        "slug": "joven-promesa-tenis-academia-europea",
+        "image": "images/tenis.jpg",
+        "category": "TENIS",
+        "categoryColor": "#06b6d4",
+        "title": "Joven Promesa del Tenis Ecuatoguineano Firma con Academia Europea",
+        "excerpt": "Lucas Micha, de 16 años, se une a prestigiosa academia en España para desarrollar su talento.",
+        "meta": {
+          "date": "Hace 12 horas",
+          "author": "Teresa Mba"
+        }
+      }
+    ]
+  },
+
+  "sportsCategories": {
+    "sectionTitle": "Explora por Deporte",
+    "viewAllText": "Ver todos los deportes",
+    "viewAllLink": "#",
+    
+    "categories": [
+      {
+        "name": "Fútbol",
+        "icon": "⚽",
+        "image": "images/futbol.jpg",
+        "slug": "futbol",
+        "articleCount": 148,
+        "color": "#ef4444"
+      },
+      {
+        "name": "Atletismo",
+        "icon": "🏃",
+        "image": "images/atletismo.jpg",
+        "slug": "atletismo",
+        "articleCount": 76,
+        "color": "#10b981"
+      },
+      {
+        "name": "Judo",
+        "icon": "🥋",
+        "image": "images/judo.jpg",
+        "slug": "judo",
+        "articleCount": 52,
+        "color": "#f59e0b"
+      },
+      {
+        "name": "Baloncesto",
+        "icon": "🏀",
+        "image": "images/baloncesto.jpg",
+        "slug": "baloncesto",
+        "articleCount": 64,
+        "color": "#8b5cf6"
+      },
+      {
+        "name": "Tenis",
+        "icon": "🎾",
+        "image": "images/tenis.jpg",
+        "slug": "tenis",
+        "articleCount": 38,
+        "color": "#06b6d4"
+      },
+      {
+        "name": "Rugby",
+        "icon": "🏉",
+        "image": "images/rugby.jpg",
+        "slug": "rugby",
+        "articleCount": 29,
+        "color": "#ec4899"
+      }
+    ]
+  },
+
+  "afconSpotlight": {
+    "enabled": true,
+    "logo": "images/AFCON-2021.webp",
+    "title": "Copa Africana de Naciones 2026",
+    "subtitle": "Guinea Ecuatorial • Junio-Julio 2026",
+    "ctaText": "Ver Cobertura Completa AFCON 2026",
+    "ctaLink": "afcon2026.html",
+    
+    "standings": {
+      "title": "Clasificación Grupo A",
+      "teams": [
+        { "name": "Guinea Ecuatorial", "points": "9 pts" },
+        { "name": "Nigeria", "points": "7 pts" },
+        { "name": "Camerún", "points": "5 pts" },
+        { "name": "Mozambique", "points": "1 pt" }
+      ]
+    },
+    
+    "nextMatch": {
+      "title": "Próximo Partido",
+      "homeTeam": "Guinea Ecuatorial",
+      "awayTeam": "Tanzania",
+      "date": "28 ENE",
+      "venue": "Estadio de Bata",
+      "time": "20:00"
+    },
+    
+    "topScorer": {
+      "title": "Máximo Goleador",
+      "icon": "⚽",
+      "name": "Emilio Nsue",
+      "stats": "5 goles en 3 partidos"
+    }
+  },
+
+  "analysisArticles": {
+    "sectionTitle": "Análisis y Opinión",
+    
+    "articles": [
+      {
+        "slug": "nzalang-eliminatorias-afcon-2025",
+        "image": "images/analisis.jpg",
+        "category": "OPINIÓN",
+        "categoryColor": "#6366f1",
+        "title": "¿Está Guinea Ecuatorial Lista para AFCON 2026?",
+        "excerpt": "Un análisis profundo sobre la preparación del país para el torneo más importante del continente.",
+        "meta": {
+          "date": "Hoy",
+          "author": "Roberto Esono"
+        }
+      },
+      {
+        "slug": "record-nacional-100-metros-femeninos",
+        "image": "images/entrevista.jpg",
+        "category": "ENTREVISTA",
+        "categoryColor": "#ec4899",
+        "title": "Conversación con la Estrella del Atletismo Nacional",
+        "excerpt": "Emilia Esono comparte su trayectoria y ambiciones para los próximos Juegos Olímpicos.",
+        "meta": {
+          "date": "Hoy",
+          "author": "Laura Ndong"
+        }
+      }
+    ]
+  },
+
+  "athletes": {
+    "sectionTitle": "Perfiles de Atletas",
+    "viewAllText": "Ver todos los atletas",
+    "viewAllLink": "#",
+    
+    "profiles": [
+      {
+        "name": "Emilio Nsue",
+        "image": "images/atleta1.jpg",
+        "sport": "Fútbol",
+        "sportBadge": "FÚTBOL",
+        "sportColor": "#ef4444",
+        "title": "Delantero • Capitán Selección Nacional",
+        "stats": [
+          { "value": "45", "label": "Goles" },
+          { "value": "78", "label": "Partidos" },
+          { "value": "12", "label": "Asistencias" }
+        ]
+      },
+      {
+        "name": "Emilia Esono",
+        "image": "images/atleta2.jpg",
+        "sport": "Atletismo",
+        "sportBadge": "ATLETISMO",
+        "sportColor": "#10b981",
+        "title": "Velocista • 100m y 200m",
+        "stats": [
+          { "value": "11.23s", "label": "Record 100m" },
+          { "value": "5", "label": "Medallas" },
+          { "value": "23", "label": "Edad" }
+        ]
+      },
+      {
+        "name": "José Bindang",
+        "image": "images/atleta3.jpg",
+        "sport": "Judo",
+        "sportBadge": "JUDO",
+        "sportColor": "#f59e0b",
+        "title": "Judoka • Categoría -73kg",
+        "stats": [
+          { "value": "🥈", "label": "Africano" },
+          { "value": "8", "label": "Victorias" },
+          { "value": "26", "label": "Edad" }
+        ]
+      },
+      {
+        "name": "María Obiang",
+        "image": "images/atleta4.jpg",
+        "sport": "Tenis",
+        "sportBadge": "TENIS",
+        "sportColor": "#06b6d4",
+        "title": "Tenista • Top 100 África",
+        "stats": [
+          { "value": "87", "label": "Ranking" },
+          { "value": "15", "label": "Torneos" },
+          { "value": "21", "label": "Edad" }
+        ]
+      }
+    ]
+  },
+
+  "multimedia": {
+    "sectionTitle": "Galería Multimedia",
+    "viewAllText": "Ver toda la galería",
+    "viewAllLink": "#",
+    
+    "items": [
+      {
+        "type": "video",
+        "thumbnail": "images/video1.jpg",
+        "caption": "Resumen: Victoria de los Nzalang Nacional",
+        "url": "#"
+      },
+      {
+        "type": "gallery",
+        "thumbnail": "images/galeria1.jpg",
+        "caption": "Mejores Momentos del Campeonato de Atletismo",
+        "url": "#"
+      },
+      {
+        "type": "video",
+        "thumbnail": "images/video2.jpg",
+        "caption": "Entrevista Exclusiva con José Bindang",
+        "url": "#"
+      },
+      {
+        "type": "gallery",
+        "thumbnail": "images/galeria2.jpg",
+        "caption": "Inauguración del Nuevo Centro Deportivo",
+        "url": "#"
+      },
+      {
+        "type": "video",
+        "thumbnail": "images/video3.jpg",
+        "caption": "Análisis Táctico: Preparación para AFCON",
+        "url": "#"
+      },
+      {
+        "type": "gallery",
+        "thumbnail": "images/galeria3.jpg",
+        "caption": "Celebración Nacional por Medalla de Oro",
+        "url": "#"
+      }
+    ]
+  },
+
+  "aboutSection": {
+    "icon": "🏆",
+    "title": "Nuestra Misión",
+    "description": "AfrikaSport365 es la plataforma líder de noticias deportivas en Guinea Ecuatorial, comprometida con llevar la pasión, la emoción y el orgullo del deporte africano a cada rincón del país. Nuestra misión es inspirar, informar y conectar a la comunidad deportiva a través de coberturas exhaustivas, análisis profundos y contenido multimedia de primera calidad.",
+    "stats": [
+      { "value": "500K+", "label": "Lectores Mensuales" },
+      { "value": "15", "label": "Deportes Cubiertos" },
+      { "value": "24/7", "label": "Cobertura en Vivo" }
+    ]
+  },
+
+  "navigation": {
+    "main": [
+      { "label": "Inicio", "href": "index.html" },
+      { "label": "AFCON 2026", "href": "afcon2026.html" },
+      { "label": "Deportes", "href": "#deportes", "hasDropdown": true },
+      { "label": "Eventos", "href": "#multimedia" },
+      { "label": "Multimedia", "href": "#multimedia" },
+      { "label": "Opinión", "href": "#opinion" },
+      { "label": "Academia del deporte", "href": "#academia", "hasDropdown": true }
+    ],
+    
+    "deportesDropdown": [
+      { "label": "Fútbol", "href": "#" },
+      { "label": "Atletismo", "href": "#" },
+      { "label": "Judo", "href": "#" },
+      { "label": "Ciclismo", "href": "#" },
+      { "label": "Taekwondo", "href": "#" },
+      { "label": "Deportes Acuáticos", "href": "#" },
+      { "label": "Baloncesto", "href": "#" }
+    ],
+    
+    "academiaDropdown": [
+      { "label": "Nutrición", "href": "#" },
+      { "label": "Prevención de Lesiones", "href": "#" },
+      { "label": "Psicología", "href": "#" },
+      { "label": "Planes de Entrenamientos", "href": "#" },
+      { "label": "Becas & Talleres", "href": "#" }
+    ]
+  },
+
+  "footer": {
+    "social": {
+      "facebook": "#",
+      "twitter": "#",
+      "instagram": "#",
+      "youtube": "#",
+      "linkedin": "#"
+    },
+    
+    "quickLinks": [
+      { "label": "Inicio", "href": "index.html" },
+      { "label": "AFCON 2026", "href": "afcon2026.html" },
+      { "label": "Noticias", "href": "#" },
+      { "label": "Multimedia", "href": "#multimedia" }
+    ],
+    
+    "sportsLinks": [
+      { "label": "Fútbol", "href": "#" },
+      { "label": "Atletismo", "href": "#" },
+      { "label": "Judo", "href": "#" },
+      { "label": "Baloncesto", "href": "#" },
+      { "label": "Tenis", "href": "#" },
+      { "label": "Más Deportes", "href": "#" }
+    ],
+    
+    "infoLinks": [
+      { "label": "Sobre Nosotros", "href": "#" },
+      { "label": "Equipo Editorial", "href": "#" },
+      { "label": "Contacto", "href": "#" },
+      { "label": "Anúnciate", "href": "#" }
+    ],
+    
+    "legalLinks": [
+      { "label": "Política de Privacidad", "href": "#" },
+      { "label": "Términos de Uso", "href": "#" },
+      { "label": "Contacto", "href": "#" }
+    ],
+    
+    "copyright": "© 2025 AfrikaSport365. Todos los derechos reservados."
+  },
+
+  "ads": {
+    "horizontal": {
+      "enabled": true,
+      "imageUrl": "",
+      "linkUrl": "#",
+      "altText": "Espacio Publicitario 728x90",
+      "size": "728x90"
+    },
+    
+    "sidebar": {
+      "enabled": true,
+      "imageUrl": "",
+      "linkUrl": "#",
+      "altText": "Espacio Publicitario 300x600",
+      "size": "300x600"
+    }
+  }
+}

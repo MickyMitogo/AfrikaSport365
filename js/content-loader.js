@@ -187,11 +187,12 @@
   // Auto-preload common files on page load
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
-      // Preload config on all pages
-      preload(['config']);
+      // Preload both config (legacy) and content (new unified system)
+      // Try content.json first, fallback to config.json
+      preload(['content', 'config']);
     });
   } else {
-    preload(['config']);
+    preload(['content', 'config']);
   }
 
   console.log('[ContentLoader] Module initialized');
