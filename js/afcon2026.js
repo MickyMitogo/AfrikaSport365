@@ -1,6 +1,61 @@
 // AFCON 2026 Page JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
+  // ============================================================================
+  // CMS CONTENT INJECTION
+  // ============================================================================
+  // Load AFCON data from admin panel and inject into DOM
+  // Uses data-cms-field attributes to map JSON paths to elements
+  
+  if (window.ContentLoader) {
+    ContentLoader.load('afcon-data')
+      .then(data => {
+        if (!data) return;
+        
+        // Tournament info (hero section)
+        bindField('tournament.name', data.tournament?.name);
+        bindField('tournament.fullName', data.tournament?.fullName);
+        bindField('tournament.displayDates', data.tournament?.displayDates);
+        bindImage('tournament.logo', data.tournament?.logo);
+        
+        console.log('[AFCON Page] Tournament data loaded successfully');
+      })
+      .catch(error => {
+        console.warn('[AFCON Page] Failed to load CMS data:', error);
+        // Page will display static content as fallback
+      });
+  }
+  
+  /**
+   * Bind text content to element with data-cms-field attribute
+   * @param {string} field - Field path (e.g., "tournament.name")
+   * @param {string} value - Value to inject
+   */
+  function bindField(field, value) {
+    if (!value) return;
+    const el = document.querySelector(`[data-cms-field="${field}"]`);
+    if (el) {
+      el.textContent = value;
+    }
+  }
+  
+  /**
+   * Bind image src to element with data-cms-field attribute
+   * @param {string} field - Field path
+   * @param {string} src - Image source URL
+   */
+  function bindImage(field, src) {
+    if (!src) return;
+    const el = document.querySelector(`[data-cms-field="${field}"]`);
+    if (el && el.tagName === 'IMG') {
+      el.src = src;
+    }
+  }
+  
+  // ============================================================================
+  // UI INTERACTIONS (existing functionality preserved)
+  // ============================================================================
+  
   // Group tabs functionality
   const groupTabs = document.querySelectorAll('.group-tab');
   const groupContents = document.querySelectorAll('.group-content');
