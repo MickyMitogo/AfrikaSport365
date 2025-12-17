@@ -1,0 +1,4 @@
+# Simplest possible configuration - allows ALL access
+<FilesMatch "\.json$">
+  Require all granted
+</FilesMatch>

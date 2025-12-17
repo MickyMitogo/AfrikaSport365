@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Direct JSON Access</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-box {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #2563eb;
+        }
+        .status {
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .success {
+            background: #d1fae5;
+            color: #065f46;
+            border-left: 4px solid #10b981;
+        }
+        .error {
+            background: #fee2e2;
+            color: #991b1b;
+            border-left: 4px solid #ef4444;
+        }
+        .warning {
+            background: #fef3c7;
+            color: #92400e;
+            border-left: 4px solid #f59e0b;
+        }
+        pre {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 12px;
+        }
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        button:hover {
+            background: #1d4ed8;
+        }
+        .link-test {
+            margin: 20px 0;
+        }
+        .link-test a {
+            display: inline-block;
+            background: #059669;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .link-test a:hover {
+            background: #047857;
+        }
+        .info {
+            background: #dbeafe;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #2563eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-box">
+        <h1>🔍 Direct JSON Access Test</h1>
+        <p>This page tests if your JSON files are accessible from the browser.</p>
+        
+        <div class="info">
+            <strong>Current Server:</strong> <span id="currentUrl"></span>
+        </div>
+
+        <div class="link-test">
+            <h3>Step 1: Click these links directly</h3>
+            <p>If you see JSON content, the files are accessible:</p>
+            <a href="/data/config.json" target="_blank">Open config.json</a>
+            <a href="/data/afcon-data.json" target="_blank">Open afcon-data.json</a>
+            <a href="/data/articles.json" target="_blank">Open articles.json</a>
+        </div>
+
+        <hr style="margin: 30px 0;">
+
+        <h3>Step 2: JavaScript Fetch Test</h3>
+        <button onclick="testFetch()">Run Fetch Test</button>
+        <button onclick="testXHR()">Run XHR Test</button>
+        <button onclick="checkPermissions()">Check Server Info</button>
+        
+        <div id="results"></div>
+    </div>
+
+    <script>
+        // Display current URL
+        document.getElementById('currentUrl').textContent = window.location.origin;
+
+        async function testFetch() {
+            const results = document.getElementById('results');
+            results.innerHTML = '<h4>Fetch API Test Results:</h4>';
+
+            const files = [
+                '/data/config.json',
+                '/data/afcon-data.json',
+                '/data/articles.json'
+            ];
+
+            for (const file of files) {
+                try {
+                    const startTime = Date.now();
+                    const response = await fetch(file, {
+                        method: 'GET',
+                        cache: 'no-cache',
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    const loadTime = Date.now() - startTime;
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        results.innerHTML += `
+                            <div class="status success">
+                                ✅ ${file} - SUCCESS (${response.status})
+                                <br>Load time: ${loadTime}ms
+                                <br>Content-Type: ${response.headers.get('content-type')}
+                                <br>Size: ${JSON.stringify(data).length} bytes
+                            </div>
+                            <details>
+                                <summary>View JSON Content</summary>
+                                <pre>${JSON.stringify(data, null, 2).substring(0, 500)}...</pre>
+                            </details>
+                        `;
+                    } else {
+                        results.innerHTML += `
+                            <div class="status error">
+                                ❌ ${file} - FAILED (${response.status} ${response.statusText})
+                                <br>Headers: ${JSON.stringify([...response.headers.entries()])}
+                            </div>
+                        `;
+                    }
+                } catch (error) {
+                    results.innerHTML += `
+                        <div class="status error">
+                            ❌ ${file} - ERROR
+                            <br>Message: ${error.message}
+                            <br>Type: ${error.name}
+                        </div>
+                    `;
+                }
+            }
+        }
+
+        function testXHR() {
+            const results = document.getElementById('results');
+            results.innerHTML = '<h4>XMLHttpRequest Test Results:</h4>';
+
+            const files = [
+                '/data/config.json',
+                '/data/afcon-data.json',
+                '/data/articles.json'
+            ];
+
+            files.forEach(file => {
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', file, true);
+                xhr.setRequestHeader('Accept', 'application/json');
+                
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        results.innerHTML += `
+                            <div class="status success">
+                                ✅ ${file} - SUCCESS (${xhr.status})
+                                <br>Response Headers: ${xhr.getAllResponseHeaders()}
+                            </div>
+                        `;
+                    } else {
+                        results.innerHTML += `
+                            <div class="status error">
+                                ❌ ${file} - FAILED (${xhr.status} ${xhr.statusText})
+                            </div>
+                        `;
+                    }
+                };
+                
+                xhr.onerror = function() {
+                    results.innerHTML += `
+                        <div class="status error">
+                            ❌ ${file} - NETWORK ERROR
+                        </div>
+                    `;
+                };
+                
+                xhr.send();
+            });
+        }
+
+        async function checkPermissions() {
+            const results = document.getElementById('results');
+            results.innerHTML = '<h4>Server Configuration Check:</h4>';
+
+            // Test different HTTP methods
+            const methods = ['GET', 'HEAD', 'POST', 'PUT', 'DELETE'];
+            const file = '/data/config.json';
+
+            for (const method of methods) {
+                try {
+                    const response = await fetch(file, {
+                        method: method,
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    
+                    results.innerHTML += `
+                        <div class="status ${response.ok ? 'success' : 'warning'}">
+                            ${method}: ${response.status} ${response.statusText}
+                        </div>
+                    `;
+                } catch (error) {
+                    results.innerHTML += `
+                        <div class="status error">
+                            ${method}: ${error.message}
+                        </div>
+                    `;
+                }
+            }
+
+            results.innerHTML += `
+                <div class="info" style="margin-top: 20px;">
+                    <strong>Expected Results:</strong>
+                    <ul>
+                        <li>✅ GET: 200 OK (should work)</li>
+                        <li>✅ HEAD: 200 OK (should work)</li>
+                        <li>❌ POST: 403 Forbidden (should be blocked)</li>
+                        <li>❌ PUT: 403 Forbidden (should be blocked)</li>
+                        <li>❌ DELETE: 403 Forbidden (should be blocked)</li>
+                    </ul>
+                </div>
+            `;
+        }
+
+        // Auto-run on load
+        window.addEventListener('load', function() {
+            console.log('Test page loaded. Click buttons to run tests.');
+        });
+    </script>
+</body>
+</html>
