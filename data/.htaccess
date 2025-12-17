@@ -1,12 +1,32 @@
 # Disable directory listing
 Options -Indexes
 
-# Allow public read access to JSON files
+# Allow public read access to JSON files (GET/HEAD only)
+# Allow write access from PHP scripts (for admin panel saves)
 <FilesMatch "\.json$">
-  Require all granted
+  # Allow read access from everyone
+  <RequireAny>
+    Require all granted
+  </RequireAny>
+  
+  # Block POST, PUT, DELETE from direct browser access
+  # But allow from PHP scripts (via file_put_contents)
+  <LimitExcept GET HEAD>
+    Order Deny,Allow
+    Deny from all
+    # Allow local PHP scripts to write
+    Allow from 127.0.0.1
+    Allow from ::1
+  </LimitExcept>
 </FilesMatch>
 
 # Set proper MIME type for JSON files
 <IfModule mod_mime.c>
   AddType application/json .json
+</IfModule>
+
+# Enable CORS for frontend JavaScript access
+<IfModule mod_headers.c>
+  Header set Access-Control-Allow-Origin "*"
+  Header set Access-Control-Allow-Methods "GET, HEAD, OPTIONS"
 </IfModule>
