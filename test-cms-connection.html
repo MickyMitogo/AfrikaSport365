@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMS Connection Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; }
+        .test { margin: 20px 0; padding: 15px; border-radius: 5px; }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        pre { background: #f4f4f4; padding: 10px; overflow-x: auto; }
+        button { padding: 10px 20px; margin: 10px 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>🧪 CMS Connection Test</h1>
+    
+    <div id="results"></div>
+    
+    <button onclick="testConfig()">Test Config.json</button>
+    <button onclick="testAfcon()">Test AFCON Data</button>
+    <button onclick="testBoth()">Test Both</button>
+    
+    <script>
+        const results = document.getElementById('results');
+        
+        async function testConfig() {
+            results.innerHTML = '<div class="test info">Testing config.json...</div>';
+            try {
+                const response = await fetch('/data/config.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                const data = await response.json();
+                results.innerHTML = `
+                    <div class="test success">
+                        <h3>✅ Config.json - SUCCESS</h3>
+                        <p><strong>Site Name:</strong> ${data.siteInfo?.name || 'N/A'}</p>
+                        <p><strong>Hero Title:</strong> ${data.hero?.title || 'N/A'}</p>
+                        <p><strong>Breaking News Items:</strong> ${data.breakingNews?.length || 0}</p>
+                        <details>
+                            <summary>View Full JSON</summary>
+                            <pre>${JSON.stringify(data, null, 2)}</pre>
+                        </details>
+                    </div>
+                `;
+            } catch (error) {
+                results.innerHTML = `
+                    <div class="test error">
+                        <h3>❌ Config.json - FAILED</h3>
+                        <p><strong>Error:</strong> ${error.message}</p>
+                        <p><strong>Issue:</strong> Cannot access /data/config.json</p>
+                        <p><strong>Solution:</strong> Check .htaccess file and file permissions</p>
+                    </div>
+                `;
+            }
+        }
+        
+        async function testAfcon() {
+            results.innerHTML = '<div class="test info">Testing afcon-data.json...</div>';
+            try {
+                const response = await fetch('/data/afcon-data.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                const data = await response.json();
+                results.innerHTML = `
+                    <div class="test success">
+                        <h3>✅ AFCON Data - SUCCESS</h3>
+                        <p><strong>Tournament Name:</strong> ${data.tournament?.name || 'N/A'}</p>
+                        <p><strong>Display Dates:</strong> ${data.tournament?.displayDates || 'N/A'}</p>
+                        <p><strong>Live Matches:</strong> ${data.liveMatches?.length || 0}</p>
+                        <details>
+                            <summary>View Full JSON</summary>
+                            <pre>${JSON.stringify(data, null, 2)}</pre>
+                        </details>
+                    </div>
+                `;
+            } catch (error) {
+                results.innerHTML = `
+                    <div class="test error">
+                        <h3>❌ AFCON Data - FAILED</h3>
+                        <p><strong>Error:</strong> ${error.message}</p>
+                        <p><strong>Issue:</strong> Cannot access /data/afcon-data.json</p>
+                        <p><strong>Solution:</strong> Check .htaccess file and file permissions</p>
+                    </div>
+                `;
+            }
+        }
+        
+        async function testBoth() {
+            results.innerHTML = '<div class="test info">Testing both files...</div>';
+            const tests = [];
+            
+            try {
+                const configResponse = await fetch('/data/config.json');
+                const afconResponse = await fetch('/data/afcon-data.json');
+                
+                const configOk = configResponse.ok;
+                const afconOk = afconResponse.ok;
+                
+                if (configOk && afconOk) {
+                    const config = await configResponse.json();
+                    const afcon = await afconResponse.json();
+                    results.innerHTML = `
+                        <div class="test success">
+                            <h2>✅ ALL TESTS PASSED!</h2>
+                            <p>Both JSON files are accessible. Your CMS should work correctly now.</p>
+                            <hr>
+                            <p><strong>Config:</strong> ${config.siteInfo?.name || 'N/A'}</p>
+                            <p><strong>AFCON:</strong> ${afcon.tournament?.name || 'N/A'}</p>
+                            <hr>
+                            <p><strong>Next Step:</strong> Go to your homepage and press Ctrl+F5 to force refresh.</p>
+                        </div>
+                    `;
+                } else {
+                    let errors = '';
+                    if (!configOk) errors += `<li>Config.json: HTTP ${configResponse.status}</li>`;
+                    if (!afconOk) errors += `<li>AFCON Data: HTTP ${afconResponse.status}</li>`;
+                    results.innerHTML = `
+                        <div class="test error">
+                            <h3>❌ SOME TESTS FAILED</h3>
+                            <ul>${errors}</ul>
+                            <p><strong>Action Required:</strong> Upload the new .htaccess file to /data/ folder</p>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                results.innerHTML = `
+                    <div class="test error">
+                        <h3>❌ CONNECTION ERROR</h3>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+        
+        // Auto-run on page load
+        window.addEventListener('DOMContentLoaded', testBoth);
+    </script>
+</body>
+</html>
