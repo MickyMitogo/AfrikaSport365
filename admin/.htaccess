@@ -1,25 +1,19 @@
-# Disable ModSecurity for admin API endpoints (Hostinger compatibility)
-<IfModule mod_security.c>
-  SecRuleEngine Off
-</IfModule>
-
-# Allow public read access to JSON (for frontend)
-<FilesMatch "\.(json)$">
-  Require all granted
-</FilesMatch>
-
-# Block write methods from public, but allow API folder
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  
-  # Allow all HTTP methods to /api/ endpoints (for admin saves)
-  RewriteCond %{REQUEST_URI} /admin/api/ [NC]
-  RewriteRule ^ - [L]
-  
-  # Block POST/PUT/DELETE to other admin files
-  RewriteCond %{REQUEST_METHOD} !^(GET|HEAD)$
-  RewriteRule .* - [F]
-</IfModule>
+# /admin/.htaccess - SIMPLIFICADO
 
 # Disable directory listing
 Options -Indexes
+
+# Allow all access to admin files
+Require all granted
+
+# Allow JSON files
+<FilesMatch "\.json$">
+  Require all granted
+</FilesMatch>
+
+# Allow all HTTP methods for PHP files
+<FilesMatch "\.php$">
+  <Limit GET POST PUT DELETE HEAD OPTIONS>
+    Require all granted
+  </Limit>
+</FilesMatch>
