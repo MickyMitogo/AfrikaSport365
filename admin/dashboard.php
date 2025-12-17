@@ -83,11 +83,12 @@
         <label>Name<input name="tournament.name" required></label>
         <label>Full Name<input name="tournament.fullName"></label>
         <label>Host<input name="tournament.host"></label>
-        <label>Dates<input name="tournament.dates"></label>
+        <label>Display Dates<input name="tournament.displayDates" placeholder="e.g., 21 Diciembre 2025 - 18 Enero 2026"></label>
         <label>Logo URL<input name="tournament.logo"></label>
       </fieldset>
       <fieldset>
         <legend>Live Matches</legend>
+        <p style="font-size:12px;color:#666;margin-bottom:10px">Each match requires: home/away team names, flags (image URLs), scores, status, and venue.</p>
         <div id="matches-list" class="list"></div>
         <div class="list-actions">
           <button type="button" class="btn" id="add-match">Add Match</button>
@@ -95,6 +96,7 @@
       </fieldset>
       <fieldset>
         <legend>Top Scorers</legend>
+        <p style="font-size:12px;color:#666;margin-bottom:10px">Players will be auto-ranked by goals. Provide name, country, flag URL, team, goals, and matches played.</p>
         <div id="scorers-list" class="list"></div>
         <div class="list-actions">
           <button type="button" class="btn" id="add-scorer">Add Scorer</button>

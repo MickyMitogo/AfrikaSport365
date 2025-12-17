@@ -64,14 +64,28 @@
       const row = document.createElement('div');
       row.className = 'list-item match';
       row.innerHTML = `
-        <input placeholder="Team A" value="${m.teamA || ''}" data-f="teamA" data-i="${i}">
-        <input placeholder="Team B" value="${m.teamB || ''}" data-f="teamB" data-i="${i}">
-        <input placeholder="A" value="${m.scoreA ?? ''}" data-f="scoreA" data-i="${i}">
-        <input placeholder="B" value="${m.scoreB ?? ''}" data-f="scoreB" data-i="${i}">
-        <select data-f="status" data-i="${i}">
-          ${['upcoming','live','finished'].map(s => `<option ${m.status===s?'selected':''} value="${s}">${s}</option>`).join('')}
-        </select>
-        <button type="button" class="btn danger" data-remove-match="${i}">Remove</button>`;
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">
+          <div>
+            <label style="font-size:11px;display:block;margin-bottom:2px">Home Team</label>
+            <input placeholder="Team name" value="${m.homeTeam?.name || ''}" data-f="homeTeam.name" data-i="${i}" style="margin-bottom:4px">
+            <input placeholder="Flag URL" value="${m.homeTeam?.flag || ''}" data-f="homeTeam.flag" data-i="${i}" style="margin-bottom:4px">
+            <input placeholder="Score" type="number" value="${m.homeTeam?.score ?? ''}" data-f="homeTeam.score" data-i="${i}" style="width:60px">
+          </div>
+          <div>
+            <label style="font-size:11px;display:block;margin-bottom:2px">Away Team</label>
+            <input placeholder="Team name" value="${m.awayTeam?.name || ''}" data-f="awayTeam.name" data-i="${i}" style="margin-bottom:4px">
+            <input placeholder="Flag URL" value="${m.awayTeam?.flag || ''}" data-f="awayTeam.flag" data-i="${i}" style="margin-bottom:4px">
+            <input placeholder="Score" type="number" value="${m.awayTeam?.score ?? ''}" data-f="awayTeam.score" data-i="${i}" style="width:60px">
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 100px 80px;gap:8px;align-items:end">
+          <input placeholder="Venue" value="${m.venue || ''}" data-f="venue" data-i="${i}">
+          <input placeholder="Minute (e.g., 73')" value="${m.minute || ''}" data-f="minute" data-i="${i}">
+          <select data-f="status" data-i="${i}">
+            ${['upcoming','live','finished'].map(s => `<option ${m.status===s?'selected':''} value="${s}">${s}</option>`).join('')}
+          </select>
+          <button type="button" class="btn danger" data-remove-match="${i}">Remove</button>
+        </div>`;
       wrap.appendChild(row);
     });
   }
@@ -79,14 +93,26 @@
     const rows = $$('#matches-list .list-item');
     return rows.map((row, idx) => {
       const get = f => row.querySelector(`[data-f="${f}"][data-i="${idx}"]`);
+      const homeTeamName = get('homeTeam.name')?.value.trim();
+      const awayTeamName = get('awayTeam.name')?.value.trim();
+      if (!homeTeamName || !awayTeamName) return null;
       return {
-        teamA: get('teamA').value.trim(),
-        teamB: get('teamB').value.trim(),
-        scoreA: Number(get('scoreA').value) || 0,
-        scoreB: Number(get('scoreB').value) || 0,
-        status: get('status').value
+        id: `match-${idx + 1}`,
+        status: get('status')?.value || 'upcoming',
+        minute: get('minute')?.value.trim() || '',
+        homeTeam: {
+          name: homeTeamName,
+          flag: get('homeTeam.flag')?.value.trim() || '',
+          score: get('homeTeam.score')?.value ? Number(get('homeTeam.score').value) : null
+        },
+        awayTeam: {
+          name: awayTeamName,
+          flag: get('awayTeam.flag')?.value.trim() || '',
+          score: get('awayTeam.score')?.value ? Number(get('awayTeam.score').value) : null
+        },
+        venue: get('venue')?.value.trim() || ''
       };
-    }).filter(m => m.teamA && m.teamB);
+    }).filter(Boolean);
   }
 
   function renderScorers(list) {
@@ -96,18 +122,39 @@
       const row = document.createElement('div');
       row.className = 'list-item scorer';
       row.innerHTML = `
-        <input placeholder="Player" value="${p.name || ''}" data-f="name" data-i="${i}">
-        <input placeholder="Goals" value="${p.goals ?? ''}" data-f="goals" data-i="${i}">
-        <button type="button" class="btn danger" data-remove-scorer="${i}">Remove</button>`;
+        <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px;margin-bottom:8px">
+          <input placeholder="Player name" value="${p.name || ''}" data-f="name" data-i="${i}">
+          <input placeholder="Country" value="${p.country || ''}" data-f="country" data-i="${i}">
+          <input placeholder="Team" value="${p.team || ''}" data-f="team" data-i="${i}">
+        </div>
+        <div style="display:grid;grid-template-columns:2fr 60px 60px 80px;gap:8px;align-items:end">
+          <input placeholder="Flag URL" value="${p.flag || ''}" data-f="flag" data-i="${i}">
+          <input placeholder="Goals" type="number" value="${p.goals ?? ''}" data-f="goals" data-i="${i}">
+          <input placeholder="Matches" type="number" value="${p.matches ?? ''}" data-f="matches" data-i="${i}">
+          <button type="button" class="btn danger" data-remove-scorer="${i}">Remove</button>
+        </div>`;
       wrap.appendChild(row);
     });
   }
   function collectScorers() {
     const rows = $$('#scorers-list .list-item');
-    return rows.map((row, idx) => {
+    const scorers = rows.map((row, idx) => {
       const get = f => row.querySelector(`[data-f="${f}"][data-i="${idx}"]`);
-      return { name: get('name').value.trim(), goals: Number(get('goals').value) || 0 };
-    }).filter(p => p.name);
+      const name = get('name')?.value.trim();
+      if (!name) return null;
+      return {
+        name: name,
+        country: get('country')?.value.trim() || '',
+        flag: get('flag')?.value.trim() || '',
+        team: get('team')?.value.trim() || '',
+        goals: Number(get('goals')?.value) || 0,
+        matches: Number(get('matches')?.value) || 0
+      };
+    }).filter(Boolean);
+    // Auto-rank by goals (descending)
+    scorers.sort((a, b) => b.goals - a.goals);
+    scorers.forEach((s, i) => s.rank = i + 1);
+    return scorers;
   }
 
   async function loadAll() {
@@ -149,7 +196,7 @@
       setValue(fa, 'tournament.name', afcon.tournament?.name);
       setValue(fa, 'tournament.fullName', afcon.tournament?.fullName);
       setValue(fa, 'tournament.host', afcon.tournament?.host);
-      setValue(fa, 'tournament.dates', afcon.tournament?.dates);
+      setValue(fa, 'tournament.displayDates', afcon.tournament?.displayDates);
       setValue(fa, 'tournament.logo', afcon.tournament?.logo);
       renderMatches(afcon.liveMatches || []);
       renderScorers(afcon.topScorers || []);
@@ -184,16 +231,30 @@
     const row = document.createElement('div');
     row.className = 'list-item match';
     row.innerHTML = `
-      <input placeholder="Team A" data-f="teamA" data-i="${idx}">
-      <input placeholder="Team B" data-f="teamB" data-i="${idx}">
-      <input placeholder="A" data-f="scoreA" data-i="${idx}">
-      <input placeholder="B" data-f="scoreB" data-i="${idx}">
-      <select data-f="status" data-i="${idx}">
-        <option value="upcoming">upcoming</option>
-        <option value="live">live</option>
-        <option value="finished">finished</option>
-      </select>
-      <button type="button" class="btn danger" data-remove-match="${idx}">Remove</button>`;
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">
+        <div>
+          <label style="font-size:11px;display:block;margin-bottom:2px">Home Team</label>
+          <input placeholder="Team name" data-f="homeTeam.name" data-i="${idx}" style="margin-bottom:4px">
+          <input placeholder="Flag URL" data-f="homeTeam.flag" data-i="${idx}" style="margin-bottom:4px">
+          <input placeholder="Score" type="number" data-f="homeTeam.score" data-i="${idx}" style="width:60px">
+        </div>
+        <div>
+          <label style="font-size:11px;display:block;margin-bottom:2px">Away Team</label>
+          <input placeholder="Team name" data-f="awayTeam.name" data-i="${idx}" style="margin-bottom:4px">
+          <input placeholder="Flag URL" data-f="awayTeam.flag" data-i="${idx}" style="margin-bottom:4px">
+          <input placeholder="Score" type="number" data-f="awayTeam.score" data-i="${idx}" style="width:60px">
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 100px 80px;gap:8px;align-items:end">
+        <input placeholder="Venue" data-f="venue" data-i="${idx}">
+        <input placeholder="Minute (e.g., 73')" data-f="minute" data-i="${idx}">
+        <select data-f="status" data-i="${idx}">
+          <option value="upcoming">upcoming</option>
+          <option value="live">live</option>
+          <option value="finished">finished</option>
+        </select>
+        <button type="button" class="btn danger" data-remove-match="${idx}">Remove</button>
+      </div>`;
     list.appendChild(row);
   });
   $('#matches-list')?.addEventListener('click', (e) => {
@@ -208,9 +269,17 @@
     const row = document.createElement('div');
     row.className = 'list-item scorer';
     row.innerHTML = `
-      <input placeholder="Player" data-f="name" data-i="${idx}">
-      <input placeholder="Goals" data-f="goals" data-i="${idx}">
-      <button type="button" class="btn danger" data-remove-scorer="${idx}">Remove</button>`;
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px;margin-bottom:8px">
+        <input placeholder="Player name" data-f="name" data-i="${idx}">
+        <input placeholder="Country" data-f="country" data-i="${idx}">
+        <input placeholder="Team" data-f="team" data-i="${idx}">
+      </div>
+      <div style="display:grid;grid-template-columns:2fr 60px 60px 80px;gap:8px;align-items:end">
+        <input placeholder="Flag URL" data-f="flag" data-i="${idx}">
+        <input placeholder="Goals" type="number" data-f="goals" data-i="${idx}">
+        <input placeholder="Matches" type="number" data-f="matches" data-i="${idx}">
+        <button type="button" class="btn danger" data-remove-scorer="${idx}">Remove</button>
+      </div>`;
     list.appendChild(row);
   });
   $('#scorers-list')?.addEventListener('click', (e) => {
@@ -283,7 +352,7 @@
         name: getValue(fa, 'tournament.name'),
         fullName: getValue(fa, 'tournament.fullName'),
         host: getValue(fa, 'tournament.host'),
-        dates: getValue(fa, 'tournament.dates'),
+        displayDates: getValue(fa, 'tournament.displayDates'),
         logo: getValue(fa, 'tournament.logo'),
       },
       liveMatches: collectMatches(),
