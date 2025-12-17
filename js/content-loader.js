@@ -32,7 +32,7 @@
   const CONFIG = {
     dataPath: 'data/',
     cacheEnabled: true,
-    cacheDuration: 5 * 60 * 1000, // 5 minutes
+    cacheDuration: 30 * 1000, // 30 seconds (reduced for CMS - was 5 minutes)
     fallbackDelay: 3000 // Show fallback after 3s if loading fails
   };
 
