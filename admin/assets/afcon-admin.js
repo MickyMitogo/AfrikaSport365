@@ -36,29 +36,38 @@
         fetch('api/get-afcon.php')
             .then(r => r.json())
             .then(data => {
-                if (!data) return;
+                if (!data || !data.afconSpotlight) return;
                 
-                // Tournament info
-                setValue('tournament.name', data.tournament?.name);
-                setValue('tournament.subtitle', data.tournament?.subtitle);
-                setValue('tournament.logo', data.tournament?.logo);
+                const afcon = data.afconSpotlight;
+                
+                // Basic info
+                setValue('afconSpotlight.title', afcon.title);
+                setValue('afconSpotlight.subtitle', afcon.subtitle);
+                setValue('afconSpotlight.logo', afcon.logo);
+                
+                // Group
+                setValue('afconSpotlight.group.title', afcon.group?.title);
                 
                 // Next match
-                setValue('nextMatch.teams', data.nextMatch?.teams);
-                setValue('nextMatch.date', data.nextMatch?.date);
-                setValue('nextMatch.venue', data.nextMatch?.venue);
-                setValue('nextMatch.time', data.nextMatch?.time);
+                setValue('afconSpotlight.nextMatch.home', afcon.nextMatch?.home);
+                setValue('afconSpotlight.nextMatch.away', afcon.nextMatch?.away);
+                setValue('afconSpotlight.nextMatch.date', afcon.nextMatch?.date);
+                setValue('afconSpotlight.nextMatch.venue', afcon.nextMatch?.venue);
+                setValue('afconSpotlight.nextMatch.time', afcon.nextMatch?.time);
                 
                 // Top scorer
-                setValue('topScorer.name', data.topScorer?.name);
-                setValue('topScorer.stats', data.topScorer?.stats);
-                setValue('topScorer.image', data.topScorer?.image);
+                setValue('afconSpotlight.topScorer.name', afcon.topScorer?.name);
+                setValue('afconSpotlight.topScorer.goals', afcon.topScorer?.goals);
                 
-                // Standings (repeatable)
-                if (data.standings && Array.isArray(data.standings)) {
+                // CTA
+                setValue('afconSpotlight.ctaText', afcon.ctaText);
+                setValue('afconSpotlight.ctaLink', afcon.ctaLink);
+                
+                // Teams (repeatable)
+                if (afcon.group?.teams && Array.isArray(afcon.group.teams)) {
                     const container = document.getElementById('standings-list');
                     container.innerHTML = '';
-                    data.standings.forEach((team, index) => {
+                    afcon.group.teams.forEach((team, index) => {
                         addStandingRow(team.name, team.points);
                     });
                 }
@@ -67,16 +76,21 @@
     }
 
     // Add standing row
-    function addStandingRow(name = '', points = 0) {
+    function addStandingRow(name = '', points = '') {
         const container = document.getElementById('standings-list');
         const index = container.children.length;
+        
+        if (index >= 4) {
+            alert('Máximo 4 equipos permitidos');
+            return;
+        }
         
         const row = document.createElement('div');
         row.className = 'list-item';
         row.innerHTML = `
             <div style="display:grid;grid-template-columns:2fr 1fr auto;gap:8px;align-items:center">
-                <input type="text" name="standings[${index}].name" placeholder="Team Name" value="${name}" required>
-                <input type="number" name="standings[${index}].points" placeholder="Points" value="${points}" min="0" max="999" required>
+                <input type="text" name="afconSpotlight.group.teams[${index}].name" placeholder="Team Name" value="${name}" required>
+                <input type="text" name="afconSpotlight.group.teams[${index}].points" placeholder="e.g., 9 pts" value="${points}" required>
                 <button type="button" class="btn-remove" onclick="this.closest('.list-item').remove()">✕</button>
             </div>
         `;
@@ -92,35 +106,40 @@
         
         const formData = new FormData(this);
         const payload = {
-            tournament: {
-                name: formData.get('tournament.name') || '',
-                subtitle: formData.get('tournament.subtitle') || '',
-                logo: formData.get('tournament.logo') || ''
-            },
-            standings: [],
-            nextMatch: {
-                teams: formData.get('nextMatch.teams') || '',
-                date: formData.get('nextMatch.date') || '',
-                venue: formData.get('nextMatch.venue') || '',
-                time: formData.get('nextMatch.time') || ''
-            },
-            topScorer: {
-                name: formData.get('topScorer.name') || '',
-                stats: formData.get('topScorer.stats') || '',
-                image: formData.get('topScorer.image') || ''
+            afconSpotlight: {
+                title: formData.get('afconSpotlight.title') || '',
+                subtitle: formData.get('afconSpotlight.subtitle') || '',
+                logo: formData.get('afconSpotlight.logo') || '',
+                group: {
+                    title: formData.get('afconSpotlight.group.title') || '',
+                    teams: []
+                },
+                nextMatch: {
+                    home: formData.get('afconSpotlight.nextMatch.home') || '',
+                    away: formData.get('afconSpotlight.nextMatch.away') || '',
+                    date: formData.get('afconSpotlight.nextMatch.date') || '',
+                    venue: formData.get('afconSpotlight.nextMatch.venue') || '',
+                    time: formData.get('afconSpotlight.nextMatch.time') || ''
+                },
+                topScorer: {
+                    name: formData.get('afconSpotlight.topScorer.name') || '',
+                    goals: formData.get('afconSpotlight.topScorer.goals') || ''
+                },
+                ctaText: formData.get('afconSpotlight.ctaText') || '',
+                ctaLink: formData.get('afconSpotlight.ctaLink') || ''
             }
         };
         
-        // Collect standings
+        // Collect teams
         const container = document.getElementById('standings-list');
         container.querySelectorAll('.list-item').forEach((item, index) => {
-            const nameInput = item.querySelector(`input[name="standings[${index}].name"]`);
-            const pointsInput = item.querySelector(`input[name="standings[${index}].points"]`);
+            const nameInput = item.querySelector(`input[name="afconSpotlight.group.teams[${index}].name"]`);
+            const pointsInput = item.querySelector(`input[name="afconSpotlight.group.teams[${index}].points"]`);
             
             if (nameInput && nameInput.value) {
-                payload.standings.push({
+                payload.afconSpotlight.group.teams.push({
                     name: nameInput.value,
-                    points: parseInt(pointsInput?.value || 0, 10)
+                    points: pointsInput?.value || '0 pts'
                 });
             }
         });
@@ -138,7 +157,7 @@
             const result = await response.json();
             
             if (result.success) {
-                showNotice('AFCON data saved successfully!', 'success');
+                showNotice('AFCON spotlight saved successfully!', 'success');
             } else {
                 showNotice('Error: ' + (result.message || 'Save failed'), 'error');
             }

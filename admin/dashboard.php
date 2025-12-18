@@ -80,14 +80,15 @@
     <form id="form-afcon">
       <fieldset>
         <legend>Tournament Info</legend>
-        <label>Name<input name="tournament.name" placeholder="e.g., Copa Africana de Naciones 2026" required></label>
-        <label>Subtitle<input name="tournament.subtitle" placeholder="e.g., Guinea Ecuatorial • Junio-Julio 2026"></label>
-        <label>Logo URL<input name="tournament.logo" placeholder="images/AFCON-2021.webp"></label>
+        <label>Title<input name="afconSpotlight.title" placeholder="e.g., Copa Africana de Naciones 2026" required></label>
+        <label>Subtitle<input name="afconSpotlight.subtitle" placeholder="e.g., Guinea Ecuatorial • Junio-Julio 2026"></label>
+        <label>Logo URL<input name="afconSpotlight.logo" placeholder="images/AFCON-2021.webp"></label>
       </fieldset>
       
       <fieldset>
         <legend>Group Standings</legend>
-        <p style="font-size:12px;color:#666;margin-bottom:10px">Enter team name and points. Display order will follow the order entered.</p>
+        <label>Group Title<input name="afconSpotlight.group.title" placeholder="e.g., Clasificación Grupo A" required></label>
+        <p style="font-size:12px;color:#666;margin-bottom:10px">Enter team name and points. Display order will follow the order entered (max 4 teams).</p>
         <div id="standings-list" class="list"></div>
         <div class="list-actions">
           <button type="button" class="btn" id="add-standing">Add Team</button>
@@ -96,17 +97,23 @@
       
       <fieldset>
         <legend>Next Match</legend>
-        <label>Teams<input name="nextMatch.teams" placeholder="e.g., Guinea Ecuatorial vs Tanzania" required></label>
-        <label>Date Display<input name="nextMatch.date" placeholder="e.g., 28 ENE" required></label>
-        <label>Venue<input name="nextMatch.venue" placeholder="e.g., Estadio de Bata"></label>
-        <label>Time<input name="nextMatch.time" placeholder="e.g., 20:00"></label>
+        <label>Home Team<input name="afconSpotlight.nextMatch.home" placeholder="e.g., Guinea Ecuatorial" required></label>
+        <label>Away Team<input name="afconSpotlight.nextMatch.away" placeholder="e.g., Tanzania" required></label>
+        <label>Date Display<input name="afconSpotlight.nextMatch.date" placeholder="e.g., 28 ENE" required></label>
+        <label>Venue<input name="afconSpotlight.nextMatch.venue" placeholder="e.g., Estadio de Bata"></label>
+        <label>Time<input name="afconSpotlight.nextMatch.time" placeholder="e.g., 20:00"></label>
       </fieldset>
       
       <fieldset>
         <legend>Top Scorer</legend>
-        <label>Player Name<input name="topScorer.name" placeholder="e.g., Emilio Nsue" required></label>
-        <label>Stats<input name="topScorer.stats" placeholder="e.g., 5 goles en 3 partidos" required></label>
-        <label>Player Image URL (optional)<input name="topScorer.image" placeholder="Leave empty for default ball icon"></label>
+        <label>Player Name<input name="afconSpotlight.topScorer.name" placeholder="e.g., Emilio Nsue" required></label>
+        <label>Stats/Goals<input name="afconSpotlight.topScorer.goals" placeholder="e.g., 5 goles en 3 partidos" required></label>
+      </fieldset>
+      
+      <fieldset>
+        <legend>Call to Action</legend>
+        <label>CTA Text<input name="afconSpotlight.ctaText" placeholder="e.g., Ver Cobertura Completa AFCON 2026" required></label>
+        <label>CTA Link<input name="afconSpotlight.ctaLink" placeholder="e.g., afcon2026.html" required></label>
       </fieldset>
       
       <div class="actions">

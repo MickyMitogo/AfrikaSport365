@@ -1,6 +1,6 @@
 /**
  * AfrikaSport365 - Homepage Data Bindings
- * Fetches /data/homepage.json and binds content to DOM elements
+ * Fetches /data/config.json and binds content to DOM elements
  * using data-cms-field attributes
  */
 
