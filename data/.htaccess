@@ -1,7 +1,8 @@
 # Disable directory listing
 Options -Indexes
 
-# Allow ALL access to JSON files
+# Allow read access to JSON files from everyone
+# PHP scripts can write via file_put_contents()
 <FilesMatch "\.json$">
   Require all granted
 </FilesMatch>
@@ -11,7 +12,8 @@ Options -Indexes
   AddType application/json .json
 </IfModule>
 
-# Enable CORS for frontend JavaScript access
+# Enable CORS for frontend JavaScript
 <IfModule mod_headers.c>
   Header set Access-Control-Allow-Origin "*"
+  Header set Access-Control-Allow-Methods "GET, HEAD, OPTIONS"
 </IfModule>
