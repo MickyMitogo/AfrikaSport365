@@ -91,7 +91,7 @@
      */
     async function fetchHomepageData() {
         try {
-            const response = await fetch('/data/config.jason', {
+            const response = await fetch('/data/config.json', {
                 method: 'GET',
                 cache: 'no-cache',
                 headers: {
