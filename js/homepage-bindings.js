@@ -56,6 +56,15 @@
             return;
         }
 
+        // Special handling for AFCON team names (preserve position number)
+        if (fieldPath.includes('afconSpotlight.group.teams') && fieldPath.includes('.name')) {
+            const position = fieldPath.match(/\.teams\.(\d+)\./)?.[1];
+            if (position !== undefined) {
+                element.textContent = `${parseInt(position) + 1}. ${value}`;
+                return;
+            }
+        }
+
         // Default: update text content
         element.textContent = value;
     }

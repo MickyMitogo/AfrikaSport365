@@ -365,38 +365,39 @@
     </section>
 
     <!-- AFCON 2026 Spotlight -->
+    <!-- CMS-MANAGED: AFCON spotlight loaded from data/config.json -> afconSpotlight -->
     <section class="section-wrapper">
         <div class="container mx-auto px-4">
-            <div class="afcon-spotlight">
+            <div class="afcon-spotlight" data-cms-content="afconSpotlight">
                 <div class="afcon-header">
                     <div class="afcon-logo">
-                        <img src="images/AFCON-2021.webp" alt="AFCON 2026">
+                        <img src="images/AFCON-2021.webp" alt="AFCON 2026" data-cms-field="afconSpotlight.logo">
                     </div>
                     <div>
-                        <h2 class="afcon-title">Copa Africana de Naciones 2026</h2>
-                        <p class="afcon-subtitle">Guinea Ecuatorial • Junio-Julio 2026</p>
+                        <h2 class="afcon-title" data-cms-field="afconSpotlight.title">Copa Africana de Naciones 2026</h2>
+                        <p class="afcon-subtitle" data-cms-field="afconSpotlight.subtitle">Guinea Ecuatorial • Junio-Julio 2026</p>
                     </div>
                 </div>
 
                 <div class="afcon-content-grid">
                     <div class="afcon-mini-card">
-                        <h3 class="afcon-mini-title">Clasificación Grupo A</h3>
-                        <div class="mini-standings">
+                        <h3 class="afcon-mini-title" data-cms-field="afconSpotlight.group.title">Clasificación Grupo A</h3>
+                        <div class="mini-standings" data-cms-list="afconSpotlight.group.teams">
                             <div class="mini-standings-row">
-                                <span>1. Guinea Ecuatorial</span>
-                                <span>9 pts</span>
+                                <span data-cms-field="afconSpotlight.group.teams.0.name">1. Guinea Ecuatorial</span>
+                                <span data-cms-field="afconSpotlight.group.teams.0.points">9 pts</span>
                             </div>
                             <div class="mini-standings-row">
-                                <span>2. Nigeria</span>
-                                <span>7 pts</span>
+                                <span data-cms-field="afconSpotlight.group.teams.1.name">2. Nigeria</span>
+                                <span data-cms-field="afconSpotlight.group.teams.1.points">7 pts</span>
                             </div>
                             <div class="mini-standings-row">
-                                <span>3. Camerún</span>
-                                <span>5 pts</span>
+                                <span data-cms-field="afconSpotlight.group.teams.2.name">3. Camerún</span>
+                                <span data-cms-field="afconSpotlight.group.teams.2.points">5 pts</span>
                             </div>
                             <div class="mini-standings-row">
-                                <span>4. Mozambique</span>
-                                <span>1 pt</span>
+                                <span data-cms-field="afconSpotlight.group.teams.3.name">4. Mozambique</span>
+                                <span data-cms-field="afconSpotlight.group.teams.3.points">1 pt</span>
                             </div>
                         </div>
                     </div>
@@ -405,13 +406,13 @@
                         <h3 class="afcon-mini-title">Próximo Partido</h3>
                         <div style="text-align: center; padding: 1rem 0;">
                             <div style="font-size: 1.125rem; font-weight: 700; margin-bottom: 0.5rem;">
-                                Guinea Ecuatorial vs Tanzania
+                                <span data-cms-field="afconSpotlight.nextMatch.home">Guinea Ecuatorial</span> vs <span data-cms-field="afconSpotlight.nextMatch.away">Tanzania</span>
                             </div>
-                            <div style="font-size: 2rem; font-weight: 900; color: #fbbf24; margin: 1rem 0;">
+                            <div style="font-size: 2rem; font-weight: 900; color: #fbbf24; margin: 1rem 0;" data-cms-field="afconSpotlight.nextMatch.date">
                                 28 ENE
                             </div>
                             <div style="font-size: 0.875rem; opacity: 0.9;">
-                                Estadio de Bata • 20:00
+                                <span data-cms-field="afconSpotlight.nextMatch.venue">Estadio de Bata</span> • <span data-cms-field="afconSpotlight.nextMatch.time">20:00</span>
                             </div>
                         </div>
                     </div>
@@ -420,10 +421,10 @@
                         <h3 class="afcon-mini-title">Máximo Goleador</h3>
                         <div style="text-align: center; padding: 1rem 0;">
                             <div style="font-size: 3rem; margin-bottom: 0.5rem;">⚽</div>
-                            <div style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.25rem;">
+                            <div style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.25rem;" data-cms-field="afconSpotlight.topScorer.name">
                                 Emilio Nsue
                             </div>
-                            <div style="font-size: 0.875rem; opacity: 0.9;">
+                            <div style="font-size: 0.875rem; opacity: 0.9;" data-cms-field="afconSpotlight.topScorer.goals">
                                 5 goles en 3 partidos
                             </div>
                         </div>
@@ -431,8 +432,8 @@
                 </div>
 
                 <div style="text-align: center;">
-                    <a href="afcon2026.html" class="afcon-cta">
-                        Ver Cobertura Completa AFCON 2026
+                    <a href="afcon2026.html" class="afcon-cta" data-cms-field="afconSpotlight.ctaLink">
+                        <span data-cms-field="afconSpotlight.ctaText">Ver Cobertura Completa AFCON 2026</span>
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                         </svg>
