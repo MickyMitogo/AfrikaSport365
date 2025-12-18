@@ -32,7 +32,7 @@
   const CONFIG = {
     dataPath: 'data/',
     cacheEnabled: true,
-    cacheDuration: 30 * 1000, // 30 seconds (reduced for CMS - was 5 minutes)
+    cacheDuration: 5 * 60 * 1000, // 5 minutes
     fallbackDelay: 3000 // Show fallback after 3s if loading fails
   };
 
@@ -187,12 +187,11 @@
   // Auto-preload common files on page load
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
-      // Preload both config (legacy) and content (new unified system)
-      // Try content.json first, fallback to config.json
-      preload(['content', 'config']);
+      // Preload config on all pages
+      preload(['config']);
     });
   } else {
-    preload(['content', 'config']);
+    preload(['config']);
   }
 
   console.log('[ContentLoader] Module initialized');
