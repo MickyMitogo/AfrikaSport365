@@ -1,0 +1,36 @@
+{
+  "tournament": {
+    "name": "Copa Africana de Naciones 2026",
+    "subtitle": "Guinea Ecuatorial • Junio-Julio 2026",
+    "logo": "images/AFCON-2021.webp"
+  },
+  "standings": [
+    {
+      "name": "Guinea Ecuatorial",
+      "points": 9
+    },
+    {
+      "name": "Nigeria",
+      "points": 7
+    },
+    {
+      "name": "Camerún",
+      "points": 5
+    },
+    {
+      "name": "Mozambique",
+      "points": 1
+    }
+  ],
+  "nextMatch": {
+    "teams": "Guinea Ecuatorial vs Tanzania",
+    "date": "28 ENE",
+    "venue": "Estadio de Bata",
+    "time": "20:00"
+  },
+  "topScorer": {
+    "name": "Emilio Nsue",
+    "stats": "5 goles en 3 partidos",
+    "image": ""
+  }
+}

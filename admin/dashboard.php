@@ -76,37 +76,49 @@
   </div>
 
   <div class="tab" id="tab-afcon-data">
-    <h2>AFCON Data</h2>
+    <h2>AFCON Spotlight</h2>
     <form id="form-afcon">
       <fieldset>
-        <legend>Tournament</legend>
-        <label>Name<input name="tournament.name" required></label>
-        <label>Full Name<input name="tournament.fullName"></label>
-        <label>Host<input name="tournament.host"></label>
-        <label>Display Dates<input name="tournament.displayDates" placeholder="e.g., 21 Diciembre 2025 - 18 Enero 2026"></label>
-        <label>Logo URL<input name="tournament.logo"></label>
+        <legend>Tournament Info</legend>
+        <label>Name<input name="tournament.name" placeholder="e.g., Copa Africana de Naciones 2026" required></label>
+        <label>Subtitle<input name="tournament.subtitle" placeholder="e.g., Guinea Ecuatorial • Junio-Julio 2026"></label>
+        <label>Logo URL<input name="tournament.logo" placeholder="images/AFCON-2021.webp"></label>
       </fieldset>
+      
       <fieldset>
-        <legend>Live Matches</legend>
-        <p style="font-size:12px;color:#666;margin-bottom:10px">Each match requires: home/away team names, flags (image URLs), scores, status, and venue.</p>
-        <div id="matches-list" class="list"></div>
+        <legend>Group Standings</legend>
+        <p style="font-size:12px;color:#666;margin-bottom:10px">Enter team name and points. Display order will follow the order entered.</p>
+        <div id="standings-list" class="list"></div>
         <div class="list-actions">
-          <button type="button" class="btn" id="add-match">Add Match</button>
+          <button type="button" class="btn" id="add-standing">Add Team</button>
         </div>
       </fieldset>
+      
       <fieldset>
-        <legend>Top Scorers</legend>
-        <p style="font-size:12px;color:#666;margin-bottom:10px">Players will be auto-ranked by goals. Provide name, country, flag URL, team, goals, and matches played.</p>
-        <div id="scorers-list" class="list"></div>
-        <div class="list-actions">
-          <button type="button" class="btn" id="add-scorer">Add Scorer</button>
-        </div>
+        <legend>Next Match</legend>
+        <label>Teams<input name="nextMatch.teams" placeholder="e.g., Guinea Ecuatorial vs Tanzania" required></label>
+        <label>Date Display<input name="nextMatch.date" placeholder="e.g., 28 ENE" required></label>
+        <label>Venue<input name="nextMatch.venue" placeholder="e.g., Estadio de Bata"></label>
+        <label>Time<input name="nextMatch.time" placeholder="e.g., 20:00"></label>
       </fieldset>
+      
+      <fieldset>
+        <legend>Top Scorer</legend>
+        <label>Player Name<input name="topScorer.name" placeholder="e.g., Emilio Nsue" required></label>
+        <label>Stats<input name="topScorer.stats" placeholder="e.g., 5 goles en 3 partidos" required></label>
+        <label>Player Image URL (optional)<input name="topScorer.image" placeholder="Leave empty for default ball icon"></label>
+      </fieldset>
+      
       <div class="actions">
         <button type="button" class="btn" data-preview="afcon">Preview</button>
         <button type="submit" class="btn primary">Save Changes</button>
       </div>
     </form>
+  </div>
+
+  <div class="tab" id="tab-articles">
+    <h2>Articles (Coming Soon)</h2>
+    <p>Article management interface will be added here.</p>
   </div>
 </section>
 

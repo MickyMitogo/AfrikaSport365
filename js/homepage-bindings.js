@@ -1,126 +1,126 @@
 /**
- * ============================================================================
- * AFRIKASPORT365 - HOMEPAGE CONTENT BINDINGS
- * ============================================================================
- * 
- * PURPOSE:
- * Bind config.json data to homepage DOM elements marked with data-cms-* attributes.
- * Enables admin panel changes to appear immediately on the homepage.
- * 
- * ARCHITECTURE:
- * - Non-invasive: No HTML structure or CSS changes
- * - Uses existing data-cms-field attributes for mapping
- * - Preserves static fallbacks if JSON fails
- * - Production-safe with error handling
- * 
- * ============================================================================
+ * AfrikaSport365 - Homepage Data Bindings
+ * Fetches /data/homepage.json and binds content to DOM elements
+ * using data-cms-field attributes
  */
 
-(async function() {
-  'use strict';
+(function() {
+    'use strict';
 
-  // Only run on homepage
-  if (!window.ContentLoader) {
-    console.warn('[Homepage Bindings] ContentLoader not available');
-    return;
-  }
-
-  try {
-    // Load config data
-    const config = await ContentLoader.load('config');
-    if (!config) return;
-
-    // === Site Branding ===
-    bindField('siteInfo.name', config.siteInfo?.name);
-    bindField('siteInfo.tagline', config.siteInfo?.tagline);
-    bindImage('siteInfo.logo', config.siteInfo?.logo);
-
-    // === Hero Section ===
-    bindField('hero.badge', config.hero?.badge);
-    bindField('hero.title', config.hero?.title);
-    bindField('hero.excerpt', config.hero?.excerpt);
-    bindImage('hero.backgroundImage', config.hero?.backgroundImage);
-    bindField('hero.meta.date', config.hero?.meta?.date);
-    bindField('hero.meta.author', config.hero?.meta?.author);
-    bindField('hero.meta.readTime', config.hero?.meta?.readTime);
-    
-    // Hero CTA
-    const ctaLink = document.querySelector('[data-cms-field="hero.ctaLink"]');
-    if (ctaLink && config.hero?.ctaLink) {
-      ctaLink.href = config.hero.ctaLink;
-    }
-    bindField('hero.ctaText', config.hero?.ctaText);
-
-    // === Breaking News Ticker ===
-    if (config.breakingNews && Array.isArray(config.breakingNews)) {
-      updateBreakingNewsTicker(config.breakingNews);
+    /**
+     * Get nested property from object using dot notation
+     * @param {Object} obj - Source object
+     * @param {string} path - Property path (e.g., 'hero.meta.date')
+     * @returns {*} Property value or undefined
+     */
+    function getNestedProperty(obj, path) {
+        try {
+            return path.split('.').reduce((current, prop) => {
+                return current && current[prop] !== undefined ? current[prop] : undefined;
+            }, obj);
+        } catch (error) {
+            return undefined;
+        }
     }
 
-    // === About Section ===
-    bindField('aboutSection.icon', config.aboutSection?.icon);
-    bindField('aboutSection.title', config.aboutSection?.title);
-    bindField('aboutSection.description', config.aboutSection?.description);
+    /**
+     * Bind data to element based on data-cms-field attribute
+     * @param {HTMLElement} element - DOM element to bind
+     * @param {Object} data - JSON data source
+     */
+    function bindElement(element, data) {
+        const fieldPath = element.getAttribute('data-cms-field');
+        if (!fieldPath) return;
 
-    // About stats (individual fields)
-    if (config.aboutSection?.stats && Array.isArray(config.aboutSection.stats)) {
-      config.aboutSection.stats.forEach((stat, index) => {
-        bindField(`stats.${index}.value`, stat.value);
-        bindField(`stats.${index}.label`, stat.label);
-      });
+        const value = getNestedProperty(data, fieldPath);
+        if (value === undefined || value === null) return;
+
+        // Handle different element types
+        const tagName = element.tagName.toLowerCase();
+
+        // Images: update src
+        if (tagName === 'img') {
+            if (value) element.src = value;
+            return;
+        }
+
+        // Links: update href
+        if (tagName === 'a' && fieldPath.includes('Link')) {
+            element.href = value;
+            return;
+        }
+
+        // Input fields: update value
+        if (tagName === 'input' || tagName === 'textarea') {
+            element.value = value;
+            return;
+        }
+
+        // Default: update text content
+        element.textContent = value;
     }
 
-    console.log('[Homepage Bindings] Content loaded successfully');
-
-  } catch (error) {
-    console.error('[Homepage Bindings] Error loading content:', error);
-    // Fail silently - page still displays static content
-  }
-
-  /**
-   * Bind text content to element with data-cms-field attribute
-   * @param {string} field - Field path (e.g., "hero.title")
-   * @param {string} value - Value to bind
-   */
-  function bindField(field, value) {
-    if (!value) return;
-    const el = document.querySelector(`[data-cms-field="${field}"]`);
-    if (el) {
-      el.textContent = value;
+    /**
+     * Bind all elements with data-cms-field attributes
+     * @param {Object} data - JSON data source
+     */
+    function bindAllElements(data) {
+        const elements = document.querySelectorAll('[data-cms-field]');
+        
+        elements.forEach(element => {
+            try {
+                bindElement(element, data);
+            } catch (error) {
+                // Fail silently
+            }
+        });
     }
-  }
 
-  /**
-   * Bind image src to element with data-cms-field attribute
-   * @param {string} field - Field path
-   * @param {string} src - Image source URL
-   */
-  function bindImage(field, src) {
-    if (!src) return;
-    const el = document.querySelector(`[data-cms-field="${field}"]`);
-    if (el && el.tagName === 'IMG') {
-      el.src = src;
+    /**
+     * Fetch homepage data
+     * @returns {Promise<Object>} Homepage data
+     */
+    async function fetchHomepageData() {
+        try {
+            const response = await fetch('/data/homepage.json', {
+                method: 'GET',
+                cache: 'no-cache',
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+
+            return await response.json();
+        } catch (error) {
+            // Fail silently - return null
+            return null;
+        }
     }
-  }
 
-  /**
-   * Update breaking news ticker with fresh data
-   * @param {Array<string>} newsItems - Breaking news array
-   */
-  function updateBreakingNewsTicker(newsItems) {
-    const ticker = document.querySelector('.breaking-ticker');
-    if (!ticker || newsItems.length === 0) return;
+    /**
+     * Initialize homepage bindings
+     */
+    async function init() {
+        try {
+            const data = await fetchHomepageData();
+            if (!data) return;
+            
+            // Bind all elements with data-cms-field
+            bindAllElements(data);
+        } catch (error) {
+            // Fail silently
+        }
+    }
 
-    // Clear existing items
-    ticker.innerHTML = '';
-
-    // Add items (duplicate for seamless loop)
-    const items = [...newsItems, ...newsItems];
-    items.forEach(item => {
-      const span = document.createElement('span');
-      span.className = 'ticker-item';
-      span.textContent = item;
-      ticker.appendChild(span);
-    });
-  }
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
 
 })();
