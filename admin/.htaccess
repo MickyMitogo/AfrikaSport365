@@ -1,12 +1,7 @@
-# Allow all access (admin folder is protected by PHP login)
-<FilesMatch "\.(php|json)$">
-  Require all granted
-</FilesMatch>
-
-# Disable directory listing
+# Complete unrestricted access (admin protected by PHP)
 Options -Indexes
+Order allow,deny
+Allow from all
 
-# Allow all HTTP methods (GET, POST, PUT, DELETE)
-<Limit GET POST PUT DELETE HEAD OPTIONS>
-  Require all granted
-</Limit>
+# Disable ModSecurity completely
+SecRuleEngine Off
