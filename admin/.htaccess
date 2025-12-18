@@ -1,12 +1,28 @@
-# Allow all access (admin folder is protected by PHP login)
-<FilesMatch "\.(php|json)$">
-  Require all granted
-</FilesMatch>
+# Disable ModSecurity for admin folder
+<IfModule mod_security.c>
+  SecRuleEngine Off
+</IfModule>
 
 # Disable directory listing
 Options -Indexes
 
-# Allow all HTTP methods (GET, POST, PUT, DELETE)
-<Limit GET POST PUT DELETE HEAD OPTIONS>
+# Allow all access to admin files (protected by PHP login)
+Require all granted
+
+# Allow all HTTP methods
+<LimitExcept>
   Require all granted
-</Limit>
+</LimitExcept>
+
+# Allow JSON files
+<FilesMatch "\.json$">
+  Require all granted
+</FilesMatch>
+
+# Allow PHP files and all methods
+<FilesMatch "\.php$">
+  Require all granted
+  <LimitExcept>
+    Require all granted
+  </LimitExcept>
+</FilesMatch>
