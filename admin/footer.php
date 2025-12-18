@@ -1,5 +1,5 @@
   </main>
   <footer class="footer">© <?= date('Y') ?> AfrikaSport365</footer>
-  <script src="/admin/assets/admin.js" defer></script>
+  <!-- admin.js removed - dashboard.php loads its own dashboard-enhanced.js -->
 </body>
 </html>
