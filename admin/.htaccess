@@ -1,28 +1,7 @@
-# Disable ModSecurity for admin folder
-<IfModule mod_security.c>
-  SecRuleEngine Off
-</IfModule>
-
-# Disable directory listing
+# Complete unrestricted access (admin protected by PHP)
 Options -Indexes
+Order allow,deny
+Allow from all
 
-# Allow all access to admin files (protected by PHP login)
-Require all granted
-
-# Allow all HTTP methods
-<LimitExcept>
-  Require all granted
-</LimitExcept>
-
-# Allow JSON files
-<FilesMatch "\.json$">
-  Require all granted
-</FilesMatch>
-
-# Allow PHP files and all methods
-<FilesMatch "\.php$">
-  Require all granted
-  <LimitExcept>
-    Require all granted
-  </LimitExcept>
-</FilesMatch>
+# Disable ModSecurity completely
+SecRuleEngine Off
