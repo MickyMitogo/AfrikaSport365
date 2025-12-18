@@ -4,16 +4,31 @@
  * Handles saving content.json from the enhanced dashboard
  */
 
+// Set JSON response header FIRST (before any authentication checks)
+header('Content-Type: application/json');
+
 require_once __DIR__ . '/../inc/init.php';
 
-// Require authentication
-require_login();
+// Check authentication for API (return JSON, not redirect)
+if (!is_logged_in()) {
+    http_response_code(403);
+    echo json_encode([
+        'success' => false,
+        'error' => 'Authentication required'
+    ]);
+    exit;
+}
 
-// Verify CSRF token
-verify_csrf();
-
-// Set JSON response header
-header('Content-Type: application/json');
+// Verify CSRF token (return JSON error, not boolean)
+$csrfToken = $_SERVER['HTTP_X_CSRF_TOKEN'] ?? $_POST['csrf_token'] ?? null;
+if (!verify_csrf($csrfToken)) {
+    http_response_code(403);
+    echo json_encode([
+        'success' => false,
+        'error' => 'Invalid CSRF token'
+    ]);
+    exit;
+}
 
 try {
     // Get JSON payload
