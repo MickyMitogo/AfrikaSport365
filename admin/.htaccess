@@ -1,19 +1,12 @@
-# /admin/.htaccess - SIMPLIFICADO
+# Allow all access (admin folder is protected by PHP login)
+<FilesMatch "\.(php|json)$">
+  Require all granted
+</FilesMatch>
 
 # Disable directory listing
 Options -Indexes
 
-# Allow all access to admin files
-Require all granted
-
-# Allow JSON files
-<FilesMatch "\.json$">
+# Allow all HTTP methods (GET, POST, PUT, DELETE)
+<Limit GET POST PUT DELETE HEAD OPTIONS>
   Require all granted
-</FilesMatch>
-
-# Allow all HTTP methods for PHP files
-<FilesMatch "\.php$">
-  <Limit GET POST PUT DELETE HEAD OPTIONS>
-    Require all granted
-  </Limit>
-</FilesMatch>
+</Limit>
