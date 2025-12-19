@@ -4,6 +4,7 @@
   <button class="tablink active" data-tab="site-config">Site Config</button>
   <button class="tablink" data-tab="breaking-news">Breaking News</button>
   <button class="tablink" data-tab="afcon-data">AFCON Data</button>
+  <button class="tablink" data-tab="latest-news">Latest News</button>
   <button class="tablink disabled" title="Coming soon">Articles</button>
 </aside>
 
@@ -111,6 +112,27 @@
       
       <div class="actions">
         <button type="button" class="btn" data-preview="afcon">Preview</button>
+        <button type="submit" class="btn primary">Save Changes</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="tab" id="tab-latest-news">
+    <h2>Latest News</h2>
+    <form id="form-latest-news">
+      <p style="font-size:12px;color:#666;margin-bottom:10px">
+        Manage the news cards displayed in the "Últimas Noticias" section of the homepage. 
+        Mark one article as "featured" to display it as the large card.
+      </p>
+      
+      <div id="latest-news-list" class="list"></div>
+      
+      <div class="list-actions">
+        <button type="button" class="btn" id="add-news-item">Add News Item</button>
+      </div>
+      
+      <div class="actions">
+        <button type="button" class="btn" data-preview="latest-news">Preview</button>
         <button type="submit" class="btn primary">Save Changes</button>
       </div>
     </form>

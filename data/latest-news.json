@@ -1,0 +1,89 @@
+{
+  "latestNews": [
+    {
+      "id": 1,
+      "title": "Los Nzalang Nacional Buscan la Gloria en las Eliminatorias AFCON",
+      "excerpt": "La selección nacional de Guinea Ecuatorial inicia su camino hacia la Copa Africana de Naciones con una preparación intensiva y nuevos refuerzos que prometen llevar al equipo a niveles históricos.",
+      "image": "images/OIP (1).webp",
+      "imageAlt": "Copa AFCON",
+      "category": "FÚTBOL",
+      "categoryColor": "#ef4444",
+      "slug": "nzalang-eliminatorias-afcon-2025",
+      "meta": {
+        "time": "Hace 2 horas",
+        "author": "María Obiang",
+        "comments": 24
+      },
+      "featured": true,
+      "order": 1
+    },
+    {
+      "id": 2,
+      "title": "Record Nacional en 100 Metros Femeninos",
+      "excerpt": "Emilia Esono establece nueva marca nacional con un tiempo de 11.23 segundos en el campeonato regional.",
+      "image": "images/atletismo.jpg",
+      "imageAlt": "Atletismo",
+      "category": "ATLETISMO",
+      "categoryColor": "#10b981",
+      "slug": "record-nacional-100-metros-femeninos",
+      "meta": {
+        "time": "Hace 4 horas",
+        "author": "Carlos Mangue",
+        "comments": 0
+      },
+      "featured": false,
+      "order": 2
+    },
+    {
+      "id": 3,
+      "title": "Medalla de Plata para Guinea Ecuatorial en Campeonato Africano",
+      "excerpt": "José Bindang obtiene medalla de plata en la categoría -73kg tras una brillante actuación.",
+      "image": "images/judo.jpg",
+      "imageAlt": "Judo",
+      "category": "JUDO",
+      "categoryColor": "#f59e0b",
+      "slug": "medalla-plata-judo-campeonato-africano",
+      "meta": {
+        "time": "Hace 6 horas",
+        "author": "Ana Riloha",
+        "comments": 0
+      },
+      "featured": false,
+      "order": 3
+    },
+    {
+      "id": 4,
+      "title": "Liga Nacional de Baloncesto Inicia Temporada con Récord de Inscripciones",
+      "excerpt": "La nueva temporada promete ser la más competitiva con 12 equipos participantes.",
+      "image": "images/baloncesto.jpg",
+      "imageAlt": "Baloncesto",
+      "category": "BALONCESTO",
+      "categoryColor": "#8b5cf6",
+      "slug": "liga-baloncesto-record-inscripciones",
+      "meta": {
+        "time": "Hace 8 horas",
+        "author": "David Nve",
+        "comments": 0
+      },
+      "featured": false,
+      "order": 4
+    },
+    {
+      "id": 5,
+      "title": "Joven Promesa del Tenis Ecuatoguineano Firma con Academia Europea",
+      "excerpt": "Lucas Micha, de 16 años, se une a prestigiosa academia en España para desarrollar su talento.",
+      "image": "images/tenis.jpg",
+      "imageAlt": "Tenis",
+      "category": "TENIS",
+      "categoryColor": "#06b6d4",
+      "slug": "joven-promesa-tenis-academia-europea",
+      "meta": {
+        "time": "Hace 12 horas",
+        "author": "Teresa Mba",
+        "comments": 0
+      },
+      "featured": false,
+      "order": 5
+    }
+  ]
+}
