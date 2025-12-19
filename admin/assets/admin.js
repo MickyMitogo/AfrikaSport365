@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(data => {
                 if(data.success) {
                     showMessage('Settings saved successfully!', 'success');
+                    loadConfig();
                 } else {
                     showMessage('Error saving settings: ' + data.message, 'error');
                 }
