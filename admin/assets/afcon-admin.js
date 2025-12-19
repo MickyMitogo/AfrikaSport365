@@ -249,7 +249,6 @@
     function addNewsRow(item = {}, index = null) {
         const container = document.getElementById('latest-news-list');
         const idx = index !== null ? index : container.children.length;
-        
         const row = document.createElement('div');
         row.className = 'list-item';
         row.style.display = 'grid';
@@ -259,45 +258,65 @@
         row.style.border = '1px solid var(--border)';
         row.style.borderRadius = '6px';
         row.style.marginBottom = '10px';
-        
-        // Store the original ID as a data attribute to maintain it across edits
         const itemId = item.id || (Date.now() + Math.random());
-        
         row.innerHTML = `
             <input type="hidden" name="news[${idx}].id" value="${itemId}">
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <div style="display:grid;grid-template-columns:1fr 1fr 40px;gap:8px;align-items:center">
                 <input type="text" name="news[${idx}].title" placeholder="Title" value="${item.title || ''}" required>
                 <input type="text" name="news[${idx}].category" placeholder="Category (e.g., FÚTBOL)" value="${item.category || ''}" required>
+                <input type="color" name="news[${idx}].categoryColor" value="${item.categoryColor || '#2563eb'}" title="Category Color" style="width:32px;height:32px;padding:0;border:none;background:none;">
             </div>
-            
             <textarea name="news[${idx}].excerpt" placeholder="Excerpt (brief description)" rows="2" required>${item.excerpt || ''}</textarea>
-            
             <div style="display:grid;grid-template-columns:2fr 1fr;gap:8px">
                 <input type="text" name="news[${idx}].image" placeholder="Image URL (e.g., images/photo.jpg)" value="${item.image || ''}" required>
-                <input type="text" name="news[${idx}].categoryColor" placeholder="Color (e.g., #ef4444)" value="${item.categoryColor || '#2563eb'}" required>
-            </div>
-            
-            <div style="display:grid;grid-template-columns:2fr 1fr;gap:8px">
-                <input type="text" name="news[${idx}].slug" placeholder="Article slug (URL)" value="${item.slug || ''}" required>
                 <input type="text" name="news[${idx}].imageAlt" placeholder="Image alt text" value="${item.imageAlt || ''}">
             </div>
-            
+            <div style="display:grid;grid-template-columns:2fr 1fr;gap:8px">
+                <input type="text" name="news[${idx}].slug" placeholder="Article slug (URL)" value="${item.slug || ''}" required>
+                <input type="number" name="news[${idx}].order" placeholder="Order" value="${item.order || idx + 1}" min="1" style="width:80px">
+            </div>
             <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
                 <input type="text" name="news[${idx}].meta.author" placeholder="Author name" value="${item.meta?.author || ''}" required>
                 <input type="text" name="news[${idx}].meta.time" placeholder="Time (e.g., Hace 2 horas)" value="${item.meta?.time || ''}" required>
                 <input type="number" name="news[${idx}].meta.comments" placeholder="Comments" value="${item.meta?.comments || 0}" min="0" max="9999">
             </div>
-            
             <div style="display:flex;justify-content:space-between;align-items:center">
                 <label style="display:flex;align-items:center;gap:6px;margin:0">
                     <input type="checkbox" name="news[${idx}].featured" ${item.featured ? 'checked' : ''}>
                     <span>Featured (large card)</span>
                 </label>
-                <button type="button" class="btn danger btn-remove" onclick="this.closest('.list-item').remove()" style="padding:6px 12px">Remove</button>
+                <div style="display:flex;gap:6px">
+                  <button type="button" class="btn secondary btn-move-up" title="Move Up" style="padding:6px 10px">▲</button>
+                  <button type="button" class="btn secondary btn-move-down" title="Move Down" style="padding:6px 10px">▼</button>
+                  <button type="button" class="btn danger btn-remove" style="padding:6px 12px">Remove</button>
+                </div>
             </div>
         `;
-        
+        row.querySelector('.btn-remove').onclick = function() {
+            row.remove();
+        };
+        row.querySelector('.btn-move-up').onclick = function() {
+            if (row.previousElementSibling) {
+                container.insertBefore(row, row.previousElementSibling);
+                updateNewsOrderInputs();
+            }
+        };
+        row.querySelector('.btn-move-down').onclick = function() {
+            if (row.nextElementSibling) {
+                container.insertBefore(row.nextElementSibling, row);
+                updateNewsOrderInputs();
+            }
+        };
         container.appendChild(row);
+        updateNewsOrderInputs();
+    }
+
+    function updateNewsOrderInputs() {
+        const container = document.getElementById('latest-news-list');
+        Array.from(container.children).forEach((row, i) => {
+            const orderInput = row.querySelector('input[name^="news["][name$=".order"]');
+            if (orderInput) orderInput.value = i + 1;
+        });
     }
 
     // Add news item button
@@ -306,20 +325,15 @@
     // Submit latest news form
     document.getElementById('form-latest-news')?.addEventListener('submit', async function(e) {
         e.preventDefault();
-        
         const formData = new FormData(this);
         const newsItems = [];
-        
-        // Parse form data
         const newsMap = {};
         for (let [key, value] of formData.entries()) {
             const match = key.match(/^news\[(\d+)\]\.(.+)$/);
             if (match) {
                 const idx = match[1];
                 const field = match[2];
-                
-                if (!newsMap[idx]) newsMap[idx] = { order: parseInt(idx) + 1 };
-                
+                if (!newsMap[idx]) newsMap[idx] = {};
                 if (field.includes('.')) {
                     const [parent, child] = field.split('.');
                     if (!newsMap[idx][parent]) newsMap[idx][parent] = {};
@@ -328,21 +342,21 @@
                     newsMap[idx][field] = true;
                 } else if (field === 'id') {
                     newsMap[idx][field] = parseInt(value) || (Date.now() + parseInt(idx));
+                } else if (field === 'order') {
+                    newsMap[idx][field] = parseInt(value) || (parseInt(idx) + 1);
                 } else {
                     newsMap[idx][field] = value;
                 }
             }
         }
-        
-        // Convert to array
         Object.keys(newsMap).forEach(idx => {
             const item = newsMap[idx];
             if (!item.featured) item.featured = false;
+            if (!item.order) item.order = parseInt(idx) + 1;
             newsItems.push(item);
         });
-        
+        newsItems.sort((a, b) => a.order - b.order);
         const payload = { latestNews: newsItems };
-        
         try {
             const response = await fetch('api/save-latest-news.php', {
                 method: 'POST',
@@ -352,9 +366,7 @@
                 },
                 body: JSON.stringify(payload)
             });
-            
             const result = await response.json();
-            
             if (result.success) {
                 showNotice('Latest news saved successfully!', 'success');
             } else {
@@ -362,6 +374,47 @@
             }
         } catch (err) {
             showNotice('Network error: ' + err.message, 'error');
+        }
+    });
+
+    // Preview for latest news
+    document.querySelector('[data-preview="latest-news"]')?.addEventListener('click', function() {
+        const form = document.getElementById('form-latest-news');
+        if (!form) return;
+        const formData = new FormData(form);
+        const newsMap = {};
+        for (let [key, value] of formData.entries()) {
+            const match = key.match(/^news\[(\d+)\]\.(.+)$/);
+            if (match) {
+                const idx = match[1];
+                const field = match[2];
+                if (!newsMap[idx]) newsMap[idx] = {};
+                if (field.includes('.')) {
+                    const [parent, child] = field.split('.');
+                    if (!newsMap[idx][parent]) newsMap[idx][parent] = {};
+                    newsMap[idx][parent][child] = value;
+                } else if (field === 'featured') {
+                    newsMap[idx][field] = true;
+                } else if (field === 'id') {
+                    newsMap[idx][field] = parseInt(value) || (Date.now() + parseInt(idx));
+                } else if (field === 'order') {
+                    newsMap[idx][field] = parseInt(value) || (parseInt(idx) + 1);
+                } else {
+                    newsMap[idx][field] = value;
+                }
+            }
+        }
+        const newsItems = Object.values(newsMap).map(item => {
+            if (!item.featured) item.featured = false;
+            if (!item.order) item.order = 1;
+            return item;
+        }).sort((a, b) => a.order - b.order);
+        const previewObj = { latestNews: newsItems };
+        const dialog = document.getElementById('preview-dialog');
+        const pre = document.getElementById('preview-json');
+        if (dialog && pre) {
+            pre.textContent = JSON.stringify(previewObj, null, 2);
+            dialog.showModal?.() || (dialog.style.display = 'block');
         }
     });
 
