@@ -4,7 +4,7 @@
   <button class="tablink active" data-tab="site-config">Site Config</button>
   <button class="tablink" data-tab="breaking-news">Breaking News</button>
   <button class="tablink" data-tab="afcon-data">AFCON Data</button>
-  <button class="tablink" data-tab="articles">Articles</button>
+  <button class="tablink disabled" title="Coming soon">Articles</button>
 </aside>
 
 <section class="content">
@@ -117,18 +117,8 @@
   </div>
 
   <div class="tab" id="tab-articles">
-    <h2>Articles Management</h2>
-    <form id="form-articles">
-      <div class="articles-toolbar">
-        <button type="button" class="btn" id="add-article">Add New Article</button>
-        <span id="articles-count" style="color:#666;margin-left:12px"></span>
-      </div>
-      <div id="articles-list" class="list articles-grid"></div>
-      <div class="actions">
-        <button type="button" class="btn" data-preview="articles">Preview JSON</button>
-        <button type="submit" class="btn primary">Save All Articles</button>
-      </div>
-    </form>
+    <h2>Articles (Coming Soon)</h2>
+    <p>Article management interface will be added here.</p>
   </div>
 </section>
 
