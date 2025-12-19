@@ -260,7 +260,11 @@
         row.style.borderRadius = '6px';
         row.style.marginBottom = '10px';
         
+        // Store the original ID as a data attribute to maintain it across edits
+        const itemId = item.id || (Date.now() + Math.random());
+        
         row.innerHTML = `
+            <input type="hidden" name="news[${idx}].id" value="${itemId}">
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
                 <input type="text" name="news[${idx}].title" placeholder="Title" value="${item.title || ''}" required>
                 <input type="text" name="news[${idx}].category" placeholder="Category (e.g., FÚTBOL)" value="${item.category || ''}" required>
@@ -314,7 +318,7 @@
                 const idx = match[1];
                 const field = match[2];
                 
-                if (!newsMap[idx]) newsMap[idx] = { id: parseInt(idx) + 1, order: parseInt(idx) + 1 };
+                if (!newsMap[idx]) newsMap[idx] = { order: parseInt(idx) + 1 };
                 
                 if (field.includes('.')) {
                     const [parent, child] = field.split('.');
@@ -322,9 +326,8 @@
                     newsMap[idx][parent][child] = value;
                 } else if (field === 'featured') {
                     newsMap[idx][field] = true;
-                } else if (field === 'meta.comments') {
-                    if (!newsMap[idx].meta) newsMap[idx].meta = {};
-                    newsMap[idx].meta.comments = parseInt(value) || 0;
+                } else if (field === 'id') {
+                    newsMap[idx][field] = parseInt(value) || (Date.now() + parseInt(idx));
                 } else {
                     newsMap[idx][field] = value;
                 }
