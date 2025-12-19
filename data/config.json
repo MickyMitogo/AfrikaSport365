@@ -86,28 +86,64 @@
         {
           "title": "Deportes",
           "links": [
-            { "label": "Fútbol", "href": "#" },
-            { "label": "Atletismo", "href": "#" },
-            { "label": "Baloncesto", "href": "#" },
-            { "label": "Judo", "href": "#" }
+            {
+              "label": "Fútbol",
+              "href": "#"
+            },
+            {
+              "label": "Atletismo",
+              "href": "#"
+            },
+            {
+              "label": "Baloncesto",
+              "href": "#"
+            },
+            {
+              "label": "Judo",
+              "href": "#"
+            }
           ]
         },
         {
           "title": "Secciones",
           "links": [
-            { "label": "Noticias", "href": "#" },
-            { "label": "Resultados", "href": "#" },
-            { "label": "Multimedia", "href": "#" },
-            { "label": "Entrevistas", "href": "#" }
+            {
+              "label": "Noticias",
+              "href": "#"
+            },
+            {
+              "label": "Resultados",
+              "href": "#"
+            },
+            {
+              "label": "Multimedia",
+              "href": "#"
+            },
+            {
+              "label": "Entrevistas",
+              "href": "#"
+            }
           ]
         },
         {
           "title": "Información",
           "links": [
-            { "label": "Sobre Nosotros", "href": "#" },
-            { "label": "Contacto", "href": "#" },
-            { "label": "Política de Privacidad", "href": "#" },
-            { "label": "Términos de Uso", "href": "#" }
+            {
+              "label": "Sobre Nosotros",
+              "href": "#"
+            },
+            {
+              "label": "Contacto",
+              "href": "#"
+            },
+            {
+              "label": "Política de Privacidad",
+              "href": "#"
+            },
+            {
+              "label": "Términos de Uso",
+              "href": "#"
+            }
           ]
         }
       ]
