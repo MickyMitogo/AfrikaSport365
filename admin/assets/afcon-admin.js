@@ -222,4 +222,149 @@
     // Load data on page load
     loadAfconData();
 
+    // ======================
+    // LATEST NEWS FORM LOGIC
+    // ======================
+
+    // Load latest news data
+    function loadLatestNews() {
+        fetch('api/get-latest-news.php', {
+            headers: { 'X-CSRF-Token': CSRF_TOKEN }
+        })
+        .then(r => r.json())
+        .then(data => {
+            if (!data || !data.latestNews) return;
+            
+            const container = document.getElementById('latest-news-list');
+            container.innerHTML = '';
+            
+            data.latestNews.forEach((item, index) => {
+                addNewsRow(item, index);
+            });
+        })
+        .catch(err => console.error('Failed to load latest news:', err));
+    }
+
+    // Add news row
+    function addNewsRow(item = {}, index = null) {
+        const container = document.getElementById('latest-news-list');
+        const idx = index !== null ? index : container.children.length;
+        
+        const row = document.createElement('div');
+        row.className = 'list-item';
+        row.style.display = 'grid';
+        row.style.gap = '10px';
+        row.style.padding = '12px';
+        row.style.background = 'var(--card)';
+        row.style.border = '1px solid var(--border)';
+        row.style.borderRadius = '6px';
+        row.style.marginBottom = '10px';
+        
+        row.innerHTML = `
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+                <input type="text" name="news[${idx}].title" placeholder="Title" value="${item.title || ''}" required>
+                <input type="text" name="news[${idx}].category" placeholder="Category (e.g., FÚTBOL)" value="${item.category || ''}" required>
+            </div>
+            
+            <textarea name="news[${idx}].excerpt" placeholder="Excerpt (brief description)" rows="2" required>${item.excerpt || ''}</textarea>
+            
+            <div style="display:grid;grid-template-columns:2fr 1fr;gap:8px">
+                <input type="text" name="news[${idx}].image" placeholder="Image URL (e.g., images/photo.jpg)" value="${item.image || ''}" required>
+                <input type="text" name="news[${idx}].categoryColor" placeholder="Color (e.g., #ef4444)" value="${item.categoryColor || '#2563eb'}" required>
+            </div>
+            
+            <div style="display:grid;grid-template-columns:2fr 1fr;gap:8px">
+                <input type="text" name="news[${idx}].slug" placeholder="Article slug (URL)" value="${item.slug || ''}" required>
+                <input type="text" name="news[${idx}].imageAlt" placeholder="Image alt text" value="${item.imageAlt || ''}">
+            </div>
+            
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
+                <input type="text" name="news[${idx}].meta.author" placeholder="Author name" value="${item.meta?.author || ''}" required>
+                <input type="text" name="news[${idx}].meta.time" placeholder="Time (e.g., Hace 2 horas)" value="${item.meta?.time || ''}" required>
+                <input type="number" name="news[${idx}].meta.comments" placeholder="Comments" value="${item.meta?.comments || 0}" min="0" max="9999">
+            </div>
+            
+            <div style="display:flex;justify-content:space-between;align-items:center">
+                <label style="display:flex;align-items:center;gap:6px;margin:0">
+                    <input type="checkbox" name="news[${idx}].featured" ${item.featured ? 'checked' : ''}>
+                    <span>Featured (large card)</span>
+                </label>
+                <button type="button" class="btn danger btn-remove" onclick="this.closest('.list-item').remove()" style="padding:6px 12px">Remove</button>
+            </div>
+        `;
+        
+        container.appendChild(row);
+    }
+
+    // Add news item button
+    document.getElementById('add-news-item')?.addEventListener('click', () => addNewsRow());
+
+    // Submit latest news form
+    document.getElementById('form-latest-news')?.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        const newsItems = [];
+        
+        // Parse form data
+        const newsMap = {};
+        for (let [key, value] of formData.entries()) {
+            const match = key.match(/^news\[(\d+)\]\.(.+)$/);
+            if (match) {
+                const idx = match[1];
+                const field = match[2];
+                
+                if (!newsMap[idx]) newsMap[idx] = { id: parseInt(idx) + 1, order: parseInt(idx) + 1 };
+                
+                if (field.includes('.')) {
+                    const [parent, child] = field.split('.');
+                    if (!newsMap[idx][parent]) newsMap[idx][parent] = {};
+                    newsMap[idx][parent][child] = value;
+                } else if (field === 'featured') {
+                    newsMap[idx][field] = true;
+                } else if (field === 'meta.comments') {
+                    if (!newsMap[idx].meta) newsMap[idx].meta = {};
+                    newsMap[idx].meta.comments = parseInt(value) || 0;
+                } else {
+                    newsMap[idx][field] = value;
+                }
+            }
+        }
+        
+        // Convert to array
+        Object.keys(newsMap).forEach(idx => {
+            const item = newsMap[idx];
+            if (!item.featured) item.featured = false;
+            newsItems.push(item);
+        });
+        
+        const payload = { latestNews: newsItems };
+        
+        try {
+            const response = await fetch('api/save-latest-news.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-Token': CSRF_TOKEN
+                },
+                body: JSON.stringify(payload)
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                showNotice('Latest news saved successfully!', 'success');
+            } else {
+                showNotice('Error: ' + (result.message || 'Save failed'), 'error');
+            }
+        } catch (err) {
+            showNotice('Network error: ' + err.message, 'error');
+        }
+    });
+
+    // Load latest news on page load
+    if (document.getElementById('form-latest-news')) {
+        loadLatestNews();
+    }
+
 })();
