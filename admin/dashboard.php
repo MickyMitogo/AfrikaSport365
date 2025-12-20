@@ -5,6 +5,7 @@
   <button class="tablink" data-tab="breaking-news">Breaking News</button>
   <button class="tablink" data-tab="afcon-data">AFCON Data</button>
   <button class="tablink" data-tab="latest-news">Latest News</button>
+  <button class="tablink" data-tab="analisis-opinion">Análisis y Opinión</button>
   <button class="tablink disabled" title="Coming soon">Articles</button>
 </aside>
 
@@ -12,6 +13,20 @@
   <div id="notice" class="notice" hidden></div>
 
   <!-- Site Config tab and form removed -->
+
+  <div class="tab" id="tab-analisis-opinion">
+    <h2>Análisis y Opinión</h2>
+    <form id="form-analisis-opinion">
+      <div id="analisis-opinion-list" class="list"></div>
+      <div class="list-actions">
+        <button type="button" class="btn" id="add-analisis-opinion">Añadir Artículo</button>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn" data-preview="analisis-opinion">Preview</button>
+        <button type="submit" class="btn primary">Guardar Cambios</button>
+      </div>
+    </form>
+  </div>
 
   <div class="tab" id="tab-breaking-news">
     <h2>Breaking News</h2>
