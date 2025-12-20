@@ -2,6 +2,7 @@
 
 <aside class="sidebar">
   <!-- Site Config tab removed -->
+  <button class="tablink" data-tab="hero-about">Hero & Misión</button>
   <button class="tablink" data-tab="breaking-news">Breaking News</button>
   <button class="tablink" data-tab="afcon-data">AFCON Data</button>
   <button class="tablink" data-tab="latest-news">Latest News</button>
@@ -24,6 +25,67 @@
         </div>
       </form>
     </div>
+
+  <div class="tab" id="tab-hero-about">
+    <h2>Hero & Nuestra Misión</h2>
+    <form id="hero-about-admin-form">
+      <fieldset>
+        <legend>Hero Section</legend>
+        <label>Fondo (URL imagen)
+          <input name="hero_backgroundImage" type="text" placeholder="URL de la imagen de fondo">
+        </label>
+        <label>Badge
+          <input name="hero_badge" type="text" placeholder="Texto del badge">
+        </label>
+        <label>Título
+          <input name="hero_title" type="text" placeholder="Título principal">
+        </label>
+        <label>Resumen
+          <textarea name="hero_excerpt" placeholder="Resumen corto"></textarea>
+        </label>
+        <label>Fecha
+          <input name="hero_meta_date" type="text" placeholder="Fecha (ej: 15 de Enero, 2025)">
+        </label>
+        <label>Autor
+          <input name="hero_meta_author" type="text" placeholder="Autor">
+        </label>
+        <label>Tiempo de lectura
+          <input name="hero_meta_readTime" type="text" placeholder="Ej: 8 min de lectura">
+        </label>
+        <label>Enlace CTA
+          <input name="hero_ctaLink" type="text" placeholder="URL del botón CTA">
+        </label>
+        <label>Texto CTA
+          <input name="hero_ctaText" type="text" placeholder="Texto del botón CTA">
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>Nuestra Misión</legend>
+        <label>Icono
+          <input name="about_icon" type="text" placeholder="Emoji o icono">
+        </label>
+        <label>Título
+          <input name="about_title" type="text" placeholder="Título de la sección">
+        </label>
+        <label>Descripción
+          <textarea name="about_description" placeholder="Descripción de la misión"></textarea>
+        </label>
+        <div style="margin-top:10px;font-weight:bold">Estadísticas</div>
+        <div class="about-stats-fields">
+          <label>Valor 1<input name="about_stats_0_value" type="text" placeholder="Ej: 500K+" /></label>
+          <label>Etiqueta 1<input name="about_stats_0_label" type="text" placeholder="Ej: Lectores Mensuales" /></label>
+          <label>Valor 2<input name="about_stats_1_value" type="text" placeholder="Ej: 15" /></label>
+          <label>Etiqueta 2<input name="about_stats_1_label" type="text" placeholder="Ej: Deportes Cubiertos" /></label>
+          <label>Valor 3<input name="about_stats_2_value" type="text" placeholder="Ej: 24/7" /></label>
+          <label>Etiqueta 3<input name="about_stats_2_label" type="text" placeholder="Ej: Cobertura en Vivo" /></label>
+        </div>
+      </fieldset>
+      <div class="actions">
+        <button type="submit" class="btn primary">Guardar Cambios</button>
+      </div>
+      <div id="hero-about-admin-status" style="margin-top:10px;color:green"></div>
+    </form>
+  </div>
   <div id="notice" class="notice" hidden></div>
 
   <!-- Site Config tab and form removed -->
