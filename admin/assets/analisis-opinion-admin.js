@@ -51,7 +51,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function renderList(items) {
         list.innerHTML = '';
-        (items || []).forEach(item => addItem(item));
+        (items || []).forEach(item => {
+            if (!('imagen' in item)) item.imagen = '';
+            if (!('badge' in item)) item.badge = '';
+            addItem(item);
+        });
     }
 
     function addItem(data) {
