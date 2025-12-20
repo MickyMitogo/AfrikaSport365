@@ -2,7 +2,12 @@
 // Carga y muestra los artículos de Análisis y Opinión dinámicamente
 
 document.addEventListener('DOMContentLoaded', function() {
-    const container = document.querySelector('.analisis-opinion-container');
+    // Selecciona el contenedor de la sección "Análisis y Opinión"
+    // Busca el h2 con el texto y sube hasta el .news-grid más cercano
+    const sectionTitle = Array.from(document.querySelectorAll('.section-title')).find(el => el.textContent.includes('Análisis y Opinión'));
+    if (!sectionTitle) return;
+    const section = sectionTitle.closest('.section-header').parentElement;
+    const container = section.querySelector('.news-grid');
     if (!container) return;
     fetch('data/analisis-opinion.json')
         .then(r => r.json())
@@ -10,12 +15,18 @@ document.addEventListener('DOMContentLoaded', function() {
             if (Array.isArray(items) && items.length) {
                 container.innerHTML = '';
                 items.forEach(article => {
-                    const div = document.createElement('div');
-                    div.className = 'analisis-opinion-item';
+                    const div = document.createElement('article');
+                    div.className = 'news-card';
                     div.innerHTML = `
-                        <h3>${article.titulo}</h3>
-                        <p>${article.resumen}</p>
-                        <span class="autor">Por ${article.autor}</span>
+                        <div class="news-image">
+                            <img src="images/analisis.jpg" alt="Análisis">
+                            <span class="news-category-badge" style="background: #6366f1;">OPINIÓN</span>
+                        </div>
+                        <div class="news-content">
+                            <h3 class="news-title">${article.titulo}</h3>
+                            <p class="news-excerpt">${article.resumen}</p>
+                            <div class="news-meta"><span>✍️ ${article.autor}</span></div>
+                        </div>
                     `;
                     container.appendChild(div);
                 });
