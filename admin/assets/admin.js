@@ -5,12 +5,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // ...existing code...
 
     // Save AFCON Settings (kept for backward compatibility, handled by afcon-admin.js)
-    const afconForm = document.getElementById('afconForm');
+    const afconForm = document.getElementById('form-afcon');
     if (afconForm) {
         afconForm.addEventListener('submit', function(e) {
             e.preventDefault();
             const formData = new FormData(this);
-            
             fetch('api/save-afcon.php', {
                 method: 'POST',
                 body: formData
