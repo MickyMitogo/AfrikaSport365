@@ -19,13 +19,14 @@ if (!is_array($input)) {
     echo json_encode(['success'=>false,'message'=>'Invalid JSON']);
     exit;
 }
-// Validar: debe ser un array de objetos con titulo, resumen y autor
+// Validar: debe ser un array de objetos con titulo, resumen, autor, imagen y badge (opcional)
 $items = array_filter($input, function($item) {
     return is_array($item)
         && isset($item['titulo'], $item['resumen'], $item['autor'])
         && $item['titulo'] !== ''
         && $item['resumen'] !== ''
         && $item['autor'] !== '';
+    // imagen y badge pueden ser vacíos
 });
 if (!is_array($items)) $items = [];
 if (!is_writable($file) && file_exists($file)) {

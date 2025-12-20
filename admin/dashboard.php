@@ -18,6 +18,9 @@
     <h2>Análisis y Opinión</h2>
     <form id="form-analisis-opinion">
       <div id="analisis-opinion-list" class="list"></div>
+      <div style="font-size:12px;color:#666;margin-bottom:10px">
+        Cada artículo puede tener una imagen (URL) y un badge (texto, ej: OPINIÓN, ENTREVISTA).
+      </div>
       <div class="list-actions">
         <button type="button" class="btn" id="add-analisis-opinion">Añadir Artículo</button>
       </div>

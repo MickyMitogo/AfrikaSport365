@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     div.className = 'news-card';
                     div.innerHTML = `
                         <div class="news-image">
-                            <img src="images/analisis.jpg" alt="Análisis">
-                            <span class="news-category-badge" style="background: #6366f1;">OPINIÓN</span>
+                            <img src="${article.imagen ? article.imagen : 'images/analisis.jpg'}" alt="Análisis">
+                            <span class="news-category-badge" style="background: #6366f1;">${article.badge ? article.badge : 'OPINIÓN'}</span>
                         </div>
                         <div class="news-content">
                             <h3 class="news-title">${article.titulo}</h3>
