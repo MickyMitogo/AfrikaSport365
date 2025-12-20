@@ -59,6 +59,8 @@ document.addEventListener('DOMContentLoaded', function() {
             <input name="titulo" type="text" placeholder="Título" value="${data.titulo || ''}" required>
             <input name="resumen" type="text" placeholder="Resumen" value="${data.resumen || ''}" required>
             <input name="autor" type="text" placeholder="Autor" value="${data.autor || ''}" required>
+            <input name="imagen" type="text" placeholder="URL de imagen (opcional)" value="${data.imagen || ''}">
+            <input name="badge" type="text" placeholder="Badge (ej: OPINIÓN)" value="${data.badge || ''}">
             <button type="button" class="btn remove">Eliminar</button>
         `;
         div.querySelector('.remove').addEventListener('click', function() {
