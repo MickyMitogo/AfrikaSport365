@@ -30,12 +30,10 @@ Run the snippet with PHP and copy the output.
 - `config.php` is blocked from direct access.
 
 ## Save Endpoints
-- `admin/api/save-config.php` → updates `data/config.json`
-- `admin/api/save-afcon.php` → updates `data/afcon-data.json`
+- `admin/api/save-afcon.php`  updates `data/afcon-data.json`
 - Atomic writes with temp file + rename.
 
 ## Editable Sections
-- Site Config: site name, tagline, logo, hero (title, excerpt, background, CTA)
 - Breaking News: list of ticker items
 - AFCON: tournament basics, live matches, top scorers
 
