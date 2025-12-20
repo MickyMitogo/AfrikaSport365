@@ -6,10 +6,24 @@
   <button class="tablink" data-tab="afcon-data">AFCON Data</button>
   <button class="tablink" data-tab="latest-news">Latest News</button>
   <button class="tablink" data-tab="analisis-opinion">Análisis y Opinión</button>
+  <button class="tablink" data-tab="athletes">Perfiles de Atleta</button>
   <button class="tablink disabled" title="Coming soon">Articles</button>
 </aside>
 
 <section class="content">
+    <div class="tab" id="tab-athletes">
+      <h2>Perfiles de Atleta</h2>
+      <form id="form-athletes">
+        <div id="athletes-list" class="list"></div>
+        <div class="list-actions">
+          <button type="button" class="btn" id="add-athlete">Añadir Atleta</button>
+        </div>
+        <div class="actions">
+          <button type="button" class="btn" data-preview="athletes">Preview</button>
+          <button type="submit" class="btn primary">Guardar Cambios</button>
+        </div>
+      </form>
+    </div>
   <div id="notice" class="notice" hidden></div>
 
   <!-- Site Config tab and form removed -->

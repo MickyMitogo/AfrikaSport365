@@ -1,0 +1,28 @@
+[
+  {
+    "nombre": "Emilio Nsue",
+    "titulo": "Delantero • Capitán Selección Nacional",
+    "imagen": "images/atleta1.jpg",
+    "imagenAlt": "Emilio Nsue",
+    "badge": "FÚTBOL",
+    "badgeColor": "#2563eb",
+    "stats": [
+      { "valor": "45", "etiqueta": "Goles" },
+      { "valor": "78", "etiqueta": "Partidos" },
+      { "valor": "12", "etiqueta": "Asistencias" }
+    ]
+  },
+  {
+    "nombre": "Emilia Esono",
+    "titulo": "Velocista • 100m y 200m",
+    "imagen": "images/atleta2.jpg",
+    "imagenAlt": "Emilia Esono",
+    "badge": "ATLETISMO",
+    "badgeColor": "#10b981",
+    "stats": [
+      { "valor": "11.23s", "etiqueta": "Record 100m" },
+      { "valor": "5", "etiqueta": "Medallas" },
+      { "valor": "23", "etiqueta": "Edad" }
+    ]
+  }
+]
