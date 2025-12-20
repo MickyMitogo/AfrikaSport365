@@ -26,7 +26,9 @@ document.addEventListener('DOMContentLoaded', function() {
             return {
                 titulo: item.querySelector('input[name="titulo"]').value.trim(),
                 resumen: item.querySelector('input[name="resumen"]').value.trim(),
-                autor: item.querySelector('input[name="autor"]').value.trim()
+                autor: item.querySelector('input[name="autor"]').value.trim(),
+                imagen: item.querySelector('input[name="imagen"]').value.trim(),
+                badge: item.querySelector('input[name="badge"]').value.trim()
             };
         }).filter(a => a.titulo && a.resumen && a.autor);
         fetch('api/save-analisis-opinion.php', {
