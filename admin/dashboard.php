@@ -34,6 +34,9 @@
         <label>Fondo (URL imagen)
           <input name="hero_backgroundImage" type="text" placeholder="URL de la imagen de fondo">
         </label>
+        <label>Fondo CSS (URL imagen)
+          <input name="hero_backgroundCssImage" type="text" placeholder="URL para el fondo CSS de la tarjeta">
+        </label>
         <label>Badge
           <input name="hero_badge" type="text" placeholder="Texto del badge">
         </label>

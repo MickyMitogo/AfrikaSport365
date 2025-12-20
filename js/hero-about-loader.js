@@ -12,6 +12,11 @@ document.addEventListener('DOMContentLoaded', function () {
     function renderHero(hero) {
         const bgImg = document.querySelector('.hero-background img[data-cms-field="hero.backgroundImage"]');
         if (bgImg) bgImg.src = hero.backgroundImage || '';
+        // Fondo CSS de la tarjeta
+        const card = document.querySelector('.hero-featured-story');
+        if (card && hero.backgroundCssImage) {
+            card.style.backgroundImage = `url('${hero.backgroundCssImage}')`;
+        }
         const badge = document.querySelector('.hero-badge[data-cms-field="hero.badge"]');
         if (badge) badge.textContent = hero.badge || '';
         const title = document.querySelector('.hero-title[data-cms-field="hero.title"]');

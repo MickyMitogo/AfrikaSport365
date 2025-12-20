@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function fillForm(data) {
         // Hero
         form.hero_backgroundImage.value = data.hero.backgroundImage || '';
+        form.hero_backgroundCssImage.value = data.hero.backgroundCssImage || '';
         form.hero_badge.value = data.hero.badge || '';
         form.hero_title.value = data.hero.title || '';
         form.hero_excerpt.value = data.hero.excerpt || '';
@@ -54,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return {
             hero: {
                 backgroundImage: form.hero_backgroundImage.value,
+                backgroundCssImage: form.hero_backgroundCssImage.value,
                 badge: form.hero_badge.value,
                 title: form.hero_title.value,
                 excerpt: form.hero_excerpt.value,
