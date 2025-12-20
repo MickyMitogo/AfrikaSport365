@@ -187,11 +187,10 @@
   // Auto-preload common files on page load
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
-      // Preload config on all pages
-      preload(['config']);
+      // Preload only required files (config removed)
     });
   } else {
-    preload(['config']);
+    // Preload only required files (config removed)
   }
 
   console.log('[ContentLoader] Module initialized');
