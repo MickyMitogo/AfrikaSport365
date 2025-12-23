@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function () {
     function fillForm(data) {
         // Hero
         form.hero_backgroundImage.value = data.hero.backgroundImage || '';
-        form.hero_backgroundCssImage.value = data.hero.backgroundCssImage || '';
         form.hero_badge.value = data.hero.badge || '';
         form.hero_title.value = data.hero.title || '';
         form.hero_excerpt.value = data.hero.excerpt || '';

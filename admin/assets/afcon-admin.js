@@ -215,16 +215,7 @@
         current[parts[parts.length - 1]] = value;
     }
 
-    // ======================
-    // INITIALIZATION
-    // ======================
     
-    // Load data on page load
-    loadAfconData();
-
-    // ======================
-    // LATEST NEWS FORM LOGIC
-    // ======================
 
     // Load latest news data
     function loadLatestNews() {
