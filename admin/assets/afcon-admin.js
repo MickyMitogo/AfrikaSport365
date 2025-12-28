@@ -260,25 +260,23 @@
                 <input type="text" name="news[${idx}].title" placeholder="Title" value="${item.title || ''}" required>
                 <input type="text" name="news[${idx}].category" placeholder="Category (e.g., FÚTBOL)" value="${item.category || ''}" required>
             </div>
-            
             <textarea name="news[${idx}].excerpt" placeholder="Excerpt (brief description)" rows="2" required>${item.excerpt || ''}</textarea>
-            
-            <div style="display:grid;grid-template-columns:2fr 1fr;gap:8px">
-                <input type="text" name="news[${idx}].image" placeholder="Image URL (e.g., images/photo.jpg)" value="${item.image || ''}" required>
+            <div style="display:grid;grid-template-columns:2fr 1fr;gap:8px;align-items:end">
+                <div style="display:flex;flex-direction:column;gap:4px">
+                    <input type="text" name="news[${idx}].image" placeholder="Image URL (e.g., images/photo.jpg)" value="${item.image || ''}" required>
+                    <input type="file" accept="image/*" style="font-size:12px" id="news-image-upload-${idx}">
+                </div>
                 <input type="text" name="news[${idx}].categoryColor" placeholder="Color (e.g., #ef4444)" value="${item.categoryColor || '#2563eb'}" required>
             </div>
-            
             <div style="display:grid;grid-template-columns:2fr 1fr;gap:8px">
                 <input type="text" name="news[${idx}].slug" placeholder="Article slug (URL)" value="${item.slug || ''}" required>
                 <input type="text" name="news[${idx}].imageAlt" placeholder="Image alt text" value="${item.imageAlt || ''}">
             </div>
-            
             <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
                 <input type="text" name="news[${idx}].meta.author" placeholder="Author name" value="${item.meta?.author || ''}" required>
                 <input type="text" name="news[${idx}].meta.time" placeholder="Time (e.g., Hace 2 horas)" value="${item.meta?.time || ''}" required>
                 <input type="number" name="news[${idx}].meta.comments" placeholder="Comments" value="${item.meta?.comments || 0}" min="0" max="9999">
             </div>
-            
             <div style="display:flex;justify-content:space-between;align-items:center">
                 <label style="display:flex;align-items:center;gap:6px;margin:0">
                     <input type="checkbox" name="news[${idx}].featured" ${item.featured ? 'checked' : ''}>
@@ -287,7 +285,36 @@
                 <button type="button" class="btn danger btn-remove" onclick="this.closest('.list-item').remove()" style="padding:6px 12px">Remove</button>
             </div>
         `;
-        
+
+        // Lógica de subida de imagen
+        const fileInput = row.querySelector(`#news-image-upload-${idx}`);
+        const imageInput = row.querySelector(`input[name="news[${idx}].image"]`);
+        if (fileInput && imageInput) {
+            fileInput.addEventListener('change', async function() {
+                if (!this.files || !this.files[0]) return;
+                const formData = new FormData();
+                formData.append('image', this.files[0]);
+                imageInput.disabled = true;
+                imageInput.value = 'Subiendo...';
+                try {
+                    const resp = await fetch('api/save-latest-news-image.php', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    const data = await resp.json();
+                    if (data.success && data.url) {
+                        imageInput.value = data.url;
+                    } else {
+                        imageInput.value = '';
+                        alert('Error al subir la imagen: ' + (data.message || 'Error desconocido'));
+                    }
+                } catch (err) {
+                    imageInput.value = '';
+                    alert('Error de red al subir la imagen');
+                }
+                imageInput.disabled = false;
+            });
+        }
         container.appendChild(row);
     }
 
