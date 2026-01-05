@@ -190,6 +190,16 @@
     <h2>Articles (Coming Soon)</h2>
     <p>Article management interface will be added here.</p>
   </div>
+
+  <section id="admin-multimedia" class="admin-section">
+    <h2>Galería Multimedia</h2>
+    <form id="form-multimedia">
+        <div id="multimedia-list"></div>
+        <button type="button" id="add-multimedia" class="btn">Añadir elemento</button>
+        <button type="submit" class="btn btn-primary">Guardar galería</button>
+    </form>
+  </section>
+  <script src="assets/multimedia-admin.js"></script>
 </section>
 
 <dialog id="preview-dialog">
