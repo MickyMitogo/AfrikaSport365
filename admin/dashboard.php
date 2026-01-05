@@ -8,23 +8,7 @@
   <button class="tablink" data-tab="latest-news">Latest News</button>
   <button class="tablink" data-tab="analisis-opinion">Análisis y Opinión</button>
   <button class="tablink" data-tab="athletes">Perfiles de Atleta</button>
-  <button class="tablink" data-tab="multimedia">Multimedia</button>
   <button class="tablink disabled" title="Coming soon">Articles</button>
-  <div class="tab" id="tab-multimedia">
-    <h2>Gestión de Multimedia</h2>
-    <form id="form-multimedia">
-      <div id="multimedia-list" class="list"></div>
-      <div style="font-size:12px;color:#666;margin-bottom:10px">
-        Puedes subir imágenes, videos, enlazar videos de YouTube u otros enlaces externos. Para archivos locales, usa el botón de archivo.
-      </div>
-      <div class="list-actions">
-        <button type="button" class="btn" id="add-multimedia">Añadir Multimedia</button>
-      </div>
-      <div class="actions">
-        <button type="submit" class="btn primary">Guardar Cambios</button>
-      </div>
-    </form>
-  </div>
 </aside>
 
 <section class="content">
