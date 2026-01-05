@@ -61,17 +61,50 @@ document.addEventListener('DOMContentLoaded', function() {
     function addItem(data) {
         const div = document.createElement('div');
         div.className = 'analisis-opinion-item';
+        const idx = list.children.length;
         div.innerHTML = `
             <input name="titulo" type="text" placeholder="Título" value="${data.titulo || ''}" required>
             <input name="resumen" type="text" placeholder="Resumen" value="${data.resumen || ''}" required>
             <input name="autor" type="text" placeholder="Autor" value="${data.autor || ''}" required>
-            <input name="imagen" type="text" placeholder="URL de imagen (opcional)" value="${data.imagen || ''}">
+            <div style="display:flex;flex-direction:column;gap:4px">
+                <input name="imagen" type="text" placeholder="URL de imagen (opcional)" value="${data.imagen || ''}">
+                <input type="file" accept="image/*" style="font-size:12px" id="analisis-image-upload-${idx}">
+            </div>
             <input name="badge" type="text" placeholder="Badge (ej: OPINIÓN)" value="${data.badge || ''}">
             <button type="button" class="btn remove">Eliminar</button>
         `;
         div.querySelector('.remove').addEventListener('click', function() {
             div.remove();
         });
+        // Lógica de subida de imagen
+        const fileInput = div.querySelector(`#analisis-image-upload-${idx}`);
+        const imageInput = div.querySelector('input[name="imagen"]');
+        if (fileInput && imageInput) {
+            fileInput.addEventListener('change', async function() {
+                if (!this.files || !this.files[0]) return;
+                const formData = new FormData();
+                formData.append('image', this.files[0]);
+                imageInput.disabled = true;
+                imageInput.value = 'Subiendo...';
+                try {
+                    const resp = await fetch('api/save-analisis-opinion-image.php', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    const data = await resp.json();
+                    if (data.success && data.url) {
+                        imageInput.value = data.url;
+                    } else {
+                        imageInput.value = '';
+                        alert('Error al subir la imagen: ' + (data.message || 'Error desconocido'));
+                    }
+                } catch (err) {
+                    imageInput.value = '';
+                    alert('Error de red al subir la imagen');
+                }
+                imageInput.disabled = false;
+            });
+        }
         list.appendChild(div);
     }
 });
