@@ -1,0 +1,30 @@
+/* multimedia-admin.css */
+.multimedia-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+.multimedia-item input[type="text"],
+.multimedia-item input[type="file"],
+.multimedia-item select {
+  min-width: 120px;
+  font-size: 14px;
+  padding: 4px 8px;
+}
+.multimedia-item .btn.remove {
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+.multimedia-item .btn.remove:hover {
+  background: #b91c1c;
+}

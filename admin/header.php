@@ -6,9 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AfrikaSport365 Admin</title>
   <link rel="stylesheet" href="/admin/assets/admin.css">
+  <link rel="stylesheet" href="/admin/assets/multimedia-admin.css">
   <meta name="csrf-token" content="<?= htmlspecialchars(csrf_token(), ENT_QUOTES, 'UTF-8') ?>">
 </head>
 <body>
+<script src="/admin/assets/multimedia-admin.js"></script>
   <header class="topbar">
     <div class="brand">AfrikaSport365 CMS</div>
     <nav class="topnav">
