@@ -57,13 +57,17 @@ document.addEventListener('DOMContentLoaded', function() {
     function addItem(data) {
         const div = document.createElement('div');
         div.className = 'multimedia-item';
+        const idx = list.children.length;
         div.innerHTML = `
             <select name="type">
                 <option value="image" ${data.type === 'image' ? 'selected' : ''}>Imagen</option>
                 <option value="video" ${data.type === 'video' ? 'selected' : ''}>Video</option>
             </select>
             <input name="title" type="text" placeholder="Título" value="${data.title || ''}">
-            <input name="src" type="text" placeholder="URL o ruta" value="${data.src || ''}" required>
+            <div style="display:flex;flex-direction:column;gap:4px">
+                <input name="src" type="text" placeholder="URL o ruta" value="${data.src || ''}" required>
+                <input type="file" accept="image/*,video/*" style="font-size:12px" id="multimedia-file-upload-${idx}">
+            </div>
             <input name="alt" type="text" placeholder="Texto alternativo" value="${data.alt || ''}">
             <input name="date" type="date" value="${data.date || ''}">
             <button type="button" class="btn remove">Eliminar</button>
@@ -71,6 +75,35 @@ document.addEventListener('DOMContentLoaded', function() {
         div.querySelector('.remove').addEventListener('click', function() {
             div.remove();
         });
+        // Lógica de subida de archivo
+        const fileInput = div.querySelector(`#multimedia-file-upload-${idx}`);
+        const srcInput = div.querySelector('input[name="src"]');
+        if (fileInput && srcInput) {
+            fileInput.addEventListener('change', async function() {
+                if (!this.files || !this.files[0]) return;
+                const formData = new FormData();
+                formData.append('file', this.files[0]);
+                srcInput.disabled = true;
+                srcInput.value = 'Subiendo...';
+                try {
+                    const resp = await fetch('api/save-multimedia-file.php', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    const data = await resp.json();
+                    if (data.success && data.url) {
+                        srcInput.value = data.url;
+                    } else {
+                        srcInput.value = '';
+                        alert('Error al subir el archivo: ' + (data.message || 'Error desconocido'));
+                    }
+                } catch (err) {
+                    srcInput.value = '';
+                    alert('Error de red al subir el archivo');
+                }
+                srcInput.disabled = false;
+            });
+        }
         list.appendChild(div);
     }
 
