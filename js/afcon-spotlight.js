@@ -192,7 +192,7 @@
             img.alt = scorer.name || 'Top Scorer';
             img.style.width = '80px';
             img.style.height = '80px';
-            img.style.borderRadius = '50%';
+            img.style.borderRadius = '10%';
             img.style.objectFit = 'cover';
             img.style.marginBottom = '0.5rem';
             img.style.display = 'block';
