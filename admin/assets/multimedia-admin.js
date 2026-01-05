@@ -56,20 +56,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function addItem(data) {
         const div = document.createElement('div');
-        div.className = 'multimedia-item';
+        div.className = 'multimedia-card';
         const idx = list.children.length;
         div.innerHTML = `
-            <select name="type">
-                <option value="image" ${data.type === 'image' ? 'selected' : ''}>Imagen</option>
-                <option value="video" ${data.type === 'video' ? 'selected' : ''}>Video</option>
-            </select>
-            <input name="title" type="text" placeholder="Título" value="${data.title || ''}">
-            <div style="display:flex;flex-direction:column;gap:4px">
-                <input name="src" type="text" placeholder="URL o ruta" value="${data.src || ''}" required>
-                <input type="file" accept="image/*,video/*" style="font-size:12px" id="multimedia-file-upload-${idx}">
+            <div class="multimedia-thumb-wrapper">
+                <select name="type" style="margin-bottom:6px;">
+                    <option value="image" ${data.type === 'image' ? 'selected' : ''}>Imagen</option>
+                    <option value="video" ${data.type === 'video' ? 'selected' : ''}>Video</option>
+                </select>
+                <input name="title" type="text" class="multimedia-title" placeholder="Título" value="${data.title || ''}">
+                <div style="display:flex;flex-direction:column;gap:4px">
+                    <input name="src" type="text" class="multimedia-thumb" placeholder="URL o ruta" value="${data.src || ''}" required>
+                    <input type="file" accept="image/*,video/*" style="font-size:12px" id="multimedia-file-upload-${idx}">
+                </div>
+                <input name="alt" type="text" class="multimedia-alt" placeholder="Texto alternativo" value="${data.alt || ''}">
+                <input name="date" type="date" class="multimedia-date" value="${data.date || ''}">
             </div>
-            <input name="alt" type="text" placeholder="Texto alternativo" value="${data.alt || ''}">
-            <input name="date" type="date" value="${data.date || ''}">
             <button type="button" class="btn remove">Eliminar</button>
         `;
         div.querySelector('.remove').addEventListener('click', function() {
