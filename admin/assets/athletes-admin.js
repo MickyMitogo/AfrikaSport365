@@ -64,10 +64,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const div = document.createElement('div');
         div.className = 'athlete-item';
         div.style.marginBottom = '24px';
+        const idx = list.children.length;
         div.innerHTML = `
             <input name="nombre" type="text" placeholder="Nombre" value="${data.nombre || ''}" required>
             <input name="titulo" type="text" placeholder="Título/Descripción" value="${data.titulo || ''}" required>
-            <input name="imagen" type="text" placeholder="URL de imagen" value="${data.imagen || ''}" required>
+            <div style="display:flex;flex-direction:column;gap:4px">
+                <input name="imagen" type="text" placeholder="URL de imagen" value="${data.imagen || ''}" required>
+                <input type="file" accept="image/*" style="font-size:12px" id="athlete-image-upload-${idx}">
+            </div>
             <input name="imagenAlt" type="text" placeholder="Texto alternativo imagen" value="${data.imagenAlt || ''}">
             <input name="badge" type="text" placeholder="Badge (deporte)" value="${data.badge || ''}" required>
             <input name="badgeColor" type="text" placeholder="Color badge (ej: #2563eb)" value="${data.badgeColor || ''}">
@@ -82,6 +86,35 @@ document.addEventListener('DOMContentLoaded', function() {
         div.querySelector('.remove').addEventListener('click', function() {
             div.remove();
         });
+        // Lógica de subida de imagen
+        const fileInput = div.querySelector(`#athlete-image-upload-${idx}`);
+        const imageInput = div.querySelector('input[name="imagen"]');
+        if (fileInput && imageInput) {
+            fileInput.addEventListener('change', async function() {
+                if (!this.files || !this.files[0]) return;
+                const formData = new FormData();
+                formData.append('image', this.files[0]);
+                imageInput.disabled = true;
+                imageInput.value = 'Subiendo...';
+                try {
+                    const resp = await fetch('api/save-athlete-image.php', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    const data = await resp.json();
+                    if (data.success && data.url) {
+                        imageInput.value = data.url;
+                    } else {
+                        imageInput.value = '';
+                        alert('Error al subir la imagen: ' + (data.message || 'Error desconocido'));
+                    }
+                } catch (err) {
+                    imageInput.value = '';
+                    alert('Error de red al subir la imagen');
+                }
+                imageInput.disabled = false;
+            });
+        }
         list.appendChild(div);
     }
 
