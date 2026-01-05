@@ -11,6 +11,16 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(items => renderGallery(items, grid));
 });
 
+function isYouTubeUrl(url) {
+    return /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\//.test(url);
+}
+
+function getYouTubeEmbedUrl(url) {
+    // Extrae el ID del video y construye el embed URL
+    const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+    return match ? `https://www.youtube.com/embed/${match[1]}` : url;
+}
+
 function renderGallery(items, grid) {
     grid.innerHTML = '';
     (items || []).forEach(item => {
@@ -29,21 +39,39 @@ function renderGallery(items, grid) {
                 ${overlay}
             `;
         } else if (item.type === 'video') {
-            overlay = `
-                <div class="multimedia-overlay">
-                    <span class="multimedia-type">VIDEO</span>
-                    <div class="multimedia-play-icon">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
-                        </svg>
+            if (isYouTubeUrl(item.src)) {
+                overlay = `
+                    <div class="multimedia-overlay">
+                        <span class="multimedia-type">YOUTUBE</span>
+                        <div class="multimedia-play-icon">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
+                            </svg>
+                        </div>
+                        <p class="multimedia-caption">${item.title || ''}</p>
                     </div>
-                    <p class="multimedia-caption">${item.title || ''}</p>
-                </div>
-            `;
-            card.innerHTML = `
-                <img src="${item.thumbnail || 'images/video1.jpg'}" alt="${item.alt || item.title}" class="multimedia-thumb">
-                ${overlay}
-            `;
+                `;
+                card.innerHTML = `
+                    <iframe class="multimedia-thumb" src="${getYouTubeEmbedUrl(item.src)}" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+                    ${overlay}
+                `;
+            } else {
+                overlay = `
+                    <div class="multimedia-overlay">
+                        <span class="multimedia-type">VIDEO</span>
+                        <div class="multimedia-play-icon">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
+                            </svg>
+                        </div>
+                        <p class="multimedia-caption">${item.title || ''}</p>
+                    </div>
+                `;
+                card.innerHTML = `
+                    <img src="${item.thumbnail || 'images/video1.jpg'}" alt="${item.alt || item.title}" class="multimedia-thumb">
+                    ${overlay}
+                `;
+            }
         }
         grid.appendChild(card);
     });
