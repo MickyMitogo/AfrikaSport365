@@ -195,6 +195,9 @@
             img.style.borderRadius = '50%';
             img.style.objectFit = 'cover';
             img.style.marginBottom = '0.5rem';
+            img.style.display = 'block';
+            img.style.marginLeft = 'auto';
+            img.style.marginRight = 'auto';
             content.appendChild(img);
         } else {
             const icon = document.createElement('div');
