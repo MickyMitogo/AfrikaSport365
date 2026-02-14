@@ -1,66 +1,35 @@
+// Get CSRF token from meta tag
+const CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]')?.content || '';
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Load current configuration
-    loadConfig();
-    loadAfconData();
+    // ...existing code...
 
-    // Save General Settings
-    document.getElementById('generalForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const formData = new FormData(this);
-        
-        fetch('api/save-config.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            if(data.success) {
-                showMessage('Settings saved successfully!', 'success');
-            } else {
-                showMessage('Error saving settings: ' + data.message, 'error');
-            }
-        })
-        .catch(error => {
-            showMessage('Error: ' + error, 'error');
+    // Save AFCON Settings (kept for backward compatibility, handled by afcon-admin.js)
+    const afconForm = document.getElementById('form-afcon');
+    if (afconForm) {
+        afconForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            fetch('api/save-afcon.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.success) {
+                    showMessage('AFCON settings saved successfully!', 'success');
+                } else {
+                    showMessage('Error saving settings: ' + data.message, 'error');
+                }
+            })
+            .catch(error => {
+                showMessage('Error: ' + error, 'error');
+            });
         });
-    });
-
-    // Save AFCON Settings
-    document.getElementById('afconForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const formData = new FormData(this);
-        
-        fetch('api/save-afcon.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            if(data.success) {
-                showMessage('AFCON settings saved successfully!', 'success');
-            } else {
-                showMessage('Error saving settings: ' + data.message, 'error');
-            }
-        })
-        .catch(error => {
-            showMessage('Error: ' + error, 'error');
-        });
-    });
+    }
 });
 
-function loadConfig() {
-    fetch('api/get-config.php')
-        .then(response => response.json())
-        .then(data => {
-            if(data.success) {
-                document.getElementById('siteTitle').value = data.config.site_title || '';
-                document.getElementById('siteDescription').value = data.config.site_description || '';
-                document.getElementById('contactEmail').value = data.config.contact_email || '';
-                document.getElementById('analyticsCode').value = data.config.analytics_code || '';
-            }
-        })
-        .catch(error => console.error('Error loading config:', error));
-}
+// Site Config and config loading functions removed
 
 function loadAfconData() {
     fetch('api/get-afcon.php')

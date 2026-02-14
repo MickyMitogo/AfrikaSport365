@@ -1,0 +1,25 @@
+{
+  "hero": {
+    "backgroundImage": "images/cemac.jpg",
+    "badge": "HISTORIA DESTACADA",
+    "title": "Guinea Ecuatorial se Prepara para Recibir la Copa Africana de Naciones 2026",
+    "excerpt": "El país se convierte en anfitrión de uno de los torneos de fútbol más prestigiosos del continente. Nuevas instalaciones, infraestructura renovada y un espíritu deportivo sin precedentes marcan el camino hacia este histórico evento.",
+    "meta": {
+      "date": "📅 15 de Enero, 2025",
+      "author": "✍️ Pedro Nguema",
+      "readTime": "⏱️ 8 min de lectura"
+    },
+    "ctaLink": "article.html?slug=nzalang-eliminatorias-afcon-2025",
+    "ctaText": "Leer Historia Completa"
+  },
+  "aboutSection": {
+    "icon": "🏆",
+    "title": "Nuestra Misión",
+    "description": "AfrikaSport365 es la plataforma líder de noticias deportivas en Guinea Ecuatorial, comprometida con llevar la pasión, la emoción y el orgullo del deporte africano a cada rincón del país. Nuestra misión es inspirar, informar y conectar a la comunidad deportiva a través de coberturas exhaustivas, análisis profundos y contenido multimedia de primera calidad.",
+    "stats": [
+      { "value": "500K+", "label": "Lectores Mensuales" },
+      { "value": "15", "label": "Deportes Cubiertos" },
+      { "value": "24/7", "label": "Cobertura en Vivo" }
+    ]
+  }
+}
