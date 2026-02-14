@@ -53,7 +53,7 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 16px;
   padding: 3rem;
-  color:white;
+  color: white;
   transition: all 0.3s;
   overflow: hidden;
 }
@@ -70,7 +70,7 @@
   border-radius: 16px;
 }
 
-.hero-featured-story > * {
+.hero-featured-story>* {
   position: relative;
   z-index: 1;
 }
@@ -94,8 +94,15 @@
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
 }
 
 .hero-title {
@@ -190,8 +197,13 @@
 }
 
 @keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .ticker-item {
@@ -819,7 +831,7 @@
   .news-card-large {
     grid-column: span 1;
   }
-  
+
   .afcon-content-grid {
     grid-template-columns: 1fr;
   }
@@ -831,15 +843,15 @@
     padding-right: 1rem;
     margin-right: 1rem;
   }
-  
+
   .breaking-ticker {
     animation: scroll 30s linear infinite;
   }
-  
+
   .ticker-item {
     font-size: 0.8125rem;
   }
-  
+
   .breaking-ticker-wrapper {
     mask-image: linear-gradient(to right, transparent 0%, black px, black calc(100% - 80px), transparent 100%);
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5px, black calc(100% - 5px), transparent 100%);
@@ -848,49 +860,53 @@
   .hero-title {
     font-size: 2rem;
   }
-  
+
   .hero-featured-story {
     padding: 2rem;
   }
-  
+
   .section-title {
     font-size: 1.5rem;
   }
-  
+
   .section-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
   }
-  
+
   .news-grid,
-  .categories-grid,
   .athletes-slider,
   .multimedia-grid {
     grid-template-columns: 1fr;
   }
-  
+
+  .categories-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
   .afcon-spotlight {
     padding: 2rem;
   }
-  
+
   .afcon-title {
     font-size: 1.5rem;
   }
-  
+
   .about-block {
     padding: 2rem;
   }
-  
+
   .about-title {
     font-size: 1.75rem;
   }
-  
+
   .about-stats {
     flex-direction: column;
     gap: 2rem;
   }
-  
+
   .ad-banner-sidebar {
     min-height: 300px;
   }
@@ -900,27 +916,27 @@
   .breaking-news-bar {
     padding: 0.75rem 0;
   }
-  
+
   .breaking-label {
     font-size: 0.7rem;
     padding-right: 0.75rem;
     margin-right: 0.75rem;
     gap: 0.375rem;
   }
-  
+
   .breaking-label svg {
     width: 0.875rem;
     height: 0.875rem;
   }
-  
+
   .breaking-ticker {
     animation: scroll 25s linear infinite;
   }
-  
+
   .ticker-item {
     font-size: 0.75rem;
   }
-  
+
   .breaking-ticker-wrapper {
     mask-image: linear-gradient(to right, transparent 0%, black 15px, black calc(100% - 60px), transparent 100%);
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15px, black calc(100% - 60px), transparent 100%);
@@ -929,31 +945,31 @@
   .homepage-hero {
     min-height: 500px;
   }
-  
+
   .hero-title {
     font-size: 1.5rem;
   }
-  
+
   .hero-featured-story {
     padding: 1.5rem;
   }
-  
+
   .section-wrapper {
     padding: 3rem 0;
   }
-  
+
   .news-image {
     height: 180px;
   }
-  
+
   .category-card {
     height: 150px;
   }
-  
+
   .athlete-image {
     height: 250px;
   }
-  
+
   .multimedia-item {
     height: 200px;
   }
@@ -963,16 +979,16 @@
   .hero-title {
     font-size: 1.25rem;
   }
-  
+
   .section-title {
     font-size: 1.25rem;
   }
-  
+
   .afcon-header {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .about-stat-value {
     font-size: 2rem;
   }
