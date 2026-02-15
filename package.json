@@ -1,0 +1,14 @@
+{
+    "name": "afrikasport365",
+    "version": "1.0.0",
+    "description": "AfrikaSport365 - Sports news platform for Equatorial Guinea and Africa",
+    "scripts": {
+        "build:css": "node build-css.js",
+        "watch:css": "node build-css.js"
+    },
+    "devDependencies": {
+        "tailwindcss": "^3.3.0",
+        "postcss": "^8.4.24",
+        "autoprefixer": "^10.4.14"
+    }
+}

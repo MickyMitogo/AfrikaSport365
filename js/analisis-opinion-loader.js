@@ -1,7 +1,7 @@
 // js/analisis-opinion-loader.js
 // Carga y muestra los artículos de Análisis y Opinión dinámicamente
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Selecciona el contenedor de la sección "Análisis y Opinión"
     // Busca el h2 con el texto y sube hasta el .news-grid más cercano
     const sectionTitle = Array.from(document.querySelectorAll('.section-title')).find(el => el.textContent.includes('Análisis y Opinión'));
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     div.className = 'news-card';
                     div.innerHTML = `
                         <div class="news-image">
-                            <img src="${article.imagen ? article.imagen : 'images/analisis.jpg'}" alt="Análisis">
+                            <img src="${article.imagen ? article.imagen : 'images/perfil1.jpg'}" alt="Análisis">
                             <span class="news-category-badge" style="background: #6366f1;">${article.badge ? article.badge : 'OPINIÓN'}</span>
                         </div>
                         <div class="news-content">

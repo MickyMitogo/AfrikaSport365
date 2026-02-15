@@ -1,7 +1,7 @@
 // multimedia-loader.js
 // Carga y renderiza la galería multimedia en el index.html
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const section = document.getElementById('multimedia');
     if (!section) return;
     const grid = section.querySelector('.multimedia-grid') || section;
@@ -63,7 +63,7 @@ function renderGallery(items, grid) {
                     </div>
                 `;
                 card.innerHTML = `
-                    <img src="${item.thumbnail || 'images/video1.jpg'}" alt="${item.alt || item.title}" class="multimedia-thumb">
+                    <img src="${item.thumbnail || 'images/perfil2.jpg'}" alt="${item.alt || item.title}" class="multimedia-thumb">
                     ${overlay}
                 `;
             }

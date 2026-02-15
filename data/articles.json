@@ -59,7 +59,13 @@
           "text": "La Federación Ecuatoguineana de Fútbol ha confirmado que todos los partidos de local tendrán entrada gratuita para fomentar el apoyo de la afición y crear una atmósfera intimidante para los rivales."
         }
       ],
-      "tags": ["Fútbol", "Nzalang Nacional", "AFCON 2025", "Selección Nacional", "Eliminatorias"],
+      "tags": [
+        "Fútbol",
+        "Nzalang Nacional",
+        "AFCON 2025",
+        "Selección Nacional",
+        "Eliminatorias"
+      ],
       "readTime": "5 min"
     },
     {
@@ -73,7 +79,7 @@
       "authorImage": "images/perfil2.jpg",
       "date": "2025-12-14T08:00:00",
       "dateDisplay": "14 de diciembre, 2025 • 08:00",
-      "heroImage": "images/atletismo.jpg",
+      "heroImage": "images/perfil1.jpg",
       "excerpt": "Emilia Esono establece nueva marca nacional con un tiempo de 11.23 segundos en el campeonato regional.",
       "content": [
         {
@@ -112,7 +118,13 @@
           "text": "Con este tiempo, Esono se acerca a las marcas mínimas para clasificar a competencias internacionales de primer nivel. Su siguiente objetivo es participar en el Campeonato Africano de Atletismo 2026, donde buscará una medalla que le permita soñar con los Juegos Olímpicos de Los Ángeles 2028."
         }
       ],
-      "tags": ["Atletismo", "Emilia Esono", "Récord Nacional", "100 Metros", "Velocidad"],
+      "tags": [
+        "Atletismo",
+        "Emilia Esono",
+        "Récord Nacional",
+        "100 Metros",
+        "Velocidad"
+      ],
       "readTime": "4 min"
     },
     {
@@ -126,7 +138,7 @@
       "authorImage": "images/perfil1.jpg",
       "date": "2025-12-14T06:00:00",
       "dateDisplay": "14 de diciembre, 2025 • 06:00",
-      "heroImage": "images/judo.jpg",
+      "heroImage": "images/judo.webp",
       "excerpt": "José Bindang obtiene medalla de plata en la categoría -73kg tras una brillante actuación.",
       "content": [
         {
@@ -165,7 +177,13 @@
           "text": "La Federación Ecuatoguineana de Judo anunció un bono especial para Bindang y confirmó que el atleta recibirá apoyo completo para su preparación de cara a futuros compromisos internacionales. El Ministerio de Deportes también ha prometido incrementar el presupuesto destinado a las artes marciales."
         }
       ],
-      "tags": ["Judo", "José Bindang", "Medalla", "Campeonato Africano", "Artes Marciales"],
+      "tags": [
+        "Judo",
+        "José Bindang",
+        "Medalla",
+        "Campeonato Africano",
+        "Artes Marciales"
+      ],
       "readTime": "4 min"
     },
     {
@@ -179,7 +197,7 @@
       "authorImage": "images/perfil2.jpg",
       "date": "2025-12-14T04:00:00",
       "dateDisplay": "14 de diciembre, 2025 • 04:00",
-      "heroImage": "images/baloncesto.jpg",
+      "heroImage": "images/perfil2.jpg",
       "excerpt": "La nueva temporada promete ser la más competitiva con 12 equipos participantes.",
       "content": [
         {
@@ -222,7 +240,12 @@
           "text": "El partido inaugural entre Malabo Kings y Leones de Bata se celebrará el 18 de enero en el Pabellón Polideportivo de Malabo, con entrada gratuita para fomentar la asistencia masiva."
         }
       ],
-      "tags": ["Baloncesto", "Liga Nacional", "FEGUIBA", "Temporada 2025-2026"],
+      "tags": [
+        "Baloncesto",
+        "Liga Nacional",
+        "FEGUIBA",
+        "Temporada 2025-2026"
+      ],
       "readTime": "4 min"
     },
     {
@@ -236,7 +259,7 @@
       "authorImage": "images/perfil1.jpg",
       "date": "2025-12-14T00:00:00",
       "dateDisplay": "14 de diciembre, 2025 • 00:00",
-      "heroImage": "images/tenis.jpg",
+      "heroImage": "images/perfil1.jpg",
       "excerpt": "Lucas Micha, de 16 años, se une a prestigiosa academia en España para desarrollar su talento.",
       "content": [
         {
@@ -279,7 +302,13 @@
           "text": "El Ministro de Deportes, junto a representantes de la federación, acompañaron a Lucas en su viaje a Barcelona y asistieron a la ceremonia oficial de bienvenida en la academia, donde conoció a sus futuros entrenadores y compañeros de entrenamiento."
         }
       ],
-      "tags": ["Tenis", "Lucas Micha", "Academia Sánchez-Casal", "Promesa", "Europa"],
+      "tags": [
+        "Tenis",
+        "Lucas Micha",
+        "Academia Sánchez-Casal",
+        "Promesa",
+        "Europa"
+      ],
       "readTime": "4 min"
     },
     {
@@ -357,7 +386,13 @@
           "text": "La Federación Ecuatoguineana de Boxeo celebró el triunfo como un ejemplo del crecimiento del deporte en el país y anunció un incremento en las becas deportivas para jóvenes púgiles que deseen seguir los pasos de Alogo."
         }
       ],
-      "tags": ["Boxeo", "Yann Mike Alogo", "Guinea Ecuatorial", "Campeonato Africano", "Addis Abeba"],
+      "tags": [
+        "Boxeo",
+        "Yann Mike Alogo",
+        "Guinea Ecuatorial",
+        "Campeonato Africano",
+        "Addis Abeba"
+      ],
       "readTime": "6 min",
       "gallery": [
         {

@@ -25,7 +25,7 @@
  * ============================================================================
  */
 
-(function(window) {
+(function (window) {
   'use strict';
 
   // Configuration
@@ -57,15 +57,15 @@
       }
 
       console.log(`[ContentLoader] Fetching: ${filename}.json`);
-      
+
       const response = await fetch(`${CONFIG.dataPath}${filename}.json`);
-      
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
       const data = await response.json();
-      
+
       // Store in cache
       if (CONFIG.cacheEnabled) {
         setCachedData(filename, data);
@@ -131,7 +131,7 @@
    */
   async function loadMultiple(filenames) {
     try {
-      const promises = filenames.map(filename => 
+      const promises = filenames.map(filename =>
         loadContent(filename).catch(error => {
           console.error(`[ContentLoader] Failed to load ${filename}:`, error);
           return null;
@@ -139,7 +139,7 @@
       );
 
       const results = await Promise.all(promises);
-      
+
       const dataMap = {};
       filenames.forEach((filename, index) => {
         dataMap[filename] = results[index];
@@ -172,7 +172,7 @@
     loadMultiple: loadMultiple,
     preload: preload,
     clearCache: clearCache,
-    
+
     // Utility to check if data file exists
     async exists(filename) {
       try {
@@ -187,18 +187,11 @@
   // Auto-preload common files on page load
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
-<<<<<<< HEAD
       // Preload config on all pages
       preload(['config']);
     });
   } else {
     preload(['config']);
-=======
-      // Preload only required files (config removed)
-    });
-  } else {
-    // Preload only required files (config removed)
->>>>>>> dc026b561452f8a1f5585dcf51fceb27166a4d08
   }
 
   console.log('[ContentLoader] Module initialized');

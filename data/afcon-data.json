@@ -163,24 +163,33 @@
       "description": "Capital de Marruecos y sede de la final",
       "stadium": "Stade Prince Moulay Abdellah",
       "capacity": "53,000",
-      "image": "images/tenis.jpg",
-      "matches": ["Final", "Semifinales"]
+      "image": "images/perfil1.jpg",
+      "matches": [
+        "Final",
+        "Semifinales"
+      ]
     },
     {
       "name": "Casablanca",
       "description": "La ciudad más grande de Marruecos",
       "stadium": "Stade Mohammed V",
       "capacity": "67,000",
-      "image": "images/baloncesto.jpg",
-      "matches": ["Semifinales", "Cuartos de Final"]
+      "image": "images/perfil2.jpg",
+      "matches": [
+        "Semifinales",
+        "Cuartos de Final"
+      ]
     },
     {
       "name": "Tánger",
       "description": "Puerta de entrada desde Europa",
       "stadium": "Stade Ibn Batouta",
       "capacity": "45,000",
-      "image": "images/judo.jpg",
-      "matches": ["Cuartos de Final", "Fase de Grupos"]
+      "image": "images/judo.webp",
+      "matches": [
+        "Cuartos de Final",
+        "Fase de Grupos"
+      ]
     }
   ]
 }
