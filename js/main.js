@@ -1,21 +1,21 @@
 /* --- Extracted script: featured athletes tabs --- */
-(function(){
-  const tablist = document.getElementById('fa-tablist'); if(!tablist) return;
+(function () {
+  const tablist = document.getElementById('fa-tablist'); if (!tablist) return;
   const tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
   const panels = { ge: document.getElementById('panel-ge'), africa: document.getElementById('panel-af') };
 
-  function activateTab(key, setFocus = true){
-    tabs.forEach(t=>{ const k=t.dataset.key; const selected=(k===key); t.setAttribute('aria-selected', selected? 'true':'false'); t.classList.toggle('text-gray-900', selected); t.classList.toggle('text-gray-600', !selected); if(selected && setFocus) t.focus({preventScroll:true}); });
-    Object.keys(panels).forEach(k=>{ const panel=panels[k]; const show=(k===key); if(show){ panel.classList.remove('hidden'); panel.removeAttribute('aria-hidden'); } else { panel.classList.add('hidden'); panel.setAttribute('aria-hidden','true'); } });
+  function activateTab(key, setFocus = true) {
+    tabs.forEach(t => { const k = t.dataset.key; const selected = (k === key); t.setAttribute('aria-selected', selected ? 'true' : 'false'); t.classList.toggle('text-gray-900', selected); t.classList.toggle('text-gray-600', !selected); if (selected && setFocus) t.focus({ preventScroll: true }); });
+    Object.keys(panels).forEach(k => { const panel = panels[k]; const show = (k === key); if (show) { panel.classList.remove('hidden'); panel.removeAttribute('aria-hidden'); } else { panel.classList.add('hidden'); panel.setAttribute('aria-hidden', 'true'); } });
   }
 
-  tablist.addEventListener('keydown', (e)=>{
-    const active = tabs.findIndex(t=>t.getAttribute('aria-selected')==='true'); let next=active;
-    if(e.key==='ArrowRight') next=(active+1)%tabs.length; else if(e.key==='ArrowLeft') next=(active-1+tabs.length)%tabs.length; else if(e.key==='Home') next=0; else if(e.key==='End') next=tabs.length-1; else return;
-    e.preventDefault(); const key=tabs[next].dataset.key; activateTab(key,true);
+  tablist.addEventListener('keydown', (e) => {
+    const active = tabs.findIndex(t => t.getAttribute('aria-selected') === 'true'); let next = active;
+    if (e.key === 'ArrowRight') next = (active + 1) % tabs.length; else if (e.key === 'ArrowLeft') next = (active - 1 + tabs.length) % tabs.length; else if (e.key === 'Home') next = 0; else if (e.key === 'End') next = tabs.length - 1; else return;
+    e.preventDefault(); const key = tabs[next].dataset.key; activateTab(key, true);
   });
 
-  tabs.forEach(t=>{ t.addEventListener('click', ()=>{ activateTab(t.dataset.key,false); }); t.addEventListener('keyup',(e)=>{ if(e.key==='Enter' || e.key===' ') activateTab(t.dataset.key,false); }); });
+  tabs.forEach(t => { t.addEventListener('click', () => { activateTab(t.dataset.key, false); }); t.addEventListener('keyup', (e) => { if (e.key === 'Enter' || e.key === ' ') activateTab(t.dataset.key, false); }); });
 
   activateTab('ge', false);
 })();
@@ -35,11 +35,7 @@ const regionalNews = {
     { title: "Camerún se posiciona como potencia emergente en voleibol", lead: "Victoria en torneo regional impulsa la reputación del país en competencias continentales.", media: "https://images.unsplash.com/photo-1553778562-8121e4c332a7?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
     { title: "Gabón suspende temporalmente a su federación de fútbol", lead: "Irregularidades financieras provocan intervención temporal y restructuración administrativa.", media: "https://images.unsplash.com/photo-1554244933-d876deb6b2ff?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" }
   ],
-  east: [
-    { title: "Kenia domina el maratón internacional", lead: "Atletas jóvenes prometen un futuro olímpico brillante, consolidando la tradición de excelencia en atletismo.", media: "https://sample-videos.com/video123/mp4/240/big_buck_bunny_240p_1mb.mp4" },
-    { title: "Uganda invierte en infraestructura deportiva", lead: "Tras fracasos recientes en remo y atletismo, el gobierno prioriza centros de entrenamiento modernos.", media: "https://via.placeholder.com/300x200?text=Uganda+Infraestructura" }
-  ],
-  southern: [
+  south: [
     { title: "Sudáfrica celebra histórica victoria en rugby femenino", lead: "El equipo nacional vence a rivales africanas, destacando el crecimiento del deporte femenino.", media: "https://images.unsplash.com/photo-1761039808115-77b271985e47?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
     { title: "Zimbabue sufre derrota inesperada en baloncesto", lead: "La federación nacional planea reformas tras resultados decepcionantes en torneos internacionales.", media: "https://sample-videos.com/video123/mp4/240/big_buck_bunny_240p_1mb.mp4" }
   ],
@@ -56,7 +52,7 @@ function toEmbedUrl(url) {
     if (u.hostname.includes('youtube.com') && u.searchParams.get('v')) {
       return 'https://www.youtube.com/embed/' + u.searchParams.get('v');
     }
-  } catch (e) {}
+  } catch (e) { }
   return url;
 }
 
@@ -96,24 +92,24 @@ function showRegion(region) {
     const r = btn.dataset.region;
     const active = (r === region);
     btn.setAttribute('aria-selected', active ? 'true' : 'false');
-    btn.classList.remove('nrr-tab-active');
-    if (active) btn.classList.add('nrr-tab-active');
+    btn.classList.remove('regional-tab-active');
+    if (active) btn.classList.add('regional-tab-active');
   });
 }
 
 // Wire tab clicks and default region
-(function(){
+(function () {
   const tablist = document.getElementById('nrr-tablist');
-  if(!tablist) return;
+  if (!tablist) return;
   tablist.addEventListener('click', (e) => {
     const btn = e.target.closest('[role="tab"]');
-    if(!btn) return;
+    if (!btn) return;
     const region = btn.dataset.region;
     showRegion(region);
   });
 
   // Default region: Maghreb
-  document.addEventListener('DOMContentLoaded', ()=> showRegion('maghreb'));
+  document.addEventListener('DOMContentLoaded', () => showRegion('maghreb'));
 })();
 
 /* --- Extracted script: submenus, sliders and hero carousel --- */
@@ -125,7 +121,7 @@ function showRegion(region) {
   if (!btn || !menu || !container) return;
 
   const items = Array.from(menu.querySelectorAll('[role="menuitem"]'));
-  
+
   function isMobile() {
     return window.innerWidth < 768;
   }
@@ -211,7 +207,7 @@ function showRegion(region) {
   if (!btn || !menu || !container) return;
 
   const items = Array.from(menu.querySelectorAll('[role="menuitem"]'));
-  
+
   function isMobile() {
     return window.innerWidth < 768;
   }
@@ -436,7 +432,7 @@ function showRegion(region) {
   const overlay = document.getElementById('mobile-overlay');
   const hamburgerIcon = document.getElementById('hamburger-icon');
   const closeIcon = document.getElementById('close-icon');
-  
+
   if (!btn || !nav || !overlay) return;
 
   function openMenu() {
@@ -449,7 +445,7 @@ function showRegion(region) {
     }
     document.body.style.overflow = 'hidden'; // Prevent scroll
   }
-  
+
   function closeMenu() {
     nav.classList.remove('active');
     overlay.classList.remove('active');
@@ -459,7 +455,7 @@ function showRegion(region) {
       closeIcon.classList.add('hidden');
     }
     document.body.style.overflow = '';
-    
+
     // Close all submenus
     nav.querySelectorAll('[aria-haspopup="true"]').forEach(button => {
       button.setAttribute('aria-expanded', 'false');
@@ -475,10 +471,10 @@ function showRegion(region) {
       openMenu();
     }
   });
-  
+
   // Close when clicking overlay
   overlay.addEventListener('click', closeMenu);
-  
+
   // Close on resize to desktop
   window.addEventListener('resize', function () {
     if (window.innerWidth >= 768) {

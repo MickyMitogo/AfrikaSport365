@@ -21,8 +21,8 @@
             <div class="flex items-center justify-between py-4">
                 <!-- Logo -->
                 <div class="flex items-center" data-cms-content="siteInfo">
-                    <img src="./images/logoAS350.png"
-                        alt="AfrikaSport365 Logo" class="h-12 mr-3 rounded" data-cms-field="siteInfo.logo">
+                    <img src="./images/logoAS350.png" alt="AfrikaSport365 Logo" class="h-12 mr-3 rounded"
+                        data-cms-field="siteInfo.logo">
                     <div>
                         <h1 class="text-2xl font-bold text-blue-600" data-cms-field="siteInfo.name">AfrikaSport365</h1>
                         <p class="text-xs text-gray-600" data-cms-field="siteInfo.tagline">La referencia del deporte en
@@ -360,6 +360,31 @@
         </div>
     </section>
 
+    <!-- Regional News Section -->
+    <section class="section-wrapper regional-news-wrapper">
+        <div class="container mx-auto px-4">
+            <div class="section-header">
+                <h2 class="section-title">Noticias por Región</h2>
+                <p class="section-subtitle">Sigue las historias deportivas más importantes de cada región africana</p>
+            </div>
+
+            <!-- Regional Tabs -->
+            <div id="nrr-tablist" role="tablist" class="regional-tabs">
+                <button role="tab" data-region="maghreb" class="regional-tab regional-tab-active">Mágreb</button>
+                <button role="tab" data-region="west" class="regional-tab">Occidental</button>
+                <button role="tab" data-region="central" class="regional-tab">Central</button>
+                <button role="tab" data-region="south" class="regional-tab">Sur</button>
+                <button role="tab" data-region="horn" class="regional-tab">Cuerno</button>
+            </div>
+
+            <!-- Regional News Content -->
+            <div id="nrr-content" class="regional-content">
+                <!-- Content will be rendered here by JavaScript -->
+                <div class="loading-state">Cargando noticias...</div>
+            </div>
+        </div>
+    </section>
+
     <!-- Athletes & Interviews Section -->
     <section class="section-wrapper" id="athletes">
         <div class="container mx-auto px-4">
@@ -609,7 +634,7 @@
     <!-- Footer -->
     <footer class="bg-gray-900 text-white">
         <div class="container mx-auto px-4 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
                 <!-- About Column -->
                 <div>
                     <div class="flex items-center mb-4">
@@ -679,6 +704,18 @@
                     </ul>
                 </div>
 
+                <!-- Regiones -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Regiones</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" onclick="showRegion('maghreb')" class="text-gray-400 hover:text-white transition">Mágreb</a></li>
+                        <li><a href="#" onclick="showRegion('west')" class="text-gray-400 hover:text-white transition">Occidental</a></li>
+                        <li><a href="#" onclick="showRegion('central')" class="text-gray-400 hover:text-white transition">Central</a></li>
+                        <li><a href="#" onclick="showRegion('south')" class="text-gray-400 hover:text-white transition">Sur</a></li>
+                        <li><a href="#" onclick="showRegion('horn')" class="text-gray-400 hover:text-white transition">Cuerno</a></li>
+                    </ul>
+                </div>
+
                 <!-- Contact -->
                 <div>
                     <h4 class="text-lg font-bold mb-4">Contacto</h4>
@@ -718,7 +755,7 @@
                     <a href="#" class="hover:text-white transition">Términos de Uso</a>
                     <a href="#" class="hover:text-white transition">Contacto</a>
                 </div>
-        </div>
+            </div>
         </div>
     </footer>
 
