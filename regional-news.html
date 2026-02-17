@@ -15,36 +15,22 @@
     <!-- Dynamic Header -->
     <div id="app-header"></div>
 
-    <!-- Breadcrumb -->
-    <div class="bg-white border-b">
-        <div class="container mx-auto px-4 py-3">
-            <nav class="breadcrumb" aria-label="Breadcrumb">
-                <a href="index.html">Inicio</a>
-                <span class="separator">/</span>
-                <span class="current">Noticias por Región</span>
-            </nav>
-        </div>
-    </div>
 
     <!-- Page Header -->
     <section class="section-wrapper"
         style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-        <div class="container mx-auto px-4 py-12">
+        <div class="container mx-auto px-4 py-8">
             <div class="max-w-3xl">
-                <h1 class="text-4xl font-bold mb-4">Noticias por Región</h1>
-                <p class="text-lg opacity-90">
-                    Sigue las historias deportivas más importantes de cada región africana.
-                    Descubre cómo el deporte une y transforma el continente.
-                </p>
+                <h1 class="text-7xl font-black">Noticias por Región</h1>
             </div>
         </div>
     </section>
 
     <!-- Tab Navigation -->
-    <section class="section-wrapper" style="border-bottom: 1px solid #e5e7eb;">
+    <section class="section-wrapper" style="border-bottom: 1px solid #e5e7eb; padding-bottom: 0;">
         <div class="container mx-auto px-4">
             <div id="nrr-tablist" role="tablist" class="regional-tabs"
-                style="border-bottom: 2px solid #e5e7eb; display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 1rem;">
+                style="border-bottom: 2px solid #e5e7eb; display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 1rem; margin-bottom: 0;">
                 <button role="tab" data-region="maghreb" class="regional-tab regional-tab-active"
                     style="padding: 0.75rem 1.5rem; border: none; background: none; cursor: pointer; font-weight: 500; color: #6b7280; border-bottom: 3px solid transparent; transition: all 0.3s;">
                     🗺️ Mágreb
@@ -116,7 +102,11 @@
             gap: 1rem;
             overflow-x: auto;
             padding-bottom: 1rem;
-            margin-bottom: 2rem;
+            margin-bottom: 0;
+        }
+
+        .section-wrapper:has(> .container > #nrr-content) {
+            padding-top: 1.5rem;
         }
 
         @media (max-width: 768px) {

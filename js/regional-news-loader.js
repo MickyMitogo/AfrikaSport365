@@ -41,7 +41,7 @@
                 </div>
                 <div class="nrr-text">
                     <h3 class="nrr-title">
-                        <a href="regional-news.html?slug=${item.slug}" class="news-link">${item.titulo}</a>
+                        <a href="regional-news-detail.html?slug=${item.slug}" class="news-link">${item.titulo}</a>
                     </h3>
                     <p class="nrr-lead">${item.resumen}</p>
                 </div>

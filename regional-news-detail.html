@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Noticia | AfrikaSport365</title>
+    <meta name="description" content="Detalle de noticia deportiva por región africana - AfrikaSport365" />
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/article.css">
+    <link rel="stylesheet" href="css/homepage.css">
+</head>
+
+<body class="bg-gray-50 text-gray-800 antialiased">
+    <!-- Dynamic Header -->
+    <div id="app-header"></div>
+
+
+
+    <!-- Article Header -->
+    <section class="article-hero">
+        <img id="article-hero-image" src="#" alt="Imagen del artículo" class="w-full h-screen object-cover">
+        <div class="article-hero-overlay">
+            <div class="container mx-auto px-4 py-20 h-full flex flex-col justify-end">
+                <div class="max-w-4xl">
+                    <div class="mb-4 flex gap-2">
+                        <span id="article-category"
+                            class="bg-indigo-600 text-white px-3 py-1 rounded-full text-sm font-medium">Categoría</span>
+                        <span id="article-region"
+                            class="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-medium">Región</span>
+                    </div>
+                    <h1 id="article-title" class="text-5xl font-black text-white mb-4">Cargando título...</h1>
+                    <div class="flex items-center gap-4 text-gray-200">
+                        <span id="article-author">Por Autor</span>
+                        <span>•</span>
+                        <span id="article-date">Fecha</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <section class="content-section">
+        <div class="container mx-auto px-4 section-container">
+            <p id="article-lead" class="text-xl font-semibold mb-8 leading-relaxed">Resumen cargando...</p>
+            <div id="article-content">
+                <p>Contenido cargando...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related News -->
+    <section class="related-section">
+        <div class="container mx-auto px-4">
+            <h2 class="related-section-title">Más noticias de esta región</h2>
+            <div id="related-news" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <p class="text-gray-400">Cargando noticias relacionadas...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic Footer -->
+    <div id="app-footer"></div>
+
+    <style>
+        * {
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-secondary: linear-gradient(135deg, #8b5cf6 0%, #667eea 100%);
+            --gradient-accent: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+        }
+
+        body {
+            background: #0f172a;
+        }
+
+        .article-hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .article-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .article-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg,
+                    rgba(6, 12, 30, 0) 0%,
+                    rgba(15, 23, 42, 0.4) 40%,
+                    rgba(102, 126, 234, 0.3) 80%,
+                    rgba(15, 23, 42, 0.95) 100%);
+            display: flex;
+            align-items: flex-end;
+            backdrop-filter: blur(2px);
+        }
+
+        .article-hero-overlay .container {
+            width: 100%;
+            padding-bottom: 4rem;
+        }
+
+        #article-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        #article-category {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        #article-region {
+            background: linear-gradient(135deg, #8b5cf6 0%, #be123c 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+        }
+
+        .article-hero-overlay .flex {
+            color: #e0e7ff;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Content Section */
+        .prose {
+            color: #e0e7ff;
+        }
+
+        #article-lead {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #f0f9ff;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            letter-spacing: -0.3px;
+        }
+
+        #article-content {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #cbd5e1;
+        }
+
+        #article-content p {
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        /* Related Section */
+        .related-section-title {
+            font-size: 2rem;
+            font-weight: 900;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+            letter-spacing: -0.5px;
+        }
+
+        .related-card {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid rgba(167, 139, 250, 0.2);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(102, 126, 234, 0.15);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .related-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .related-card:hover {
+            transform: translateY(-12px);
+            border-color: rgba(167, 139, 250, 0.6);
+            box-shadow: 0 16px 48px rgba(102, 126, 234, 0.35), 0 0 30px rgba(139, 92, 246, 0.2);
+        }
+
+        .related-card:hover::before {
+            opacity: 1;
+        }
+
+        .related-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+        }
+
+        .related-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .related-card-content {
+            padding: 1.75rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .related-card h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin: 0;
+            color: #f0f9ff;
+            line-height: 1.4;
+            letter-spacing: -0.3px;
+        }
+
+        .related-card p {
+            font-size: 0.95rem;
+            color: #a5b4fc;
+            margin: 0;
+            flex: 1;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .related-card-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .related-card-link:hover {
+            color: #a5b4fc;
+            transform: translateX(4px);
+        }
+
+        /* Article Content Section */
+        .content-section {
+            background: linear-gradient(180deg, #0f172a 0%, #1a1f3a 100%);
+            padding: 4rem 0;
+            border-top: 1px solid rgba(167, 139, 250, 0.1);
+        }
+
+        /* Related Section */
+        .related-section {
+            background: #0f172a;
+            padding: 4rem 0;
+        }
+
+        .section-container {
+            max-width: 56rem;
+        }
+
+        @media (max-width: 768px) {
+            #article-title {
+                font-size: 2rem;
+            }
+
+            #article-lead {
+                font-size: 1.15rem;
+            }
+
+            #article-content {
+                font-size: 1rem;
+            }
+
+            .related-section-title {
+                font-size: 1.5rem;
+            }
+
+            .related-card-content {
+                padding: 1.25rem;
+            }
+        }
+    </style>
+
+    <script src="js/main.js"></script>
+    <script src="js/regional-news-detail-loader.js"></script>
+    <script src="js/load-components.js"></script>
+</body>
+
+</html>
