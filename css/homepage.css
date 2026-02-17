@@ -1183,6 +1183,22 @@
   letter-spacing: 0.2px;
 }
 
+.regional-content .nrr-meta {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.regional-content .nrr-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
 .loading-state {
   color: white;
   text-align: center;
