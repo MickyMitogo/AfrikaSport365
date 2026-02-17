@@ -8,6 +8,7 @@
     <meta name="description" content="Noticias deportivas por región africana - AfrikaSport365" />
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/article.css">
+    <link rel="stylesheet" href="css/homepage.css">
 </head>
 
 <body class="bg-gray-50 text-gray-800 antialiased">
@@ -71,7 +72,7 @@
     <!-- News Grid -->
     <section class="section-wrapper">
         <div class="container mx-auto px-4">
-            <div id="nrr-content">
+            <div id="nrr-content" class="regional-content">
                 <!-- Noticias cargadas dinámicamente -->
                 <div class="text-center text-gray-500 py-12">Cargando noticias...</div>
             </div>
@@ -84,10 +85,19 @@
     <style>
         .regional-tab {
             position: relative;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-weight: 500;
+            color: #6b7280;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
         }
 
         .regional-tab-active {
             color: #667eea !important;
+            border-bottom-color: #667eea !important;
         }
 
         .regional-tab-active::after {
@@ -100,106 +110,24 @@
             background: #667eea;
         }
 
-        .nrr-grid {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 2rem;
-        }
-
-        .nrr-article {
-            background: white;
-            border-radius: 0.5rem;
-            overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+        .regional-tabs {
+            border-bottom: 2px solid #e5e7eb;
             display: flex;
-            flex-direction: column;
-        }
-
-        .nrr-article:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .nrr-media-container {
-            position: relative;
-            overflow: hidden;
-            height: 250px;
-        }
-
-        .nrr-media {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .nrr-text {
-            padding: 1.5rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .nrr-title {
-            font-size: 1.125rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            color: #1f2937;
-        }
-
-        .nrr-title a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .nrr-title a:hover {
-            color: #667eea;
-        }
-
-        .nrr-lead {
-            font-size: 0.95rem;
-            color: #6b7280;
-            margin-bottom: 1rem;
-            flex: 1;
-            line-height: 1.5;
-        }
-
-        .nrr-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 1rem;
-            border-top: 1px solid #e5e7eb;
-            font-size: 0.875rem;
-            color: #6b7280;
-        }
-
-        .nrr-meta span {
-            font-weight: 500;
+            gap: 1rem;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
         }
 
         @media (max-width: 768px) {
-            #nrr-tablist {
-                justify-content: flex-start;
+            .regional-tabs {
+                gap: 0.75rem;
             }
 
             .regional-tab {
-                white-space: nowrap;
-                padding: 0.5rem 1rem !important;
+                padding: 0.5rem 1rem;
                 font-size: 0.875rem;
-            }
-
-            /* Responsive grid: 1 column on mobile */
-            .nrr-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (min-width: 769px) and (max-width: 1024px) {
-
-            /* Tablet: 2 columns */
-            .nrr-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
+                white-space: nowrap;
             }
         }
     </style>
