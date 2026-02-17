@@ -8,7 +8,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     fetch('data/multimedia.json')
         .then(r => r.json())
-        .then(items => renderGallery(items, grid));
+        .then(items => {
+            // Filtrar solo items destacados (featured: true)
+            const featuredItems = items.filter(item => item.featured === true);
+            renderGallery(featuredItems, grid);
+        });
 });
 
 function isYouTubeUrl(url) {
