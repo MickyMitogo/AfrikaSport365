@@ -3,12 +3,14 @@
  * Production-grade system for loading articles dynamically
  */
 
-(function() {
+(function () {
     'use strict';
 
     // Configuration
     const CONFIG = {
-        articlesDataPath: '../data/articles.json',
+        // Paths are relative to the HTML page (article.html) so use "data/..."
+        articlesDataPath: 'data/articles.json',
+        newsDataPath: 'data/all-news.json',
         defaultImage: 'images/placeholder.jpg',
         errorRedirectDelay: 5000 // 5 seconds before redirecting on error
     };
@@ -31,9 +33,9 @@
     function formatDate(dateString) {
         try {
             const date = new Date(dateString);
-            const options = { 
-                year: 'numeric', 
-                month: 'long', 
+            const options = {
+                year: 'numeric',
+                month: 'long',
                 day: 'numeric',
                 hour: '2-digit',
                 minute: '2-digit'
@@ -70,7 +72,166 @@
      * @returns {Object|null} Article object or null
      */
     function findArticleBySlug(articles, slug) {
-        return articles.find(article => article.slug === slug) || null;
+        if (!slug || !Array.isArray(articles)) return null;
+
+        const lowered = slug.toLowerCase();
+
+        return articles.find(article => {
+            if (!article) return false;
+            const aSlug = (article.slug || '').toLowerCase();
+            const aId = (article.id || '').toLowerCase();
+
+            // Exact match against slug or id
+            if (aSlug === lowered || aId === lowered) return true;
+
+            // Allow some tolerance for variants (one may contain the other)
+            if (aSlug && lowered && (aSlug.includes(lowered) || lowered.includes(aSlug))) return true;
+            if (aId && lowered && (aId.includes(lowered) || lowered.includes(aId))) return true;
+
+            return false;
+        }) || null;
+    }
+
+    /**
+     * Load news data from JSON
+     * @returns {Promise<Object>} News data
+     */
+    async function loadNewsData() {
+        try {
+            const response = await fetch(CONFIG.newsDataPath);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error('Error loading news data:', error);
+            return { news: [] };
+        }
+    }
+
+    /**
+     * Find related news by category
+     * @param {Array} newsItems - News array
+     * @param {string} articleCategory - Article category
+     * @returns {Array} Related news items (max 4)
+     */
+    function findRelatedNews(newsItems, articleCategory) {
+        const categoryMap = {
+            'Fútbol': ['FÚTBOL', 'FÚTBOLA', 'FÚTBOLBOL'],
+            'Atletismo': ['ATLETISMO'],
+            'Judo': ['JUDO'],
+            'Baloncesto': ['BALONCESTO'],
+            'Ciclismo': ['CICLISMO'],
+            'Tenis': ['TENIS'],
+            'Rugby': ['RUGBY'],
+            'Boxeo': ['BOXEO']
+        };
+
+        const categoryVariations = categoryMap[articleCategory] || [articleCategory.toUpperCase()];
+        const related = newsItems.filter(news => {
+            const newsCategory = news.category.toUpperCase();
+            return categoryVariations.some(cat => newsCategory.includes(cat));
+        });
+
+        return related.slice(0, 4);
+    }
+
+    /**
+     * Parse news date string (supports ISO and Spanish "16 de febrero, 2025" formats)
+     * Falls back to using the provided order value to produce a deterministic timestamp.
+     * @param {string} dateStr
+     * @param {number} order
+     * @returns {number} timestamp
+     */
+    function parseNewsDate(dateStr, order) {
+        if (!dateStr) return Date.now() - (order || 0);
+
+        // Try native parse first (works for ISO)
+        const tryNative = Date.parse(dateStr);
+        if (!isNaN(tryNative)) return tryNative;
+
+        // Try Spanish human-readable like '16 de febrero, 2025'
+        const m = (dateStr || '').toString().toLowerCase().match(/(\d{1,2})\s+de\s+([a-záéíóú]+),?\s*(\d{4})/i);
+        if (m) {
+            const day = parseInt(m[1], 10);
+            const monthName = m[2];
+            const year = parseInt(m[3], 10);
+            const months = { enero: 0, febrero: 1, marzo: 2, abril: 3, mayo: 4, junio: 5, julio: 6, agosto: 7, septiembre: 8, octubre: 9, noviembre: 10, diciembre: 11 };
+            const month = months[monthName] !== undefined ? months[monthName] : 0;
+            return new Date(year, month, day).getTime();
+        }
+
+        // Fallback to order-based timestamp (higher order => newer)
+        return Date.now() - (order || 0);
+    }
+
+    /**
+     * Inject related news section
+     * @param {Array} newsItems - News items array
+     * @param {Object} article - Current article
+     */
+    function injectRelatedNews(newsItems, article) {
+        const relatedGrid = document.querySelector('.related-grid');
+        if (!relatedGrid) return;
+
+        const relatedNews = findRelatedNews(newsItems, article.category);
+        if (relatedNews.length === 0) return;
+
+        relatedGrid.innerHTML = '';
+
+        relatedNews.forEach(news => {
+            const card = document.createElement('article');
+            card.className = 'related-card';
+            card.innerHTML = `
+                <a href="article.html?slug=${news.slug}" class="related-image">
+                    <img src="${news.image}" alt="${news.title}" />
+                </a>
+                <div class="related-content">
+                    <span class="related-category" style="background: ${news.categoryColor}">${news.category}</span>
+                    <h3><a href="article.html?slug=${news.slug}">${news.title}</a></h3>
+                    <p>${news.excerpt}</p>
+                    <div class="related-meta">
+                        <span>${news.meta.date}</span>
+                    </div>
+                </div>
+            `;
+            relatedGrid.appendChild(card);
+        });
+    }
+
+    /**
+     * Inject latest news in sidebar
+     * @param {Array} newsItems - News items array
+     */
+    function injectSidebarNews(newsItems) {
+        const sidebarNewsList = document.querySelector('.sidebar-news-list');
+        if (!sidebarNewsList) return;
+
+        // Sort by parsed date (most recent first) and get top 3
+        const latestNews = (newsItems || []).slice()
+            .sort((a, b) => {
+                const da = parseNewsDate(a && a.meta && a.meta.date, a && a.order);
+                const db = parseNewsDate(b && b.meta && b.meta.date, b && b.order);
+                return db - da;
+            })
+            .slice(0, 3);
+
+        sidebarNewsList.innerHTML = '';
+
+        latestNews.forEach(news => {
+            const newsItem = document.createElement('a');
+            newsItem.className = 'sidebar-news-item';
+            newsItem.href = `article.html?slug=${news.slug}`;
+            newsItem.innerHTML = `
+                <img src="${news.image}" alt="${news.title}" />
+                <div>
+                    <span class="sidebar-news-cat" style="background: ${news.categoryColor}">${news.category}</span>
+                    <h4>${news.title}</h4>
+                </div>
+            `;
+            sidebarNewsList.appendChild(newsItem);
+        });
     }
 
     /**
@@ -175,9 +336,9 @@
      * @param {string} content - Content value
      */
     function updateOrCreateMetaTag(property, content) {
-        let meta = document.querySelector(`meta[property="${property}"]`) || 
-                   document.querySelector(`meta[name="${property}"]`);
-        
+        let meta = document.querySelector(`meta[property="${property}"]`) ||
+            document.querySelector(`meta[name="${property}"]`);
+
         if (!meta) {
             meta = document.createElement('meta');
             if (property.startsWith('og:') || property.startsWith('twitter:')) {
@@ -215,7 +376,7 @@
         // Clear existing content (keep only structural elements)
         const structuralElements = contentMain.querySelectorAll('.article-share-bar, .article-author-bio');
         contentMain.innerHTML = '';
-        
+
         // Re-add structural elements
         structuralElements.forEach(el => contentMain.appendChild(el));
 
@@ -258,19 +419,19 @@
         switch (block.type) {
             case 'lead':
                 return createLeadParagraph(block.text);
-            
+
             case 'paragraph':
                 return createParagraph(block.text);
-            
+
             case 'heading':
                 return createHeading(block.text);
-            
+
             case 'image':
                 return createImage(block.src, block.caption);
-            
+
             case 'quote':
                 return createQuote(block.text, block.author, block.authorRole, block.authorImage);
-            
+
             default:
                 console.warn('Unknown content type:', block.type);
                 return null;
@@ -370,7 +531,7 @@
             }
 
             const authorInfo = document.createElement('div');
-            
+
             const authorName = document.createElement('div');
             authorName.className = 'author-name-quote';
             authorName.textContent = author;
@@ -408,7 +569,7 @@
 
         images.forEach(image => {
             const figure = document.createElement('figure');
-            
+
             const img = document.createElement('img');
             img.src = image.src;
             img.alt = image.caption || 'Gallery image';
@@ -529,7 +690,7 @@
         try {
             // Get article slug from URL
             const slug = getUrlParameter('slug');
-            
+
             if (!slug) {
                 console.error('No article slug provided');
                 showErrorState();
@@ -538,7 +699,7 @@
 
             // Load articles data
             const data = await loadArticlesData();
-            
+
             if (!data || !data.articles || data.articles.length === 0) {
                 console.error('No articles data available');
                 showErrorState();
@@ -547,7 +708,7 @@
 
             // Find article by slug
             const article = findArticleBySlug(data.articles, slug);
-            
+
             if (!article) {
                 console.error('Article not found:', slug);
                 showErrorState();
@@ -556,6 +717,13 @@
 
             // Inject article content
             injectArticleContent(article);
+
+            // Load and inject dynamic news sections
+            const newsData = await loadNewsData();
+            if (newsData && newsData.news) {
+                injectRelatedNews(newsData.news, article);
+                injectSidebarNews(newsData.news);
+            }
 
         } catch (error) {
             console.error('Error initializing article loader:', error);

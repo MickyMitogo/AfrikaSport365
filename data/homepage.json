@@ -2,7 +2,7 @@
     "siteInfo": {
         "name": "AfrikaSport365",
         "tagline": "La referencia del deporte en Guinea Ecuatorial",
-        "logo": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=50&h=50&fit=crop&circle"
+        "logo": "./images/logoAS350.png"
     },
     "hero": {
         "badge": "HISTORIA DESTACADA",

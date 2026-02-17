@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Perfil de Atleta | AfrikaSport365</title>
+    <meta name="description" content="Perfil detallado del atleta ecuatoguineano en AfrikaSport365" />
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/article.css">
+    <style>
+        .athlete-detail-hero {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(16, 185, 129, 0.1));
+            padding: 3rem 0;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .athlete-detail-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .athlete-profile-card {
+            background: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .athlete-profile-image {
+            width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+
+        .athlete-info-section {
+            background: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .athlete-info-section h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 0.5rem;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-weight: 500;
+            color: #6b7280;
+        }
+
+        .info-value {
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: #f9fafb;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .stat-card .stat-value {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card .stat-label {
+            display: block;
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .logros-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .logros-list li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .logros-list li:before {
+            content: "★";
+            color: #f59e0b;
+            margin-right: 0.75rem;
+            font-size: 1.25rem;
+        }
+
+        .related-athletes {
+            background: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .related-athletes h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 0.5rem;
+        }
+
+        .related-athletes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .related-athlete-card {
+            background: #f9fafb;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .related-athlete-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .related-athlete-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .related-athlete-info {
+            padding: 0.75rem;
+            text-align: center;
+        }
+
+        .related-athlete-name {
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .related-athlete-sport {
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+
+        @media (max-width: 768px) {
+            .athlete-detail-container {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .related-athletes-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 antialiased">
+    <!-- Dynamic Header -->
+    <div id="app-header"></div>
+
+    <!-- Breadcrumb -->
+    <div class="bg-white border-b">
+        <div class="container mx-auto px-4 py-3">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="index.html">Inicio</a>
+                <span class="separator">/</span>
+                <a href="#">Atletas</a>
+                <span class="separator">/</span>
+                <span class="current">Perfil de Atleta</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Athlete Profile Section -->
+    <section class="athlete-page">
+        <div class="athlete-detail-hero">
+            <div class="container mx-auto px-4">
+                <div class="athlete-detail-container">
+                    <!-- Left Column: Profile Image -->
+                    <div class="athlete-profile-card">
+                        <img src="images/placeholder.jpg" alt="Foto atleta"
+                            class="athlete-profile-image athlete-image-main" />
+                        <div class="athlete-badge-section">
+                            <span class="athlete-sport-badge athlete-badge-main"
+                                style="background: #2563eb;">DEPORTE</span>
+                        </div>
+                    </div>
+
+                    <!-- Center Column: Main Info -->
+                    <div>
+                        <h1 class="athlete-name-main" style="font-size: 2.5rem; margin-bottom: 0.5rem;">Nombre del
+                            Atleta</h1>
+                        <p class="athlete-title-main"
+                            style="font-size: 1.25rem; color: #6b7280; margin-bottom: 1.5rem;">Disciplina</p>
+
+                        <div class="athlete-info-section">
+                            <h3>Biografía</h3>
+                            <p class="athlete-bio-text" style="color: #4b5563; line-height: 1.6;">Descripción de la
+                                carrera y logros del atleta.</p>
+                        </div>
+
+                        <div class="athlete-info-section" style="margin-top: 1.5rem;">
+                            <h3>Estadísticas</h3>
+                            <div class="stats-grid">
+                                <!-- Stats populated dynamically -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Detailed Info -->
+                    <div>
+                        <div class="athlete-info-section">
+                            <h3>Información Personal</h3>
+                            <div class="info-row">
+                                <span class="info-label">Edad:</span>
+                                <span class="info-value athlete-age">-</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Altura:</span>
+                                <span class="info-value athlete-height">-</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Localidad:</span>
+                                <span class="info-value athlete-location">-</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Categoría:</span>
+                                <span class="info-value athlete-category">-</span>
+                            </div>
+                        </div>
+
+                        <div class="athlete-info-section" style="margin-top: 1.5rem;">
+                            <h3>Logros Principales</h3>
+                            <ul class="logros-list athlete-logros">
+                                <!-- Logros populated dynamically -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Athletes Section -->
+        <div class="container mx-auto px-4" style="margin-top: 2rem;">
+            <div class="related-athletes">
+                <h3>Otros Atletas Destacados</h3>
+                <div class="related-athletes-grid">
+                    <!-- Related athletes populated dynamically -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic Footer -->
+    <div id="app-footer"></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/athlete-loader.js"></script>
+    <script src="js/load-components.js"></script>
+</body>
+
+</html>

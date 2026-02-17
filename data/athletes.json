@@ -1,11 +1,22 @@
 [
   {
+    "id": "emilio-nsue",
+    "slug": "emilio-nsue-delantero",
     "nombre": "Emilio Nsue",
     "titulo": "Delantero • Capitán Selección Nacional",
     "imagen": "images/perfil1.jpg",
     "imagenAlt": "Emilio Nsue",
     "badge": "FÚTBOL",
     "badgeColor": "#2563eb",
+    "featured": true,
+    "category": "Fútbol",
+    "description": "Emilio Nsue es el capitán de la selección nacional de Guinea Ecuatorial. Delantero versátil con experiencia internacional.",
+    "bio": "Nacido en Malabo, Emilio Nsue se ha convertido en una leyenda del fútbol ecuatoguineano. Con una carrera que abarca más de una década, ha enfrentado a algunos de los mejores equipos del continente.",
+    "localidad": "Malabo, Guinea Ecuatorial",
+    "edad": 34,
+    "altura": "1.83m",
+    "posicion": "Delantero",
+    "dorsal": 9,
     "stats": [
       {
         "valor": "45",
@@ -19,15 +30,33 @@
         "valor": "12",
         "etiqueta": "Asistencias"
       }
-    ]
+    ],
+    "logros": [
+      "Campeón Nacional 2023",
+      "Mejor Delantero AFCON 2021",
+      "50 Selecciones Nacionales",
+      "100+ Goles en carrera"
+    ],
+    "fecha_registro": "2025-12-14T10:00:00"
   },
   {
+    "id": "emilia-esono",
+    "slug": "emilia-esono-velocista",
     "nombre": "Emilia Esono",
     "titulo": "Velocista • 100m y 200m",
     "imagen": "images/perfil2.jpg",
     "imagenAlt": "Emilia Esono",
     "badge": "ATLETISMO",
     "badgeColor": "#10b981",
+    "featured": true,
+    "category": "Atletismo",
+    "description": "Emilia Esono es la velocista más rápida de Guinea Ecuatorial. Acaba de establecer un nuevo récord nacional en los 100 metros.",
+    "bio": "Con tan solo 23 años, Emilia Esono ha roto múltiples récords nacionales y se perfila como una de las grandes promesas del atletismo africano. Su dedicación y talento la han posicionado en el podio de competiciones internacionales.",
+    "localidad": "Bata, Guinea Ecuatorial",
+    "edad": 23,
+    "altura": "1.68m",
+    "especialidad": "Velocidad (100m, 200m)",
+    "dorsal": 24,
     "stats": [
       {
         "valor": "11.23s",
@@ -41,6 +70,53 @@
         "valor": "23",
         "etiqueta": "Edad"
       }
-    ]
+    ],
+    "logros": [
+      "Récord Nacional 100m (11.23s)",
+      "Medalla de Plata CEMAC 2024",
+      "Clasificada a Mundial Atletismo",
+      "3 Records Personales en 2025"
+    ],
+    "fecha_registro": "2025-12-12T14:00:00"
+  },
+  {
+    "id": "jose-bindang",
+    "slug": "jose-bindang-judoka",
+    "nombre": "José Bindang",
+    "titulo": "Judoka • Categoría -73kg",
+    "imagen": "images/judo.webp",
+    "imagenAlt": "José Bindang",
+    "badge": "JUDO",
+    "badgeColor": "#f59e0b",
+    "featured": true,
+    "category": "Judo",
+    "description": "José Bindang es el representante ecuatoguineano en judo. Medallista en campeonatos africanos.",
+    "bio": "Desde su infancia, José mostró gran interés por el judo. Tras años de entrenamientos rigurosos, se ha posicionado como uno de los mejores judokas del continente.",
+    "localidad": "Bata, Guinea Ecuatorial",
+    "edad": 26,
+    "altura": "1.75m",
+    "peso": "73kg",
+    "dorsalWJF": 15,
+    "stats": [
+      {
+        "valor": "15",
+        "etiqueta": "Victorias"
+      },
+      {
+        "valor": "3",
+        "etiqueta": "Derrotas"
+      },
+      {
+        "valor": "2",
+        "etiqueta": "Medallas"
+      }
+    ],
+    "logros": [
+      "Medalla de Plata AFCON 2025",
+      "Campeón Nacional 2024",
+      "Clasificado a Juegos Africanos",
+      "Entrenado en Francia"
+    ],
+    "fecha_registro": "2025-12-10T09:30:00"
   }
 ]

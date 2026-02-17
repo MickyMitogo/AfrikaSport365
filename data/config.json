@@ -1,0 +1,18 @@
+{
+    "site": {
+        "name": "AfrikaSport365",
+        "tagline": "La referencia del deporte en Guinea Ecuatorial",
+        "description": "Cobertura completa de deportes africanos, noticias, análisis y opinión experta"
+    },
+    "social": {
+        "facebook": "https://www.facebook.com/afrikasport365",
+        "twitter": "https://x.com/Afrikasport365",
+        "instagram": "https://www.instagram.com/afrikasport365/",
+        "youtube": "https://www.youtube.com/channel/UC9xl-SqAVpnSAd5-5q1kW1A"
+    },
+    "contact": {
+        "email": "afrikasport365@outlook.com",
+        "phone": "+240 555 923 696",
+        "location": "Malabo, Guinea Ecuatorial"
+    }
+}

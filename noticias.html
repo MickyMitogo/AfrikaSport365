@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todas las Noticias | AfrikaSport365</title>
+    <meta name="description"
+        content="Todas las noticias deportivas de AfrikaSport365. Cobertura completa del deporte en Guinea Ecuatorial y África.">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/homepage.css">
+    <style>
+        .news-page-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .news-page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-page-header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .news-filter-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .news-filter-section h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.25rem;
+            border-radius: 6px;
+            border: 2px solid #e5e7eb;
+            background: white;
+            color: #6b7280;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            border-color: #667eea;
+            background: #667eea;
+            color: white;
+        }
+
+        .all-news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .news-page-header h1 {
+                font-size: 2rem;
+            }
+
+            .all-news-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .filter-buttons {
+                gap: 0.75rem;
+            }
+
+            .filter-btn {
+                padding: 0.4rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        .load-more-btn {
+            display: block;
+            margin: 2rem auto;
+            padding: 0.75rem 2rem;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .load-more-btn:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .no-news-message {
+            text-align: center;
+            padding: 2rem;
+            color: #6b7280;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Dynamic Header (loads from includes/header.html) -->
+    <div id="app-header"></div>
+
+    <!-- Page Header -->
+    <div class="news-page-header">
+        <div class="container mx-auto px-4">
+            <h1>Noticias</h1>
+            <p>Las últimas actualizaciones del deporte en Guinea Ecuatorial y toda África</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4">
+        <!-- Filter Section -->
+        <div class="news-filter-section">
+            <h3>Filtrar por Deporte</h3>
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterNews('todos')">Todos</button>
+                <button class="filter-btn" onclick="filterNews('futbol')">Fútbol</button>
+                <button class="filter-btn" onclick="filterNews('atletismo')">Atletismo</button>
+                <button class="filter-btn" onclick="filterNews('judo')">Judo</button>
+                <button class="filter-btn" onclick="filterNews('baloncesto')">Baloncesto</button>
+                <button class="filter-btn" onclick="filterNews('ciclismo')">Ciclismo</button>
+            </div>
+        </div>
+
+        <!-- News Grid -->
+        <div class="all-news-grid" id="allNewsGrid">
+            <!-- Las noticias serán cargadas dinámicamente -->
+        </div>
+
+        <!-- Load More Button -->
+        <button class="load-more-btn" id="loadMoreBtn" onclick="loadMore()" style="display: none;">
+            Cargar más noticias
+        </button>
+
+        <!-- No news message -->
+        <div class="no-news-message" id="noNewsMessage" style="display: none;">
+            No hay noticias disponibles en este momento.
+        </div>
+    </main>
+
+    <!-- Dynamic Footer (loads from includes/footer.html) -->
+    <div id="app-footer"></div>
+
+    <!-- Noticias loader (carga dinámicamente todas las noticias desde JSON) -->
+    <script src="../js/noticias-loader.js"></script>
+
+    <!-- Component loader for dynamic header and footer -->
+    <script src="../js/load-components.js"></script>
+</body>
+
+</html>

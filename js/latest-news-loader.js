@@ -1,20 +1,20 @@
 /**
  * Latest News Dynamic Loader
- * Loads news cards from data/latest-news.json and renders them in the homepage
+ * Loads news cards from data/all-news.json and filters featured items for homepage
  */
 
-(function() {
+(function () {
     'use strict';
 
-    const DATA_PATH = 'data/latest-news.json';
-    
+    const DATA_PATH = 'data/all-news.json';
+
     // Wait for DOM to be ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {
         init();
     }
-    
+
     async function init() {
         try {
             const response = await fetch(DATA_PATH);
@@ -22,44 +22,42 @@
                 console.warn('Latest news data not found, using static HTML');
                 return;
             }
-            
+
             const data = await response.json();
-            if (!data.latestNews || !Array.isArray(data.latestNews)) {
-                console.warn('Invalid latest news data structure');
+            if (!data.news || !Array.isArray(data.news)) {
+                console.warn('Invalid news data structure');
                 return;
             }
-            
-            renderNewsGrid(data.latestNews);
+
+            // Filtrar solo noticias destacadas (featured)
+            const featuredNews = data.news.filter(item => item.featured === true);
+            renderNewsGrid(featuredNews);
         } catch (error) {
             console.error('Error loading latest news:', error);
         }
     }
-    
+
     function renderNewsGrid(newsItems) {
         const newsGrid = document.querySelector('.news-grid');
         if (!newsGrid) return;
-        
+
         // Clear existing content
         newsGrid.innerHTML = '';
-        
+
         // Sort by order
         const sortedNews = newsItems.sort((a, b) => a.order - b.order);
-        
-        sortedNews.forEach(item => {
-            const card = createNewsCard(item);
+
+        sortedNews.forEach((item, index) => {
+            const card = createNewsCard(item, index === 0);
             newsGrid.appendChild(card);
         });
     }
-    
-    function createNewsCard(item) {
+
+    function createNewsCard(item, isLarge) {
         const article = document.createElement('article');
-        article.className = item.featured ? 'news-card news-card-large' : 'news-card';
+        article.className = isLarge ? 'news-card news-card-large' : 'news-card';
         article.setAttribute('data-article-slug', item.slug);
-        
-        const commentsHTML = item.meta.comments > 0 
-            ? `<span>💬 ${item.meta.comments} comentarios</span>` 
-            : '';
-        
+
         article.innerHTML = `
             <div class="news-image">
                 <img src="${item.image}" alt="${item.imageAlt || item.title}">
@@ -71,13 +69,12 @@
                 </h3>
                 <p class="news-excerpt">${item.excerpt}</p>
                 <div class="news-meta">
-                    <span>📅 ${item.meta.time}</span>
+                    <span>📅 ${item.meta.date}</span>
                     <span>✍️ ${item.meta.author}</span>
-                    ${commentsHTML}
                 </div>
             </div>
         `;
-        
+
         return article;
     }
 })();

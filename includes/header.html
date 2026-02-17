@@ -1,0 +1,194 @@
+<!-- Header with Navigation -->
+<header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between py-4">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center" data-cms-content="siteInfo">
+                <img src="./images/logoAS350.png" alt="AfrikaSport365 Logo" class="h-12 mr-3 rounded"
+                    data-cms-field="siteInfo.logo">
+                <div>
+                    <h1 class="text-2xl font-bold text-blue-600" data-cms-field="siteInfo.name">AfrikaSport365</h1>
+                    <p class="text-xs text-gray-600" data-cms-field="siteInfo.tagline">La referencia del deporte en
+                        Guinea Ecuatorial</p>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-6">
+                <a href="index.html"
+                    class="text-blue-600 hover:text-blue-700 font-semibold border-b-2 border-blue-600">Inicio</a>
+
+                <!-- Deportes Dropdown -->
+                <div class="relative group">
+                    <button class="text-gray-800 hover:text-blue-600 font-semibold flex items-center">
+                        Deportes
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div
+                        class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <a href="noticias.html?filter=futbol"
+                            class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Fútbol</a>
+                        <a href="noticias.html?filter=atletismo"
+                            class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Atletismo</a>
+                        <a href="noticias.html?filter=judo"
+                            class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Judo</a>
+                        <a href="noticias.html?filter=ciclismo"
+                            class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Ciclismo</a>
+                        <a href="noticias.html?filter=taekwondo"
+                            class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Taekwondo</a>
+                        <a href="noticias.html?filter=acuaticos"
+                            class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Deportes Acuaticos</a>
+                        <a href="noticias.html?filter=baloncesto"
+                            class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Baloncesto</a>
+                    </div>
+                </div>
+
+                <a href="eventos.html" class="text-gray-800 hover:text-blue-600 font-semibold">Eventos</a>
+                <a href="multimedia.html" class="text-gray-800 hover:text-blue-600 font-semibold">Multimedia</a>
+                <a href="opinions.html" class="text-gray-800 hover:text-blue-600 font-semibold">Opinión</a>
+
+                <!-- Academia del deporte Dropdown -->
+                <div class="relative group">
+                    <button class="text-gray-800 hover:text-blue-600 font-semibold flex items-center">
+                        Academia del deporte
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div
+                        class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Nutricion</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Prevencion de
+                            Lesiones</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Psicologia</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Planes de
+                            Entrenamientos</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Becas & Talleres</a>
+                    </div>
+                </div>
+
+                <!-- Noticias por Región Dropdown -->
+                <div class="relative group">
+                    <button class="text-gray-800 hover:text-blue-600 font-semibold flex items-center">
+                        Noticias por Región
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div
+                        class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <a href="regional-news.html?region=maghreb"
+                            class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Maghreb</a>
+                        <a href="regional-news.html?region=west"
+                            class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Oeste de África</a>
+                        <a href="regional-news.html?region=central"
+                            class="block px-4 py-2 text-gray-800 hover:bg-blue-50">África Central</a>
+                        <a href="regional-news.html?region=south"
+                            class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Sur de África</a>
+                        <a href="regional-news.html?region=horn"
+                            class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Cuerno de África</a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-gray-800" title="Abrir menú móvil">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu - Outside container for full expansion -->
+    <div id="mobileMenu" class="md:hidden hidden pb-4 px-4 bg-white border-t border-gray-200">
+        <a href="index.html" class="block py-2 text-blue-600 hover:text-blue-700 font-semibold">Inicio</a>
+
+        <!-- Mobile Deportes Dropdown -->
+        <div class="border-t border-gray-200 my-2 pt-2">
+            <button
+                class="mobile-dropdown-btn w-full text-left py-2 text-gray-800 hover:text-blue-600 font-semibold flex items-center justify-between"
+                data-dropdown="deportes">
+                Deportes
+                <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                    </path>
+                </svg>
+            </button>
+            <div id="deportes-dropdown" class="mobile-dropdown hidden pl-4">
+                <a href="noticias.html?filter=futbol"
+                    class="block px-4 py-2 text-gray-800 hover:bg-blue-50 text-sm">Fútbol</a>
+                <a href="noticias.html?filter=atletismo"
+                    class="block px-4 py-2 text-gray-800 hover:bg-blue-50 text-sm">Atletismo</a>
+                <a href="noticias.html?filter=judo"
+                    class="block px-4 py-2 text-gray-800 hover:bg-blue-50 text-sm">Judo</a>
+                <a href="noticias.html?filter=ciclismo"
+                    class="block px-4 py-2 text-gray-800 hover:bg-blue-50 text-sm">Ciclismo</a>
+                <a href="noticias.html?filter=taekwondo"
+                    class="block px-4 py-2 text-gray-800 hover:bg-blue-50 text-sm">Taekwondo</a>
+                <a href="noticias.html?filter=acuaticos"
+                    class="block px-4 py-2 text-gray-800 hover:bg-blue-50 text-sm">Deportes Acuaticos</a>
+                <a href="noticias.html?filter=baloncesto"
+                    class="block px-4 py-2 text-gray-800 hover:bg-blue-50 text-sm">Baloncesto</a>
+            </div>
+        </div>
+
+        <a href="eventos.html" class="block py-2 text-gray-800 hover:text-blue-600">Eventos</a>
+        <a href="multimedia.html" class="block py-2 text-gray-800 hover:text-blue-600">Multimedia</a>
+        <a href="opinion.html" class="block py-2 text-gray-800 hover:text-blue-600">Opinión</a>
+
+        <!-- Mobile Academia del Deporte Dropdown -->
+        <div class="border-t border-gray-200 my-2 pt-2">
+            <button
+                class="mobile-dropdown-btn w-full text-left py-2 text-gray-800 hover:text-blue-600 font-semibold flex items-center justify-between"
+                data-dropdown="academia">
+                Academia del deporte
+                <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                    </path>
+                </svg>
+            </button>
+            <div id="academia-dropdown" class="mobile-dropdown hidden pl-4">
+                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50 text-sm">Nutricion</a>
+                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50 text-sm">Prevencion de
+                    Lesiones</a>
+                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50 text-sm">Psicologia</a>
+                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50 text-sm">Planes de
+                    Entrenamientos</a>
+                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50 text-sm">Becas & Talleres</a>
+            </div>
+        </div>
+
+        <!-- Mobile Noticias por Región Dropdown -->
+        <div class="border-t border-gray-200 my-2 pt-2">
+            <button
+                class="mobile-dropdown-btn w-full text-left py-2 text-gray-800 hover:text-blue-600 font-semibold flex items-center justify-between"
+                data-dropdown="regiones">
+                Noticias por Región
+                <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                    </path>
+                </svg>
+            </button>
+            <div id="regiones-dropdown" class="mobile-dropdown hidden pl-4">
+                <a href="regional-news.html?region=maghreb"
+                    class="block px-4 py-2 text-gray-800 hover:bg-blue-50 text-sm">Maghreb</a>
+                <a href="regional-news.html?region=west"
+                    class="block px-4 py-2 text-gray-800 hover:bg-blue-50 text-sm">Oeste de África</a>
+                <a href="regional-news.html?region=central"
+                    class="block px-4 py-2 text-gray-800 hover:bg-blue-50 text-sm">África Central</a>
+                <a href="regional-news.html?region=south"
+                    class="block px-4 py-2 text-gray-800 hover:bg-blue-50 text-sm">Sur de África</a>
+                <a href="regional-news.html?region=horn"
+                    class="block px-4 py-2 text-gray-800 hover:bg-blue-50 text-sm">Cuerno de África</a>
+            </div>
+        </div>
+    </div>
+</header>
+</header>

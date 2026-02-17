@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos | AfrikaSport365</title>
+    <meta name="description"
+        content="Eventos deportivos internacionales. Juegos Olímpicos, Mundiales y más competencias deportivas en AfrikaSport365.">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="css/events.css">
+    <style>
+        .events-page-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .events-page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .events-page-header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        @media (max-width: 768px) {
+            .events-page-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Dynamic Header (loads from includes/header.html) -->
+    <div id="app-header"></div>
+
+    <!-- Page Header -->
+    <div class="events-page-header">
+        <div class="container mx-auto px-4">
+            <h1>Eventos</h1>
+            <p>Los principales eventos deportivos internacionales y africanos</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4">
+        <div class="events-grid">
+            <!-- Event 1: AFCON 2025 -->
+            <div class="event-card">
+                <img src="images/Guinea-Copa-Africa-1200x675.jpg" alt="AFCON 2025" class="event-card-image">
+                <div class="event-card-content">
+                    <span class="event-date">Diciembre 2024 - Enero 2025</span>
+                    <h2 class="event-title">AFCON 2025</h2>
+                    <div class="event-meta">
+                        <span class="event-meta-item">📍 Marruecos</span>
+                        <span class="event-meta-item">⚽ Fútbol</span>
+                    </div>
+                    <a href="evento.html?id=afcon-2025" class="event-cta">Ver detalles</a>
+                </div>
+            </div>
+
+            <!-- Event 2: Juegos Olímpicos París 2024 -->
+            <div class="event-card">
+                <img src="images/kenneth-schipper-tpfHA7zuFOY-unsplash.jpg" alt="Juegos Olímpicos París 2024"
+                    class="event-card-image">
+                <div class="event-card-content">
+                    <span class="event-date">26 de Julio - 11 de Agosto 2024</span>
+                    <h2 class="event-title">Juegos Olímpicos París 2024</h2>
+                    <div class="event-meta">
+                        <span class="event-meta-item">📍 París, Francia</span>
+                        <span class="event-meta-item">🏅 Múltiples deportes</span>
+                    </div>
+                    <a href="evento.html?id=olimpicos-paris-2024" class="event-cta">Ver detalles</a>
+                </div>
+            </div>
+
+            <!-- Event 3: Campeonato Africano de Atletismo Cairo -->
+            <div class="event-card">
+                <img src="images/yusuf-yassir-aITr1eECvv4-unsplash.jpg" alt="CAA Cairo 2025" class="event-card-image">
+                <div class="event-card-content">
+                    <span class="event-date">13-18 de Junio 2025</span>
+                    <h2 class="event-title">CAA Cairo 2025</h2>
+                    <div class="event-meta">
+                        <span class="event-meta-item">📍 El Cairo, Egipto</span>
+                        <span class="event-meta-item">🏃 Atletismo</span>
+                    </div>
+                    <a href="evento.html?id=campeonato-atletismo-cairo-2025" class="event-cta">Ver detalles</a>
+                </div>
+            </div>
+
+            <!-- Event 4: Maratón de Lagos Nigeria -->
+            <div class="event-card">
+                <img src="images/luke-madziwa-hROwI6CZljg-unsplash.jpg" alt="Lagos Marathon 2024"
+                    class="event-card-image">
+                <div class="event-card-content">
+                    <span class="event-date">3 de Noviembre 2024</span>
+                    <h2 class="event-title">Lagos Marathon 2024</h2>
+                    <div class="event-meta">
+                        <span class="event-meta-item">📍 Lagos, Nigeria</span>
+                        <span class="event-meta-item">🏃 Atletismo</span>
+                    </div>
+                    <a href="evento.html?id=lagos-marathon-2024" class="event-cta">Ver detalles</a>
+                </div>
+            </div>
+
+            <!-- Event 5: Campeonato Africano de Voleibol Femenino -->
+            <div class="event-card">
+                <img src="images/becasbasket.jpg" alt="AfroVolley Femenino 2024" class="event-card-image">
+                <div class="event-card-content">
+                    <span class="event-date">25 de Septiembre - 5 de Octubre 2024</span>
+                    <h2 class="event-title">AfroVolley Femenino 2024</h2>
+                    <div class="event-meta">
+                        <span class="event-meta-item">📍 Kenia</span>
+                        <span class="event-meta-item">🏐 Voleibol</span>
+                    </div>
+                    <a href="evento.html?id=afrovolley-femenino-2024" class="event-cta">Ver detalles</a>
+                </div>
+            </div>
+
+            <!-- Event 6: Campeonato Africano de Natación Budapest -->
+            <div class="event-card">
+                <img src="images/clav2.webp" alt="Africano de Natación 2025" class="event-card-image">
+                <div class="event-card-content">
+                    <span class="event-date">1-8 de Junio 2025</span>
+                    <h2 class="event-title">Africano de Natación 2025</h2>
+                    <div class="event-meta">
+                        <span class="event-meta-item">📍 Sudáfrica</span>
+                        <span class="event-meta-item">🏊 Natación</span>
+                    </div>
+                    <a href="evento.html?id=campeonato-natacion-2025" class="event-cta">Ver detalles</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="app-footer"></div>
+
+    <!-- Component loader for dynamic header and footer -->
+    <script src="js/load-components.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

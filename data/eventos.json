@@ -1,0 +1,70 @@
+{
+    "eventos": [
+        {
+            "id": "afcon-2025",
+            "title": "AFCON 2025",
+            "date": "Diciembre 2024 - Enero 2025",
+            "location": "Marruecos",
+            "image": "images/Guinea-Copa-Africa-1200x675.jpg",
+            "sport": "Fútbol",
+            "featured": true,
+            "description": "La Copa Africana de Naciones es el torneo de fútbol más prestigioso de África. En su edición 2025, las mejores selecciones nacionales compiten por el título continental en Marruecos.",
+            "content": "La Copa Africana de Naciones, también conocida como AFCON, reúne a las 24 mejores selecciones nacionales de fútbol del continente africano. Este torneo, celebrado cada dos años, es uno de los eventos deportivos más importantes de África y atrae a millones de aficionados en todo el mundo. En la edición 2025, Marruecos albergará a todas las selecciones participantes en un torneo que promete ser emocionante y lleno de sorpresas. Desde los equipos europeos residentes en África hasta los nuevos talentos emergentes, todos buscarán alcanzar la gloria continental."
+        },
+        {
+            "id": "olimpicos-paris-2024",
+            "title": "Juegos Olímpicos París 2024",
+            "date": "26 de Julio - 11 de Agosto 2024",
+            "location": "París, Francia",
+            "image": "images/kenneth-schipper-tpfHA7zuFOY-unsplash.jpg",
+            "sport": "Múltiples deportes",
+            "featured": true,
+            "description": "Los Juegos Olímpicos de París reúnen a atletas de más de 200 países compitiendo en 32 disciplinas diferentes, del fútbol a la natación, pasando por atletismo y gimnasia.",
+            "content": "Los Juegos Olímpicos son la culminación del espíritu deportivo internacional. En París 2024, ciudades de todo el mundo enviaron a sus mejores atletas para competir por las medallas de oro, plata y bronce. Atletas africanos tuvieron una destacada participación en diversas disciplinas, demostrando el nivel de desarrollo del deporte en el continente. Desde las pruebas de atletismo hasta las competencias acuáticas, pasando por los deportes de combate, los Juegos Olímpicos de París 2024 fueron un escaparate del talento deportivo mundial."
+        },
+        {
+            "id": "campeonato-atletismo-cairo-2025",
+            "title": "CAA Cairo 2025",
+            "date": "13-18 de Junio 2025",
+            "location": "El Cairo, Egipto",
+            "image": "images/yusuf-yassir-aITr1eECvv4-unsplash.jpg",
+            "sport": "Atletismo",
+            "featured": true,
+            "description": "El Campeonato Africano de Atletismo celebrado en El Cairo, Egipto. Los mejores atletas africanos compiten en pruebas de velocidad, saltos, lanzamientos y carreras de fondo.",
+            "content": "El Campeonato Africano de Atletismo es el evento más importante de la región dedicado al atletismo. En su edición de 2025, El Cairo, una ciudad con una rica tradición atlética, acogió a los mejores corredores, saltadores y lanzadores de todo el continente. El estadio de El Cairo fue testigo de algunos de los mejores desempeños del año, con atletas batiendo récords personales y nacionales en múltiples disciplinas. Los espectadores africanos disfrutaron de competencias de alto nivel que mostraron por qué el atletismo africano es respetado en todo el mundo."
+        },
+        {
+            "id": "lagos-marathon-2024",
+            "title": "Lagos Marathon 2024",
+            "date": "3 de Noviembre 2024",
+            "location": "Lagos, Nigeria",
+            "image": "images/luke-madziwa-hROwI6CZljg-unsplash.jpg",
+            "sport": "Atletismo",
+            "featured": false,
+            "description": "El maratón más importante de Nigeria, celebrado en Lagos. Atrae a corredores africanos e internacionales que compiten en una emocionante carrera de 42 kilómetros.",
+            "content": "El Maratón de Lagos es uno de los eventos de resistencia más populares de África. Con una ruta que atraviesa los puntos emblemáticos de la ciudad, atrae a corredores profesionales y aficionados de todo el mundo. El evento no solo es una competencia deportiva, sino también una celebración de la vitalidad y el espíritu de Lagos. Los corredores enfrentan el calor tropical y la energía de las calles nigerianaswhile compiten por el prestigio de cruzar la línea de meta en una de las ciudades más vibrantes de África."
+        },
+        {
+            "id": "afrovolley-femenino-2024",
+            "title": "AfroVolley Femenino 2024",
+            "date": "25 de Septiembre - 5 de Octubre 2024",
+            "location": "Kenia",
+            "image": "images/becasbasket.jpg",
+            "sport": "Voleibol",
+            "featured": false,
+            "description": "El Campeonato Africano de Voleibol Femenino celebrado en Kenia. Las mejores selecciones femeninas africanas compiten por la gloria continental en emocionantes encuentros.",
+            "content": "El voleibol femenino africano ha experimentado un crecimiento extraordinario en los últimos años. El Campeonato Africano de Voleibol Femenino reúne a las selecciones femeninas más competitivas del continente. En la edición 2024, celebrada en Kenia, se presenciaron competencias emocionantes con equipos que demostraron técnicas avanzadas, trabajo en equipo impecable y determinación de ganar. Este evento ha sido fundamental en el desarrollo del voleibol femenino africano y en inspirar a nuevas generaciones de jugadoras."
+        },
+        {
+            "id": "campeonato-natacion-2025",
+            "title": "Africano de Natación 2025",
+            "date": "1-8 de Junio 2025",
+            "location": "Sudáfrica",
+            "image": "images/clav2.webp",
+            "sport": "Natación",
+            "featured": false,
+            "description": "Los mejores nadadores africanos compiten en pruebas de natación, clavados y waterpolo. Evento que establece los estándares africanos para deportes acuáticos.",
+            "content": "El Campeonato Africano de Natación es la plataforma más importante para los atletas acuáticos del continente. En Sudáfrica, un país con una fuerte tradición acuática, el evento de 2025 reunió a los mejores nadadores, saltadores y jugadores de waterpolo. Las piscinas olímpicas del país fueron el escenario para competencias intensas donde se rompieron récords africanos y se coronaron nuevos campeones. Este evento es crucial para identificar talentos emergentes que podrán representar a sus países en competencias internacionales como los Juegos Olímpicos."
+        }
+    ]
+}

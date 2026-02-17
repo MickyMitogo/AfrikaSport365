@@ -1,16 +1,124 @@
 [
 	{
+		"id": "guinea-ecuatorial-afcon-2026",
+		"slug": "guinea-ecuatorial-lista-afcon-2026",
 		"titulo": "¿Está Guinea Ecuatorial Lista para AFCON 2026?",
 		"resumen": "Un análisis profundo sobre la preparación del país para el torneo más importante del continente.",
 		"autor": "Roberto Esono",
-		"imagen": "images/perfil1.jpg",
-		"badge": "OPINIÓN"
+		"autorImagen": "images/perfil1.jpg",
+		"imagen": "images/OIP (1).webp",
+		"imagenAlt": "AFCON 2026",
+		"badge": "OPINIÓN",
+		"badgeColor": "#8b5cf6",
+		"featured": true,
+		"tipo": "opinion",
+		"categoria": "Fútbol",
+		"fecha": "2025-12-15T10:30:00",
+		"fechaMostrada": "15 de diciembre, 2025 • 10:30",
+		"contenido": [
+			{
+				"type": "lead",
+				"text": "Con la Copa Africana de Naciones 2026 a la vuelta de la esquina, es momento de evaluar objetivamente el nivel de preparación de la selección nacional de Guinea Ecuatorial. <strong>Roberto Esono</strong>, analista deportivo con más de 20 años de experiencia, presenta un análisis exhaustivo sobre los puntos fuertes y áreas de mejora."
+			},
+			{
+				"type": "heading",
+				"text": "¿Qué dicen los números?"
+			},
+			{
+				"type": "paragraph",
+				"text": "Los Nzalang Nacional ha tenido un desempeño consistente en las eliminatorias, logrando victorias clave contra equipos de envergadura. Con una defensa sólida y un ataque variado, el equipo presenta señales positivas que invitan al optimismo."
+			},
+			{
+				"type": "quote",
+				"text": "Los números no mienten. Este es el equipo con mayor potencial que hemos visto en los últimos años.",
+				"author": "Roberto Esono",
+				"authorRole": "Analista Deportivo"
+			},
+			{
+				"type": "heading",
+				"text": "Los Desafíos por Venir"
+			},
+			{
+				"type": "paragraph",
+				"text": "Sin embargo, hay aspectos que requieren atención. La profundidad del banquillo, la comunicación táctica en momentos de presión, e incluso la gestión mental de los jugadores en encuentros decisivos son áreas donde el cuerpo técnico debe enfocarse."
+			},
+			{
+				"type": "paragraph",
+				"text": "La preparación física también será crucial. Un torneo como AFCON exige resistencia, velocidad y capacidad de recuperación en partidos sucesivos cada tres días. La planificación del entrenamiento en los próximos meses será determinante."
+			},
+			{
+				"type": "heading",
+				"text": "Conclusión y Perspectivas"
+			},
+			{
+				"type": "paragraph",
+				"text": "En conclusión, Guinea Ecuatorial tiene potencial para pasar la fase de grupos y competir seriamente en fases posteriores. Con una preparación adecuada y el apoyo de la afición, podemos estar ante el mejor rendimiento del país en una AFCON."
+			}
+		],
+		"lecturaEstimada": "6 min"
 	},
 	{
+		"id": "entrevista-emilia-esono",
+		"slug": "entrevista-emilia-esono-atletismo",
 		"titulo": "Conversación con la Estrella del Atletismo Nacional",
-		"resumen": "Emilia Esono comparte su trayectoria y ambiciones para los próximos Juegos Olímpicos.",
+		"resumen": "Emilia Esono comparte su trayectoria, sacrificios y ambiciones para los próximos Juegos Olímpicos y Mundiales.",
 		"autor": "Laura Ndong",
-		"imagen": "images/judo.webp",
-		"badge": "ENTREVISTA"
+		"autorImagen": "images/perfil2.jpg",
+		"imagen": "images/perfil2.jpg",
+		"imagenAlt": "Emilia Esono",
+		"badge": "ENTREVISTA",
+		"badgeColor": "#06b6d4",
+		"featured": true,
+		"tipo": "entrevista",
+		"categoria": "Atletismo",
+		"fecha": "2025-12-14T14:00:00",
+		"fechaMostrada": "14 de diciembre, 2025 • 14:00",
+		"contenido": [
+			{
+				"type": "lead",
+				"text": "<strong>Laura Ndong</strong>, periodista especializada en atletismo, se sienta con <strong>Emilia Esono</strong>, la velocista que acaba de establecer un nuevo récord nacional en los 100 metros. En esta conversación exclusiva, Emilia revela sus años de sacrificio, sus temores y sus grandes sueños olímpicos."
+			},
+			{
+				"type": "heading",
+				"text": "Los Inicios: Del Sueño a la Realidad"
+			},
+			{
+				"type": "quote",
+				"text": "Desde niña veía a los atletas en televisión y soñaba con representar a Guinea Ecuatorial en los Juegos Olímpicos. Mis padres no tenían mucho, pero apoyaron cada paso que daba.",
+				"author": "Emilia Esono",
+				"authorRole": "Atleta de Velocidad"
+			},
+			{
+				"type": "paragraph",
+				"text": "Emilia creció en un barrio humilde de Bata, donde no había pista de atletismo formal. Sin embargo, su entrenador, David Ochieng, descubrió su talento natural corriendo descalza en las calles locales."
+			},
+			{
+				"type": "heading",
+				"text": "El Récord Histórico"
+			},
+			{
+				"type": "paragraph",
+				"text": "Cuando se le pregunta sobre los 11.23 segundos que la hicieron historia, Emilia sonríe con humildad. 'Ese fue un momento surrealista. Sabía que estaba bien preparada, pero los números no importaban hasta que lo hiciera en competencia.'"
+			},
+			{
+				"type": "paragraph",
+				"text": "El entrenador David explica que le enseñó técnicas de respiración y mental coaching que marcaron la diferencia. 'La velocidad es 80% técnica y 20% talento natural.'"
+			},
+			{
+				"type": "heading",
+				"text": "El Camino a Los Ángeles 2028"
+			},
+			{
+				"type": "quote",
+				"text": "Mis ojos están puestos en Los Ángeles. Quiero competir contra las mejores del mundo, representar a mi país con dignidad, y mostrarle al mundo que Guinea Ecuatorial produce atletas de clase mundial.",
+				"author": "Emilia Esono",
+				"authorRole": "Atleta de Velocidad"
+			},
+			{
+				"type": "paragraph",
+				"text": "Para lograrlo, Emilia seguirá entrenamientos rigurosos en Europa, participará en competiciones internacionales de élite, y se enfocará en mejorar su tiempo en 200 metros, su segunda especialidad."
+			}
+		],
+		"lecturaEstimada": "7 min"
 	}
 ]

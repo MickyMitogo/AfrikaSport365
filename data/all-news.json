@@ -1,0 +1,164 @@
+{
+    "news": [
+        {
+            "id": 1,
+            "title": "Los Nzalang Nacional Buscan la Gloria en las Eliminatorias AFCON",
+            "excerpt": "La selección nacional de Guinea Ecuatorial inicia su camino hacia la Copa Africana de Naciones con una preparación intensiva y nuevos refuerzos que prometen llevar al equipo a niveles históricos.",
+            "image": "images/OIP (1).webp",
+            "imageAlt": "Copa AFCON",
+            "category": "FÚTBOLA",
+            "categoryColor": "#ef4444",
+            "slug": "nzalang-eliminatorias-afcon-2025",
+            "meta": {
+                "author": "María Obiang",
+                "date": "16 de febrero, 2025"
+            },
+            "featured": false,
+            "order": 1
+        },
+        {
+            "id": 2,
+            "title": "Record Nacional en 100 Metros Femeninos",
+            "excerpt": "Emilia Esono establece nueva marca nacional con un tiempo de 11.23 segundos en el campeonato regional.",
+            "image": "images/perfil1.jpg",
+            "imageAlt": "Atletismo",
+            "category": "ATLETISMO",
+            "categoryColor": "#10b981",
+            "slug": "record-nacional-100-metros-femeninos",
+            "meta": {
+                "author": "Carlos Mangue",
+                "date": "15 de febrero, 2025"
+            },
+            "featured": true,
+            "order": 2
+        },
+        {
+            "id": 3,
+            "title": "Medalla de Plata para Guinea Ecuatorial en Campeonato Africano",
+            "excerpt": "José Bindang obtiene medalla de plata en la categoría -73kg tras una brillante actuación.",
+            "image": "images/judo.webp",
+            "imageAlt": "Judo",
+            "category": "JUDO",
+            "categoryColor": "#f59e0b",
+            "slug": "medalla-plata-judo-campeonato-africano",
+            "meta": {
+                "author": "Ana Riloha",
+                "date": "14 de febrero, 2025"
+            },
+            "featured": true,
+            "order": 3
+        },
+        {
+            "id": 4,
+            "title": "Liga Nacional de Baloncesto Inicia Temporada con Récord de Inscripciones",
+            "excerpt": "La nueva temporada promete ser la más competitiva con 12 equipos participantes.",
+            "image": "images/perfil2.jpg",
+            "imageAlt": "Baloncesto",
+            "category": "BALONCESTO",
+            "categoryColor": "#8b5cf6",
+            "slug": "liga-baloncesto-record-inscripciones",
+            "meta": {
+                "author": "David Nve",
+                "date": "13 de febrero, 2025"
+            },
+            "featured": true,
+            "order": 4
+        },
+        {
+            "id": 5,
+            "title": "Joven Promesa del Tenis Ecuatoguineano Firma con Academia Europea",
+            "excerpt": "Lucas Micha, de 16 años, se une a prestigiosa academia en España para desarrollar su talento.",
+            "image": "images/perfil1.jpg",
+            "imageAlt": "Tenis",
+            "category": "TENIS",
+            "categoryColor": "#06b6d4",
+            "slug": "joven-promesa-tenis-academia-europea",
+            "meta": {
+                "author": "Teresa Mba",
+                "date": "12 de febrero, 2025"
+            },
+            "featured": true,
+            "order": 5
+        },
+        {
+            "id": 6,
+            "title": "Torneo Regional de Rugby Reúne a Seis Equipos Nacionales",
+            "excerpt": "Guinea Ecuatorial participa en importante competición continental con su equipo renovado.",
+            "image": "images/perfil2.jpg",
+            "imageAlt": "Rugby",
+            "category": "RUGBY",
+            "categoryColor": "#1e40af",
+            "slug": "torneo-rugby-regional",
+            "meta": {
+                "author": "Miguel Esono",
+                "date": "10 de febrero, 2025"
+            },
+            "featured": false,
+            "order": 6
+        },
+        {
+            "id": 7,
+            "title": "Campeonato Nacional de Ciclismo Elige Nueva Ruta",
+            "excerpt": "La competición ciclística de 2025 presentará desafíos nuevos con circuitos rediseñados.",
+            "image": "images/OIP (1).webp",
+            "imageAlt": "Ciclismo",
+            "category": "CICLISMO",
+            "categoryColor": "#059669",
+            "slug": "campeonato-ciclismo-nuevo-circuito",
+            "meta": {
+                "author": "Rosa Nyang",
+                "date": "8 de febrero, 2025"
+            },
+            "featured": false,
+            "order": 7
+        },
+        {
+            "id": 8,
+            "title": "Boxeador Ecuatoguineano Avanza a Semifinales del Campeonato Africano",
+            "excerpt": "Yann Mike Alogo derrota al camerunés Ekesie Ejuke por decisión unánime en emocionante combate.",
+            "image": "images/perfil1.jpg",
+            "imageAlt": "Boxeo",
+            "category": "BOXEO",
+            "categoryColor": "#dc2626",
+            "slug": "yann-mike-alogo-semifinales-boxeo",
+            "meta": {
+                "author": "José Mangue",
+                "date": "6 de febrero, 2025"
+            },
+            "featured": false,
+            "order": 8
+        },
+        {
+            "id": 9,
+            "title": "Nueva Instalación de Entrenamiento Abre en Malabo",
+            "excerpt": "Centro de Alto Rendimiento facilitará la preparación de atletas ecuatoguineanos.",
+            "image": "images/OIP (1).webp",
+            "imageAlt": "Instalación deportiva",
+            "category": "ATLETISMO",
+            "categoryColor": "#10b981",
+            "slug": "centro-alto-rendimiento-malabo",
+            "meta": {
+                "author": "Fernando Mba",
+                "date": "4 de febrero, 2025"
+            },
+            "featured": true,
+            "order": 9
+        },
+        {
+            "id": 10,
+            "title": "Equipo Femenino de Fútbol Clasifica para Torneo Internacional",
+            "excerpt": "Las Nzalang femeninas logran su clasificación tras impresionante desempeño en el torneo clasificatorio.",
+            "image": "images/perfil2.jpg",
+            "imageAlt": "Fútbol femenino",
+            "category": "FÚTBOL",
+            "categoryColor": "#ef4444",
+            "slug": "nzalang-femenino-clasificacion-torneo",
+            "meta": {
+                "author": "Beatriz Ondo",
+                "date": "2 de febrero, 2025"
+            },
+            "featured": false,
+            "order": 10
+        }
+    ]
+}
