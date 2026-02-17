@@ -34,8 +34,8 @@
             return;
         }
 
-        container.innerHTML = '<div class="nrr-grid">' + regionNews.map(item => `
-            <article class="nrr-article">
+        container.innerHTML = '<div class="nrr-list">' + regionNews.map(item => `
+            <article class="nrr-item">
                 <div class="nrr-media-container">
                     <img src="${item.imagen}" alt="${item.titulo}" class="nrr-media" />
                 </div>
@@ -44,10 +44,6 @@
                         <a href="regional-news.html?slug=${item.slug}" class="news-link">${item.titulo}</a>
                     </h3>
                     <p class="nrr-lead">${item.resumen}</p>
-                    <div class="nrr-meta">
-                        <span>${item.fechaMostrada}</span>
-                        <span>${item.categoria}</span>
-                    </div>
                 </div>
             </article>
         `).join('') + '</div>';
