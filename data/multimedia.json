@@ -5,14 +5,73 @@
     "title": "Celebración de Guinea Ecuatorial",
     "src": "images/perfil2.jpg",
     "alt": "Jugadores celebrando",
-    "date": "2026-01-05"
+    "date": "2026-02-15",
+    "category": "Fútbol"
   },
   {
     "id": 2,
     "type": "video",
     "title": "Resumen del partido",
-    "src": "videos/partido1.mp4",
+    "src": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "thumbnail": "images/perfil2.jpg",
     "alt": "Video resumen",
-    "date": "2026-01-04"
+    "date": "2026-02-14",
+    "category": "Fútbol"
+  },
+  {
+    "id": 3,
+    "type": "image",
+    "title": "Atletas en competencia de atletismo",
+    "src": "https://images.unsplash.com/photo-1532635241749-b8833862eba4?w=600&h=400&fit=crop",
+    "alt": "Competencia de atletismo",
+    "date": "2026-02-13",
+    "category": "Atletismo"
+  },
+  {
+    "id": 4,
+    "type": "image",
+    "title": "Ceremonia de premiación",
+    "src": "https://images.unsplash.com/photo-1552521881-721bd8a62e47?w=600&h=400&fit=crop",
+    "alt": "Atletas recibiendo medallas",
+    "date": "2026-02-12",
+    "category": "Eventos"
+  },
+  {
+    "id": 5,
+    "type": "video",
+    "title": "Entrenamiento de la selección",
+    "src": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "thumbnail": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400&h=300&fit=crop",
+    "alt": "Video entrenamiento",
+    "date": "2026-02-11",
+    "category": "Entrenamiento"
+  },
+  {
+    "id": 6,
+    "type": "image",
+    "title": "Espectadores en el estadio",
+    "src": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&h=400&fit=crop",
+    "alt": "Público en el estadio",
+    "date": "2026-02-10",
+    "category": "Eventos"
+  },
+  {
+    "id": 7,
+    "type": "image",
+    "title": "Competencia de Taekwondo",
+    "src": "https://images.unsplash.com/photo-1518611505868-48510c8dfa93?w=600&h=400&fit=crop",
+    "alt": "Atleta en competencia de Taekwondo",
+    "date": "2026-02-09",
+    "category": "Taekwondo"
+  },
+  {
+    "id": 8,
+    "type": "video",
+    "title": "Highlights del día",
+    "src": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "thumbnail": "https://images.unsplash.com/photo-1519167758481-83f19106c8e9?w=400&h=300&fit=crop",
+    "alt": "Video highlights",
+    "date": "2026-02-08",
+    "category": "Resumen"
   }
 ]

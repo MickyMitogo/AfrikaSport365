@@ -5,99 +5,91 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Galería Multimedia | AfrikaSport365</title>
-    <meta name="description" content="Galería de fotos y videos - AfrikaSport365" />
+    <meta name="description" content="Galería de fotos y videos - Cobertura multimedia de eventos deportivos en Guinea Ecuatorial y África" />
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/article.css">
-    <style>
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.25rem;
-        }
-
-        .gallery-card {
-            background: white;
-            border-radius: 0.5rem;
-            overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-        }
-
-        .gallery-thumb {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .gallery-meta {
-            padding: 1rem;
-        }
-
-        @media (max-width:1024px) {
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width:640px) {
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Lightbox */
-        .as-lightbox {
-            position: fixed;
-            inset: 0;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            background: rgba(0, 0, 0, .8);
-            z-index: 9999
-        }
-
-        .as-lightbox.open {
-            display: flex
-        }
-
-        .as-lightbox-content {
-            max-width: 90%;
-            max-height: 90%
-        }
-
-        .as-lightbox img,
-        .as-lightbox iframe {
-            width: 100%;
-            height: 100%;
-            object-fit: contain
-        }
-
-        .as-lightbox-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer
-        }
-    </style>
+    <link rel="stylesheet" href="css/multimedia.css">
 </head>
 
 <body class="bg-gray-50 text-gray-800 antialiased">
     <div id="app-header"></div>
 
-    <div class="container mx-auto px-4 py-8">
-        <h1 class="text-3xl font-bold mb-4">Galería Multimedia</h1>
-        <p class="mb-6 text-gray-600">Fotos y videos seleccionados. Haz clic en una tarjeta para verla en grande.</p>
-
-        <div id="gallery" class="gallery-grid">
-            <div class="text-gray-500 py-12">Cargando galería...</div>
+    <!-- Hero Section -->
+    <section class="multimedia-hero">
+        <div class="hero-background">
+            <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=1200&h=500&fit=crop" alt="Hero Background" class="hero-image">
         </div>
-    </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="container mx-auto px-4">
+                <div class="hero-text">
+                    <span class="hero-badge">📸 MULTIMEDIA</span>
+                    <h1 class="hero-title">Galería Multimedia</h1>
+                    <p class="hero-subtitle">Fotos y videos de eventos deportivos en Guinea Ecuatorial y África</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div id="as-lightbox" class="as-lightbox" role="dialog" aria-hidden="true">
-        <button id="as-lightbox-close" class="as-lightbox-close">✕</button>
-        <div class="as-lightbox-content" id="as-lightbox-content"></div>
+    <!-- Filter Section -->
+    <section class="multimedia-section">
+        <div class="container mx-auto px-4">
+            <div class="filter-header">
+                <div>
+                    <h2 class="section-title">Nuestro Acervo Visual</h2>
+                    <p class="filter-subtitle">Explora toda nuestra cobertura multimedia</p>
+                </div>
+                <div class="filter-controls">
+                    <button class="filter-btn filter-btn-active" data-filter="all">
+                        Todas <span class="count" id="count-all"></span>
+                    </button>
+                    <button class="filter-btn" data-filter="image">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M9 5a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        Fotos <span class="count" id="count-image"></span>
+                    </button>
+                    <button class="filter-btn" data-filter="video">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        Videos <span class="count" id="count-video"></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div id="gallery" class="multimedia-grid">
+                <div class="loading-state">
+                    <div class="spinner"></div>
+                    <p>Cargando galería...</p>
+                </div>
+            </div>
+
+            <!-- Empty State -->
+            <div id="empty-state" class="empty-state" style="display: none;">
+                <svg class="empty-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 015.646 5.646 9 9 0 1020.354 15.354z"></path>
+                </svg>
+                <p>No hay contenido disponible para este filtro</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="multimedia-lightbox" class="multimedia-lightbox" role="dialog" aria-hidden="true">
+        <div class="lightbox-overlay"></div>
+        <button class="lightbox-close" id="lightbox-close" aria-label="Cerrar">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        <div class="lightbox-nav">
+            <button class="nav-btn prev" id="lightbox-prev" aria-label="Anterior">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+            <button class="nav-btn next" id="lightbox-next" aria-label="Siguiente">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+        </div>
+        <div class="lightbox-content" id="lightbox-content"></div>
+        <div class="lightbox-info" id="lightbox-info"></div>
     </div>
 
     <div id="app-footer"></div>
