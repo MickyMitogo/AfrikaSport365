@@ -81,5 +81,201 @@
     "date": "2026-02-08",
     "category": "Resumen",
     "featured": false
+  },
+  {
+    "id": 9,
+    "type": "image",
+    "title": "Maratón Nacional 2026",
+    "src": "https://images.unsplash.com/photo-1552674605-5defe6aa44bb?w=600&h=400&fit=crop",
+    "alt": "Participantes en maratón",
+    "date": "2026-02-07",
+    "category": "Atletismo",
+    "featured": false
+  },
+  {
+    "id": 10,
+    "type": "video",
+    "title": "Entrevista post-partido",
+    "src": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "thumbnail": "https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=400&h=300&fit=crop",
+    "alt": "Entrevista",
+    "date": "2026-02-06",
+    "category": "Fútbol",
+    "featured": false
+  },
+  {
+    "id": 11,
+    "type": "image",
+    "title": "Campeonato de Judo Regional",
+    "src": "https://images.unsplash.com/photo-1518611505868-48510c8dfa93?w=600&h=400&fit=crop",
+    "alt": "Competencia de Judo",
+    "date": "2026-02-05",
+    "category": "Judo",
+    "featured": false
+  },
+  {
+    "id": 12,
+    "type": "image",
+    "title": "Torneo de Baloncesto",
+    "src": "https://images.unsplash.com/photo-1546519638-68711109e911?w=600&h=400&fit=crop",
+    "alt": "Partido de baloncesto",
+    "date": "2026-02-04",
+    "category": "Baloncesto",
+    "featured": false
+  },
+  {
+    "id": 13,
+    "type": "video",
+    "title": "Sesión de entrenamiento intenso",
+    "src": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "thumbnail": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=300&fit=crop",
+    "alt": "Video entrenamiento",
+    "date": "2026-02-03",
+    "category": "Entrenamiento",
+    "featured": false
+  },
+  {
+    "id": 14,
+    "type": "image",
+    "title": "Ceremonia de apertura AFCON",
+    "src": "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=600&h=400&fit=crop",
+    "alt": "Ceremonia AFCON",
+    "date": "2026-02-02",
+    "category": "Eventos",
+    "featured": false
+  },
+  {
+    "id": 15,
+    "type": "image",
+    "title": "Competencia de Ciclismo",
+    "src": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
+    "alt": "Ciclistas en competencia",
+    "date": "2026-02-01",
+    "category": "Ciclismo",
+    "featured": false
+  },
+  {
+    "id": 16,
+    "type": "video",
+    "title": "Deportes Acuáticos en Guinea Ecuatorial",
+    "src": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "thumbnail": "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=400&h=300&fit=crop",
+    "alt": "Video deportes acuáticos",
+    "date": "2026-01-31",
+    "category": "Acuáticos",
+    "featured": false
+  },
+  {
+    "id": 17,
+    "type": "image",
+    "title": "Premiación Gran Campeón",
+    "src": "https://images.unsplash.com/photo-1552307881-4a9e20a1a462?w=600&h=400&fit=crop",
+    "alt": "Atleta campeón",
+    "date": "2026-01-30",
+    "category": "Eventos",
+    "featured": false
+  },
+  {
+    "id": 18,
+    "type": "image",
+    "title": "Práctica de Fútbol Femenino",
+    "src": "https://images.unsplash.com/photo-1571958291514-c4f16a0e0813?w=600&h=400&fit=crop",
+    "alt": "Equipo femenino",
+    "date": "2026-01-29",
+    "category": "Fútbol",
+    "featured": false
+  },
+  {
+    "id": 19,
+    "type": "video",
+    "title": "Resumen Semana Deportiva",
+    "src": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "thumbnail": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400&h=300&fit=crop",
+    "alt": "Video resumen",
+    "date": "2026-01-28",
+    "category": "Resumen",
+    "featured": false
+  },
+  {
+    "id": 20,
+    "type": "image",
+    "title": "Campeonato de Lucha Libre",
+    "src": "https://images.unsplash.com/photo-1580822261290-991b38693d1b?w=600&h=400&fit=crop",
+    "alt": "Lucha libre",
+    "date": "2026-01-27",
+    "category": "Lucha",
+    "featured": false
+  },
+  {
+    "id": 21,
+    "type": "image",
+    "title": "Atletismo Juvenil",
+    "src": "https://images.unsplash.com/photo-1532635241749-b8833862eba4?w=600&h=400&fit=crop",
+    "alt": "Atletas jóvenes",
+    "date": "2026-01-26",
+    "category": "Atletismo",
+    "featured": false
+  },
+  {
+    "id": 22,
+    "type": "video",
+    "title": "Tour por nuevas instalaciones",
+    "src": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "thumbnail": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=300&fit=crop",
+    "alt": "Video instalaciones",
+    "date": "2026-01-25",
+    "category": "Infraestructura",
+    "featured": false
+  },
+  {
+    "id": 23,
+    "type": "image",
+    "title": "Competencia de Natación",
+    "src": "https://images.unsplash.com/photo-1576610616656-d3aa5d1f4534?w=600&h=400&fit=crop",
+    "alt": "Nadadores en piscina",
+    "date": "2026-01-24",
+    "category": "Acuáticos",
+    "featured": false
+  },
+  {
+    "id": 24,
+    "type": "image",
+    "title": "Equipo Nacional en concentración",
+    "src": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&h=400&fit=crop",
+    "alt": "Equipo en concentración",
+    "date": "2026-01-23",
+    "category": "Entrenamiento",
+    "featured": false
+  },
+  {
+    "id": 25,
+    "type": "video",
+    "title": "Análisis táctico del partido",
+    "src": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "thumbnail": "https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=400&h=300&fit=crop",
+    "alt": "Video análisis",
+    "date": "2026-01-22",
+    "category": "Análisis",
+    "featured": false
+  },
+  {
+    "id": 26,
+    "type": "image",
+    "title": "Carrera de relevos",
+    "src": "https://images.unsplash.com/photo-1552307881-4a9e20a1a462?w=600&h=400&fit=crop",
+    "alt": "Carrera de relevos",
+    "date": "2026-01-21",
+    "category": "Atletismo",
+    "featured": false
+  },
+  {
+    "id": 27,
+    "type": "image",
+    "title": "Festejo de victoria",
+    "src": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&h=400&fit=crop",
+    "alt": "Victoria",
+    "date": "2026-01-20",
+    "category": "Eventos",
+    "featured": false
   }
 ]
