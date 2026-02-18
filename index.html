@@ -30,18 +30,8 @@
                     ÚLTIMA HORA
                 </div>
                 <div class="breaking-ticker-wrapper">
-                    <div class="breaking-ticker">
-                        <span class="ticker-item">Guinea Ecuatorial celebra medalla de oro en los Juegos
-                            Africanos</span>
-                        <span class="ticker-item">Selección Nacional se prepara para eliminatorias AFCON 2026</span>
-                        <span class="ticker-item">Nuevo centro de alto rendimiento deportivo inaugurado en Malabo</span>
-                        <span class="ticker-item">Atleta ecuatoguineana rompe récord nacional en 100 metros</span>
-                        <!-- Duplicate for seamless loop -->
-                        <span class="ticker-item">Guinea Ecuatorial celebra medalla de oro en los Juegos
-                            Africanos</span>
-                        <span class="ticker-item">Selección Nacional se prepara para eliminatorias AFCON 2026</span>
-                        <span class="ticker-item">Nuevo centro de alto rendimiento deportivo inaugurado en Malabo</span>
-                        <span class="ticker-item">Atleta ecuatoguineana rompe récord nacional en 100 metros</span>
+                    <div class="breaking-ticker" id="breaking-ticker">
+                        <!-- Dinámicamente cargado por breaking-news-loader.js -->
                     </div>
                 </div>
             </div>
@@ -133,76 +123,6 @@
 
             <div class="events-grid">
                 <!-- Los eventos serán cargados dinámicamente por js/events-loader.js -->
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- Two Column Layout: News + Sidebar Ad -->
-    <section class="section-wrapper" style="background: #f9fafb;">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Main Content (2/3) -->
-                <div class="lg:col-span-2">
-                    <div class="section-header">
-                        <h2 class="section-title">Análisis y Opinión</h2>
-                    </div>
-
-                    <div class="news-grid">
-                        <article class="news-card" data-article-slug="guinea-ecuatorial-lista-afcon-2026">
-                            <div class="news-image">
-                                <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400&h=300&fit=crop"
-                                    alt="Análisis">
-                                <span class="news-category-badge" style="background: #6366f1;">OPINIÓN</span>
-                            </div>
-                            <div class="news-content">
-                                <h3 class="news-title">
-                                    <a href="opinion.html?slug=guinea-ecuatorial-lista-afcon-2026">¿Está Guinea
-                                        Ecuatorial
-                                        Lista para AFCON 2026?</a>
-                                </h3>
-                                <p class="news-excerpt">
-                                    Un análisis profundo sobre la preparación del país para el torneo más importante del
-                                    continente.
-                                </p>
-                                <div class="news-meta">
-                                    <span>📅 Hoy</span>
-                                    <span>✍️ Roberto Esono</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="news-card" data-article-slug="entrevista-emilia-esono-atletismo">
-                            <div class="news-image">
-                                <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=300&fit=crop"
-                                    alt="Entrevista">
-                                <span class="news-category-badge" style="background: #ec4899;">ENTREVISTA</span>
-                            </div>
-                            <div class="news-content">
-                                <h3 class="news-title">
-                                    <a href="opinion.html?slug=entrevista-emilia-esono-atletismo">Conversación con la
-                                        Estrella del Atletismo Nacional</a>
-                                </h3>
-                                <p class="news-excerpt">
-                                    Emilia Esono comparte su trayectoria y ambiciones para los próximos Juegos
-                                    Olímpicos.
-                                </p>
-                                <div class="news-meta">
-                                    <span>📅 Hoy</span>
-                                    <span>✍️ Laura Ndong</span>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-                <!-- Sidebar (1/3) -->
-                <div class="lg:col-span-1">
-                    <div class="ad-banner ad-banner-sidebar">
-                        <div class="ad-placeholder">Promociona tu evento</div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -556,10 +476,10 @@
     <script src="js/homepage-bindings.js"></script>
     <!-- AFCON spotlight CMS integration -->
     <script src="js/afcon-spotlight.js"></script>
-    <!-- Latest News dynamic loader -->
-    <script src="js/latest-news-loader.js"></script>
+    <!-- Latest News dynamic loader (from Firebase) -->
+    <script type="module" src="js/latest-news-loader.js"></script>
     <!-- Breaking News ticker dynamic loader -->
-    <script src="js/breaking-news-loader.js"></script>
+    <script type="module" src="js/breaking-news-loader.js"></script>
     <!-- Opinions/Analysis dynamic loader for index -->
     <script src="js/opinions-index-loader.js"></script>
     <!-- Regional News dynamic loader -->
@@ -568,7 +488,7 @@
     <script src="js/hero-about-loader.js"></script>
     <script src="js/multimedia-loader.js"></script>
     <!-- Events dynamic loader -->
-    <script src="js/events-loader.js"></script>
+    <script type="module" src="js/events-loader.js"></script>
     <!-- Page-specific functionality -->
     <script src="js/main.js"></script>
 

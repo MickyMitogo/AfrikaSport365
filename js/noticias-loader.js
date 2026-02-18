@@ -1,6 +1,9 @@
 /**
- * Noticias Loader - Carga dinámicamente todas las noticias desde data/latest-news.json
+ * Noticias Loader - Carga dinámicamente todas las noticias desde Firebase
  */
+
+import { db } from './firebase-config.js';
+import { collection, getDocs } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
 
 let allNews = [];
 let filteredNews = [];
@@ -22,20 +25,33 @@ const categoryMap = {
 
 async function loadAllNews() {
     try {
-        // Determinar la ruta correcta basada en la ubicación del archivo
-        const currentPath = window.location.pathname;
-        const basePath = currentPath.includes('noticias.html') ? '.' : '..';
+        // Cargar desde Firebase Firestore
+        const querySnapshot = await getDocs(collection(db, 'noticias'));
+        allNews = [];
 
-        // Cargar desde all-news.json (archivo maestro con todas las noticias)
-        const response = await fetch(`${basePath}/data/all-news.json`);
-        if (!response.ok) {
-            throw new Error(`Failed to load news: ${response.status}`);
-        }
+        querySnapshot.forEach((doc) => {
+            const data = doc.data();
+            allNews.push({
+                id: doc.id,
+                title: data.title || '',
+                excerpt: data.excerpt || '',
+                category: data.category || '',
+                categoryColor: data.categoryColor || '#667eea',
+                image: data.image || '',
+                imageAlt: data.title || 'Imagen de noticia',
+                slug: data.slug || data.id,
+                meta: {
+                    author: data.meta?.author || 'AfrikaSport365',
+                    date: data.meta?.date || new Date().toISOString().split('T')[0]
+                }
+            });
+        });
 
-        const data = await response.json();
-        allNews = data.news || [];
+        // Ordenar por fecha descendente
+        allNews.sort((a, b) => new Date(b.meta.date) - new Date(a.meta.date));
+
     } catch (error) {
-        console.error('Error loading news:', error);
+        console.error('Error loading news from Firebase:', error);
         showNoNewsMessage();
     }
 }

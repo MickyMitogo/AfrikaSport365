@@ -1,16 +1,16 @@
 /**
  * AfrikaSport365 - Article Dynamic Loader
- * Production-grade system for loading articles dynamically
+ * Loads articles from Firebase Firestore
  */
+
+import { db } from './firebase-config.js';
+import { collection, getDocs } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
 
 (function () {
     'use strict';
 
     // Configuration
     const CONFIG = {
-        // Paths are relative to the HTML page (article.html) so use "data/..."
-        articlesDataPath: 'data/articles.json',
-        newsDataPath: 'data/all-news.json',
         defaultImage: 'images/placeholder.jpg',
         errorRedirectDelay: 5000 // 5 seconds before redirecting on error
     };
@@ -48,20 +48,41 @@
     }
 
     /**
-     * Load articles data from JSON
-     * @returns {Promise<Object>} Articles data
+     * Load articles data from Firebase
+     * @returns {Promise<Array>} Articles array
      */
     async function loadArticlesData() {
         try {
-            const response = await fetch(CONFIG.articlesDataPath);
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            const data = await response.json();
-            return data;
+            // Cargar desde Firebase Firestore
+            const querySnapshot = await getDocs(collection(db, 'noticias'));
+            const articles = [];
+
+            querySnapshot.forEach((doc) => {
+                const data = doc.data();
+                articles.push({
+                    id: doc.id,
+                    slug: data.slug || data.id,
+                    title: data.title || '',
+                    excerpt: data.excerpt || '',
+                    subtitle: data.subtitle || '',
+                    category: data.category || '',
+                    categoryColor: data.categoryColor || '#667eea',
+                    heroImage: data.image || '',
+                    imageAlt: data.title || 'Imagen del artículo',
+                    author: data.meta?.author || 'AfrikaSport365',
+                    authorImage: data.authorImage || '',
+                    date: data.meta?.date || new Date().toISOString().split('T')[0],
+                    content: data.content || '',
+                    gallery: data.gallery || [],
+                    timeline: data.timeline || [],
+                    tags: data.tags || []
+                });
+            });
+
+            return articles;
         } catch (error) {
-            console.error('Error loading articles data:', error);
-            throw error;
+            console.error('Error loading articles from Firebase:', error);
+            return [];
         }
     }
 
@@ -93,20 +114,37 @@
     }
 
     /**
-     * Load news data from JSON
-     * @returns {Promise<Object>} News data
+     * Load news data from Firebase
+     * @returns {Promise<Array>} News array
      */
     async function loadNewsData() {
         try {
-            const response = await fetch(CONFIG.newsDataPath);
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            const data = await response.json();
-            return data;
+            // Cargar desde Firebase Firestore
+            const querySnapshot = await getDocs(collection(db, 'noticias'));
+            const news = [];
+
+            querySnapshot.forEach((doc) => {
+                const data = doc.data();
+                news.push({
+                    id: doc.id,
+                    slug: data.slug || data.id,
+                    title: data.title || '',
+                    excerpt: data.excerpt || '',
+                    category: data.category || '',
+                    categoryColor: data.categoryColor || '#667eea',
+                    image: data.image || '',
+                    imageAlt: data.title || 'Imagen de noticia',
+                    meta: {
+                        author: data.meta?.author || 'AfrikaSport365',
+                        date: data.meta?.date || new Date().toISOString().split('T')[0]
+                    }
+                });
+            });
+
+            return news;
         } catch (error) {
-            console.error('Error loading news data:', error);
-            return { news: [] };
+            console.error('Error loading news from Firebase:', error);
+            return [];
         }
     }
 
@@ -384,13 +422,19 @@
         const contentContainer = document.createElement('div');
         contentContainer.className = 'article-content-dynamic';
 
-        // Process each content block
-        article.content.forEach((block, index) => {
-            const element = createContentElement(block, index, article);
-            if (element) {
-                contentContainer.appendChild(element);
-            }
-        });
+        // Handle both string HTML and array formats
+        if (typeof article.content === 'string') {
+            // Firebase format: content is HTML string
+            contentContainer.innerHTML = article.content;
+        } else if (Array.isArray(article.content)) {
+            // Legacy format: content is array of blocks
+            article.content.forEach((block, index) => {
+                const element = createContentElement(block, index, article);
+                if (element) {
+                    contentContainer.appendChild(element);
+                }
+            });
+        }
 
         // Insert content at the beginning
         contentMain.insertBefore(contentContainer, contentMain.firstChild);
@@ -698,16 +742,16 @@
             }
 
             // Load articles data
-            const data = await loadArticlesData();
+            const articles = await loadArticlesData();
 
-            if (!data || !data.articles || data.articles.length === 0) {
+            if (!articles || articles.length === 0) {
                 console.error('No articles data available');
                 showErrorState();
                 return;
             }
 
             // Find article by slug
-            const article = findArticleBySlug(data.articles, slug);
+            const article = findArticleBySlug(articles, slug);
 
             if (!article) {
                 console.error('Article not found:', slug);
@@ -720,9 +764,9 @@
 
             // Load and inject dynamic news sections
             const newsData = await loadNewsData();
-            if (newsData && newsData.news) {
-                injectRelatedNews(newsData.news, article);
-                injectSidebarNews(newsData.news);
+            if (newsData && newsData.length > 0) {
+                injectRelatedNews(newsData, article);
+                injectSidebarNews(newsData);
             }
 
         } catch (error) {

@@ -29,6 +29,25 @@
     display: block;
 }
 
+.event-card-image-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.featured-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(251, 191, 36, 0.95);
+    color: #78350f;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
 .event-card-content {
     padding: 1.5rem;
 }

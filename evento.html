@@ -127,57 +127,10 @@
     <!-- Component loader for dynamic header and footer -->
     <script src="js/load-components.js"></script>
     <script src="js/main.js"></script>
-    <script>
-        async function loadEventDetails() {
-            try {
-                // Get event ID from URL parameters
-                const urlParams = new URLSearchParams(window.location.search);
-                const eventId = urlParams.get('id');
-
-                if (!eventId) {
-                    document.body.innerHTML = '<div class="container mx-auto px-4 py-8"><h1>Evento no encontrado</h1></div>';
-                    return;
-                }
-
-                // Fetch events data
-                const response = await fetch('data/eventos.json');
-                const data = await response.json();
-
-                // Find the event
-                const event = data.eventos.find(e => e.id === eventId);
-
-                if (!event) {
-                    document.body.innerHTML = '<div class="container mx-auto px-4 py-8"><h1>Evento no encontrado</h1></div>';
-                    return;
-                }
-
-                // Populate page with event data
-                document.title = event.title + ' | AfrikaSport365';
-                document.getElementById('eventTitle').textContent = event.title;
-                document.getElementById('eventImage').src = event.image;
-                document.getElementById('eventImage').alt = event.title;
-                document.getElementById('eventDate').textContent = event.date;
-                document.getElementById('eventLocation').textContent = event.location;
-                document.getElementById('eventSport').textContent = event.sport;
-                document.getElementById('eventDescription').textContent = event.description;
-
-                // Convert content to paragraphs for better formatting
-                const contentHTML = event.content
-                    .split('\n')
-                    .filter(para => para.trim())
-                    .map(para => `<p>${para}</p>`)
-                    .join('');
-                document.getElementById('eventContent').innerHTML = contentHTML;
-
-            } catch (error) {
-                console.error('Error loading event:', error);
-                document.body.innerHTML = '<div class="container mx-auto px-4 py-8"><h1>Error cargando el evento</h1></div>';
-            }
-        }
-
-        // Load event details when page loads
-        document.addEventListener('DOMContentLoaded', loadEventDetails);
-    </script>
+    <!-- Event Detail Loader -->
+    <script type="module" src="js/evento-detail-loader.js"></script>
+    <!-- Load Header -->
+    <script src="js/load-components.js"></script>
 </body>
 
 </html>
