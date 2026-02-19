@@ -620,7 +620,7 @@ async function saveNews(newsId) {
 
         // Handle main image upload
         if (imageFile) {
-            const tempId = newsId || Date.now().toString();
+            const tempId = (newsId || Date.now()).toString();
             try {
                 const imageUrl = await uploadImage(imageFile, tempId);
                 newsItem.image = imageUrl;
@@ -637,7 +637,7 @@ async function saveNews(newsId) {
         // Handle author image upload
         if (authorImageFile) {
             try {
-                const tempId = newsId || Date.now().toString();
+                const tempId = (newsId || Date.now()).toString();
                 const authorImageUrl = await uploadImage(authorImageFile, `${tempId}/author`);
                 newsItem.authorImage = authorImageUrl;
             } catch (error) {
@@ -649,7 +649,7 @@ async function saveNews(newsId) {
 
         // Handle gallery uploads (múltiples imágenes)
         if (galleryFiles && galleryFiles.length > 0) {
-            const tempId = newsId || Date.now().toString();
+            const tempId = (newsId || Date.now()).toString();
             try {
                 for (let i = 0; i < galleryFiles.length; i++) {
                     const file = galleryFiles[i];
