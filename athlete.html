@@ -17,7 +17,7 @@
 
         .athlete-detail-container {
             display: grid;
-            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-columns: 1fr 2fr;
             gap: 2rem;
             margin: 2rem 0;
         }
@@ -217,40 +217,20 @@
         <div class="athlete-detail-hero">
             <div class="container mx-auto px-4">
                 <div class="athlete-detail-container">
-                    <!-- Left Column: Profile Image -->
-                    <div class="athlete-profile-card">
-                        <img src="images/placeholder.jpg" alt="Foto atleta"
-                            class="athlete-profile-image athlete-image-main" />
-                        <div class="athlete-badge-section">
-                            <span class="athlete-sport-badge athlete-badge-main"
-                                style="background: #2563eb;">DEPORTE</span>
-                        </div>
-                    </div>
-
-                    <!-- Center Column: Main Info -->
-                    <div>
-                        <h1 class="athlete-name-main" style="font-size: 2.5rem; margin-bottom: 0.5rem;">Nombre del
-                            Atleta</h1>
-                        <p class="athlete-title-main"
-                            style="font-size: 1.25rem; color: #6b7280; margin-bottom: 1.5rem;">Disciplina</p>
-
-                        <div class="athlete-info-section">
-                            <h3>Biografía</h3>
-                            <p class="athlete-bio-text" style="color: #4b5563; line-height: 1.6;">Descripción de la
-                                carrera y logros del atleta.</p>
-                        </div>
-
-                        <div class="athlete-info-section" style="margin-top: 1.5rem;">
-                            <h3>Estadísticas</h3>
-                            <div class="stats-grid">
-                                <!-- Stats populated dynamically -->
+                    <!-- Left Column: Sidebar (Profile, Info, Logros) -->
+                    <aside>
+                        <!-- Profile Image -->
+                        <div class="athlete-profile-card">
+                            <img src="images/placeholder.jpg" alt="Foto atleta"
+                                class="athlete-profile-image athlete-image-main" />
+                            <div class="athlete-badge-section">
+                                <span class="athlete-sport-badge athlete-badge-main"
+                                    style="background: #2563eb;">DEPORTE</span>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Right Column: Detailed Info -->
-                    <div>
-                        <div class="athlete-info-section">
+                        <!-- Personal Info -->
+                        <div class="athlete-info-section" style="margin-top: 1.5rem;">
                             <h3>Información Personal</h3>
                             <div class="info-row">
                                 <span class="info-label">Edad:</span>
@@ -270,13 +250,37 @@
                             </div>
                         </div>
 
+                        <!-- Logros -->
                         <div class="athlete-info-section" style="margin-top: 1.5rem;">
                             <h3>Logros Principales</h3>
                             <ul class="logros-list athlete-logros">
                                 <!-- Logros populated dynamically -->
                             </ul>
                         </div>
-                    </div>
+                    </aside>
+
+                    <!-- Right Column: Main Content (Bio & Stats) -->
+                    <main>
+                        <div>
+                            <h1 class="athlete-name-main" style="font-size: 2.5rem; margin-bottom: 0.5rem;">Nombre del
+                                Atleta</h1>
+                            <p class="athlete-title-main"
+                                style="font-size: 1.25rem; color: #6b7280; margin-bottom: 1.5rem;">Disciplina</p>
+                        </div>
+
+                        <div class="athlete-info-section">
+                            <h3>Biografía</h3>
+                            <p class="athlete-bio-text" style="color: #4b5563; line-height: 1.6;">Descripción de la
+                                carrera y logros del atleta.</p>
+                        </div>
+
+                        <div class="athlete-info-section" style="margin-top: 1.5rem;">
+                            <h3>Estadísticas</h3>
+                            <div class="stats-grid">
+                                <!-- Stats populated dynamically -->
+                            </div>
+                        </div>
+                    </main>
                 </div>
             </div>
         </div>
