@@ -282,6 +282,25 @@
         </div>
     </section>
 
+    <!-- Analysis & Opinion Section -->
+    <section class="section-wrapper" id="opiniones" style="background: #f9fafb;">
+        <div class="container mx-auto px-4">
+            <div class="section-header">
+                <h2 class="section-title">Análisis y Opinión</h2>
+                <a href="opinions.html" class="section-view-all">
+                    Ver todos los análisis
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </a>
+            </div>
+
+            <div class="opinions-slider">
+                <!-- Opinions loaded dynamically by opinions-index-loader.js -->
+            </div>
+        </div>
+    </section>
+
     <!-- Multimedia Gallery Section -->
     <section class="section-wrapper" id="multimedia" style="background: #f9fafb;">
         <div class="container mx-auto px-4">
@@ -367,25 +386,6 @@
                         <p class="multimedia-caption">Celebración Nacional por Medalla de Oro</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Analysis & Opinion Section -->
-    <section class="section-wrapper" id="opiniones" style="background: #f9fafb;">
-        <div class="container mx-auto px-4">
-            <div class="section-header">
-                <h2 class="section-title">Análisis y Opinión</h2>
-                <a href="opinions.html" class="section-view-all">
-                    Ver todos los análisis
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                </a>
-            </div>
-
-            <div class="opinions-slider">
-                <!-- Opinions loaded dynamically by opinions-index-loader.js -->
             </div>
         </div>
     </section>
@@ -481,12 +481,13 @@
     <!-- Breaking News ticker dynamic loader -->
     <script type="module" src="js/breaking-news-loader.js"></script>
     <!-- Opinions/Analysis dynamic loader for index -->
-    <script src="js/opinions-index-loader.js"></script>
+    <script type="module" src="js/opinions-index-loader.js"></script>
     <!-- Regional News dynamic loader -->
-    <script src="js/regional-news-loader.js"></script>
-    <script src="js/athletes-loader.js"></script>
-    <script src="js/hero-about-loader.js"></script>
-    <script src="js/multimedia-loader.js"></script>
+    <script type="module" src="js/regional-news-loader.js"></script>
+    <script type="module" src="js/athletes-loader.js"></script>
+    <script type="module" src="js/hero-about-loader.js"></script>
+    <!-- Multimedia dynamic loader -->
+    <script type="module" src="js/multimedia-loader.js"></script>
     <!-- Events dynamic loader -->
     <script type="module" src="js/events-loader.js"></script>
     <!-- Page-specific functionality -->

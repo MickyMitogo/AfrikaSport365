@@ -597,7 +597,7 @@ import { collection, getDocs } from "https://www.gstatic.com/firebasejs/12.9.0/f
 
     /**
      * Create image gallery
-     * @param {Array} images - Gallery images array
+     * @param {Array} images - Gallery images array (can be strings or objects)
      * @returns {HTMLElement} Gallery element
      */
     function createGallery(images) {
@@ -612,17 +612,37 @@ import { collection, getDocs } from "https://www.gstatic.com/firebasejs/12.9.0/f
         grid.className = 'gallery-grid';
 
         images.forEach(image => {
+            if (!image) return;
+
+            // Handle both string URLs and object formats
+            let imageSrc = '';
+            let caption = '';
+
+            if (typeof image === 'string') {
+                // Direct URL string
+                imageSrc = image;
+            } else if (typeof image === 'object') {
+                // Object with multiple field formats
+                imageSrc = image.src || image.image || image.url || image.imagen;
+                caption = image.caption || image.alt || image.title || '';
+            }
+
+            if (!imageSrc) {
+                console.warn('Invalid image entry:', image);
+                return;
+            }
+
             const figure = document.createElement('figure');
 
             const img = document.createElement('img');
-            img.src = image.src;
-            img.alt = image.caption || 'Gallery image';
+            img.src = imageSrc;
+            img.alt = caption || 'Gallery image';
             img.loading = 'lazy';
             figure.appendChild(img);
 
-            if (image.caption) {
+            if (caption) {
                 const figcaption = document.createElement('figcaption');
-                figcaption.textContent = image.caption;
+                figcaption.textContent = caption;
                 figure.appendChild(figcaption);
             }
 
@@ -643,7 +663,7 @@ import { collection, getDocs } from "https://www.gstatic.com/firebasejs/12.9.0/f
         section.className = 'article-timeline';
 
         const title = document.createElement('h3');
-        title.textContent = 'Cronología del Combate';
+        title.textContent = 'Cronología';
         section.appendChild(title);
 
         events.forEach(event => {

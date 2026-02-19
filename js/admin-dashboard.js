@@ -34,7 +34,8 @@
             multimedia: { title: 'Multimedia', subtitle: 'Administra fotos, vídeos y contenido multimedia' },
             opinion: { title: 'Opinión & Análisis', subtitle: 'Gestiona artículos de opinión y análisis' },
             eventos: { title: 'Eventos', subtitle: 'Administra eventos deportivos' },
-            atletas: { title: 'Atletas', subtitle: 'Gestiona perfiles de atletas' }
+            atletas: { title: 'Atletas', subtitle: 'Gestiona perfiles de atletas' },
+            historia: { title: 'Historia Destacada', subtitle: 'Gestiona la historia destacada de la portada' }
         };
 
         navItems.forEach(item => {

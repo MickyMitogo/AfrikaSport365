@@ -90,6 +90,47 @@
                 </svg>
                 <span>Atletas</span>
             </a>
+
+            <a href="#" class="nav-item" data-section="historia">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="4 6 20 6"></polyline>
+                </svg>
+                <span>Historia Destacada</span>
+            </a>
+
+            <!-- Tools Section -->
+            <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(167, 139, 250, 0.1);">
+                <div
+                    style="font-size: 0.75rem; font-weight: 600; color: #a5b4fc; padding: 0 1rem 0.5rem; text-transform: uppercase;">
+                    Utilidades</div>
+                <a href="init-firebase.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2v20M2 12h20"></path>
+                    </svg>
+                    <span>Inicializar Noticias</span>
+                </a>
+                <a href="init-opinions-firebase.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    <span>Inicializar Opiniones</span>
+                </a>
+                <a href="init-regional-news-firebase.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 6v6l4 2"></path>
+                    </svg>
+                    <span>Inicializar Noticias Regionales</span>
+                </a>
+                <a href="init-historia-firebase.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="4 6 20 6"></polyline>
+                    </svg>
+                    <span>Inicializar Historia Destacada</span>
+                </a>
+            </div>
         </nav>
 
         <div class="sidebar-footer">
@@ -264,27 +305,107 @@
             <section class="content-section" id="regional-section">
                 <div class="section-header">
                     <h3>Noticias por Región</h3>
-                    <button class="btn btn-primary">+ Nueva Noticia Regional</button>
+                    <button class="btn btn-primary" id="add-regional-news-btn">+ Nueva Noticia Regional</button>
                 </div>
-                <div class="placeholder">Sección de Noticias Regionales en desarrollo...</div>
+
+                <!-- Regional News Table -->
+                <div class="news-table-container">
+                    <table class="news-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Título</th>
+                                <th>Región</th>
+                                <th>Categoría</th>
+                                <th>Autor</th>
+                                <th>Fecha</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="regional-news-tbody">
+                            <tr>
+                                <td colspan="7" class="loading-message">Cargando noticias regionales...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </section>
 
             <!-- Multimedia Section -->
             <section class="content-section" id="multimedia-section">
                 <div class="section-header">
                     <h3>Gestionar Multimedia</h3>
-                    <button class="btn btn-primary">+ Agregar Multimedia</button>
+                    <button class="btn btn-primary" id="add-multimedia-btn">+ Agregar Multimedia</button>
                 </div>
-                <div class="placeholder">Sección de Multimedia en desarrollo...</div>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Título</th>
+                            <th>Tipo</th>
+                            <th>Categoría</th>
+                            <th>Destacado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="multimedia-tbody">
+                        <tr>
+                            <td colspan="6" style="text-align: center; padding: 2rem;">⏳ Cargando...</td>
+                        </tr>
+                    </tbody>
+                </table>
             </section>
+
+            <!-- Multimedia Modal -->
+            <div id="multimedia-modal"
+                style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); overflow-y: auto;">
+                <div
+                    style="background: #1a1a2e; border: 1px solid rgba(167, 139, 250, 0.2); margin: 2rem auto; padding: 2rem; border-radius: 12px; width: 90%; max-width: 700px; color: #f0f9ff;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                        <h2 id="multimedia-form-title" style="margin: 0; font-size: 1.5rem; color: #a5b4fc;">+ Nuevo
+                            Multimedia</h2>
+                        <button onclick="window.closeMultimediaModal()"
+                            style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #a5b4fc;">&times;</button>
+                    </div>
+
+                    <div id="admin-message"
+                        style="display: none; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem;">
+                    </div>
+
+                    <form id="multimedia-form" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <!-- Content will be populated by JavaScript -->
+                    </form>
+                </div>
+            </div>
 
             <!-- Opinion Section -->
             <section class="content-section" id="opinion-section">
                 <div class="section-header">
                     <h3>Opinión & Análisis</h3>
-                    <button class="btn btn-primary">+ Nuevo Artículo</button>
+                    <button class="btn btn-primary" id="add-opinion-btn">+ Nuevo Artículo</button>
                 </div>
-                <div class="placeholder">Sección de Opinión en desarrollo...</div>
+
+                <!-- Opinion Table -->
+                <div class="news-table-container">
+                    <table class="news-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Título</th>
+                                <th>Autor</th>
+                                <th>Fecha</th>
+                                <th>Destacado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="opinion-table-body">
+                            <tr>
+                                <td colspan="6" class="loading-message">Cargando artículos...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </section>
 
             <!-- Eventos Section -->
@@ -319,16 +440,120 @@
             <section class="content-section" id="atletas-section">
                 <div class="section-header">
                     <h3>Gestionar Atletas</h3>
-                    <button class="btn btn-primary">+ Nuevo Atleta</button>
+                    <button class="btn btn-primary" id="add-athlete-btn">+ Nuevo Atleta</button>
                 </div>
-                <div class="placeholder">Sección de Atletas en desarrollo...</div>
+
+                <!-- Athletes Table -->
+                <div class="news-table-container">
+                    <table class="news-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Posición</th>
+                                <th>Categoría</th>
+                                <th>Edad</th>
+                                <th>Destacado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="athletes-tbody">
+                            <tr>
+                                <td colspan="7" class="loading-message">Cargando atletas...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Historia Destacada Section -->
+            <section class="content-section" id="historia-section">
+                <div class="section-header">
+                    <h3>Historia Destacada</h3>
+                </div>
+                <div id="historia-container">
+                    <div class="loading-state">Cargando Historia Destacada...</div>
+                </div>
             </section>
         </div>
     </main>
 
     <script src="js/admin-dashboard.js"></script>
     <script type="module" src="./admin/assets/admin-noticias-firebase.js?v=1"></script>
+    <script type="module" src="./admin/assets/admin-noticias-regionales-firebase.js?v=1"></script>
+    <script type="module" src="./admin/assets/admin-opiniones-firebase.js?v=1"></script>
     <script type="module" src="./admin/assets/admin-eventos-firebase.js?v=1"></script>
+    <script type="module" src="./admin/assets/admin-atletas-firebase.js?v=1"></script>
+    <script type="module" src="./admin/assets/admin-multimedia-firebase.js?v=1"></script>
+    <script type="module" src="./admin/assets/admin-historia-firebase.js?v=1"></script>
+
+    <!-- Regional News Modal -->
+    <div id="regional-news-modal"
+        style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); overflow-y: auto;">
+        <div
+            style="background: #1a1a2e; border: 1px solid rgba(167, 139, 250, 0.2); margin: 2rem auto; padding: 2rem; border-radius: 12px; width: 90%; max-width: 700px; color: #f0f9ff;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <h2 id="regional-news-form-title" style="margin: 0; font-size: 1.5rem; color: #a5b4fc;">+ Nueva Noticia
+                    Regional</h2>
+                <button onclick="window.closeRegionalNewsModal()"
+                    style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #a5b4fc;">&times;</button>
+            </div>
+
+            <div id="admin-message" style="display: none; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem;">
+            </div>
+
+            <form id="regional-news-form" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <!-- Content will be populated by JavaScript -->
+            </form>
+        </div>
+    </div>
+
+    <!-- Athletes Modal -->
+    <div id="athletes-modal"
+        style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); overflow-y: auto;">
+        <div
+            style="background: #1a1a2e; border: 1px solid rgba(167, 139, 250, 0.2); margin: 2rem auto; padding: 2rem; border-radius: 12px; width: 90%; max-width: 700px; color: #f0f9ff;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <h2 id="athletes-form-title" style="margin: 0; font-size: 1.5rem; color: #a5b4fc;">+ Nuevo Atleta</h2>
+                <button onclick="window.closeAthleteModal()"
+                    style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #a5b4fc;">&times;</button>
+            </div>
+
+            <div id="admin-message" style="display: none; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem;">
+            </div>
+
+            <form id="athletes-form" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <!-- Content will be populated by JavaScript -->
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Wait for the module to load, then set up button events
+        document.addEventListener('DOMContentLoaded', function () {
+            const addRegionalBtn = document.getElementById('add-regional-news-btn');
+            if (addRegionalBtn) {
+                addRegionalBtn.addEventListener('click', function () {
+                    if (window.openRegionalNewsModal) {
+                        window.openRegionalNewsModal();
+                    } else {
+                        console.error('openRegionalNewsModal not available yet');
+                    }
+                });
+            }
+
+            const addAthleteBtn = document.getElementById('add-athlete-btn');
+            if (addAthleteBtn) {
+                addAthleteBtn.addEventListener('click', function () {
+                    if (window.openAthleteModal) {
+                        window.openAthleteModal();
+                    } else {
+                        console.error('openAthleteModal not available yet');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

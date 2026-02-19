@@ -11,9 +11,15 @@ let currentPage = 1;
 const itemsPerPage = 12;
 let currentFilter = 'todos';
 
+// Función para normalizar texto (remover acentos)
+function normalizeText(text) {
+    if (!text) return '';
+    return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase();
+}
+
 // Mapeo de categorías para normalizar
 const categoryMap = {
-    'futbol': ['FÚTBOL', 'FÚTBOLA', 'FÚTBOLBOL'],
+    'futbol': ['FUTBOL', 'FUTBOLA', 'FUTBOLBOL'],
     'atletismo': ['ATLETISMO'],
     'judo': ['JUDO'],
     'baloncesto': ['BALONCESTO'],
@@ -22,6 +28,10 @@ const categoryMap = {
     'rugby': ['RUGBY'],
     'boxeo': ['BOXEO']
 };
+
+// Categorías conocidas para determinar si algo es "Otros"
+const knownCategories = new Set();
+Object.values(categoryMap).forEach(cats => cats.forEach(cat => knownCategories.add(cat)));
 
 async function loadAllNews() {
     try {
@@ -72,11 +82,17 @@ function filterNews(sport) {
     // Filtrar noticias
     if (sport === 'todos') {
         filteredNews = [...allNews];
+    } else if (sport === 'otros') {
+        // Mostrar noticias que no estén en ninguna categoría conocida
+        filteredNews = allNews.filter(news => {
+            const normalizedCategory = normalizeText(news.category);
+            return !Array.from(knownCategories).some(cat => normalizedCategory === cat || normalizedCategory.includes(cat));
+        });
     } else {
         const sportCategories = categoryMap[sport] || [];
         filteredNews = allNews.filter(news => {
-            const newsCategory = news.category.toUpperCase();
-            return sportCategories.some(cat => newsCategory.includes(cat));
+            const normalizedCategory = normalizeText(news.category);
+            return sportCategories.some(cat => normalizedCategory === cat || normalizedCategory.includes(cat));
         });
     }
 
@@ -170,3 +186,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const sportFilter = urlParams.get('filter') || 'todos'; // Mostrar todas por defecto
     filterNews(sportFilter);
 });
+
+// Expose functions to global scope so onclick handlers work
+window.filterNews = filterNews;
+window.loadMore = loadMore;

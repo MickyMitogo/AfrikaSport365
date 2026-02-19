@@ -1,36 +1,52 @@
-// multimedia-loader.js
-// Carga y renderiza la galería multimedia en el index.html
+/**
+ * Multimedia Loader - Firebase Version
+ * Carga y renderiza multimedia destacada en el index.html
+ */
 
-document.addEventListener('DOMContentLoaded', function () {
-    const section = document.getElementById('multimedia');
-    if (!section) return;
-    const grid = section.querySelector('.multimedia-grid') || section;
+import { db } from './firebase-config.js';
+import { collection, getDocs } from 'https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js';
 
-    fetch('data/multimedia.json')
-        .then(r => r.json())
-        .then(items => {
-            // Filtrar solo items destacados (featured: true)
-            const featuredItems = items.filter(item => item.featured === true);
-            renderGallery(featuredItems, grid);
-        });
-});
+const MULTIMEDIA_COLLECTION = 'multimedia';
 
+// Load featured multimedia from Firebase
+async function loadFeaturedMultimedia() {
+    try {
+        console.log('📥 Cargando multimedia destacada desde Firebase...');
+        const snapshot = await getDocs(collection(db, MULTIMEDIA_COLLECTION));
+        const allItems = snapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+        }));
+
+        // Filter only featured items
+        const featuredItems = allItems.filter(item => item.featured === true);
+        console.log(`✓ ${featuredItems.length} elementos destacados cargados`);
+        return featuredItems;
+    } catch (error) {
+        console.error('❌ Error loading multimedia:', error);
+        return [];
+    }
+}
+
+// Check if URL is YouTube
 function isYouTubeUrl(url) {
     return /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\//.test(url);
 }
 
+// Convert YouTube URL to embed URL
 function getYouTubeEmbedUrl(url) {
-    // Extrae el ID del video y construye el embed URL
     const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
     return match ? `https://www.youtube.com/embed/${match[1]}` : url;
 }
 
+// Render gallery
 function renderGallery(items, grid) {
     grid.innerHTML = '';
     (items || []).forEach(item => {
         const card = document.createElement('div');
         card.className = 'multimedia-item';
         let overlay = '';
+
         if (item.type === 'image') {
             overlay = `
                 <div class="multimedia-overlay">
@@ -50,28 +66,40 @@ function renderGallery(items, grid) {
                         <p class="multimedia-caption">${item.title || ''}</p>
                     </div>
                 `;
+                const embedUrl = getYouTubeEmbedUrl(item.src);
                 card.innerHTML = `
-                    <iframe class="multimedia-thumb" src="${getYouTubeEmbedUrl(item.src)}" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+                    <img src="${item.thumbnail || 'https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg'}" alt="${item.alt || item.title}" class="multimedia-thumb">
+                    <a href="${item.src}" target="_blank" class="video-play-btn">▶</a>
                     ${overlay}
                 `;
             } else {
-                overlay = `
+                card.innerHTML = `
+                    <img src="${item.thumbnail || item.src}" alt="${item.alt || item.title}" class="multimedia-thumb">
+                    <a href="${item.src}" target="_blank" class="video-play-btn">▶</a>
                     <div class="multimedia-overlay">
                         <span class="multimedia-type">VIDEO</span>
-                        <div class="multimedia-play-icon">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
-                            </svg>
-                        </div>
                         <p class="multimedia-caption">${item.title || ''}</p>
                     </div>
-                `;
-                card.innerHTML = `
-                    <img src="${item.thumbnail || 'images/perfil2.jpg'}" alt="${item.alt || item.title}" class="multimedia-thumb">
-                    ${overlay}
                 `;
             }
         }
         grid.appendChild(card);
     });
 }
+
+// Initialize on DOM ready
+async function init() {
+    const section = document.getElementById('multimedia');
+    if (!section) return;
+
+    const grid = section.querySelector('.multimedia-grid') || section;
+    const items = await loadFeaturedMultimedia();
+    renderGallery(items, grid);
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+} else {
+    init();
+}
+

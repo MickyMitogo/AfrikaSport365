@@ -99,7 +99,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 100%);
 }
 
 .hero-content {
@@ -143,7 +143,7 @@
   line-height: 1.2;
   font-weight: 800;
   margin-bottom: 1rem;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Article Subtitle */
@@ -305,7 +305,7 @@
   margin: 3rem 0;
   border-radius: 0.75rem;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .article-image img {
@@ -550,7 +550,7 @@
 .sidebar-card {
   background: white;
   border-radius: 0.75rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   margin-bottom: 2rem;
 }
@@ -583,7 +583,7 @@
   border-radius: 50%;
   overflow: hidden;
   border: 4px solid #eff6ff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .athlete-photo img {
@@ -643,6 +643,59 @@
   font-size: 0.875rem;
   color: #111827;
   font-weight: 600;
+}
+
+/* Author Card Styling */
+.author-card .card-body {
+  text-align: center;
+}
+
+.author-profile-photo {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid #eff6ff;
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.15);
+}
+
+.author-profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.author-profile-name {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 0.75rem 0;
+}
+
+.author-bio {
+  font-size: 0.95rem;
+  color: #6b7280;
+  line-height: 1.6;
+  margin: 1rem 0 1.5rem 0;
+}
+
+.author-social {
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.author-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #2563eb;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.author-social a:hover {
+  color: #1d4ed8;
 }
 
 .athlete-achievements {
@@ -743,13 +796,13 @@
   background: white;
   border-radius: 0.75rem;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: all 0.3s;
 }
 
 .related-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .related-image {

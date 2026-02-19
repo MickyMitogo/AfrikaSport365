@@ -1,107 +1,132 @@
 /**
- * Regional News Detail Loader
- * Carga y renderiza el detalle de una noticia específica por slug
+ * Regional News Detail Loader - Firebase Version
+ * Carga y renderiza el detalle de una noticia específica por slug desde Firestore
  */
 
-(function () {
-    'use strict';
+import { db } from './firebase-config.js';
+import { collection, getDocs, query, where } from 'https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js';
 
-    let allNews = [];
+const REGIONAL_NEWS_COLLECTION = 'regional_news';
 
-    // Obtener slug desde URL
-    function getSlugFromURL() {
-        const params = new URLSearchParams(window.location.search);
-        return params.get('slug');
-    }
+let allNews = [];
 
-    // Cargar todas las noticias
-    async function loadRegionalNews() {
-        try {
-            const response = await fetch('data/regional-news.json');
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
-            allNews = await response.json();
-            return allNews;
-        } catch (error) {
-            console.error('Error loading regional news:', error);
-            return [];
+// Obtener slug desde URL
+function getSlugFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('slug');
+}
+
+// Cargar todas las noticias desde Firebase
+async function loadRegionalNews() {
+    try {
+        console.log('📥 Cargando noticias regionales desde Firestore...');
+        console.log('📍 Collection name:', REGIONAL_NEWS_COLLECTION);
+        const snapshot = await getDocs(collection(db, REGIONAL_NEWS_COLLECTION));
+        allNews = snapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+        }));
+        console.log(`✓ ${allNews.length} noticias regionales cargadas`);
+        console.log('📋 Datos cargados:', allNews);
+
+        if (allNews.length === 0) {
+            console.warn('⚠️ No hay noticias en la colección');
         }
+
+        return allNews;
+    } catch (error) {
+        console.error('❌ Error loading regional news:', error);
+        console.error('Error details:', error.message);
+        return [];
+    }
+}
+
+// Renderizar artículo detallado
+function renderArticle(article) {
+    if (!article) {
+        document.body.innerHTML = '<div class="container mx-auto px-4 py-12"><p class="text-center text-gray-600">Artículo no encontrado.</p></div>';
+        return;
     }
 
-    // Renderizar artículo detallado
-    function renderArticle(article) {
-        if (!article) {
-            document.body.innerHTML = '<div class="container mx-auto px-4 py-12"><p class="text-center text-gray-600">Artículo no encontrado.</p></div>';
-            return;
-        }
+    // Hero image
+    const heroImage = document.getElementById('article-hero-image');
+    heroImage.src = article.imagen;
+    heroImage.alt = article.titulo;
 
-        // Hero image
-        const heroImage = document.getElementById('article-hero-image');
-        heroImage.src = article.imagen;
-        heroImage.alt = article.titulo;
+    // Title
+    document.title = `${article.titulo} | AfrikaSport365`;
+    document.getElementById('article-title').textContent = article.titulo;
 
-        // Title
-        document.title = `${article.titulo} | AfrikaSport365`;
-        document.getElementById('article-title').textContent = article.titulo;
+    // Category and Region badges
+    document.getElementById('article-category').textContent = article.categoria || 'General';
+    document.getElementById('article-region').textContent = article.regionName || 'Región';
 
-        // Category and Region badges
-        document.getElementById('article-category').textContent = article.categoria;
-        document.getElementById('article-region').textContent = article.regionName;
+    // Author and Date
+    document.getElementById('article-author').textContent = `Por ${article.autor || 'Autor desconocido'}`;
+    document.getElementById('article-date').textContent = article.fechaMostrada || new Date(article.fecha).toLocaleDateString('es-ES');
 
-        // Author and Date
-        document.getElementById('article-author').textContent = `Por ${article.autor}`;
-        document.getElementById('article-date').textContent = article.fechaMostrada;
-
-        // Lead and Content
-        document.getElementById('article-lead').textContent = article.resumen;
-        document.getElementById('article-content').innerHTML = `<p>${article.contenido.replace(/\n/g, '</p><p>')}</p>`;
-
-        // Cargar noticias relacionadas
-        loadRelatedNews(article.region, article.slug);
-    }
+    // Lead and Content
+    document.getElementById('article-lead').textContent = article.resumen || '';
+    document.getElementById('article-content').innerHTML = `<p>${(article.contenido || '').replace(/\n/g, '</p><p>')}</p>`;
 
     // Cargar noticias relacionadas
-    function loadRelatedNews(region, currentSlug) {
-        const relatedNews = allNews
-            .filter(item => item.region === region && item.slug !== currentSlug)
-            .slice(0, 3);
+    loadRelatedNews(article.region, article.slug);
+}
 
-        const relatedContainer = document.getElementById('related-news');
+// Cargar noticias relacionadas de la misma región
+function loadRelatedNews(region, currentSlug) {
+    const relatedNews = allNews
+        .filter(item => item.region === region && item.slug !== currentSlug)
+        .slice(0, 3);
 
-        if (relatedNews.length === 0) {
-            relatedContainer.innerHTML = '<p class="text-gray-400">No hay noticias relacionadas.</p>';
-            return;
-        }
+    const relatedContainer = document.getElementById('related-news');
 
-        relatedContainer.innerHTML = relatedNews.map(item => `
-            <article class="related-card">
-                <img src="${item.imagen}" alt="${item.titulo}" />
-                <div class="related-card-content">
-                    <h3>${item.titulo}</h3>
-                    <p>${item.resumen.substring(0, 120)}...</p>
-                    <a href="regional-news-detail.html?slug=${item.slug}" class="related-card-link">Leer más →</a>
-                </div>
-            </article>
-        `).join('');
+    if (relatedNews.length === 0) {
+        relatedContainer.innerHTML = '<p class="text-gray-400">No hay noticias relacionadas.</p>';
+        return;
     }
 
-    // Inicializar
-    async function init() {
-        const slug = getSlugFromURL();
+    relatedContainer.innerHTML = relatedNews.map(item => `
+        <article class="related-card">
+            <img src="${item.imagen}" alt="${item.titulo}" />
+            <div class="related-card-content">
+                <h3>${item.titulo}</h3>
+                <p>${(item.resumen || '').substring(0, 120)}...</p>
+                <a href="regional-news-detail.html?slug=${item.slug}" class="related-card-link">Leer más →</a>
+            </div>
+        </article>
+    `).join('');
+}
 
-        if (!slug) {
-            document.body.innerHTML = '<div class="container mx-auto px-4 py-12"><p class="text-center text-gray-600">Slug no especificado.</p></div>';
-            return;
-        }
+// Inicializar
+async function init() {
+    const slug = getSlugFromURL();
+    console.log('🔍 Buscando slug desde URL:', slug);
 
-        await loadRegionalNews();
-        const article = allNews.find(item => item.slug === slug);
-        renderArticle(article);
+    if (!slug) {
+        document.body.innerHTML = '<div class="container mx-auto px-4 py-12"><p class="text-center text-gray-600">Slug no especificado.</p></div>';
+        return;
     }
 
-    // Iniciar cuando esté listo el DOM
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
+    await loadRegionalNews();
+    console.log('🔎 Buscando artículo con slug:', slug);
+    console.log('📚 Slugs disponibles:', allNews.map(n => n.slug));
+
+    const article = allNews.find(item => item.slug === slug);
+
+    if (!article) {
+        console.warn('⚠️ Artículo no encontrado para slug:', slug);
+        console.log('📊 Total noticias cargadas:', allNews.length);
     } else {
-        init();
+        console.log('✓ Artículo encontrado:', article.titulo);
     }
-})();
+
+    renderArticle(article);
+}
+
+// Iniciar cuando esté listo el DOM
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+} else {
+    init();
+}

@@ -1076,16 +1076,15 @@
 }
 
 .regional-content {
-  display: grid;
-  gap: 2rem;
   margin-top: 1.5rem;
   position: relative;
   z-index: 1;
-  grid-template-columns: repeat(2, 1fr);
 }
 
 .regional-content .nrr-list {
-  display: contents;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .regional-content .nrr-item {
