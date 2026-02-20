@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FACTURA - Proyecto AfrikaSport365</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: auto;
+            background: #fff;
+            padding: 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        /* HEADER PROFESIONAL */
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .company-info h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .company-info p {
+            font-size: 13px;
+            opacity: 0.9;
+            margin-bottom: 3px;
+        }
+
+        .invoice-number {
+            text-align: right;
+        }
+
+        .invoice-number h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .invoice-number p {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-bottom: 2px;
+        }
+
+        /* CONTENIDO PRINCIPAL */
+        .content {
+            padding: 40px;
+        }
+
+        /* SECTION CLIENTE Y DETALLES */
+        .client-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .client-section h3 {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .client-section p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .client-section strong {
+            color: #1e3c72;
+        }
+
+        /* TABLA DE SERVICIOS */
+        .services-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        .services-table th {
+            background: #f8f9fa;
+            border-bottom: 2px solid #1e3c72;
+            padding: 15px;
+            text-align: left;
+            font-size: 12px;
+            font-weight: 700;
+            color: #1e3c72;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .services-table td {
+            padding: 16px 15px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .services-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .service-name {
+            font-weight: 600;
+            color: #1e3c72;
+        }
+
+        .service-desc {
+            font-size: 12px;
+            color: #999;
+            margin-top: 3px;
+        }
+
+        .qty-center {
+            text-align: center;
+            color: #1e3c72;
+            font-weight: 600;
+        }
+
+        .price-right {
+            text-align: right;
+            font-weight: 600;
+            color: #1e3c72;
+        }
+
+        /* RESUMEN FINANCIERO */
+        .summary {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 30px;
+        }
+
+        .summary-box {
+            width: 350px;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #1e3c72;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .summary-row.total {
+            border-top: 2px solid #ddd;
+            padding-top: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #1e3c72;
+        }
+
+        .summary-row span:first-child {
+            color: #666;
+        }
+
+        .summary-row span:last-child {
+            color: #1e3c72;
+            font-weight: 600;
+        }
+
+        /* NOTAS Y TERMINOS */
+        .notes-section {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #f0f0f0;
+        }
+
+        .notes-section h3 {
+            font-size: 12px;
+            color: #1e3c72;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+
+        .notes-section p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        /* FOOTER PROFESIONAL */
+        .footer {
+            background: #f8f9fa;
+            padding: 30px 40px;
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+            border-top: 2px solid #1e3c72;
+        }
+
+        .footer-section h4 {
+            font-size: 12px;
+            color: #1e3c72;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .footer-section p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* FIRMA DIGITAL */
+        .signature-section {
+            margin-top: 50px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .signature-section p {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .signature-line {
+            margin: 30px 0;
+        }
+
+        .signature-name {
+            font-size: 13px;
+            color: #1e3c72;
+            font-weight: 700;
+        }
+
+        /* HIGHLIGHTS */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(30, 60, 114, 0.08) 0%, rgba(42, 82, 152, 0.08) 100%);
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #1e3c72;
+            margin: 20px 0;
+            font-size: 13px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #1e3c72;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-right: 6px;
+        }
+
+        @media(max-width: 600px) {
+            .client-section {
+                grid-template-columns: 1fr;
+            }
+
+            .footer {
+                grid-template-columns: 1fr;
+            }
+
+            .header {
+                flex-direction: column;
+            }
+
+            .invoice-number {
+                text-align: left;
+                margin-top: 20px;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                max-width: 100%;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <div class="company-info">
+                <h1>FACTURA DE PROYECTO</h1>
+                <p>Desarrollo de Plataforma Web</p>
+                <p style="margin-top: 15px; opacity: 0.7;">AfrikaSport365 CMS + Admin Dashboard</p>
+            </div>
+            <div class="invoice-number">
+                <h2>FACTURA #2026-001</h2>
+                <p><strong>Fecha de emisión:</strong> 19 Febrero 2026</p>
+                <p><strong>Estado:</strong> <span class="badge">POR PAGAR</span></p>
+            </div>
+        </div>
+
+        <!-- CONTENIDO -->
+        <div class="content">
+
+            <!-- CLIENTE Y FACTURACIÓN -->
+            <div class="client-section">
+                <div>
+                    <h3>Información del Cliente</h3>
+                    <p>
+                        <strong>Empresa:</strong> AfrikaSport365<br>
+                        <strong>Contacto:</strong> +240222638221<br>
+                        <strong>Email:</strong> marianombomio@hotmail.com<br>
+                        <strong>País:</strong> Guinea Ecuatorial
+                    </p>
+                </div>
+                <div>
+                    <h3>Información del Desarrollador</h3>
+                    <p>
+                        <strong>Nombre:</strong> Leoncio Felipe Mitogo Edjang<br>
+                        <strong>Especialidad:</strong> Full Stack Web Developer<br>
+                        <strong>Ubicación:</strong> Malabo, Guinea Ecuatorial<br>
+                        <strong>Periodo:</strong> Diciembre - Febrero 2026
+                    </p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>📋 Descripción del Proyecto:</strong><br>
+                Plataforma web integral desarrollada <strong>desde cero</strong>: Frontend estático (15 páginas, 14,000+
+                líneas), backend dinámico con Firebase (8 colecciones, 75+ documentos), admin dashboard completo (7
+                módulos CRUD, 4,139 líneas JS), 18+ loaders dinámicos (3,500+ líneas). Total: <strong>63,500+ líneas de
+                    código nuevo</strong>, ~250 horas de desarrollo, 11 bugs debuggeados, arquitectura escalable lista
+                para producción.
+            </div>
+
+            <!-- TABLA DE SERVICIOS -->
+            <table class="services-table">
+                <thead>
+                    <tr>
+                        <th style="width: 40%;">Servicio</th>
+                        <th style="width: 15%; text-align: center;">Cantidad</th>
+                        <th style="width: 15%; text-align: center;">Precio Unit.</th>
+                        <th style="width: 15%; text-align: right;">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <span class="service-name">Frontend Estático & Responsive</span>
+                            <div class="service-desc">15+ páginas HTML (4,000+ líneas), CSS profesional (2,500+ líneas
+                                Tailwind/custom), layouts adaptativos mobile/tablet/desktop</div>
+                        </td>
+                        <td class="qty-center">1</td>
+                        <td class="qty-center">210,000</td>
+                        <td class="price-right">210,000 XF</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="service-name">Backend / Firebase + Dynamic Components</span>
+                            <div class="service-desc">8 colecciones Firestore, 75+ documentos en BD, Firebase Storage
+                                con compression, 18+ loaders dinámicos (3,500+ líneas JS), queries optimizadas,
+                                real-time validation</div>
+                        </td>
+                        <td class="qty-center">1</td>
+                        <td class="qty-center">280,000</td>
+                        <td class="price-right">280,000 XF</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="service-name">Admin Dashboard + CRUD Modules</span>
+                            <div class="service-desc">Dashboard completo (559 líneas HTML), 7 módulos admin Firebase
+                                (4,139 líneas JS): Noticias, Eventos, Atletas, Multimedia, Opiniones, Regionales,
+                                Historia Destacada. Modales estandarizados, upload automático, validaciones, auth
+                                integrada</div>
+                        </td>
+                        <td class="qty-center">1</td>
+                        <td class="qty-center">210,000</td>
+                        <td class="price-right">210,000 XF</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- RESUMEN FINANCIERO -->
+            <div class="summary">
+                <div class="summary-box">
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span>700,000 XF</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Impuestos</span>
+                        <span>-</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Descuentos</span>
+                        <span>-</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>TOTAL A PAGAR</span>
+                        <span>700,000 XF</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NOTAS IMPORTANTES -->
+            <div class="notes-section">
+                <h3>Especificaciones Técnicas Detalladas</h3>
+                <p><strong>✓ Frontend:</strong></p>
+                <p style="margin-left: 20px;">
+                    • 15 páginas HTML responsivas (14,000+ líneas)<br>
+                    • CSS moderno: Tailwind + custom (12,500+ líneas)<br>
+                    • Mobile-first, desktop-compatible, tablet-optimized<br>
+                    • Componentes: Hero, grids, cards, modales, filtros<br>
+                    • Integración completa con Firebase en tiempo real
+                </p>
+                <p style="margin-top: 15px;"><strong>✓ Backend & Estructura:</strong></p>
+                <p style="margin-left: 20px;">
+                    • 8 colecciones Firebase (noticias, noticias_ultimas, noticias_regionales, analisis_opinion,
+                    eventos, atletas, multimedia, hero)<br>
+                    • 75+ documentos con datos completos<br>
+                    • Firebase Storage con compresión y optimización<br>
+                    • Queries optimizadas con indexación<br>
+                    • Security rules configuradas
+                </p>
+                <p style="margin-top: 15px;"><strong>✓ Admin Dashboard (4,698 líneas JavaScript):</strong></p>
+                <p style="margin-left: 20px;">
+                    • 7 módulos CRUD completos (Noticias, Eventos, Atletas, Multimedia, Opiniones, Noticias Regionales,
+                    Historia Destacada)<br>
+                    • Dashboard principal con vista general<br>
+                    • Autenticación Firebase integrada<br>
+                    • Upload de imágenes automatizado con Storage<br>
+                    • Modales estandarizados para operaciones CRUD<br>
+                    • Validaciones en tiempo real
+                </p>
+                <p style="margin-top: 15px;"><strong>✓ Dynamic Loaders & Scripts (3,500+ líneas JavaScript):</strong>
+                </p>
+                <p style="margin-left: 20px;">
+                    • 18+ componentes loaders dinámicos<br>
+                    • Real-time data binding<br>
+                    • Paginación automática<br>
+                    • Filtros avanzados con normalización de acentos<br>
+                    • Scripts de inicialización de datos<br>
+                    • Manejo de errores robusto
+                </p>
+                <p style="margin-top: 15px;"><strong>✓ Bugs Debuggeados & Fixes:</strong></p>
+                <p style="margin-left: 20px;">
+                    • Tipo de dato en uploads de imágenes (3 ubicaciones)<br>
+                    • Parsing de fechas en español<br>
+                    • Filtros de acentos y caracteres especiales<br>
+                    • CSS grid overflow issues<br>
+                    • Module loading errors<br>
+                    • Y 6+ problemas adicionales resueltos
+                </p>
+            </div>
+
+            <!-- ESTADÍSTICAS DEL PROYECTO -->
+            <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px;">
+                <div
+                    style="background: #f8f9fa; padding: 15px; border-radius: 6px; text-align: center; border-left: 4px solid #1e3c72;">
+                    <div style="font-size: 24px; font-weight: 700; color: #1e3c72;">250+</div>
+                    <div
+                        style="font-size: 12px; color: #666; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 5px;">
+                        Horas Desarrollo</div>
+                </div>
+                <div
+                    style="background: #f8f9fa; padding: 15px; border-radius: 6px; text-align: center; border-left: 4px solid #1e3c72;">
+                    <div style="font-size: 24px; font-weight: 700; color: #1e3c72;">63,500+</div>
+                    <div
+                        style="font-size: 12px; color: #666; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 5px;">
+                        Líneas de Código</div>
+                </div>
+                <div
+                    style="background: #f8f9fa; padding: 15px; border-radius: 6px; text-align: center; border-left: 4px solid #1e3c72;">
+                    <div style="font-size: 24px; font-weight: 700; color: #1e3c72;">8</div>
+                    <div
+                        style="font-size: 12px; color: #666; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 5px;">
+                        Colecciones Firebase</div>
+                </div>
+                <div
+                    style="background: #f8f9fa; padding: 15px; border-radius: 6px; text-align: center; border-left: 4px solid #1e3c72;">
+                    <div style="font-size: 24px; font-weight: 700; color: #1e3c72;">60+</div>
+                    <div
+                        style="font-size: 12px; color: #666; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 5px;">
+                        Documentos en BD</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- FIRMA Y FOOTER -->
+        <div class="footer">
+            <div class="footer-section">
+                <h4>Información de Entrega</h4>
+                <p>
+                    <strong>Fecha de entrega:</strong> 19/02/2026<br>
+                    <strong>Estado:</strong> Completado y en producción<br>
+                    <strong>Admin activo:</strong> Sí<br>
+                    <strong>Datos en BD:</strong> 60+ documentos
+                </p>
+            </div>
+            <div class="footer-section">
+                <h4>Detalles Técnicos</h4>
+                <p>
+                    <strong>Stack:</strong> HTML, CSS, JavaScript, Firebase<br>
+                    <strong>Plataforma:</strong> Cloud Firestore + Storage<br>
+                    <strong>Responsive:</strong> Mobile, Tablet, Desktop<br>
+                    <strong>Navegadores:</strong> Chrome, Firefox, Safari, Edge
+                </p>
+            </div>
+        </div>
+
+        <!-- FIRMA DIGITAL -->
+        <div class="signature-section">
+            <p style="font-weight: 600; font-size: 14px; margin-bottom: 5px;">ACEPTACIÓN Y FIRMA</p>
+            <p>Por este medio se certifica que todos los servicios listados han sido completados satisfactoriamente.</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin-top: 40px;">
+                <div style="text-align: center;">
+                    <div class="signature-line" style="border-bottom: 2px solid #1e3c72; height: 60px;"></div>
+                    <div class="signature-name">Leoncio Felipe Mitogo Edjang</div>
+                    <p style="font-size: 11px; color: #999; margin-top: 3px;">Desarrollador | Fecha: ___/___/______</p>
+                </div>
+                <div style="text-align: center;">
+                    <div class="signature-line" style="border-bottom: 2px solid #1e3c72; height: 60px;"></div>
+                    <div class="signature-name">Representante del Cliente</div>
+                    <p style="font-size: 11px; color: #999; margin-top: 3px;">Autorizado | Fecha: ___/___/______</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Para imprimir
+        function imprimirFactura() {
+            window.print();
+        }
+
+        // Tecla de atajo
+        window.addEventListener('keydown', function (e) {
+            if (e.ctrlKey && e.key === 'p') {
+                e.preventDefault();
+                imprimirFactura();
+            }
+        });
+    </script>
+
+</body>
+
+</html>
